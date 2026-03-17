@@ -1141,13 +1141,15 @@ function generateCSS() {
 
     /* ── Filmstrip Carousel ── */
     .filmstrip {
-      position: absolute; left: 0; top: 0; bottom: 0; width: 62px;
+      position: absolute; left: 0; top: 0; width: 62px; height: 100%;
       background: rgba(44, 24, 16, 0.85); z-index: 10;
-      overflow-y: auto; overflow-x: hidden;
+      overflow-y: scroll; overflow-x: hidden;
       display: flex; flex-direction: column; align-items: center;
       padding: 6px 4px; gap: 4px;
       scrollbar-width: thin; scrollbar-color: #5a4030 transparent;
       opacity: 0.4; transition: opacity 0.3s ease;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
     }
     .filmstrip:hover { opacity: 1; }
     .filmstrip-thumb {
@@ -2129,6 +2131,20 @@ document.getElementById('navToggle').addEventListener('click', function() {
       tokenHelpPopup.classList.remove('active');
     });
   }
+
+  // ── Filmstrip: trap scroll events so page doesn't scroll ──
+  document.querySelectorAll('.filmstrip').forEach(function(fs) {
+    fs.addEventListener('wheel', function(e) {
+      var maxScroll = fs.scrollHeight - fs.clientHeight;
+      if (maxScroll <= 0) return; // nothing to scroll
+      // Prevent page scroll when filmstrip reaches top/bottom
+      if ((e.deltaY < 0 && fs.scrollTop <= 0) ||
+          (e.deltaY > 0 && fs.scrollTop >= maxScroll)) {
+        e.preventDefault();
+      }
+      e.stopPropagation();
+    }, { passive: false });
+  });
 
   // ── Filmstrip click: set as primary (edit mode only) ──
   document.addEventListener('click', function(e) {
