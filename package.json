@@ -5,8 +5,11 @@
   "description": "Fork this repo to create your own illustrated audiobook! Start with Alice in Wonderland, swap illustrations, add your own recordings.",
   "type": "module",
   "scripts": {
-    "build": "node scripts/generate-book.mjs book.json",
-    "preview": "node scripts/generate-book.mjs book.json && echo 'Open booklets/book.html in your browser!'"
+    "build": "for f in books/*/book.json; do node scripts/generate-book.mjs \"$f\"; done",
+    "serve": "http-server . -p 8090 --cors -o books/alice-in-wonderland/booklets/book.html"
   },
-  "license": "CC-BY-SA-4.0"
+  "license": "CC-BY-SA-4.0",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
 }

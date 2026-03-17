@@ -29,6 +29,12 @@ if (!configPath) {
 const configDir = dirname(resolve(configPath));
 const config = JSON.parse(readFileSync(resolve(configPath), 'utf8'));
 
+// GitHub config for edit mode (optional)
+const githubConfig = config.github || null;
+if (githubConfig) {
+  console.log(`GitHub: ${githubConfig.owner}/${githubConfig.repo} (edit mode enabled)`);
+}
+
 function resolvePath(p) {
   return resolve(configDir, p);
 }
@@ -445,7 +451,12 @@ function buildChapterPages(chNum, chapter) {
     });
   }
 
-  return { coverImage, pages };
+  // All chapter illustrations for filmstrip carousel
+  const allChIlls = chIlls.map(ill => ({
+    page: ill.page, url: ill.url, description: ill.description
+  }));
+
+  return { coverImage, pages, allChIlls };
 }
 
 // ── Preface Poem ────────────────────────────────────────────────────
@@ -589,10 +600,11 @@ if (config.preface) {
 
 for (const chNum of chapterNums) {
   const chapter = chapterMap[chNum];
-  const { coverImage, pages } = buildChapterPages(chNum, chapter);
+  const { coverImage, pages, allChIlls } = buildChapterPages(chNum, chapter);
 
   const chName = chapter.l2?.metadata?.original_title || chapter.scenes[0]?.metadata?.chapter_name || `Chapter ${chNum}`;
   const illCount = pages.filter(p => p.illustration).length;
+  const chIllsJson = JSON.stringify(allChIlls).replace(/'/g, '&#39;').replace(/</g, '\\u003c');
 
   // Flatten manifest words for this chapter (for pre-baked karaoke)
   const chManifest = karaokeManifest?.chapters?.[chNum];
@@ -638,21 +650,35 @@ for (const chNum of chapterNums) {
       textHtml = formatTextAsHtml(page.text);
     }
 
+    // Build filmstrip HTML for this spread (all chapter illustrations as thumbnails)
+    let filmstripHtml = '';
+    if (allChIlls.length > 0) {
+      const thumbs = allChIlls.filter(ill => ill.url).map(ill => {
+        const isActive = page.illustration && ill.url === page.illustration.url && ill.page === (i + 1);
+        const activeClass = isActive ? ' active' : '';
+        const desc = escapeHtml(ill.description || '').replace(/'/g, '&#39;');
+        return `<div class="filmstrip-thumb${activeClass}" data-ill-chapter="${chNum}" data-ill-page="${ill.page}" data-url="${ill.url}" data-description="${desc}"><img src="${ill.url}" alt="" loading="lazy"></div>`;
+      }).join('');
+      filmstripHtml = `<div class="filmstrip">${thumbs}<div class="filmstrip-add" title="Add illustration">+</div></div>`;
+    }
+
     // Left page: illustration or decorative
     globalPageNum++;
     if (page.illustration) {
       const caption = page.illustration.description ? `<div class="ill-caption">${escapeHtml(page.illustration.description)}</div>` : '';
       spreadsHtml += `
-    <div class="spread" data-spread="${spreadIdx}" data-ch="${chNum}">
+    <div class="spread" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
       <div class="page-left" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}">
-        <img src="${page.illustration.url}" alt="${escapeHtml(page.illustration.description || '')}" loading="lazy">
+        ${filmstripHtml}
+        <div class="ill-main"><img src="${page.illustration.url}" alt="${escapeHtml(page.illustration.description || '')}" loading="lazy"></div>
         ${caption}
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
     } else {
       spreadsHtml += `
-    <div class="spread text-only" data-spread="${spreadIdx}" data-ch="${chNum}">
+    <div class="spread text-only" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
       <div class="page-left decorative-panel" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}">
+        ${filmstripHtml}
         <div class="chapter-ornament"><div class="ornament-number">${chNum}</div></div>
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
@@ -770,11 +796,36 @@ ${config.preface ? `  <a class="nav-item" onclick="scrollToId('preface')">
   <div class="zoom-hint">Press <kbd>Esc</kbd> or click to close</div>
 </div>
 
+<div class="metadata-overlay" id="metadataOverlay">
+  <div class="metadata-content">
+    <div class="metadata-img"><img id="metaImg"></div>
+    <div class="metadata-info" id="metaInfo"></div>
+    <button class="metadata-close" id="metaClose">&times; Close</button>
+  </div>
+</div>
+
+${githubConfig ? `<div class="edit-modal" id="editModal">
+  <div class="edit-modal-inner">
+    <h3>GitHub Editor Setup</h3>
+    <label>GitHub Token<br><input type="password" id="ghTokenInput" placeholder="ghp_..." style="width:100%;margin:4px 0 8px"></label>
+    <label>Owner<br><input type="text" id="ghOwnerInput" value="${escapeHtml(githubConfig.owner || '')}" style="width:100%;margin:4px 0 8px"></label>
+    <label>Repo<br><input type="text" id="ghRepoInput" value="${escapeHtml(githubConfig.repo || '')}" style="width:100%;margin:4px 0 8px"></label>
+    <p style="font-size:10px;margin:8px 0"><a href="https://github.com/settings/tokens/new?scopes=repo&description=Stories+Club+Editor" target="_blank" style="color:#d4a76a">Create a token with repo scope</a></p>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button id="ghSaveBtn">Save & Enable</button>
+      <button id="ghCancelBtn">Cancel</button>
+    </div>
+  </div>
+</div>` : ''}
+
+<div class="save-flash" id="saveFlash">Saved!</div>
+
 ${spreadsHtml}
 
 <script>
 var AUDIO_DATA = ${audioDataJson};
 var CHAPTER_NAV = ${chapterNavJson};
+var GITHUB_CONFIG = ${githubConfig ? JSON.stringify(githubConfig) : 'null'};
 
 ${generateJS()}
 </script>
@@ -1070,13 +1121,130 @@ function generateCSS() {
       body { background: #e8e8e8; padding-top: 44px; }
     }
 
+    /* ── Filmstrip Carousel ── */
+    .filmstrip {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 62px;
+      background: rgba(44, 24, 16, 0.85); z-index: 10;
+      overflow-y: auto; overflow-x: hidden;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 6px 4px; gap: 4px;
+      scrollbar-width: thin; scrollbar-color: #5a4030 transparent;
+      opacity: 0.4; transition: opacity 0.3s ease;
+    }
+    .filmstrip:hover { opacity: 1; }
+    .filmstrip-thumb {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border: 2px solid transparent; border-radius: 4px;
+      overflow: hidden; position: relative;
+      transition: border-color 0.2s ease, transform 0.15s ease;
+    }
+    .filmstrip-thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+      pointer-events: none;
+    }
+    .filmstrip-thumb.active {
+      border-color: #d4a76a; box-shadow: 0 0 6px rgba(212,167,106,0.5);
+    }
+    .filmstrip-add {
+      width: 52px; height: 32px; flex-shrink: 0;
+      border: 2px dashed #5a4030; border-radius: 4px;
+      color: #5a4030; font-size: 20px; font-weight: bold;
+      display: none; align-items: center; justify-content: center;
+      cursor: pointer; transition: border-color 0.2s, color 0.2s;
+    }
+    .filmstrip-add:hover { border-color: #d4a76a; color: #d4a76a; }
+    .ill-main {
+      display: flex; align-items: center; justify-content: center;
+      flex: 1; width: 100%; height: 100%;
+      padding-left: 62px;
+    }
+    .ill-main img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain; border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .text-only .filmstrip { background: rgba(44, 24, 16, 0.6); }
+
+    /* ── Edit Mode ── */
+    body.edit-mode .filmstrip { opacity: 1; }
+    body.edit-mode .filmstrip-thumb { cursor: pointer; }
+    body.edit-mode .filmstrip-thumb:hover {
+      border-color: #f0d090; transform: scale(1.08);
+    }
+    body.edit-mode .filmstrip-add { display: flex; }
+    .edit-indicator {
+      font-size: 10px; letter-spacing: 1px; color: #ff9040;
+      margin-left: 4px; display: none;
+    }
+    body.edit-mode .edit-indicator { display: inline; }
+
+    /* ── Edit Modal ── */
+    .edit-modal {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+      z-index: 1000; display: none; align-items: center; justify-content: center;
+    }
+    .edit-modal.active { display: flex; }
+    .edit-modal-inner {
+      background: #2c1810; border: 1px solid #d4a76a; border-radius: 8px;
+      padding: 24px; width: 340px; color: #f0e6d6;
+      font-family: 'Georgia', serif; font-size: 13px;
+    }
+    .edit-modal-inner h3 {
+      color: #d4a76a; margin-bottom: 16px; font-size: 16px; letter-spacing: 1px;
+    }
+    .edit-modal-inner label { color: #a08060; font-size: 11px; letter-spacing: 0.5px; }
+    .edit-modal-inner input {
+      padding: 6px 10px; border: 1px solid #5a4030; border-radius: 4px;
+      background: #1a0f08; color: #f0e6d6; font-size: 13px;
+      font-family: 'Georgia', serif;
+    }
+    .edit-modal-inner button {
+      padding: 6px 14px; border: 1px solid #d4a76a; border-radius: 4px;
+      background: #1a0f08; color: #d4a76a; font-size: 12px;
+      cursor: pointer; font-family: 'Georgia', serif;
+    }
+    .edit-modal-inner button:hover { background: #3c2820; }
+
+    /* ── Metadata Overlay ── */
+    .metadata-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+      z-index: 998; display: none; align-items: center; justify-content: center;
+    }
+    .metadata-overlay.active { display: flex; }
+    .metadata-content {
+      background: #2c1810; border: 1px solid #5a4030; border-radius: 8px;
+      padding: 20px; max-width: 500px; width: 90%; color: #f0e6d6;
+      font-family: 'Georgia', serif; text-align: center;
+    }
+    .metadata-img { margin-bottom: 12px; }
+    .metadata-img img { max-width: 100%; max-height: 300px; object-fit: contain; border-radius: 4px; }
+    .metadata-info { font-size: 13px; line-height: 1.6; color: #d4a76a; margin-bottom: 12px; }
+    .metadata-close {
+      padding: 6px 16px; border: 1px solid #5a4030; border-radius: 4px;
+      background: #1a0f08; color: #a08060; font-size: 12px;
+      cursor: pointer; font-family: 'Georgia', serif;
+    }
+    .metadata-close:hover { background: #3c2820; color: #d4a76a; }
+
+    /* ── Save Flash ── */
+    .save-flash {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: #2c1810; border: 2px solid #d4a76a; border-radius: 8px;
+      padding: 16px 32px; color: #d4a76a; font-size: 18px;
+      font-family: 'Georgia', serif; letter-spacing: 2px; z-index: 1001;
+      display: none; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .save-flash.active { display: block; opacity: 1; }
+
     /* ── Print ── */
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-top: 0 !important; background: white !important; }
       .spread { height: 100vh; border-bottom: none !important; min-height: auto !important; page-break-inside: avoid; break-inside: avoid; }
       .page-left img { box-shadow: none; }
       .cover-image img { box-shadow: none; }
-      .toolbar, .chapter-nav, .audio-progress, .zoom-overlay { display: none !important; }
+      .toolbar, .chapter-nav, .audio-progress, .zoom-overlay, .filmstrip, .edit-modal, .metadata-overlay, .save-flash { display: none !important; }
+      .ill-main { padding-left: 0 !important; }
       mark.search-match { background: transparent !important; color: inherit !important; }
     }
 `;
@@ -1106,6 +1274,7 @@ function generateToolbarHTML() {
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
+${githubConfig ? '  <button id="editToggle" title="Toggle edit mode">&#128274; Edit</button><span class="edit-indicator" id="editIndicator"></span>' : ''}
 </div>`;
 }
 
@@ -1418,14 +1587,17 @@ document.getElementById('navToggle').addEventListener('click', function() {
   });
 })();
 
-// ── Image Zoom (double-click) ──
+// ── Image Zoom (single-click on main image) ──
 (function() {
   var overlay = document.getElementById('zoomOverlay');
   var zoomImg = document.getElementById('zoomImg');
 
-  document.addEventListener('dblclick', function(e) {
-    var img = e.target.closest('.page-left img');
+  document.addEventListener('click', function(e) {
+    // Only zoom on main illustration images, not filmstrip thumbs
+    var img = e.target.closest('.ill-main img, .cover-image img');
     if (!img) return;
+    // Don't zoom if clicking a karaoke word
+    if (e.target.closest('.k-word')) return;
     zoomImg.src = img.src;
     overlay.classList.add('active');
   });
@@ -1437,6 +1609,53 @@ document.getElementById('navToggle').addEventListener('click', function() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && overlay.classList.contains('active')) {
       overlay.classList.remove('active');
+    }
+  });
+})();
+
+// ── Image Metadata (double-click) ──
+(function() {
+  var metaOverlay = document.getElementById('metadataOverlay');
+  var metaImg = document.getElementById('metaImg');
+  var metaInfo = document.getElementById('metaInfo');
+  var metaClose = document.getElementById('metaClose');
+  if (!metaOverlay) return;
+
+  function showMeta(url, description) {
+    metaImg.src = url;
+    metaInfo.textContent = description || '(no description)';
+    metaOverlay.classList.add('active');
+  }
+
+  // Double-click on main images or filmstrip thumbs shows metadata
+  document.addEventListener('dblclick', function(e) {
+    var thumb = e.target.closest('.filmstrip-thumb');
+    if (thumb) {
+      showMeta(thumb.dataset.url, thumb.dataset.description);
+      return;
+    }
+    var img = e.target.closest('.ill-main img');
+    if (img) {
+      var spread = img.closest('.spread');
+      var localPage = img.closest('[data-local-page]');
+      var lp = localPage ? parseInt(localPage.dataset.localPage) : 0;
+      var chIlls = [];
+      try { chIlls = JSON.parse(spread.dataset.chIlls || '[]'); } catch(ex) {}
+      var match = chIlls.find(function(ill) { return ill.page === lp; });
+      showMeta(img.src, match ? match.description : '');
+      return;
+    }
+  });
+
+  metaClose.addEventListener('click', function() {
+    metaOverlay.classList.remove('active');
+  });
+  metaOverlay.addEventListener('click', function(e) {
+    if (e.target === metaOverlay) metaOverlay.classList.remove('active');
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && metaOverlay.classList.contains('active')) {
+      metaOverlay.classList.remove('active');
     }
   });
 })();
@@ -1758,6 +1977,289 @@ document.getElementById('navToggle').addEventListener('click', function() {
       audio.playbackRate = parseFloat(speedCtrl.value);
     });
   }
+})();
+
+// ── Edit Mode + Illustration Carousel ──
+(function() {
+  if (!GITHUB_CONFIG) return;
+
+  var editMode = false;
+  var token = localStorage.getItem('rksc_github_token');
+  var repoOwner = GITHUB_CONFIG.owner || '';
+  var repoName = GITHUB_CONFIG.repo || '';
+  var bookPath = GITHUB_CONFIG.bookPath || '';
+  var csvSha = null;
+  var pendingChanges = {};
+  var editToggle = document.getElementById('editToggle');
+  var editIndicator = document.getElementById('editIndicator');
+  var editModal = document.getElementById('editModal');
+  var saveFlash = document.getElementById('saveFlash');
+
+  if (!editToggle) return;
+
+  function setEditMode(on) {
+    editMode = on;
+    document.body.classList.toggle('edit-mode', on);
+    editToggle.innerHTML = on ? '\\u270f\\ufe0f Editing' : '\\ud83d\\udd12 Edit';
+    editToggle.classList.toggle('active', on);
+    if (editIndicator) {
+      editIndicator.textContent = on ? 'EDIT MODE' : '';
+    }
+  }
+
+  // Show modal for token input
+  function showModal() {
+    if (!editModal) return;
+    var tokenInput = document.getElementById('ghTokenInput');
+    var ownerInput = document.getElementById('ghOwnerInput');
+    var repoInput = document.getElementById('ghRepoInput');
+    if (token) tokenInput.value = token;
+    if (repoOwner) ownerInput.value = repoOwner;
+    if (repoName) repoInput.value = repoName;
+    editModal.classList.add('active');
+  }
+
+  function hideModal() {
+    if (editModal) editModal.classList.remove('active');
+  }
+
+  editToggle.addEventListener('click', function() {
+    if (editMode) {
+      setEditMode(false);
+      return;
+    }
+    if (!token) {
+      showModal();
+    } else {
+      setEditMode(true);
+    }
+  });
+
+  // Modal save/cancel
+  var ghSaveBtn = document.getElementById('ghSaveBtn');
+  var ghCancelBtn = document.getElementById('ghCancelBtn');
+  if (ghSaveBtn) {
+    ghSaveBtn.addEventListener('click', function() {
+      var t = document.getElementById('ghTokenInput').value.trim();
+      var o = document.getElementById('ghOwnerInput').value.trim();
+      var r = document.getElementById('ghRepoInput').value.trim();
+      if (!t) { alert('Token is required'); return; }
+      token = t;
+      repoOwner = o || repoOwner;
+      repoName = r || repoName;
+      localStorage.setItem('rksc_github_token', token);
+      hideModal();
+      setEditMode(true);
+    });
+  }
+  if (ghCancelBtn) {
+    ghCancelBtn.addEventListener('click', hideModal);
+  }
+
+  // ── Filmstrip click: set as primary (edit mode only) ──
+  document.addEventListener('click', function(e) {
+    if (!editMode) return;
+    var thumb = e.target.closest('.filmstrip-thumb');
+    if (!thumb) return;
+    e.stopPropagation();
+
+    var spread = thumb.closest('.spread');
+    if (!spread) return;
+    var ch = spread.dataset.ch;
+    var pageLeft = spread.querySelector('.page-left');
+    var localPage = pageLeft ? pageLeft.dataset.localPage : '1';
+    var url = thumb.dataset.url;
+    var desc = thumb.dataset.description || '';
+
+    // Update main image
+    var mainImg = spread.querySelector('.ill-main img');
+    if (mainImg) {
+      mainImg.src = url;
+      mainImg.alt = desc;
+    } else {
+      // Convert decorative panel to illustrated
+      var decoPanel = spread.querySelector('.decorative-panel');
+      if (decoPanel) {
+        var illMain = document.createElement('div');
+        illMain.className = 'ill-main';
+        var img = document.createElement('img');
+        img.src = url;
+        img.alt = desc;
+        img.loading = 'lazy';
+        illMain.appendChild(img);
+        var ornament = decoPanel.querySelector('.chapter-ornament');
+        if (ornament) ornament.style.display = 'none';
+        decoPanel.insertBefore(illMain, decoPanel.querySelector('.page-number'));
+        decoPanel.classList.remove('decorative-panel');
+        spread.classList.remove('text-only');
+      }
+    }
+
+    // Update caption
+    var caption = spread.querySelector('.ill-caption');
+    if (desc && !caption) {
+      caption = document.createElement('div');
+      caption.className = 'ill-caption';
+      pageLeft.appendChild(caption);
+    }
+    if (caption) caption.textContent = desc;
+
+    // Update active state in filmstrip
+    var allThumbs = spread.querySelectorAll('.filmstrip-thumb');
+    allThumbs.forEach(function(t) { t.classList.remove('active'); });
+    thumb.classList.add('active');
+
+    // Track change
+    var key = 'ch' + ch + '_p' + localPage;
+    pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc };
+
+    console.log('Pending change:', key, url.substring(0, 60) + '...');
+  });
+
+  // ── +Add button (edit mode only) ──
+  document.addEventListener('click', function(e) {
+    if (!editMode) return;
+    var addBtn = e.target.closest('.filmstrip-add');
+    if (!addBtn) return;
+    e.stopPropagation();
+
+    var url = prompt('Image URL:');
+    if (!url || !url.trim()) return;
+    url = url.trim();
+    var desc = prompt('Description (optional):') || '';
+
+    var spread = addBtn.closest('.spread');
+    if (!spread) return;
+    var ch = spread.dataset.ch;
+    var pageLeft = spread.querySelector('.page-left');
+    var localPage = pageLeft ? pageLeft.dataset.localPage : '1';
+
+    // Add thumbnail to filmstrip
+    var filmstrip = addBtn.parentElement;
+    var newThumb = document.createElement('div');
+    newThumb.className = 'filmstrip-thumb';
+    newThumb.dataset.illChapter = ch;
+    newThumb.dataset.illPage = localPage;
+    newThumb.dataset.url = url;
+    newThumb.dataset.description = desc;
+    var img = document.createElement('img');
+    img.src = url;
+    img.loading = 'lazy';
+    newThumb.appendChild(img);
+    filmstrip.insertBefore(newThumb, addBtn);
+
+    // Track as pending
+    var key = 'ch' + ch + '_p' + localPage + '_add' + Date.now();
+    pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc };
+
+    console.log('Added illustration:', url.substring(0, 60) + '...');
+  });
+
+  // ── Flash message ──
+  function flash(msg) {
+    if (!saveFlash) return;
+    saveFlash.textContent = msg;
+    saveFlash.classList.add('active');
+    setTimeout(function() { saveFlash.classList.remove('active'); }, 1500);
+  }
+
+  // ── Ctrl+S: Save to GitHub ──
+  document.addEventListener('keydown', function(e) {
+    if (!editMode) return;
+    if (!(e.ctrlKey && e.key === 's')) return;
+    e.preventDefault();
+
+    var changeKeys = Object.keys(pendingChanges);
+    if (changeKeys.length === 0) {
+      flash('No changes to save');
+      return;
+    }
+
+    if (!token || !repoOwner || !repoName || !bookPath) {
+      alert('GitHub config incomplete. Toggle edit mode off and on to reconfigure.');
+      return;
+    }
+
+    flash('Saving...');
+
+    // 1. Fetch current CSV from GitHub to get SHA
+    var apiBase = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/';
+    var csvApiPath = bookPath + '/illustrations.csv';
+    fetch(apiBase + csvApiPath, {
+      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      csvSha = data.sha;
+      var content = atob(data.content.replace(/\\n/g, ''));
+      var lines = content.split('\\n');
+      var header = lines[0];
+      var rows = [];
+      for (var i = 1; i < lines.length; i++) {
+        if (!lines[i].trim()) continue;
+        rows.push(lines[i]);
+      }
+
+      // Parse existing rows into objects
+      var existing = {};
+      for (var i = 0; i < rows.length; i++) {
+        var cols = rows[i].split(',');
+        var ch = cols[0]; var pg = cols[1];
+        existing['ch' + ch + '_p' + pg] = rows[i];
+      }
+
+      // Apply pending changes
+      for (var key in pendingChanges) {
+        var c = pendingChanges[key];
+        var rowKey = 'ch' + c.chapter + '_p' + c.page;
+        var desc = c.description.replace(/"/g, '""');
+        if (desc.indexOf(',') >= 0 || desc.indexOf('"') >= 0) desc = '"' + desc + '"';
+        existing[rowKey] = c.chapter + ',' + c.page + ',' + c.url + ',' + desc;
+      }
+
+      // Rebuild CSV
+      var newRows = Object.values(existing);
+      newRows.sort(function(a, b) {
+        var ca = parseInt(a.split(',')[0]); var cb = parseInt(b.split(',')[0]);
+        if (ca !== cb) return ca - cb;
+        var pa = parseInt(a.split(',')[1]); var pb = parseInt(b.split(',')[1]);
+        return pa - pb;
+      });
+      var newCsv = header + '\\n' + newRows.join('\\n') + '\\n';
+      var encoded = btoa(unescape(encodeURIComponent(newCsv)));
+
+      // 2. PUT updated CSV
+      return fetch(apiBase + csvApiPath, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'token ' + token,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Update illustrations via book editor',
+          content: encoded,
+          sha: csvSha
+        })
+      });
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(result) {
+      if (result.content) {
+        pendingChanges = {};
+        csvSha = result.content.sha;
+        flash('Saved! \\u2714');
+        console.log('Saved to GitHub:', result.content.html_url);
+      } else {
+        flash('Error: ' + (result.message || 'unknown'));
+        console.error('GitHub save error:', result);
+      }
+    })
+    .catch(function(err) {
+      flash('Error: ' + err.message);
+      console.error('Save failed:', err);
+    });
+  });
 })();
 `;
 }

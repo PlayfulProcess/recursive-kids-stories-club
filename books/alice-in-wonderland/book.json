@@ -17,5 +17,10 @@
     "image": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-01-down-the-rabbit-hole/arthur-rackham-1907.jpg",
     "illustrators": "TENNIEL · RACKHAM · CARROLL · HUDSON & MORE"
   },
-  "output": "booklets/book.html"
+  "output": "booklets/book.html",
+  "github": {
+    "owner": "PlayfulProcess",
+    "repo": "recursive-kids-stories-club",
+    "bookPath": "books/alice-in-wonderland"
+  }
 }

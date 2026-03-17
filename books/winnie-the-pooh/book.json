@@ -8,5 +8,10 @@
     "image": "",
     "illustrators": "YOUR ILLUSTRATIONS HERE"
   },
-  "output": "booklets/book.html"
+  "output": "booklets/book.html",
+  "github": {
+    "owner": "PlayfulProcess",
+    "repo": "recursive-kids-stories-club",
+    "bookPath": "books/winnie-the-pooh"
+  }
 }
