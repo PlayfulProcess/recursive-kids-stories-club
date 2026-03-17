@@ -1,0 +1,289 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recursive Kids Stories Club — GitHub Editor",
+    "description": "Read and edit illustrations for books in the recursive-kids-stories-club GitHub repo. Used by the Stories Club Editor GPT to manage book illustrations.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.github.com"
+    }
+  ],
+  "paths": {
+    "/repos/{owner}/{repo}/contents/{path}": {
+      "get": {
+        "operationId": "getFileContents",
+        "summary": "Get a file's contents from the repo (base64 encoded). Use for reading illustrations.csv, book.json, grammar.json.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Repository owner (e.g. PlayfulProcess)"
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Repository name (e.g. recursive-kids-stories-club)"
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "File path within the repo (e.g. books/alice-in-wonderland/illustrations.csv)"
+          },
+          {
+            "name": "ref",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string" },
+            "description": "Branch name (default: main)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File contents (base64 encoded in 'content' field, SHA in 'sha' field)"
+          }
+        }
+      },
+      "put": {
+        "operationId": "createOrUpdateFile",
+        "summary": "Create or update a file in the repo. Use to update illustrations.csv or upload generated images.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "path",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "File path to create or update"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["message", "content"],
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "Commit message"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "Base64 encoded file content"
+                  },
+                  "sha": {
+                    "type": "string",
+                    "description": "SHA of the file being replaced (required for updates, omit for new files)"
+                  },
+                  "branch": {
+                    "type": "string",
+                    "description": "Branch to commit to (default: main)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "File updated successfully" },
+          "201": { "description": "File created successfully" }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/contents/{directory}": {
+      "get": {
+        "operationId": "listDirectoryContents",
+        "summary": "List files in a directory. Use to discover books and their files.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "directory",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Directory path (e.g. 'books' or 'books/alice-in-wonderland')"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Array of file/directory objects" }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/git/refs": {
+      "get": {
+        "operationId": "listBranches",
+        "summary": "List all branches in the repo",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Array of git references" }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/git/refs/heads/{branch}": {
+      "get": {
+        "operationId": "getBranchRef",
+        "summary": "Get the SHA of a branch tip. Needed before creating a new branch.",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "branch",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Branch name (e.g. 'main')"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Reference object with SHA" }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/git/refs": {
+      "post": {
+        "operationId": "createBranchRef",
+        "summary": "Create a new branch from a SHA",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["ref", "sha"],
+                "properties": {
+                  "ref": {
+                    "type": "string",
+                    "description": "Full ref path, e.g. 'refs/heads/gpt/preview'"
+                  },
+                  "sha": {
+                    "type": "string",
+                    "description": "SHA of the commit to branch from"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Branch created" }
+        }
+      }
+    },
+    "/repos/{owner}/{repo}/merges": {
+      "post": {
+        "operationId": "mergeBranch",
+        "summary": "Merge one branch into another",
+        "parameters": [
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "repo",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["base", "head"],
+                "properties": {
+                  "base": {
+                    "type": "string",
+                    "description": "Branch to merge INTO (e.g. 'main')"
+                  },
+                  "head": {
+                    "type": "string",
+                    "description": "Branch to merge FROM (e.g. 'gpt/preview')"
+                  },
+                  "commit_message": {
+                    "type": "string",
+                    "description": "Merge commit message"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Merge successful" }
+        }
+      }
+    }
+  }
+}

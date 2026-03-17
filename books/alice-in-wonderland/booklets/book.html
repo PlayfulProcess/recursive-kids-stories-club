@@ -366,6 +366,46 @@
     }
     .edit-modal-inner button:hover { background: #3c2820; }
 
+    /* ── Token Help ── */
+    .token-help-icon {
+      width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+      border: 1px solid #5a4030; border-radius: 50%; background: #1a0f08;
+      color: #d4a76a; font-size: 16px; cursor: pointer; flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .token-help-icon:hover { background: #3c2820; border-color: #d4a76a; }
+    .token-help-popup {
+      display: none; background: #1a0f08; border: 1px solid #d4a76a;
+      border-radius: 8px; padding: 16px 18px; margin: 10px 0;
+      color: #f0e6d6; font-size: 12px; line-height: 1.6; position: relative;
+    }
+    .token-help-popup.active { display: block; }
+    .token-help-popup h4 {
+      color: #d4a76a; font-size: 13px; margin-bottom: 10px; letter-spacing: 0.5px;
+    }
+    .token-help-popup ol {
+      padding-left: 20px; margin: 0;
+    }
+    .token-help-popup li {
+      margin-bottom: 4px; color: #c8b8a4;
+    }
+    .token-help-popup code {
+      background: #2c1810; padding: 1px 5px; border-radius: 3px;
+      font-family: monospace; font-size: 11px; color: #d4a76a;
+    }
+    .token-help-link {
+      display: inline-block; margin-top: 8px; padding: 6px 14px;
+      background: #238636; color: #fff; border-radius: 6px;
+      text-decoration: none; font-size: 12px; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .token-help-link:hover { background: #2ea043; }
+    .token-help-close {
+      position: absolute; top: 8px; right: 12px; cursor: pointer;
+      color: #8a7060; font-size: 18px; line-height: 1;
+    }
+    .token-help-close:hover { color: #d4a76a; }
+
     /* ── Metadata Overlay ── */
     .metadata-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,0.92);
@@ -464,10 +504,28 @@
 <div class="edit-modal" id="editModal">
   <div class="edit-modal-inner">
     <h3>GitHub Editor Setup</h3>
-    <label>GitHub Token<br><input type="password" id="ghTokenInput" placeholder="ghp_..." style="width:100%;margin:4px 0 8px"></label>
+    <label>GitHub Token
+      <div style="display:flex;align-items:center;gap:6px;margin:4px 0 8px">
+        <input type="password" id="ghTokenInput" placeholder="ghp_..." style="flex:1">
+        <span class="token-help-icon" id="tokenHelpIcon" title="How to get a token">&#9432;</span>
+      </div>
+    </label>
+    <div class="token-help-popup" id="tokenHelpPopup">
+      <div class="token-help-close" id="tokenHelpClose">&times;</div>
+      <h4>How to get a GitHub Token</h4>
+      <ol>
+        <li>Click the link below to open GitHub token settings</li>
+        <li>Make sure <strong>repo</strong> scope is checked</li>
+        <li>Set expiration (90 days recommended)</li>
+        <li>Click <strong>Generate token</strong></li>
+        <li>Copy the token (starts with <code>ghp_</code>)</li>
+        <li>Paste it in the field above</li>
+      </ol>
+      <p style="margin:8px 0 4px">Your token stays in your browser only. It is never sent anywhere except GitHub&rsquo;s API.</p>
+      <a href="https://github.com/settings/tokens/new?scopes=repo&description=Stories+Club+Editor" target="_blank" class="token-help-link">Open GitHub Token Settings &rarr;</a>
+    </div>
     <label>Owner<br><input type="text" id="ghOwnerInput" value="PlayfulProcess" style="width:100%;margin:4px 0 8px"></label>
     <label>Repo<br><input type="text" id="ghRepoInput" value="recursive-kids-stories-club" style="width:100%;margin:4px 0 8px"></label>
-    <p style="font-size:10px;margin:8px 0"><a href="https://github.com/settings/tokens/new?scopes=repo&description=Stories+Club+Editor" target="_blank" style="color:#d4a76a">Create a token with repo scope</a></p>
     <div style="display:flex;gap:8px;margin-top:12px">
       <button id="ghSaveBtn">Save & Enable</button>
       <button id="ghCancelBtn">Cancel</button>
@@ -4719,6 +4777,22 @@ document.getElementById('navToggle').addEventListener('click', function() {
   }
   if (ghCancelBtn) {
     ghCancelBtn.addEventListener('click', hideModal);
+  }
+
+  // ── Token help popup ──
+  var tokenHelpIcon = document.getElementById('tokenHelpIcon');
+  var tokenHelpPopup = document.getElementById('tokenHelpPopup');
+  var tokenHelpClose = document.getElementById('tokenHelpClose');
+  if (tokenHelpIcon && tokenHelpPopup) {
+    tokenHelpIcon.addEventListener('click', function(e) {
+      e.stopPropagation();
+      tokenHelpPopup.classList.toggle('active');
+    });
+  }
+  if (tokenHelpClose && tokenHelpPopup) {
+    tokenHelpClose.addEventListener('click', function() {
+      tokenHelpPopup.classList.remove('active');
+    });
   }
 
   // ── Filmstrip click: set as primary (edit mode only) ──
