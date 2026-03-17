@@ -1,24 +1,12 @@
-name: Build Book
+name: Build All Books
 
 on:
   push:
     branches: [main]
     paths:
-      - 'grammar.json'
-      - 'book.json'
-      - 'illustrations.csv'
-      - 'audio/**'
+      - 'books/**'
       - 'scripts/**'
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -30,21 +18,21 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Generate book
-        run: node scripts/generate-book.mjs book.json
+      - name: Build all books
+        run: |
+          for book_json in books/*/book.json; do
+            echo "Building: $book_json"
+            node scripts/generate-book.mjs "$book_json"
+          done
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: booklets/
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit generated books
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add books/*/booklets/book.html
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-build: regenerate book HTML"
+            git push
+          fi

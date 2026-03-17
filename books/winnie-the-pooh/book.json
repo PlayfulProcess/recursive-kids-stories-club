@@ -1,0 +1,12 @@
+{
+  "title": "Winnie-the-Pooh",
+  "author": "A. A. Milne",
+  "grammar": "grammar.json",
+  "textSection": "Story",
+  "illustrations": "illustrations.csv",
+  "cover": {
+    "image": "",
+    "illustrators": "YOUR ILLUSTRATIONS HERE"
+  },
+  "output": "booklets/book.html"
+}

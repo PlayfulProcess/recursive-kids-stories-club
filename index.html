@@ -1,10 +1,318 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; url=booklets/book.html">
-  <title>Redirecting...</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursive Kids Stories Club</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    min-height: 100vh;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+    background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+  }
+
+  .hero h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #f0c27f 0%, #fc5c7d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: #8b949e;
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.15s;
+  }
+
+  .hero-links a:hover { transform: translateY(-2px); }
+
+  .btn-github {
+    background: #21262d;
+    color: #e6edf3;
+    border: 1px solid #30363d;
+  }
+
+  .btn-gpt {
+    background: #1a7f64;
+    color: #fff;
+  }
+
+  .btn-fork {
+    background: #238636;
+    color: #fff;
+  }
+
+  .library {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  .library h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    color: #f0c27f;
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 20px;
+  }
+
+  .book-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .book-card:hover {
+    border-color: #58a6ff;
+    transform: translateY(-3px);
+  }
+
+  .book-cover {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .book-cover.no-cover {
+    background: linear-gradient(135deg, #1f2937, #374151);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Crimson Pro', serif;
+    font-size: 2rem;
+    color: #6b7280;
+    font-style: italic;
+  }
+
+  .book-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.7);
+    color: #f0c27f;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .book-info {
+    padding: 20px;
+  }
+
+  .book-info h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+
+  .book-info .author {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .book-info .stats {
+    color: #8b949e;
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+
+  .book-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .book-actions a {
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: opacity 0.15s;
+  }
+
+  .book-actions a:hover { opacity: 0.85; }
+
+  .btn-read {
+    background: #58a6ff;
+    color: #0d1117;
+  }
+
+  .btn-source {
+    background: #21262d;
+    color: #e6edf3;
+    border: 1px solid #30363d;
+  }
+
+  .coming-soon {
+    padding: 40px 20px;
+    text-align: center;
+    color: #8b949e;
+  }
+
+  .coming-soon h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.3rem;
+    color: #e6edf3;
+    margin-bottom: 16px;
+  }
+
+  .coming-soon ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .coming-soon li {
+    background: #161b22;
+    border: 1px solid #30363d;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #484f58;
+    font-size: 0.8rem;
+    border-top: 1px solid #21262d;
+  }
+
+  footer a { color: #58a6ff; text-decoration: none; }
+
+  @media (max-width: 500px) {
+    .hero h1 { font-size: 2rem; }
+    .book-grid { grid-template-columns: 1fr; }
+    .book-cover { height: 150px; }
+  }
+</style>
 </head>
 <body>
-  <p>Loading book... <a href="booklets/book.html">Click here</a> if not redirected.</p>
+
+<div class="hero">
+  <h1>Recursive Kids Stories Club</h1>
+  <p>
+    Public domain classics as illustrated audiobooks.
+    Fork a book, swap the illustrations with your own drawings,
+    record your own narration. Make it yours.
+  </p>
+  <div class="hero-links">
+    <a href="https://github.com/PlayfulProcess/recursive-kids-stories-club" class="btn-github">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      View on GitHub
+    </a>
+    <a href="https://github.com/PlayfulProcess/recursive-kids-stories-club/fork" class="btn-fork">
+      Fork &amp; Customize
+    </a>
+  </div>
+</div>
+
+<div class="library">
+  <h2>The Library</h2>
+
+  <div class="book-grid">
+
+    <!-- Alice in Wonderland -->
+    <div class="book-card">
+      <div class="book-cover" style="background-image: url('https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-01-down-the-rabbit-hole/arthur-rackham-1907.jpg')">
+        <span class="book-badge">12 chapters &middot; 125 illustrations &middot; audio</span>
+      </div>
+      <div class="book-info">
+        <h3>Alice's Adventures in Wonderland</h3>
+        <div class="author">Lewis Carroll (1865)</div>
+        <div class="stats">170 pages &middot; 10+ artists &middot; LibriVox karaoke audio (162 min)</div>
+        <div class="book-actions">
+          <a href="books/alice-in-wonderland/booklets/book.html" class="btn-read">Read the Book</a>
+          <a href="https://github.com/PlayfulProcess/recursive-kids-stories-club/tree/main/books/alice-in-wonderland" class="btn-source">Source Files</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Winnie the Pooh -->
+    <div class="book-card">
+      <div class="book-cover no-cover">
+        Winnie-the-Pooh
+      </div>
+      <div class="book-info">
+        <h3>Winnie-the-Pooh</h3>
+        <div class="author">A. A. Milne (1926)</div>
+        <div class="stats">140 pages &middot; 10 chapters &middot; no illustrations yet &mdash; add yours!</div>
+        <div class="book-actions">
+          <a href="books/winnie-the-pooh/booklets/book.html" class="btn-read">Read the Book</a>
+          <a href="https://github.com/PlayfulProcess/recursive-kids-stories-club/tree/main/books/winnie-the-pooh" class="btn-source">Source Files</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="coming-soon">
+    <h3>Coming Soon</h3>
+    <ul>
+      <li>Through the Looking-Glass</li>
+      <li>Aesop's Fables</li>
+      <li>Grimm's Fairy Tales</li>
+      <li>Peter Pan</li>
+      <li>The Jungle Book</li>
+      <li>Celtic Fairy Tales</li>
+      <li>Greek Myths for Kids</li>
+      <li>Norse Myths for Kids</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p>All texts and illustrations are <strong>public domain</strong>. Code is <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA-4.0</a>.</p>
+  <p style="margin-top:8px">Part of the <a href="https://recursive.eco">recursive.eco</a> grammar ecosystem.</p>
+</footer>
+
 </body>
 </html>
