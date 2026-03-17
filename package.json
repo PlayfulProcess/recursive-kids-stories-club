@@ -1,0 +1,12 @@
+{
+  "name": "recursive-kids-stories-club",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fork this repo to create your own illustrated audiobook! Start with Alice in Wonderland, swap illustrations, add your own recordings.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-book.mjs book.json",
+    "preview": "node scripts/generate-book.mjs book.json && echo 'Open booklets/book.html in your browser!'"
+  },
+  "license": "CC-BY-SA-4.0"
+}
