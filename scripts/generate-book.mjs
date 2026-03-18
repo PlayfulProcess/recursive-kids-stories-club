@@ -650,18 +650,6 @@ for (const chNum of chapterNums) {
       textHtml = formatTextAsHtml(page.text);
     }
 
-    // Build filmstrip HTML for this spread (all chapter illustrations as thumbnails)
-    let filmstripHtml = '';
-    if (allChIlls.length > 0) {
-      const thumbs = allChIlls.filter(ill => ill.url).map(ill => {
-        const isActive = page.illustration && ill.url === page.illustration.url && ill.page === (i + 1);
-        const activeClass = isActive ? ' active' : '';
-        const desc = escapeHtml(ill.description || '').replace(/'/g, '&#39;');
-        return `<div class="filmstrip-thumb${activeClass}" data-ill-chapter="${chNum}" data-ill-page="${ill.page}" data-url="${ill.url}" data-description="${desc}"><img src="${ill.url}" alt="" loading="lazy"></div>`;
-      }).join('');
-      filmstripHtml = `<div class="filmstrip">${thumbs}<div class="filmstrip-add" title="Add illustration">+</div></div>`;
-    }
-
     // Left page: illustration or decorative
     globalPageNum++;
     if (page.illustration) {
@@ -669,7 +657,6 @@ for (const chNum of chapterNums) {
       spreadsHtml += `
     <div class="spread" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
       <div class="page-left" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}">
-        ${filmstripHtml}
         <div class="ill-main"><img src="${page.illustration.url}" alt="${escapeHtml(page.illustration.description || '')}" loading="lazy"></div>
         ${caption}
         <div class="page-number page-number-left">${globalPageNum}</div>
@@ -678,7 +665,6 @@ for (const chNum of chapterNums) {
       spreadsHtml += `
     <div class="spread text-only" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
       <div class="page-left decorative-panel" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}">
-        ${filmstripHtml}
         <div class="chapter-ornament"><div class="ornament-number">${chNum}</div></div>
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
@@ -847,6 +833,7 @@ ${spreadsHtml}
 var AUDIO_DATA = ${audioDataJson};
 var CHAPTER_NAV = ${chapterNavJson};
 var GITHUB_CONFIG = ${githubConfig ? JSON.stringify(githubConfig) : 'null'};
+var ALL_ILLUSTRATIONS = ${JSON.stringify(illustrations.filter(ill => ill.url).map(ill => ({ chapter: ill.chapter, page: ill.page, url: ill.url, description: ill.description })))};
 
 ${generateJS()}
 </script>
@@ -1201,6 +1188,7 @@ function generateCSS() {
       margin-left: 4px; display: none;
     }
     body.edit-mode .edit-indicator { display: inline; }
+    body.edit-mode .edit-only-btn { display: inline-block !important; }
 
     /* ── Edit Modal ── */
     .edit-modal {
@@ -1410,14 +1398,6 @@ function generateCSS() {
     body.booklet-mode .metadata-overlay,
     body.booklet-mode .save-flash { display: none !important; }
 
-    /* ── Zoom ── */
-    body.zoomed-out .book-content {
-      transform-origin: top center;
-    }
-    body.zoomed-out .spread {
-      min-height: auto !important;
-    }
-
     /* ── Print ── */
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-top: 0 !important; background: white !important; }
@@ -1456,9 +1436,6 @@ function generateToolbarHTML() {
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
-  <button id="zoomOutBtn" title="Zoom out">&#8722;</button>
-  <span id="zoomLevel" style="font-size:10px;color:#a08060;min-width:32px;text-align:center">100%</span>
-  <button id="zoomInBtn" title="Zoom in">&#43;</button>
   <select id="modeSelect" title="View mode">
     <option value="read">&#128214; Read</option>
 ${githubConfig ? '    <option value="edit">&#9998; Edit</option>' : ''}
@@ -1466,6 +1443,7 @@ ${githubConfig ? '    <option value="edit">&#9998; Edit</option>' : ''}
     <option value="booklet-illustrations">&#127912; Illustrations Only</option>
     <option value="booklet-text">&#128220; Text Only</option>
   </select>
+  <button id="downloadCsvBtn" class="edit-only-btn" style="display:none" title="Download illustrations.csv">&#8681; CSV</button>
   <span class="edit-indicator" id="editIndicator"></span>
 </div>`;
 }
@@ -1801,58 +1779,6 @@ document.getElementById('navToggle').addEventListener('click', function() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && overlay.classList.contains('active')) {
       overlay.classList.remove('active');
-    }
-  });
-})();
-
-// ── Page Zoom (zoom out / zoom in) ──
-(function() {
-  var zoomOutBtn = document.getElementById('zoomOutBtn');
-  var zoomInBtn = document.getElementById('zoomInBtn');
-  var zoomLabel = document.getElementById('zoomLevel');
-  var bookContent = document.querySelector('.book-content');
-  var bookletContainer = document.getElementById('bookletContainer');
-  var zoomLevel = 100;
-  var zoomSteps = [25, 33, 50, 67, 75, 100];
-
-  function applyZoom() {
-    var target = document.body.classList.contains('booklet-mode') ? bookletContainer : bookContent;
-    if (!target) return;
-    if (zoomLevel === 100) {
-      target.style.transform = '';
-      target.style.transformOrigin = '';
-      document.body.classList.remove('zoomed-out');
-    } else {
-      var scale = zoomLevel / 100;
-      target.style.transform = 'scale(' + scale + ')';
-      target.style.transformOrigin = 'top center';
-      document.body.classList.add('zoomed-out');
-    }
-    zoomLabel.textContent = zoomLevel + '%';
-  }
-
-  zoomOutBtn.addEventListener('click', function() {
-    for (var i = zoomSteps.length - 1; i >= 0; i--) {
-      if (zoomSteps[i] < zoomLevel) { zoomLevel = zoomSteps[i]; break; }
-    }
-    applyZoom();
-  });
-
-  zoomInBtn.addEventListener('click', function() {
-    for (var i = 0; i < zoomSteps.length; i++) {
-      if (zoomSteps[i] > zoomLevel) { zoomLevel = zoomSteps[i]; break; }
-    }
-    applyZoom();
-  });
-
-  // Ctrl+- and Ctrl+= shortcuts
-  document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && (e.key === '-' || e.key === '_')) {
-      e.preventDefault();
-      zoomOutBtn.click();
-    } else if (e.ctrlKey && (e.key === '=' || e.key === '+')) {
-      e.preventDefault();
-      zoomInBtn.click();
     }
   });
 })();
@@ -2285,6 +2211,67 @@ document.getElementById('navToggle').addEventListener('click', function() {
     if (editIndicator) {
       editIndicator.textContent = on ? 'EDIT MODE' : '';
     }
+    if (on && !filmstripsBuilt) {
+      buildAllFilmstrips();
+      filmstripsBuilt = true;
+    }
+  }
+
+  // Build filmstrips dynamically with ALL illustrations from every chapter
+  var filmstripsBuilt = false;
+  function buildAllFilmstrips() {
+    var allPageLefts = bookContent.querySelectorAll('.page-left[data-ch]');
+    for (var p = 0; p < allPageLefts.length; p++) {
+      var pageLeft = allPageLefts[p];
+      var ch = parseInt(pageLeft.dataset.ch);
+      var localPage = parseInt(pageLeft.dataset.localPage);
+
+      var filmstrip = document.createElement('div');
+      filmstrip.className = 'filmstrip';
+
+      // Add ALL illustrations from every chapter
+      for (var i = 0; i < ALL_ILLUSTRATIONS.length; i++) {
+        var ill = ALL_ILLUSTRATIONS[i];
+        if (!ill.url) continue;
+        var thumb = document.createElement('div');
+        thumb.className = 'filmstrip-thumb';
+        thumb.dataset.illChapter = ill.chapter;
+        thumb.dataset.illPage = ill.page;
+        thumb.dataset.url = ill.url;
+        thumb.dataset.description = ill.description || '';
+
+        // Mark active if this illustration matches the current page's image
+        var mainImg = pageLeft.querySelector('.ill-main img');
+        if (mainImg && mainImg.src === ill.url && ill.chapter === ch && ill.page === localPage) {
+          thumb.classList.add('active');
+        }
+        var img = document.createElement('img');
+        img.src = ill.url;
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+        filmstrip.appendChild(thumb);
+      }
+
+      var addBtn = document.createElement('div');
+      addBtn.className = 'filmstrip-add';
+      addBtn.title = 'Add illustration';
+      addBtn.textContent = '+';
+      filmstrip.appendChild(addBtn);
+
+      pageLeft.insertBefore(filmstrip, pageLeft.firstChild);
+
+      // Trap scroll
+      filmstrip.addEventListener('wheel', function(e) {
+        var fs = e.currentTarget;
+        var maxScroll = fs.scrollHeight - fs.clientHeight;
+        if (maxScroll <= 0) return;
+        if ((e.deltaY < 0 && fs.scrollTop <= 0) ||
+            (e.deltaY > 0 && fs.scrollTop >= maxScroll)) {
+          e.preventDefault();
+        }
+        e.stopPropagation();
+      }, { passive: false });
+    }
   }
 
   // Show modal for token input
@@ -2347,18 +2334,84 @@ document.getElementById('navToggle').addEventListener('click', function() {
     });
   }
 
-  // ── Filmstrip: trap scroll events so page doesn't scroll ──
-  document.querySelectorAll('.filmstrip').forEach(function(fs) {
-    fs.addEventListener('wheel', function(e) {
-      var maxScroll = fs.scrollHeight - fs.clientHeight;
-      if (maxScroll <= 0) return; // nothing to scroll
-      // Prevent page scroll when filmstrip reaches top/bottom
-      if ((e.deltaY < 0 && fs.scrollTop <= 0) ||
-          (e.deltaY > 0 && fs.scrollTop >= maxScroll)) {
-        e.preventDefault();
+  // ── Undo / Redo ──
+  var undoStack = [];
+  var redoStack = [];
+
+  function captureState(spread, key) {
+    var mainImg = spread.querySelector('.ill-main img');
+    var caption = spread.querySelector('.ill-caption');
+    return {
+      key: key,
+      spreadId: spread.dataset.spread,
+      url: mainImg ? mainImg.src : null,
+      alt: mainImg ? mainImg.alt : '',
+      caption: caption ? caption.textContent : '',
+      wasDecorative: spread.querySelector('.decorative-panel') !== null,
+      pendingValue: pendingChanges[key] ? JSON.parse(JSON.stringify(pendingChanges[key])) : undefined
+    };
+  }
+
+  function restoreState(state) {
+    var spread = bookContent.querySelector('[data-spread="' + state.spreadId + '"]');
+    if (!spread) return;
+    var pageLeft = spread.querySelector('.page-left');
+    if (!pageLeft) return;
+
+    if (state.url === null) {
+      // Restore to decorative panel
+      var illMain = pageLeft.querySelector('.ill-main');
+      if (illMain) illMain.remove();
+      var ornament = pageLeft.querySelector('.chapter-ornament');
+      if (ornament) ornament.style.display = '';
+      pageLeft.classList.add('decorative-panel');
+      spread.classList.add('text-only');
+      delete pendingChanges[state.key];
+    } else {
+      var mainImg = spread.querySelector('.ill-main img');
+      if (mainImg) {
+        mainImg.src = state.url;
+        mainImg.alt = state.alt;
       }
-      e.stopPropagation();
-    }, { passive: false });
+      if (state.pendingValue !== undefined) {
+        pendingChanges[state.key] = state.pendingValue;
+      } else {
+        delete pendingChanges[state.key];
+      }
+    }
+
+    var caption = spread.querySelector('.ill-caption');
+    if (caption) caption.textContent = state.caption;
+
+    // Update filmstrip active state
+    var allThumbs = spread.querySelectorAll('.filmstrip-thumb');
+    allThumbs.forEach(function(t) {
+      t.classList.toggle('active', state.url && t.dataset.url === state.url);
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (!editMode) return;
+    if (e.ctrlKey && e.key === 'z') {
+      e.preventDefault();
+      if (undoStack.length === 0) { flash('Nothing to undo'); return; }
+      var action = undoStack.pop();
+      redoStack.push(action.after);
+      restoreState(action.before);
+      flash('Undo');
+    } else if (e.ctrlKey && e.key === 'y') {
+      e.preventDefault();
+      if (redoStack.length === 0) { flash('Nothing to redo'); return; }
+      var state = redoStack.pop();
+      var spread = bookContent.querySelector('[data-spread="' + state.spreadId + '"]');
+      if (spread) {
+        var key = state.key;
+        var beforeState = captureState(spread, key);
+        undoStack.push({ before: beforeState, after: state });
+      }
+      restoreState(state);
+      flash('Redo');
+    }
   });
 
   // ── Filmstrip click: set as primary (edit mode only) ──
@@ -2375,6 +2428,10 @@ document.getElementById('navToggle').addEventListener('click', function() {
     var localPage = pageLeft ? pageLeft.dataset.localPage : '1';
     var url = thumb.dataset.url;
     var desc = thumb.dataset.description || '';
+
+    // Capture state for undo
+    var key = 'ch' + ch + '_p' + localPage;
+    var beforeState = captureState(spread, key);
 
     // Update main image
     var mainImg = spread.querySelector('.ill-main img');
@@ -2415,8 +2472,12 @@ document.getElementById('navToggle').addEventListener('click', function() {
     thumb.classList.add('active');
 
     // Track change
-    var key = 'ch' + ch + '_p' + localPage;
     pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc };
+
+    // Push to undo stack
+    var afterState = captureState(spread, key);
+    undoStack.push({ before: beforeState, after: afterState });
+    redoStack = []; // Clear redo on new action
 
     console.log('Pending change:', key, url.substring(0, 60) + '...');
   });
@@ -2487,13 +2548,24 @@ document.getElementById('navToggle').addEventListener('click', function() {
 
     flash('Saving...');
 
-    // 1. Fetch current CSV from GitHub to get SHA
+    // 1. Fetch current CSV from GitHub to get SHA (try gpt/preview first, fallback to main)
     var apiBase = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/';
     var csvApiPath = bookPath + '/illustrations.csv';
-    fetch(apiBase + csvApiPath, {
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
-    })
-    .then(function(r) { return r.json(); })
+    var saveBranch = 'gpt/preview';
+
+    function fetchCsv(branch) {
+      return fetch(apiBase + csvApiPath + '?ref=' + encodeURIComponent(branch), {
+        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+      }).then(function(r) {
+        if (!r.ok && branch === 'gpt/preview') {
+          saveBranch = 'main';
+          return fetchCsv('main').then(function(r2) { return r2.json(); });
+        }
+        return r.json();
+      });
+    }
+
+    fetchCsv(saveBranch)
     .then(function(data) {
       csvSha = data.sha;
       var content = atob(data.content.replace(/\\n/g, ''));
@@ -2533,7 +2605,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
       var newCsv = header + '\\n' + newRows.join('\\n') + '\\n';
       var encoded = btoa(unescape(encodeURIComponent(newCsv)));
 
-      // 2. PUT updated CSV
+      // 2. PUT updated CSV to gpt/preview branch
       return fetch(apiBase + csvApiPath, {
         method: 'PUT',
         headers: {
@@ -2544,7 +2616,8 @@ document.getElementById('navToggle').addEventListener('click', function() {
         body: JSON.stringify({
           message: 'Update illustrations via book editor',
           content: encoded,
-          sha: csvSha
+          sha: csvSha,
+          branch: saveBranch
         })
       });
     })
@@ -2565,6 +2638,42 @@ document.getElementById('navToggle').addEventListener('click', function() {
       console.error('Save failed:', err);
     });
   });
+
+  // ── Download CSV ──
+  var downloadCsvBtn = document.getElementById('downloadCsvBtn');
+  if (downloadCsvBtn) {
+    downloadCsvBtn.addEventListener('click', function() {
+      if (!token || !repoOwner || !repoName || !bookPath) {
+        alert('GitHub config incomplete.');
+        return;
+      }
+      var apiBase = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/';
+      var csvApiPath = bookPath + '/illustrations.csv';
+      // Try gpt/preview first, fallback to main
+      fetch(apiBase + csvApiPath + '?ref=gpt/preview', {
+        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+      })
+      .then(function(r) {
+        if (!r.ok) return fetch(apiBase + csvApiPath, {
+          headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        return r;
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var content = atob(data.content.replace(/\\n/g, ''));
+        var blob = new Blob([content], { type: 'text/csv' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'illustrations.csv';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      })
+      .catch(function(err) {
+        alert('Download failed: ' + err.message);
+      });
+    });
+  }
 
   // ── Booklet Print Mode: Imposition Algorithm ──
   // Classify a page element into a category

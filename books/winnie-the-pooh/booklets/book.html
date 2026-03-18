@@ -76,10 +76,10 @@
     /* ── Page numbers ── */
     .page-number {
       font-size: 11px; color: #999;
-      position: absolute; bottom: 8px;
+      position: absolute; bottom: 14px;
     }
-    .page-number-left { left: 16px; }
-    .page-number-right { right: 16px; }
+    .page-number-left { left: 20px; }
+    .page-number-right { right: 20px; }
 
     /* ── Decorative panel (text-only pages) ── */
     .decorative-panel {
@@ -286,14 +286,13 @@
       position: absolute; left: 0; top: 0; width: 62px; height: 100%;
       background: rgba(44, 24, 16, 0.85); z-index: 10;
       overflow-y: scroll; overflow-x: hidden;
-      display: flex; flex-direction: column; align-items: center;
+      display: none; flex-direction: column; align-items: center;
       padding: 6px 4px; gap: 4px;
       scrollbar-width: thin; scrollbar-color: #5a4030 transparent;
-      opacity: 0.4; transition: opacity 0.3s ease;
+      opacity: 1; transition: opacity 0.3s ease;
       overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
     }
-    .filmstrip:hover { opacity: 1; }
     .filmstrip-thumb {
       width: 52px; height: 52px; flex-shrink: 0;
       border: 2px solid transparent; border-radius: 4px;
@@ -318,8 +317,9 @@
     .ill-main {
       display: flex; align-items: center; justify-content: center;
       flex: 1; width: 100%; height: 100%;
-      padding-left: 62px;
+      padding-left: 0;
     }
+    body.edit-mode .ill-main { padding-left: 62px; }
     .ill-main img {
       max-width: 100%; max-height: 100%;
       object-fit: contain; border-radius: 4px;
@@ -329,7 +329,7 @@
     .text-only .filmstrip { background: rgba(44, 24, 16, 0.6); }
 
     /* ── Edit Mode ── */
-    body.edit-mode .filmstrip { opacity: 1; }
+    body.edit-mode .filmstrip { display: flex; }
     body.edit-mode .filmstrip-thumb { cursor: pointer; }
     body.edit-mode .filmstrip-thumb:hover {
       border-color: #f0d090; transform: scale(1.08);
@@ -340,6 +340,7 @@
       margin-left: 4px; display: none;
     }
     body.edit-mode .edit-indicator { display: inline; }
+    body.edit-mode .edit-only-btn { display: inline-block !important; }
 
     /* ── Edit Modal ── */
     .edit-modal {
@@ -593,6 +594,7 @@
     <option value="booklet-illustrations">&#127912; Illustrations Only</option>
     <option value="booklet-text">&#128220; Text Only</option>
   </select>
+  <button id="downloadCsvBtn" class="edit-only-btn" style="display:none" title="Download illustrations.csv">&#8681; CSV</button>
   <span class="edit-indicator" id="editIndicator"></span>
 </div>
 
@@ -686,7 +688,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-1" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="5" data-ch="1" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">5</div>
       </div>
@@ -707,7 +708,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-2" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="7" data-ch="1" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">7</div>
       </div>
@@ -736,7 +736,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-3" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="9" data-ch="1" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">9</div>
       </div>
@@ -754,7 +753,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-4" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="11" data-ch="1" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">11</div>
       </div>
@@ -774,7 +772,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-5" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="13" data-ch="1" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">13</div>
       </div>
@@ -794,7 +791,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-6" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="15" data-ch="1" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">15</div>
       </div>
@@ -818,7 +814,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-7" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="17" data-ch="1" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">17</div>
       </div>
@@ -838,7 +833,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-8" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="19" data-ch="1" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">19</div>
       </div>
@@ -859,7 +853,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-9" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="21" data-ch="1" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">21</div>
       </div>
@@ -886,7 +879,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-10" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="23" data-ch="1" data-local-page="10">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">23</div>
       </div>
@@ -908,7 +900,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-11" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="25" data-ch="1" data-local-page="11">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">25</div>
       </div>
@@ -922,7 +913,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-12" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="27" data-ch="1" data-local-page="12">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">27</div>
       </div>
@@ -937,7 +927,6 @@
     </div>
     <div class="spread text-only" data-spread="ch1-13" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="29" data-ch="1" data-local-page="13">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
         <div class="page-number page-number-left">29</div>
       </div>
@@ -970,7 +959,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-1" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="33" data-ch="2" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">33</div>
       </div>
@@ -984,7 +972,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-2" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="35" data-ch="2" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">35</div>
       </div>
@@ -1007,7 +994,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-3" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="37" data-ch="2" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">37</div>
       </div>
@@ -1036,7 +1022,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-4" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="39" data-ch="2" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">39</div>
       </div>
@@ -1057,7 +1042,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-5" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="41" data-ch="2" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">41</div>
       </div>
@@ -1083,7 +1067,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-6" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="43" data-ch="2" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">43</div>
       </div>
@@ -1115,7 +1098,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-7" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="45" data-ch="2" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">45</div>
       </div>
@@ -1136,7 +1118,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-8" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="47" data-ch="2" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">47</div>
       </div>
@@ -1151,7 +1132,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-9" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="49" data-ch="2" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">49</div>
       </div>
@@ -1167,7 +1147,6 @@
     </div>
     <div class="spread text-only" data-spread="ch2-10" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="51" data-ch="2" data-local-page="10">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
         <div class="page-number page-number-left">51</div>
       </div>
@@ -1197,7 +1176,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-1" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="55" data-ch="3" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">55</div>
       </div>
@@ -1211,7 +1189,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-2" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="57" data-ch="3" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">57</div>
       </div>
@@ -1238,7 +1215,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-3" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="59" data-ch="3" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">59</div>
       </div>
@@ -1256,7 +1232,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-4" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="61" data-ch="3" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">61</div>
       </div>
@@ -1269,7 +1244,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-5" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="63" data-ch="3" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">63</div>
       </div>
@@ -1284,7 +1258,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-6" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="65" data-ch="3" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">65</div>
       </div>
@@ -1303,7 +1276,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-7" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="67" data-ch="3" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">67</div>
       </div>
@@ -1317,7 +1289,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-8" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="69" data-ch="3" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">69</div>
       </div>
@@ -1332,7 +1303,6 @@
     </div>
     <div class="spread text-only" data-spread="ch3-9" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="71" data-ch="3" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
         <div class="page-number page-number-left">71</div>
       </div>
@@ -1363,7 +1333,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-1" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="75" data-ch="4" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">75</div>
       </div>
@@ -1384,7 +1353,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-2" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="77" data-ch="4" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">77</div>
       </div>
@@ -1408,7 +1376,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-3" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="79" data-ch="4" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">79</div>
       </div>
@@ -1431,7 +1398,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-4" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="81" data-ch="4" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">81</div>
       </div>
@@ -1450,7 +1416,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-5" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="83" data-ch="4" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">83</div>
       </div>
@@ -1469,7 +1434,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-6" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="85" data-ch="4" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">85</div>
       </div>
@@ -1495,7 +1459,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-7" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="87" data-ch="4" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">87</div>
       </div>
@@ -1520,7 +1483,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-8" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="89" data-ch="4" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">89</div>
       </div>
@@ -1535,7 +1497,6 @@
     </div>
     <div class="spread text-only" data-spread="ch4-9" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="91" data-ch="4" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
         <div class="page-number page-number-left">91</div>
       </div>
@@ -1568,7 +1529,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-1" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="95" data-ch="5" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">95</div>
       </div>
@@ -1592,7 +1552,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-2" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="97" data-ch="5" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">97</div>
       </div>
@@ -1612,7 +1571,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-3" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="99" data-ch="5" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">99</div>
       </div>
@@ -1635,7 +1593,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-4" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="101" data-ch="5" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">101</div>
       </div>
@@ -1651,7 +1608,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-5" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="103" data-ch="5" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">103</div>
       </div>
@@ -1674,7 +1630,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-6" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="105" data-ch="5" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">105</div>
       </div>
@@ -1691,7 +1646,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-7" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="107" data-ch="5" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">107</div>
       </div>
@@ -1711,7 +1665,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-8" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="109" data-ch="5" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">109</div>
       </div>
@@ -1731,7 +1684,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-9" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="111" data-ch="5" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">111</div>
       </div>
@@ -1752,7 +1704,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-10" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="113" data-ch="5" data-local-page="10">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">113</div>
       </div>
@@ -1770,7 +1721,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-11" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="115" data-ch="5" data-local-page="11">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">115</div>
       </div>
@@ -1785,7 +1735,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-12" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="117" data-ch="5" data-local-page="12">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">117</div>
       </div>
@@ -1808,7 +1757,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-13" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="119" data-ch="5" data-local-page="13">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">119</div>
       </div>
@@ -1825,7 +1773,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-14" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="121" data-ch="5" data-local-page="14">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">121</div>
       </div>
@@ -1839,7 +1786,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-15" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="123" data-ch="5" data-local-page="15">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">123</div>
       </div>
@@ -1855,7 +1801,6 @@
     </div>
     <div class="spread text-only" data-spread="ch5-16" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="125" data-ch="5" data-local-page="16">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
         <div class="page-number page-number-left">125</div>
       </div>
@@ -1885,7 +1830,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-1" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="129" data-ch="6" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">129</div>
       </div>
@@ -1910,7 +1854,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-2" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="131" data-ch="6" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">131</div>
       </div>
@@ -1931,7 +1874,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-3" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="133" data-ch="6" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">133</div>
       </div>
@@ -1957,7 +1899,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-4" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="135" data-ch="6" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">135</div>
       </div>
@@ -1987,7 +1928,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-5" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="137" data-ch="6" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">137</div>
       </div>
@@ -2009,7 +1949,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-6" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="139" data-ch="6" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">139</div>
       </div>
@@ -2035,7 +1974,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-7" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="141" data-ch="6" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">141</div>
       </div>
@@ -2059,7 +1997,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-8" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="143" data-ch="6" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">143</div>
       </div>
@@ -2088,7 +2025,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-9" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="145" data-ch="6" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">145</div>
       </div>
@@ -2113,7 +2049,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-10" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="147" data-ch="6" data-local-page="10">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">147</div>
       </div>
@@ -2131,7 +2066,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-11" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="149" data-ch="6" data-local-page="11">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">149</div>
       </div>
@@ -2149,7 +2083,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-12" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="151" data-ch="6" data-local-page="12">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">151</div>
       </div>
@@ -2178,7 +2111,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-13" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="153" data-ch="6" data-local-page="13">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">153</div>
       </div>
@@ -2206,7 +2138,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-14" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="155" data-ch="6" data-local-page="14">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">155</div>
       </div>
@@ -2220,7 +2151,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-15" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="157" data-ch="6" data-local-page="15">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">157</div>
       </div>
@@ -2235,7 +2165,6 @@
     </div>
     <div class="spread text-only" data-spread="ch6-16" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="159" data-ch="6" data-local-page="16">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
         <div class="page-number page-number-left">159</div>
       </div>
@@ -2269,7 +2198,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-1" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="163" data-ch="7" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">163</div>
       </div>
@@ -2292,7 +2220,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-2" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="165" data-ch="7" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">165</div>
       </div>
@@ -2315,7 +2242,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-3" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="167" data-ch="7" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">167</div>
       </div>
@@ -2345,7 +2271,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-4" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="169" data-ch="7" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">169</div>
       </div>
@@ -2366,7 +2291,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-5" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="171" data-ch="7" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">171</div>
       </div>
@@ -2388,7 +2312,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-6" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="173" data-ch="7" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">173</div>
       </div>
@@ -2410,7 +2333,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-7" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="175" data-ch="7" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">175</div>
       </div>
@@ -2441,7 +2363,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-8" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="177" data-ch="7" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">177</div>
       </div>
@@ -2468,7 +2389,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-9" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="179" data-ch="7" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">179</div>
       </div>
@@ -2495,7 +2415,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-10" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="181" data-ch="7" data-local-page="10">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">181</div>
       </div>
@@ -2519,7 +2438,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-11" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="183" data-ch="7" data-local-page="11">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">183</div>
       </div>
@@ -2546,7 +2464,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-12" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="185" data-ch="7" data-local-page="12">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">185</div>
       </div>
@@ -2572,7 +2489,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-13" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="187" data-ch="7" data-local-page="13">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">187</div>
       </div>
@@ -2595,7 +2511,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-14" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="189" data-ch="7" data-local-page="14">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">189</div>
       </div>
@@ -2616,7 +2531,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-15" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="191" data-ch="7" data-local-page="15">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">191</div>
       </div>
@@ -2630,7 +2544,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-16" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="193" data-ch="7" data-local-page="16">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">193</div>
       </div>
@@ -2644,7 +2557,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-17" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="195" data-ch="7" data-local-page="17">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">195</div>
       </div>
@@ -2658,7 +2570,6 @@
     </div>
     <div class="spread text-only" data-spread="ch7-18" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="197" data-ch="7" data-local-page="18">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
         <div class="page-number page-number-left">197</div>
       </div>
@@ -2687,7 +2598,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-1" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="201" data-ch="8" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">201</div>
       </div>
@@ -2704,7 +2614,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-2" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="203" data-ch="8" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">203</div>
       </div>
@@ -2721,7 +2630,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-3" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="205" data-ch="8" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">205</div>
       </div>
@@ -2740,7 +2648,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-4" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="207" data-ch="8" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">207</div>
       </div>
@@ -2767,7 +2674,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-5" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="209" data-ch="8" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">209</div>
       </div>
@@ -2798,7 +2704,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-6" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="211" data-ch="8" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">211</div>
       </div>
@@ -2819,7 +2724,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-7" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="213" data-ch="8" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">213</div>
       </div>
@@ -2839,7 +2743,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-8" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="215" data-ch="8" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">215</div>
       </div>
@@ -2868,7 +2771,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-9" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="217" data-ch="8" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">217</div>
       </div>
@@ -2888,7 +2790,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-10" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="219" data-ch="8" data-local-page="10">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">219</div>
       </div>
@@ -2908,7 +2809,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-11" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="221" data-ch="8" data-local-page="11">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">221</div>
       </div>
@@ -2932,7 +2832,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-12" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="223" data-ch="8" data-local-page="12">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">223</div>
       </div>
@@ -2953,7 +2852,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-13" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="225" data-ch="8" data-local-page="13">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">225</div>
       </div>
@@ -2975,7 +2873,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-14" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="227" data-ch="8" data-local-page="14">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">227</div>
       </div>
@@ -3001,7 +2898,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-15" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="229" data-ch="8" data-local-page="15">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">229</div>
       </div>
@@ -3021,7 +2917,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-16" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="231" data-ch="8" data-local-page="16">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">231</div>
       </div>
@@ -3035,7 +2930,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-17" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="233" data-ch="8" data-local-page="17">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">233</div>
       </div>
@@ -3050,7 +2944,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-18" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="235" data-ch="8" data-local-page="18">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">235</div>
       </div>
@@ -3064,7 +2957,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-19" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="237" data-ch="8" data-local-page="19">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">237</div>
       </div>
@@ -3078,7 +2970,6 @@
     </div>
     <div class="spread text-only" data-spread="ch8-20" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="239" data-ch="8" data-local-page="20">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
         <div class="page-number page-number-left">239</div>
       </div>
@@ -3109,7 +3000,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-1" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="243" data-ch="9" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">243</div>
       </div>
@@ -3128,7 +3018,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-2" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="245" data-ch="9" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">245</div>
       </div>
@@ -3143,7 +3032,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-3" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="247" data-ch="9" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">247</div>
       </div>
@@ -3157,7 +3045,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-4" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="249" data-ch="9" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">249</div>
       </div>
@@ -3173,7 +3060,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-5" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="251" data-ch="9" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">251</div>
       </div>
@@ -3189,7 +3075,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-6" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="253" data-ch="9" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">253</div>
       </div>
@@ -3204,7 +3089,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-7" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="255" data-ch="9" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">255</div>
       </div>
@@ -3220,7 +3104,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-8" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="257" data-ch="9" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">257</div>
       </div>
@@ -3237,7 +3120,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-9" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="259" data-ch="9" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">259</div>
       </div>
@@ -3256,7 +3138,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-10" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="261" data-ch="9" data-local-page="10">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">261</div>
       </div>
@@ -3272,7 +3153,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-11" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="263" data-ch="9" data-local-page="11">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">263</div>
       </div>
@@ -3291,7 +3171,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-12" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="265" data-ch="9" data-local-page="12">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">265</div>
       </div>
@@ -3323,7 +3202,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-13" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="267" data-ch="9" data-local-page="13">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">267</div>
       </div>
@@ -3348,7 +3226,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-14" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="269" data-ch="9" data-local-page="14">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">269</div>
       </div>
@@ -3364,7 +3241,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-15" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="271" data-ch="9" data-local-page="15">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">271</div>
       </div>
@@ -3377,7 +3253,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-16" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="273" data-ch="9" data-local-page="16">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">273</div>
       </div>
@@ -3390,7 +3265,6 @@
     </div>
     <div class="spread text-only" data-spread="ch9-17" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="275" data-ch="9" data-local-page="17">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
         <div class="page-number page-number-left">275</div>
       </div>
@@ -3421,7 +3295,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-1" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="279" data-ch="10" data-local-page="1">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">279</div>
       </div>
@@ -3437,7 +3310,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-2" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="281" data-ch="10" data-local-page="2">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">281</div>
       </div>
@@ -3457,7 +3329,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-3" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="283" data-ch="10" data-local-page="3">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">283</div>
       </div>
@@ -3473,7 +3344,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-4" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="285" data-ch="10" data-local-page="4">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">285</div>
       </div>
@@ -3491,7 +3361,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-5" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="287" data-ch="10" data-local-page="5">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">287</div>
       </div>
@@ -3518,7 +3387,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-6" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="289" data-ch="10" data-local-page="6">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">289</div>
       </div>
@@ -3540,7 +3408,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-7" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="291" data-ch="10" data-local-page="7">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">291</div>
       </div>
@@ -3555,7 +3422,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-8" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="293" data-ch="10" data-local-page="8">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">293</div>
       </div>
@@ -3573,7 +3439,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-9" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="295" data-ch="10" data-local-page="9">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">295</div>
       </div>
@@ -3602,7 +3467,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-10" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="297" data-ch="10" data-local-page="10">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">297</div>
       </div>
@@ -3618,7 +3482,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-11" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="299" data-ch="10" data-local-page="11">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">299</div>
       </div>
@@ -3633,7 +3496,6 @@
     </div>
     <div class="spread text-only" data-spread="ch10-12" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="301" data-ch="10" data-local-page="12">
-        <div class="filmstrip"><div class="filmstrip-add" title="Add illustration">+</div></div>
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
         <div class="page-number page-number-left">301</div>
       </div>
@@ -3670,6 +3532,7 @@
 var AUDIO_DATA = null;
 var CHAPTER_NAV = [{"num":1,"name":"In Which We Are Introduced to Winnie-the-Pooh and Some Bees, and the Stories Begin","id":"ch1","pages":13,"ills":0},{"num":2,"name":"In Which Pooh Goes Visiting and Gets Into a Tight Place","id":"ch2","pages":10,"ills":0},{"num":3,"name":"In Which Pooh and Piglet Go Hunting and Nearly Catch a Woozle","id":"ch3","pages":9,"ills":0},{"num":4,"name":"In Which Eeyore Loses a Tail and Pooh Finds One","id":"ch4","pages":9,"ills":0},{"num":5,"name":"In Which Piglet Meets a Heffalump","id":"ch5","pages":16,"ills":0},{"num":6,"name":"In Which Eeyore Has a Birthday and Gets Two Presents","id":"ch6","pages":16,"ills":0},{"num":7,"name":"In Which Kanga and Baby Roo Come to the Forest, and Piglet Has a Bath","id":"ch7","pages":18,"ills":0},{"num":8,"name":"In Which Christopher Robin Leads an Expotition to the North Pole","id":"ch8","pages":20,"ills":0},{"num":9,"name":"In Which Piglet Is Entirely Surrounded by Water","id":"ch9","pages":17,"ills":0},{"num":10,"name":"In Which Christopher Robin Gives Pooh a Party, and We Say Good-Bye","id":"ch10","pages":12,"ills":0}];
 var GITHUB_CONFIG = {"owner":"PlayfulProcess","repo":"recursive-kids-stories-club","bookPath":"books/winnie-the-pooh"};
+var ALL_ILLUSTRATIONS = [];
 
 
 // ── Chapter Navigation ──
@@ -4431,6 +4294,67 @@ document.getElementById('navToggle').addEventListener('click', function() {
     if (editIndicator) {
       editIndicator.textContent = on ? 'EDIT MODE' : '';
     }
+    if (on && !filmstripsBuilt) {
+      buildAllFilmstrips();
+      filmstripsBuilt = true;
+    }
+  }
+
+  // Build filmstrips dynamically with ALL illustrations from every chapter
+  var filmstripsBuilt = false;
+  function buildAllFilmstrips() {
+    var allPageLefts = bookContent.querySelectorAll('.page-left[data-ch]');
+    for (var p = 0; p < allPageLefts.length; p++) {
+      var pageLeft = allPageLefts[p];
+      var ch = parseInt(pageLeft.dataset.ch);
+      var localPage = parseInt(pageLeft.dataset.localPage);
+
+      var filmstrip = document.createElement('div');
+      filmstrip.className = 'filmstrip';
+
+      // Add ALL illustrations from every chapter
+      for (var i = 0; i < ALL_ILLUSTRATIONS.length; i++) {
+        var ill = ALL_ILLUSTRATIONS[i];
+        if (!ill.url) continue;
+        var thumb = document.createElement('div');
+        thumb.className = 'filmstrip-thumb';
+        thumb.dataset.illChapter = ill.chapter;
+        thumb.dataset.illPage = ill.page;
+        thumb.dataset.url = ill.url;
+        thumb.dataset.description = ill.description || '';
+
+        // Mark active if this illustration matches the current page's image
+        var mainImg = pageLeft.querySelector('.ill-main img');
+        if (mainImg && mainImg.src === ill.url && ill.chapter === ch && ill.page === localPage) {
+          thumb.classList.add('active');
+        }
+        var img = document.createElement('img');
+        img.src = ill.url;
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+        filmstrip.appendChild(thumb);
+      }
+
+      var addBtn = document.createElement('div');
+      addBtn.className = 'filmstrip-add';
+      addBtn.title = 'Add illustration';
+      addBtn.textContent = '+';
+      filmstrip.appendChild(addBtn);
+
+      pageLeft.insertBefore(filmstrip, pageLeft.firstChild);
+
+      // Trap scroll
+      filmstrip.addEventListener('wheel', function(e) {
+        var fs = e.currentTarget;
+        var maxScroll = fs.scrollHeight - fs.clientHeight;
+        if (maxScroll <= 0) return;
+        if ((e.deltaY < 0 && fs.scrollTop <= 0) ||
+            (e.deltaY > 0 && fs.scrollTop >= maxScroll)) {
+          e.preventDefault();
+        }
+        e.stopPropagation();
+      }, { passive: false });
+    }
   }
 
   // Show modal for token input
@@ -4493,18 +4417,84 @@ document.getElementById('navToggle').addEventListener('click', function() {
     });
   }
 
-  // ── Filmstrip: trap scroll events so page doesn't scroll ──
-  document.querySelectorAll('.filmstrip').forEach(function(fs) {
-    fs.addEventListener('wheel', function(e) {
-      var maxScroll = fs.scrollHeight - fs.clientHeight;
-      if (maxScroll <= 0) return; // nothing to scroll
-      // Prevent page scroll when filmstrip reaches top/bottom
-      if ((e.deltaY < 0 && fs.scrollTop <= 0) ||
-          (e.deltaY > 0 && fs.scrollTop >= maxScroll)) {
-        e.preventDefault();
+  // ── Undo / Redo ──
+  var undoStack = [];
+  var redoStack = [];
+
+  function captureState(spread, key) {
+    var mainImg = spread.querySelector('.ill-main img');
+    var caption = spread.querySelector('.ill-caption');
+    return {
+      key: key,
+      spreadId: spread.dataset.spread,
+      url: mainImg ? mainImg.src : null,
+      alt: mainImg ? mainImg.alt : '',
+      caption: caption ? caption.textContent : '',
+      wasDecorative: spread.querySelector('.decorative-panel') !== null,
+      pendingValue: pendingChanges[key] ? JSON.parse(JSON.stringify(pendingChanges[key])) : undefined
+    };
+  }
+
+  function restoreState(state) {
+    var spread = bookContent.querySelector('[data-spread="' + state.spreadId + '"]');
+    if (!spread) return;
+    var pageLeft = spread.querySelector('.page-left');
+    if (!pageLeft) return;
+
+    if (state.url === null) {
+      // Restore to decorative panel
+      var illMain = pageLeft.querySelector('.ill-main');
+      if (illMain) illMain.remove();
+      var ornament = pageLeft.querySelector('.chapter-ornament');
+      if (ornament) ornament.style.display = '';
+      pageLeft.classList.add('decorative-panel');
+      spread.classList.add('text-only');
+      delete pendingChanges[state.key];
+    } else {
+      var mainImg = spread.querySelector('.ill-main img');
+      if (mainImg) {
+        mainImg.src = state.url;
+        mainImg.alt = state.alt;
       }
-      e.stopPropagation();
-    }, { passive: false });
+      if (state.pendingValue !== undefined) {
+        pendingChanges[state.key] = state.pendingValue;
+      } else {
+        delete pendingChanges[state.key];
+      }
+    }
+
+    var caption = spread.querySelector('.ill-caption');
+    if (caption) caption.textContent = state.caption;
+
+    // Update filmstrip active state
+    var allThumbs = spread.querySelectorAll('.filmstrip-thumb');
+    allThumbs.forEach(function(t) {
+      t.classList.toggle('active', state.url && t.dataset.url === state.url);
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (!editMode) return;
+    if (e.ctrlKey && e.key === 'z') {
+      e.preventDefault();
+      if (undoStack.length === 0) { flash('Nothing to undo'); return; }
+      var action = undoStack.pop();
+      redoStack.push(action.after);
+      restoreState(action.before);
+      flash('Undo');
+    } else if (e.ctrlKey && e.key === 'y') {
+      e.preventDefault();
+      if (redoStack.length === 0) { flash('Nothing to redo'); return; }
+      var state = redoStack.pop();
+      var spread = bookContent.querySelector('[data-spread="' + state.spreadId + '"]');
+      if (spread) {
+        var key = state.key;
+        var beforeState = captureState(spread, key);
+        undoStack.push({ before: beforeState, after: state });
+      }
+      restoreState(state);
+      flash('Redo');
+    }
   });
 
   // ── Filmstrip click: set as primary (edit mode only) ──
@@ -4521,6 +4511,10 @@ document.getElementById('navToggle').addEventListener('click', function() {
     var localPage = pageLeft ? pageLeft.dataset.localPage : '1';
     var url = thumb.dataset.url;
     var desc = thumb.dataset.description || '';
+
+    // Capture state for undo
+    var key = 'ch' + ch + '_p' + localPage;
+    var beforeState = captureState(spread, key);
 
     // Update main image
     var mainImg = spread.querySelector('.ill-main img');
@@ -4561,8 +4555,12 @@ document.getElementById('navToggle').addEventListener('click', function() {
     thumb.classList.add('active');
 
     // Track change
-    var key = 'ch' + ch + '_p' + localPage;
     pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc };
+
+    // Push to undo stack
+    var afterState = captureState(spread, key);
+    undoStack.push({ before: beforeState, after: afterState });
+    redoStack = []; // Clear redo on new action
 
     console.log('Pending change:', key, url.substring(0, 60) + '...');
   });
@@ -4633,13 +4631,24 @@ document.getElementById('navToggle').addEventListener('click', function() {
 
     flash('Saving...');
 
-    // 1. Fetch current CSV from GitHub to get SHA
+    // 1. Fetch current CSV from GitHub to get SHA (try gpt/preview first, fallback to main)
     var apiBase = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/';
     var csvApiPath = bookPath + '/illustrations.csv';
-    fetch(apiBase + csvApiPath, {
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
-    })
-    .then(function(r) { return r.json(); })
+    var saveBranch = 'gpt/preview';
+
+    function fetchCsv(branch) {
+      return fetch(apiBase + csvApiPath + '?ref=' + encodeURIComponent(branch), {
+        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+      }).then(function(r) {
+        if (!r.ok && branch === 'gpt/preview') {
+          saveBranch = 'main';
+          return fetchCsv('main').then(function(r2) { return r2.json(); });
+        }
+        return r.json();
+      });
+    }
+
+    fetchCsv(saveBranch)
     .then(function(data) {
       csvSha = data.sha;
       var content = atob(data.content.replace(/\n/g, ''));
@@ -4679,7 +4688,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
       var newCsv = header + '\n' + newRows.join('\n') + '\n';
       var encoded = btoa(unescape(encodeURIComponent(newCsv)));
 
-      // 2. PUT updated CSV
+      // 2. PUT updated CSV to gpt/preview branch
       return fetch(apiBase + csvApiPath, {
         method: 'PUT',
         headers: {
@@ -4690,7 +4699,8 @@ document.getElementById('navToggle').addEventListener('click', function() {
         body: JSON.stringify({
           message: 'Update illustrations via book editor',
           content: encoded,
-          sha: csvSha
+          sha: csvSha,
+          branch: saveBranch
         })
       });
     })
@@ -4712,6 +4722,42 @@ document.getElementById('navToggle').addEventListener('click', function() {
     });
   });
 
+  // ── Download CSV ──
+  var downloadCsvBtn = document.getElementById('downloadCsvBtn');
+  if (downloadCsvBtn) {
+    downloadCsvBtn.addEventListener('click', function() {
+      if (!token || !repoOwner || !repoName || !bookPath) {
+        alert('GitHub config incomplete.');
+        return;
+      }
+      var apiBase = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/';
+      var csvApiPath = bookPath + '/illustrations.csv';
+      // Try gpt/preview first, fallback to main
+      fetch(apiBase + csvApiPath + '?ref=gpt/preview', {
+        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+      })
+      .then(function(r) {
+        if (!r.ok) return fetch(apiBase + csvApiPath, {
+          headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        return r;
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var content = atob(data.content.replace(/\n/g, ''));
+        var blob = new Blob([content], { type: 'text/csv' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'illustrations.csv';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      })
+      .catch(function(err) {
+        alert('Download failed: ' + err.message);
+      });
+    });
+  }
+
   // ── Booklet Print Mode: Imposition Algorithm ──
   // Classify a page element into a category
   function classifyPage(el) {
@@ -4730,7 +4776,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
     if (filter === 'all') return true;
     var type = classifyPage(el);
     if (filter === 'illustrations') {
-      return type === 'illustration' || type === 'cover';
+      return type === 'illustration';
     }
     if (filter === 'text') {
       return type === 'text' || type === 'cover' || type === 'preface-text';
@@ -4782,14 +4828,21 @@ document.getElementById('navToggle').addEventListener('click', function() {
       }
     }
 
-    // Imposition: center spread first, working outward
+    // Imposition: outermost spread first (sheet 1 = last page, first page)
+    // For a booklet, each physical sheet has the outermost pair on the outside.
+    // Sheet 1: [padded-1, 0], Sheet 2: [1, padded-2], Sheet 3: [padded-3, 2], ...
     var spreads = [];
-    var left = half - 1;
-    var right = half;
-    while (left >= 0 && right < padded) {
-      spreads.push([left, right]);
-      left--;
-      right++;
+    var lo = 0;
+    var hi = padded - 1;
+    while (lo < hi) {
+      spreads.push([hi, lo]);   // back side: [last, first]
+      lo++;
+      hi--;
+      if (lo < hi) {
+        spreads.push([lo, hi]); // front side: [second, second-to-last]
+        lo++;
+        hi--;
+      }
     }
 
     // Build booklet spreads
