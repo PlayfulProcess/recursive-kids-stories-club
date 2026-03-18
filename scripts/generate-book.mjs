@@ -937,10 +937,10 @@ function generateCSS() {
     /* ── Page numbers ── */
     .page-number {
       font-size: 11px; color: #999;
-      position: absolute; bottom: 8px;
+      position: absolute; bottom: 14px;
     }
-    .page-number-left { left: 16px; }
-    .page-number-right { right: 16px; }
+    .page-number-left { left: 20px; }
+    .page-number-right { right: 20px; }
 
     /* ── Decorative panel (text-only pages) ── */
     .decorative-panel {
@@ -1147,14 +1147,13 @@ function generateCSS() {
       position: absolute; left: 0; top: 0; width: 62px; height: 100%;
       background: rgba(44, 24, 16, 0.85); z-index: 10;
       overflow-y: scroll; overflow-x: hidden;
-      display: flex; flex-direction: column; align-items: center;
+      display: none; flex-direction: column; align-items: center;
       padding: 6px 4px; gap: 4px;
       scrollbar-width: thin; scrollbar-color: #5a4030 transparent;
-      opacity: 0.4; transition: opacity 0.3s ease;
+      opacity: 1; transition: opacity 0.3s ease;
       overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
     }
-    .filmstrip:hover { opacity: 1; }
     .filmstrip-thumb {
       width: 52px; height: 52px; flex-shrink: 0;
       border: 2px solid transparent; border-radius: 4px;
@@ -1179,8 +1178,9 @@ function generateCSS() {
     .ill-main {
       display: flex; align-items: center; justify-content: center;
       flex: 1; width: 100%; height: 100%;
-      padding-left: 62px;
+      padding-left: 0;
     }
+    body.edit-mode .ill-main { padding-left: 62px; }
     .ill-main img {
       max-width: 100%; max-height: 100%;
       object-fit: contain; border-radius: 4px;
@@ -1190,7 +1190,7 @@ function generateCSS() {
     .text-only .filmstrip { background: rgba(44, 24, 16, 0.6); }
 
     /* ── Edit Mode ── */
-    body.edit-mode .filmstrip { opacity: 1; }
+    body.edit-mode .filmstrip { display: flex; }
     body.edit-mode .filmstrip-thumb { cursor: pointer; }
     body.edit-mode .filmstrip-thumb:hover {
       border-color: #f0d090; transform: scale(1.08);
@@ -1410,6 +1410,14 @@ function generateCSS() {
     body.booklet-mode .metadata-overlay,
     body.booklet-mode .save-flash { display: none !important; }
 
+    /* ── Zoom ── */
+    body.zoomed-out .book-content {
+      transform-origin: top center;
+    }
+    body.zoomed-out .spread {
+      min-height: auto !important;
+    }
+
     /* ── Print ── */
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-top: 0 !important; background: white !important; }
@@ -1448,6 +1456,9 @@ function generateToolbarHTML() {
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
+  <button id="zoomOutBtn" title="Zoom out">&#8722;</button>
+  <span id="zoomLevel" style="font-size:10px;color:#a08060;min-width:32px;text-align:center">100%</span>
+  <button id="zoomInBtn" title="Zoom in">&#43;</button>
   <select id="modeSelect" title="View mode">
     <option value="read">&#128214; Read</option>
 ${githubConfig ? '    <option value="edit">&#9998; Edit</option>' : ''}
@@ -1790,6 +1801,58 @@ document.getElementById('navToggle').addEventListener('click', function() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && overlay.classList.contains('active')) {
       overlay.classList.remove('active');
+    }
+  });
+})();
+
+// ── Page Zoom (zoom out / zoom in) ──
+(function() {
+  var zoomOutBtn = document.getElementById('zoomOutBtn');
+  var zoomInBtn = document.getElementById('zoomInBtn');
+  var zoomLabel = document.getElementById('zoomLevel');
+  var bookContent = document.querySelector('.book-content');
+  var bookletContainer = document.getElementById('bookletContainer');
+  var zoomLevel = 100;
+  var zoomSteps = [25, 33, 50, 67, 75, 100];
+
+  function applyZoom() {
+    var target = document.body.classList.contains('booklet-mode') ? bookletContainer : bookContent;
+    if (!target) return;
+    if (zoomLevel === 100) {
+      target.style.transform = '';
+      target.style.transformOrigin = '';
+      document.body.classList.remove('zoomed-out');
+    } else {
+      var scale = zoomLevel / 100;
+      target.style.transform = 'scale(' + scale + ')';
+      target.style.transformOrigin = 'top center';
+      document.body.classList.add('zoomed-out');
+    }
+    zoomLabel.textContent = zoomLevel + '%';
+  }
+
+  zoomOutBtn.addEventListener('click', function() {
+    for (var i = zoomSteps.length - 1; i >= 0; i--) {
+      if (zoomSteps[i] < zoomLevel) { zoomLevel = zoomSteps[i]; break; }
+    }
+    applyZoom();
+  });
+
+  zoomInBtn.addEventListener('click', function() {
+    for (var i = 0; i < zoomSteps.length; i++) {
+      if (zoomSteps[i] > zoomLevel) { zoomLevel = zoomSteps[i]; break; }
+    }
+    applyZoom();
+  });
+
+  // Ctrl+- and Ctrl+= shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && (e.key === '-' || e.key === '_')) {
+      e.preventDefault();
+      zoomOutBtn.click();
+    } else if (e.ctrlKey && (e.key === '=' || e.key === '+')) {
+      e.preventDefault();
+      zoomInBtn.click();
     }
   });
 })();
@@ -2521,7 +2584,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
     if (filter === 'all') return true;
     var type = classifyPage(el);
     if (filter === 'illustrations') {
-      return type === 'illustration' || type === 'cover';
+      return type === 'illustration';
     }
     if (filter === 'text') {
       return type === 'text' || type === 'cover' || type === 'preface-text';
@@ -2573,14 +2636,21 @@ document.getElementById('navToggle').addEventListener('click', function() {
       }
     }
 
-    // Imposition: center spread first, working outward
+    // Imposition: outermost spread first (sheet 1 = last page, first page)
+    // For a booklet, each physical sheet has the outermost pair on the outside.
+    // Sheet 1: [padded-1, 0], Sheet 2: [1, padded-2], Sheet 3: [padded-3, 2], ...
     var spreads = [];
-    var left = half - 1;
-    var right = half;
-    while (left >= 0 && right < padded) {
-      spreads.push([left, right]);
-      left--;
-      right++;
+    var lo = 0;
+    var hi = padded - 1;
+    while (lo < hi) {
+      spreads.push([hi, lo]);   // back side: [last, first]
+      lo++;
+      hi--;
+      if (lo < hi) {
+        spreads.push([lo, hi]); // front side: [second, second-to-last]
+        lo++;
+        hi--;
+      }
     }
 
     // Build booklet spreads
