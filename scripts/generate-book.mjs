@@ -235,7 +235,7 @@ function formatTextAsKaraokeHtml(text, manifestWords, cursor) {
     }
 
     if (!matched) {
-      htmlParts[paraIdx].push(escapeHtml(word));
+      htmlParts[paraIdx].push(`<span class="k-word">${escapeHtml(word)}</span>`);
     }
   }
 
@@ -2122,9 +2122,11 @@ if (goToPageInput) {
 
   // ── Audio ended ──
   audio.addEventListener('ended', function() {
-    for (var i = 0; i < allKWords.length; i++) {
-      allKWords[i].classList.add('k-spoken');
-      allKWords[i].classList.remove('k-active', 'k-near');
+    var allW = document.querySelectorAll('.k-word');
+    for (var i = 0; i < allW.length; i++) {
+      if (allW[i].closest('.preface-spread')) continue;
+      allW[i].classList.add('k-spoken');
+      allW[i].classList.remove('k-active', 'k-near');
     }
     isPlaying = false;
     playBtn.innerHTML = '\\u25b6 Play';
@@ -2176,17 +2178,32 @@ if (goToPageInput) {
         for (var s = lastActiveIdx; s < idx; s++) {
           allKWords[s].classList.add('k-spoken');
           allKWords[s].classList.remove('k-active', 'k-near');
+          // Mark unmatched siblings (no data-start) between spoken words
+          var el = allKWords[s];
+          for (var sib = el.nextElementSibling; sib && sib.classList.contains('k-word') && !sib.dataset.start; sib = sib.nextElementSibling) {
+            sib.classList.add('k-spoken');
+          }
         }
       }
 
       allKWords[idx].classList.add('k-active');
       allKWords[idx].classList.remove('k-spoken', 'k-near');
+      // Mark unmatched words before active as spoken
+      for (var pb = allKWords[idx].previousElementSibling; pb && pb.classList.contains('k-word') && !pb.dataset.start; pb = pb.previousElementSibling) {
+        pb.classList.add('k-spoken');
+        pb.classList.remove('k-active', 'k-near');
+      }
 
       for (var n = 1; n <= NEAR_RANGE; n++) {
         var ni = idx + n;
         if (ni < allKWords.length) {
           allKWords[ni].classList.add('k-near');
           allKWords[ni].classList.remove('k-spoken', 'k-active');
+          // Mark unmatched words after near words as near too
+          for (var na = allKWords[ni].nextElementSibling; na && na.classList.contains('k-word') && !na.dataset.start; na = na.nextElementSibling) {
+            na.classList.add('k-near');
+            na.classList.remove('k-spoken', 'k-active');
+          }
         }
       }
 
