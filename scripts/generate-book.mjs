@@ -140,11 +140,6 @@ function transformText(text) {
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 
-  // Break dialogue into separate paragraphs for readability
-  t = t.replace(/(["'\u201D])\s+([^""\u201C]*?[.!?,])\s*\n?\s*([""\u201C])/g, '$1 $2\n\n$3');
-  t = t.replace(/([.!?,]["'\u201D])\s*\n?\s*([""\u201C])/g, '$1\n\n$2');
-  t = t.replace(/([.!?])\s+\n?\s*([""\u201C])/g, '$1\n\n$2');
-  t = t.replace(/(;\s*)\n?\s*([""\u201C])/g, '$1\n\n$2');
   t = t.replace(/\n{3,}/g, '\n\n');
 
   return t;
