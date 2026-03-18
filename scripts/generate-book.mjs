@@ -137,7 +137,8 @@ function escapeHtml(text) {
 function formatCaption(desc) {
   if (!desc) return '';
   // Strip leading dashes/spaces used as separators in CSV
-  let parts = desc.split(/\s*\u2014\s*|\s*--\s*/).filter(p => p.trim());
+  // Also match mojibake â (corrupted UTF-8 em-dash) and â¢ (corrupted bullet)
+  let parts = desc.split(/\s*[\u2014\u2013]\s*|\s*--\s*|\s*\u00e2[\s\u0080-\u00bf]*/).filter(p => p.trim());
   // Use &bull; as separator and HTML entities for special chars
   return parts.map(p => escapeHtml(p.trim())).join(' &#8226; ');
 }
