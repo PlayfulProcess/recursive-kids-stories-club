@@ -133,6 +133,15 @@ function escapeHtml(text) {
     .replace(/"/g, '&quot;');
 }
 
+// Format illustration caption: replace em-dashes with HTML entities and use bullet separators
+function formatCaption(desc) {
+  if (!desc) return '';
+  // Strip leading dashes/spaces used as separators in CSV
+  let parts = desc.split(/\s*\u2014\s*|\s*--\s*/).filter(p => p.trim());
+  // Use &bull; as separator and HTML entities for special chars
+  return parts.map(p => escapeHtml(p.trim())).join(' &#8226; ');
+}
+
 function transformText(text) {
   let t = text
     .replace(/_([^_]+)_/g, '$1')
@@ -343,9 +352,9 @@ function splitTextIntoPages(text, targetChars) {
     const pagesLeft = idealPageCount - pages.length;
 
     const shouldSplit = currentPage.length > 0 && pagesLeft > 1 &&
-      currentPage.length >= idealPerPage * 0.35 && (
+      currentPage.length >= idealPerPage * 0.55 && (
       (wouldBe > targetChars * 1.1) ||
-      (wouldBe > idealPerPage * 0.85 && paraStarts.has(si)) ||
+      (wouldBe > idealPerPage * 0.9 && paraStarts.has(si)) ||
       (currentPage.length >= idealPerPage * 1.05 && remaining > idealPerPage * 0.5)
     );
 
@@ -378,13 +387,23 @@ function splitTextIntoPages(text, targetChars) {
     }
   }
 
-  // Merge very short last pages
-  if (result.length > 1 && result[result.length - 1].length < idealPerPage * 0.3) {
-    const lastPage = result.pop();
-    result[result.length - 1] += '\n\n' + lastPage;
+  // Merge any short pages with their neighbors (prefer merging forward into previous page)
+  const merged = [result[0]];
+  for (let i = 1; i < result.length; i++) {
+    if (result[i].length < idealPerPage * 0.4) {
+      // Merge into previous page (the auto-fit JS will shrink font if needed)
+      merged[merged.length - 1] += '\n\n' + result[i];
+    } else {
+      merged.push(result[i]);
+    }
+  }
+  // Also check if last page is too short
+  if (merged.length > 1 && merged[merged.length - 1].length < idealPerPage * 0.4) {
+    const lastPage = merged.pop();
+    merged[merged.length - 1] += '\n\n' + lastPage;
   }
 
-  return result;
+  return merged;
 }
 
 // ── Grammar Processing ──────────────────────────────────────────────
@@ -658,7 +677,7 @@ for (const chNum of chapterNums) {
     const noteAttr = pageNote ? ` data-note="${pageNote}"` : '';
     const noteBtn = `<button class="page-note-btn${pageNote ? ' has-note' : ''}" title="${pageNote || 'Add note for Claude'}">${pageNote ? '\u{1F4DD}' : '\u{270F}\u{FE0F}'}</button>`;
     if (page.illustration) {
-      const caption = page.illustration.description ? `<div class="ill-caption">${escapeHtml(page.illustration.description)}</div>` : '';
+      const caption = page.illustration.description ? `<div class="ill-caption">${formatCaption(page.illustration.description)}</div>` : '';
       spreadsHtml += `
     <div class="spread" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
       <div class="page-left" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}"${noteAttr}>
@@ -1014,20 +1033,21 @@ function generateCSS() {
     .toolbar input[type="text"], .toolbar input[type="number"] {
       padding: 5px 10px; border: none; border-radius: 4px;
       background: rgba(255,255,255,0.08); color: #f0e6d6; font-size: 12px;
-      font-family: 'Georgia', serif; width: 120px;
+      font-family: 'Georgia', serif; width: 120px; outline: none;
     }
+    .toolbar input:focus { background: rgba(255,255,255,0.12); }
     .toolbar input::placeholder { color: #7a6050; }
     .toolbar button {
       padding: 5px 12px; border: none; border-radius: 4px;
       background: transparent; color: #d4a76a; font-size: 12px;
-      cursor: pointer; font-family: 'Georgia', serif;
+      cursor: pointer; font-family: 'Georgia', serif; outline: none;
     }
     .toolbar button:hover { background: rgba(255,255,255,0.08); }
     .toolbar button.active { background: #d4a76a; color: #2c1810; }
     .toolbar select {
       padding: 4px 6px; border: none; border-radius: 4px;
       background: rgba(255,255,255,0.08); color: #d4a76a; font-size: 11px;
-      font-family: 'Georgia', serif; cursor: pointer;
+      font-family: 'Georgia', serif; cursor: pointer; outline: none;
     }
     .toolbar .match-count { font-size: 11px; color: #a08060; min-width: 60px; }
     .toolbar .spacer { flex: 1; }
@@ -1039,6 +1059,7 @@ function generateCSS() {
 
     /* ── Karaoke ── */
     .k-word { transition: color 2.5s ease; cursor: pointer; }
+    .k-word:not([data-start]) { transition: color 2s ease; }
     .k-word:hover { text-decoration-line: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
     .k-word.k-spoken { color: #9a8a7a; transition: color 3s ease; }
     .k-word.k-active { color: #b89060; transition: color 1.5s ease; }
@@ -1517,7 +1538,7 @@ function generateToolbarHTML() {
   <span class="ch-title" style="color:#a08060" id="audioTime"></span>
   <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
   <span class="match-count" id="matchCount"></span>
-  <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:40px;font-size:11px;text-align:center;-moz-appearance:textfield" autocomplete="off">
+  <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:48px;font-size:13px;text-align:center;-moz-appearance:textfield;background:transparent;color:#a08060" autocomplete="off">
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
@@ -2153,6 +2174,36 @@ if (goToPageInput) {
     return lo > 0 ? lo - 1 : 0;
   }
 
+  // Color unmatched k-word spans (no data-start) based on nearest matched neighbor
+  function colorUnmatchedWords(activeEl) {
+    var page = activeEl.closest('[data-page]');
+    if (!page) return;
+    var allWords = page.querySelectorAll('.k-word');
+    for (var i = 0; i < allWords.length; i++) {
+      var w = allWords[i];
+      if (w.dataset.start) continue; // skip matched words
+      // Find nearest matched sibling to inherit state from
+      var prev = w.previousElementSibling;
+      while (prev && !prev.dataset.start) prev = prev.previousElementSibling;
+      var next = w.nextElementSibling;
+      while (next && !next.dataset.start) next = next.nextElementSibling;
+      // Inherit from prev (already spoken/active) or next (near/upcoming)
+      var donor = prev || next;
+      if (donor) {
+        if (donor.classList.contains('k-spoken')) {
+          w.classList.add('k-spoken');
+          w.classList.remove('k-active', 'k-near');
+        } else if (donor.classList.contains('k-active')) {
+          w.classList.add('k-active');
+          w.classList.remove('k-spoken', 'k-near');
+        } else if (donor.classList.contains('k-near')) {
+          w.classList.add('k-near');
+          w.classList.remove('k-spoken', 'k-active');
+        }
+      }
+    }
+  }
+
   function updateKaraoke() {
     if (!isPlaying) return;
     var t = audio.currentTime;
@@ -2179,34 +2230,22 @@ if (goToPageInput) {
         for (var s = lastActiveIdx; s < idx; s++) {
           allKWords[s].classList.add('k-spoken');
           allKWords[s].classList.remove('k-active', 'k-near');
-          // Mark unmatched siblings (no data-start) between spoken words
-          var el = allKWords[s];
-          for (var sib = el.nextElementSibling; sib && sib.classList.contains('k-word') && !sib.dataset.start; sib = sib.nextElementSibling) {
-            sib.classList.add('k-spoken');
-          }
         }
       }
 
       allKWords[idx].classList.add('k-active');
       allKWords[idx].classList.remove('k-spoken', 'k-near');
-      // Mark unmatched words before active as spoken
-      for (var pb = allKWords[idx].previousElementSibling; pb && pb.classList.contains('k-word') && !pb.dataset.start; pb = pb.previousElementSibling) {
-        pb.classList.add('k-spoken');
-        pb.classList.remove('k-active', 'k-near');
-      }
 
       for (var n = 1; n <= NEAR_RANGE; n++) {
         var ni = idx + n;
         if (ni < allKWords.length) {
           allKWords[ni].classList.add('k-near');
           allKWords[ni].classList.remove('k-spoken', 'k-active');
-          // Mark unmatched words after near words as near too
-          for (var na = allKWords[ni].nextElementSibling; na && na.classList.contains('k-word') && !na.dataset.start; na = na.nextElementSibling) {
-            na.classList.add('k-near');
-            na.classList.remove('k-spoken', 'k-active');
-          }
         }
       }
+
+      // Propagate state to unmatched words on the current page
+      colorUnmatchedWords(allKWords[idx]);
 
       lastActiveIdx = idx;
 
