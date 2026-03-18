@@ -650,18 +650,6 @@ for (const chNum of chapterNums) {
       textHtml = formatTextAsHtml(page.text);
     }
 
-    // Build filmstrip HTML for this spread (all chapter illustrations as thumbnails)
-    let filmstripHtml = '';
-    if (allChIlls.length > 0) {
-      const thumbs = allChIlls.filter(ill => ill.url).map(ill => {
-        const isActive = page.illustration && ill.url === page.illustration.url && ill.page === (i + 1);
-        const activeClass = isActive ? ' active' : '';
-        const desc = escapeHtml(ill.description || '').replace(/'/g, '&#39;');
-        return `<div class="filmstrip-thumb${activeClass}" data-ill-chapter="${chNum}" data-ill-page="${ill.page}" data-url="${ill.url}" data-description="${desc}"><img src="${ill.url}" alt="" loading="lazy"></div>`;
-      }).join('');
-      filmstripHtml = `<div class="filmstrip">${thumbs}<div class="filmstrip-add" title="Add illustration">+</div></div>`;
-    }
-
     // Left page: illustration or decorative
     globalPageNum++;
     if (page.illustration) {
@@ -669,7 +657,6 @@ for (const chNum of chapterNums) {
       spreadsHtml += `
     <div class="spread" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
       <div class="page-left" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}">
-        ${filmstripHtml}
         <div class="ill-main"><img src="${page.illustration.url}" alt="${escapeHtml(page.illustration.description || '')}" loading="lazy"></div>
         ${caption}
         <div class="page-number page-number-left">${globalPageNum}</div>
@@ -678,7 +665,6 @@ for (const chNum of chapterNums) {
       spreadsHtml += `
     <div class="spread text-only" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
       <div class="page-left decorative-panel" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}">
-        ${filmstripHtml}
         <div class="chapter-ornament"><div class="ornament-number">${chNum}</div></div>
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
@@ -791,6 +777,8 @@ ${config.preface ? `  <a class="nav-item" onclick="scrollToId('preface')">
   </a>` : ''}
 </div>
 
+<div class="ill-carousel" id="illCarousel"></div>
+
 <div class="zoom-overlay" id="zoomOverlay">
   <img id="zoomImg">
   <div class="zoom-hint">Press <kbd>Esc</kbd> or click to close</div>
@@ -838,12 +826,16 @@ ${githubConfig ? `<div class="edit-modal" id="editModal">
 
 <div class="save-flash" id="saveFlash">Saved!</div>
 
+<div class="book-content" id="bookContent">
 ${spreadsHtml}
+</div>
+<div class="booklet-container" id="bookletContainer"></div>
 
 <script>
 var AUDIO_DATA = ${audioDataJson};
 var CHAPTER_NAV = ${chapterNavJson};
 var GITHUB_CONFIG = ${githubConfig ? JSON.stringify(githubConfig) : 'null'};
+var ALL_ILLUSTRATIONS = ${JSON.stringify(illustrations.filter(ill => ill.url).map(ill => ({ chapter: ill.chapter, page: ill.page, url: ill.url, description: ill.description })))};
 
 ${generateJS()}
 </script>
@@ -874,8 +866,9 @@ function generateCSS() {
     }
 
     /* ── Spreads ── */
+    :root { --spread-h: 100vh; }
     .spread {
-      width: 100vw; height: 100vh;
+      width: 100vw; height: var(--spread-h);
       display: flex;
       page-break-after: always; break-after: page;
       overflow: hidden;
@@ -934,10 +927,10 @@ function generateCSS() {
     /* ── Page numbers ── */
     .page-number {
       font-size: 11px; color: #999;
-      position: absolute; bottom: 8px;
+      position: absolute; bottom: 14px;
     }
-    .page-number-left { left: 16px; }
-    .page-number-right { right: 16px; }
+    .page-number-left { left: 20px; }
+    .page-number-right { right: 20px; }
 
     /* ── Decorative panel (text-only pages) ── */
     .decorative-panel {
@@ -1134,49 +1127,61 @@ function generateCSS() {
 
     /* ── Screen mode ── */
     @media screen {
-      .spread { border-bottom: 3px dashed #ccc; min-height: 100vh; }
+      .spread { border-bottom: 3px dashed #ccc; }
       .spread:last-child { border-bottom: none; }
       body { background: #e8e8e8; padding-top: 44px; }
     }
 
-    /* ── Filmstrip Carousel ── */
-    .filmstrip {
-      position: absolute; left: 0; top: 0; width: 62px; height: 100%;
-      background: rgba(44, 24, 16, 0.85); z-index: 10;
-      overflow-y: scroll; overflow-x: hidden;
-      display: flex; flex-direction: column; align-items: center;
-      padding: 6px 4px; gap: 4px;
+    /* ── Illustration Carousel (single floating panel, edit mode only) ── */
+    .ill-carousel {
+      position: fixed; left: 0; top: 44px; bottom: 0; width: 120px;
+      background: rgba(44, 24, 16, 0.95); z-index: 90;
+      overflow-y: auto; overflow-x: hidden;
+      display: none; flex-direction: column; align-items: center;
+      padding: 8px 6px; gap: 4px;
       scrollbar-width: thin; scrollbar-color: #5a4030 transparent;
-      opacity: 0.4; transition: opacity 0.3s ease;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.3);
       overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
     }
-    .filmstrip:hover { opacity: 1; }
-    .filmstrip-thumb {
-      width: 52px; height: 52px; flex-shrink: 0;
+    body.edit-mode .ill-carousel { display: flex; }
+    .ill-carousel .carousel-ch-header {
+      width: 100%; font-size: 9px; letter-spacing: 1px;
+      color: #a08060; text-align: center; padding: 6px 0 2px;
+      font-family: 'Georgia', serif; flex-shrink: 0;
+    }
+    .ill-carousel .filmstrip-thumb {
+      width: 100px; height: 70px; flex-shrink: 0;
       border: 2px solid transparent; border-radius: 4px;
       overflow: hidden; position: relative;
       transition: border-color 0.2s ease, transform 0.15s ease;
+      cursor: pointer;
     }
-    .filmstrip-thumb img {
+    .ill-carousel .filmstrip-thumb:hover {
+      border-color: #f0d090; transform: scale(1.05);
+    }
+    .ill-carousel .filmstrip-thumb img {
       width: 100%; height: 100%; object-fit: cover;
       pointer-events: none;
     }
-    .filmstrip-thumb.active {
-      border-color: #d4a76a; box-shadow: 0 0 6px rgba(212,167,106,0.5);
+    .ill-carousel .filmstrip-thumb.active {
+      border-color: #d4a76a; box-shadow: 0 0 8px rgba(212,167,106,0.6);
     }
-    .filmstrip-add {
-      width: 52px; height: 32px; flex-shrink: 0;
+    .ill-carousel .filmstrip-add {
+      width: 100px; height: 36px; flex-shrink: 0;
       border: 2px dashed #5a4030; border-radius: 4px;
       color: #5a4030; font-size: 20px; font-weight: bold;
-      display: none; align-items: center; justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       cursor: pointer; transition: border-color 0.2s, color 0.2s;
+      margin-top: 4px;
     }
-    .filmstrip-add:hover { border-color: #d4a76a; color: #d4a76a; }
+    .ill-carousel .filmstrip-add:hover { border-color: #d4a76a; color: #d4a76a; }
+    body.edit-mode .book-content { margin-left: 120px; }
+    body.edit-mode .toolbar { left: 120px; }
     .ill-main {
       display: flex; align-items: center; justify-content: center;
       flex: 1; width: 100%; height: 100%;
-      padding-left: 62px;
+      padding-left: 0;
     }
     .ill-main img {
       max-width: 100%; max-height: 100%;
@@ -1184,20 +1189,13 @@ function generateCSS() {
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       cursor: pointer;
     }
-    .text-only .filmstrip { background: rgba(44, 24, 16, 0.6); }
-
     /* ── Edit Mode ── */
-    body.edit-mode .filmstrip { opacity: 1; }
-    body.edit-mode .filmstrip-thumb { cursor: pointer; }
-    body.edit-mode .filmstrip-thumb:hover {
-      border-color: #f0d090; transform: scale(1.08);
-    }
-    body.edit-mode .filmstrip-add { display: flex; }
     .edit-indicator {
       font-size: 10px; letter-spacing: 1px; color: #ff9040;
       margin-left: 4px; display: none;
     }
     body.edit-mode .edit-indicator { display: inline; }
+    body.edit-mode .edit-only-btn { display: inline-block !important; }
 
     /* ── Edit Modal ── */
     .edit-modal {
@@ -1297,13 +1295,153 @@ function generateCSS() {
     }
     .save-flash.active { display: block; opacity: 1; }
 
+    /* ── Booklet Print Mode ── */
+    body.booklet-mode .book-content { display: none; }
+    body.booklet-mode .booklet-container { display: block; }
+    .booklet-container { display: none; }
+    .booklet-spread {
+      width: 100vw; height: var(--spread-h);
+      display: flex; overflow: hidden;
+      page-break-after: always; break-after: page;
+    }
+    .booklet-spread:last-child { page-break-after: avoid; break-after: avoid; }
+    .booklet-half {
+      width: 50%; height: 100%;
+      overflow: hidden; position: relative;
+      border: 1px solid #d0c8b8;
+    }
+    .booklet-half.blank-page {
+      background: white;
+    }
+    .booklet-half .booklet-page-inner {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    /* Scale down a full spread into a half-page */
+    .booklet-half .booklet-page-inner .spread {
+      width: 100%; height: 100%;
+      min-height: 0 !important;
+      border-bottom: none !important;
+      page-break-after: avoid !important; break-after: avoid !important;
+    }
+    .booklet-half .booklet-page-inner .spread .page-left,
+    .booklet-half .booklet-page-inner .spread .page-right {
+      width: 100%; height: 50%;
+    }
+    /* Single page rendering inside booklet half */
+    .booklet-page-single {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .booklet-page-single.page-type-illustration {
+      background: #f8f5f0; padding: 8px;
+    }
+    .booklet-page-single.page-type-illustration img {
+      max-width: 100%; max-height: 85%;
+      object-fit: contain; border-radius: 4px;
+    }
+    .booklet-page-single.page-type-text {
+      background: white; padding: 16px 8%;
+    }
+    .booklet-page-single.page-type-text .text-block {
+      flex: 1 1 0; min-height: 0; width: 100%;
+      display: flex; flex-direction: column;
+      justify-content: center; overflow: hidden;
+    }
+    .booklet-page-single.page-type-text .text-block p {
+      font-size: 11px; line-height: 1.4;
+      text-align: justify; text-align-last: left;
+      margin-bottom: 0.4em; text-indent: 1em;
+    }
+    .booklet-page-single.page-type-cover {
+      background: #2c1810; color: white;
+    }
+    .booklet-page-single.page-type-cover .title-block,
+    .booklet-page-single.page-type-cover .back-block {
+      text-align: center; font-family: 'Georgia', serif;
+    }
+    .booklet-page-single.page-type-cover .title-block h1 { font-size: 16px; line-height: 1.2; margin-bottom: 8px; font-weight: 800; color: white; }
+    .booklet-page-single.page-type-cover .series-name,
+    .booklet-page-single.page-type-cover .book-number { font-size: 9px; letter-spacing: 2px; color: #d4a76a; margin-bottom: 4px; }
+    .booklet-page-single.page-type-cover .author { font-size: 9px; letter-spacing: 2px; color: #d4a76a; }
+    .booklet-page-single.page-type-cover .ornament { font-size: 14px; color: #d4a76a; margin-bottom: 12px; letter-spacing: 4px; }
+    .booklet-page-single.page-type-cover .edition { font-size: 8px; color: #a08060; letter-spacing: 1px; line-height: 1.6; }
+    .booklet-page-single.page-type-cover .page-info { font-size: 8px; color: #a08060; letter-spacing: 1px; }
+    .booklet-page-single.page-type-decorative {
+      background: #2c1810;
+    }
+    .booklet-page-single.page-type-decorative .chapter-ornament { text-align: center; color: #d4a76a; }
+    .booklet-page-single.page-type-decorative .ornament-number { font-size: 48px; font-weight: 800; opacity: 0.3; }
+    .booklet-page-single.page-type-decorative .ornament-star { font-size: 36px; opacity: 0.3; }
+    .booklet-page-single .ill-caption { font-size: 7px; color: #8a7a6a; text-align: center; margin-top: 4px; font-style: italic; }
+    .booklet-page-single .page-number { font-size: 8px; color: #999; position: absolute; bottom: 4px; }
+    .booklet-page-single .page-number-left { left: 8px; }
+    .booklet-page-single .page-number-right { right: 8px; }
+    .booklet-page-single .poem-block { text-align: center; max-width: 90%; }
+    .booklet-page-single .poem-title { font-size: 10px; letter-spacing: 2px; color: #d4a76a; margin-bottom: 12px; }
+    .booklet-page-single .poem-line { font-size: 9px; line-height: 1.5; font-style: italic; color: #e0d4c4; }
+    .booklet-page-single .poem-stanza { margin-bottom: 8px; }
+    .booklet-page-single.page-type-preface-text {
+      background: #2c1810; color: #f0e6d6;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .booklet-page-single .the-end { font-size: 20px; font-weight: 800; letter-spacing: 4px; color: #d4a76a; margin-bottom: 12px; }
+    .booklet-page-single .back-info p { font-size: 8px; letter-spacing: 1px; margin-bottom: 3px; color: #d4a76a; }
+    .booklet-page-single .back-info .small { font-size: 7px; color: #a08060; }
+    .booklet-page-single .ill-main { padding-left: 0 !important; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+    .booklet-page-single .ill-main img { max-width: 100%; max-height: 85%; object-fit: contain; border-radius: 4px; }
+    @media screen {
+      body.booklet-mode { background: #e8e8e8; }
+      .booklet-spread { border-bottom: 3px dashed #ccc; }
+      .booklet-spread:last-child { border-bottom: none; }
+    }
+    /* ── Ink Saver: strip dark backgrounds, use dark text on white ── */
+    body.ink-saver .booklet-page-single.page-type-cover {
+      background: white; color: #1a1a1a;
+    }
+    body.ink-saver .booklet-page-single.page-type-cover .title-block h1 { color: #1a1a1a; }
+    body.ink-saver .booklet-page-single.page-type-cover .series-name,
+    body.ink-saver .booklet-page-single.page-type-cover .book-number,
+    body.ink-saver .booklet-page-single.page-type-cover .author { color: #555; }
+    body.ink-saver .booklet-page-single.page-type-cover .ornament { color: #999; }
+    body.ink-saver .booklet-page-single.page-type-cover .edition,
+    body.ink-saver .booklet-page-single.page-type-cover .page-info { color: #888; }
+    body.ink-saver .booklet-page-single.page-type-decorative {
+      background: white;
+    }
+    body.ink-saver .booklet-page-single.page-type-decorative .chapter-ornament { color: #ccc; }
+    body.ink-saver .booklet-page-single.page-type-decorative .ornament-number { opacity: 0.15; color: #333; }
+    body.ink-saver .booklet-page-single.page-type-decorative .ornament-star { opacity: 0.15; color: #333; }
+    body.ink-saver .booklet-page-single.page-type-preface-text {
+      background: white; color: #1a1a1a;
+    }
+    body.ink-saver .booklet-page-single .poem-title { color: #333; }
+    body.ink-saver .booklet-page-single .poem-line { color: #444; }
+    body.ink-saver .booklet-page-single.page-type-cover .the-end { color: #333; }
+    body.ink-saver .booklet-page-single.page-type-cover .back-info p { color: #555; }
+    body.ink-saver .booklet-page-single.page-type-cover .back-info .small { color: #888; }
+    body.ink-saver .booklet-page-single.page-type-illustration { background: white; }
+
+    body.booklet-mode .chapter-nav,
+    body.booklet-mode .zoom-overlay,
+    body.booklet-mode .ill-carousel,
+    body.booklet-mode .edit-modal,
+    body.booklet-mode .metadata-overlay,
+    body.booklet-mode .save-flash { display: none !important; }
+    body.booklet-mode .book-content { margin-left: 0 !important; }
+    body.booklet-mode .toolbar { left: 0 !important; }
+
     /* ── Print ── */
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-top: 0 !important; background: white !important; }
       .spread { height: 100vh; border-bottom: none !important; min-height: auto !important; page-break-inside: avoid; break-inside: avoid; }
+      .booklet-spread { height: 100vh; border-bottom: none !important; min-height: auto !important; page-break-inside: avoid; break-inside: avoid; }
       .page-left img { box-shadow: none; }
       .cover-image img { box-shadow: none; }
-      .toolbar, .chapter-nav, .audio-progress, .zoom-overlay, .filmstrip, .edit-modal, .metadata-overlay, .save-flash { display: none !important; }
+      .toolbar, .chapter-nav, .audio-progress, .zoom-overlay, .ill-carousel, .edit-modal, .metadata-overlay, .save-flash { display: none !important; }
       .ill-main { padding-left: 0 !important; }
       mark.search-match { background: transparent !important; color: inherit !important; }
     }
@@ -1334,7 +1472,16 @@ function generateToolbarHTML() {
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
-${githubConfig ? '  <button id="editToggle" title="Toggle edit mode">&#128274; Edit</button><span class="edit-indicator" id="editIndicator"></span>' : ''}
+  <select id="modeSelect" title="View mode">
+    <option value="read">&#128214; Read</option>
+${githubConfig ? '    <option value="edit">&#9998; Edit</option>' : ''}
+    <option value="booklet">&#128459; Booklet (Color)</option>
+    <option value="booklet-inksaver">&#128459; Booklet (Ink Saver)</option>
+    <option value="booklet-illustrations">&#127912; Illustrations Only</option>
+    <option value="booklet-text">&#128220; Text Only</option>
+  </select>
+  <button id="downloadCsvBtn" class="edit-only-btn" style="display:none" title="Download illustrations.csv">&#8681; CSV</button>
+  <span class="edit-indicator" id="editIndicator"></span>
 </div>`;
 }
 
@@ -1342,6 +1489,12 @@ ${githubConfig ? '  <button id="editToggle" title="Toggle edit mode">&#128274; E
 
 function generateJS() {
   return `
+// ── Lock spread height to pixels so browser zoom scales pages ──
+(function() {
+  var h = window.innerHeight;
+  document.documentElement.style.setProperty('--spread-h', h + 'px');
+})();
+
 // ── Chapter Navigation ──
 (function() {
   var navEl = document.getElementById('chapterNav');
@@ -2039,31 +2192,146 @@ document.getElementById('navToggle').addEventListener('click', function() {
   }
 })();
 
-// ── Edit Mode + Illustration Carousel ──
+// ── Mode Switcher (Read / Edit / Booklet Print) ──
 (function() {
-  if (!GITHUB_CONFIG) return;
-
-  var editMode = false;
-  var token = localStorage.getItem('rksc_github_token');
-  var repoOwner = GITHUB_CONFIG.owner || '';
-  var repoName = GITHUB_CONFIG.repo || '';
-  var bookPath = GITHUB_CONFIG.bookPath || '';
-  var csvSha = null;
-  var pendingChanges = {};
-  var editToggle = document.getElementById('editToggle');
+  var modeSelect = document.getElementById('modeSelect');
   var editIndicator = document.getElementById('editIndicator');
   var editModal = document.getElementById('editModal');
   var saveFlash = document.getElementById('saveFlash');
+  var bookContent = document.getElementById('bookContent');
+  var bookletContainer = document.getElementById('bookletContainer');
+  var currentMode = 'read';
+  var bookletCache = {}; // keyed by filter type: 'all', 'illustrations', 'text'
 
-  if (!editToggle) return;
+  // Edit mode state
+  var editMode = false;
+  var token = GITHUB_CONFIG ? localStorage.getItem('rksc_github_token') : null;
+  var repoOwner = GITHUB_CONFIG ? (GITHUB_CONFIG.owner || '') : '';
+  var repoName = GITHUB_CONFIG ? (GITHUB_CONFIG.repo || '') : '';
+  var bookPath = GITHUB_CONFIG ? (GITHUB_CONFIG.bookPath || '') : '';
+  var csvSha = null;
+  var pendingChanges = {};
+
+  function setMode(mode) {
+    // Leaving old mode
+    if (currentMode === 'edit') setEditMode(false);
+    if (currentMode.indexOf('booklet') === 0) { document.body.classList.remove('booklet-mode'); document.body.classList.remove('ink-saver'); }
+
+    currentMode = mode;
+    modeSelect.value = mode;
+
+    if (mode === 'read') {
+      if (editIndicator) editIndicator.textContent = '';
+    } else if (mode === 'edit') {
+      if (!GITHUB_CONFIG) { setMode('read'); return; }
+      if (!token) {
+        showModal();
+        return; // modal will call setMode('edit') after token is saved
+      }
+      setEditMode(true);
+    } else if (mode.indexOf('booklet') === 0) {
+      var filter = 'all';
+      var label = 'BOOKLET PRINT';
+      document.body.classList.remove('ink-saver');
+      if (mode === 'booklet-inksaver') { filter = 'all'; label = 'BOOKLET (INK SAVER)'; document.body.classList.add('ink-saver'); }
+      else if (mode === 'booklet-illustrations') { filter = 'illustrations'; label = 'ILLUSTRATIONS ONLY'; }
+      else if (mode === 'booklet-text') { filter = 'text'; label = 'TEXT ONLY'; }
+      document.body.classList.add('booklet-mode');
+      if (!bookletCache[filter]) {
+        buildBookletView(filter);
+        bookletCache[filter] = true;
+      }
+      // Show only the active booklet view
+      var views = bookletContainer.querySelectorAll('.booklet-view');
+      for (var v = 0; v < views.length; v++) {
+        views[v].style.display = views[v].dataset.filter === filter ? '' : 'none';
+      }
+      if (editIndicator) editIndicator.textContent = label;
+    }
+  }
+
+  // Track currently visible spread
+  var currentVisibleSpread = null;
 
   function setEditMode(on) {
     editMode = on;
     document.body.classList.toggle('edit-mode', on);
-    editToggle.innerHTML = on ? '\\u270f\\ufe0f Editing' : '\\ud83d\\udd12 Edit';
-    editToggle.classList.toggle('active', on);
     if (editIndicator) {
       editIndicator.textContent = on ? 'EDIT MODE' : '';
+    }
+    if (on && !carouselBuilt) {
+      buildCarousel();
+      carouselBuilt = true;
+      startSpreadObserver();
+    }
+  }
+
+  // Build single floating carousel with ALL illustrations
+  var carouselBuilt = false;
+  function buildCarousel() {
+    var carousel = document.getElementById('illCarousel');
+    if (!carousel) return;
+
+    var lastCh = -1;
+    for (var i = 0; i < ALL_ILLUSTRATIONS.length; i++) {
+      var ill = ALL_ILLUSTRATIONS[i];
+      if (!ill.url) continue;
+
+      // Chapter header
+      if (ill.chapter !== lastCh) {
+        lastCh = ill.chapter;
+        var header = document.createElement('div');
+        header.className = 'carousel-ch-header';
+        header.textContent = 'CH ' + ill.chapter;
+        carousel.appendChild(header);
+      }
+
+      var thumb = document.createElement('div');
+      thumb.className = 'filmstrip-thumb';
+      thumb.dataset.illChapter = ill.chapter;
+      thumb.dataset.illPage = ill.page;
+      thumb.dataset.url = ill.url;
+      thumb.dataset.description = ill.description || '';
+      var img = document.createElement('img');
+      img.src = ill.url;
+      img.loading = 'lazy';
+      thumb.appendChild(img);
+      carousel.appendChild(thumb);
+    }
+
+    var addBtn = document.createElement('div');
+    addBtn.className = 'filmstrip-add';
+    addBtn.title = 'Add illustration';
+    addBtn.textContent = '+';
+    carousel.appendChild(addBtn);
+  }
+
+  // IntersectionObserver to track which spread is currently visible
+  function startSpreadObserver() {
+    var spreads = bookContent.querySelectorAll('.spread[data-ch]');
+    var observer = new IntersectionObserver(function(entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          currentVisibleSpread = entries[i].target;
+          updateCarouselActive();
+        }
+      }
+    }, { threshold: 0.3 });
+    for (var i = 0; i < spreads.length; i++) {
+      observer.observe(spreads[i]);
+    }
+  }
+
+  // Highlight the carousel thumbnail matching the current spread's illustration
+  function updateCarouselActive() {
+    var carousel = document.getElementById('illCarousel');
+    if (!carousel || !currentVisibleSpread) return;
+    var mainImg = currentVisibleSpread.querySelector('.ill-main img');
+    var currentUrl = mainImg ? mainImg.src : '';
+    var thumbs = carousel.querySelectorAll('.filmstrip-thumb');
+    for (var i = 0; i < thumbs.length; i++) {
+      var isActive = currentUrl && thumbs[i].dataset.url === currentUrl;
+      thumbs[i].classList.toggle('active', isActive);
     }
   }
 
@@ -2083,16 +2351,8 @@ document.getElementById('navToggle').addEventListener('click', function() {
     if (editModal) editModal.classList.remove('active');
   }
 
-  editToggle.addEventListener('click', function() {
-    if (editMode) {
-      setEditMode(false);
-      return;
-    }
-    if (!token) {
-      showModal();
-    } else {
-      setEditMode(true);
-    }
+  modeSelect.addEventListener('change', function() {
+    setMode(modeSelect.value);
   });
 
   // Modal save/cancel
@@ -2109,11 +2369,14 @@ document.getElementById('navToggle').addEventListener('click', function() {
       repoName = r || repoName;
       localStorage.setItem('rksc_github_token', token);
       hideModal();
-      setEditMode(true);
+      setMode('edit');
     });
   }
   if (ghCancelBtn) {
-    ghCancelBtn.addEventListener('click', hideModal);
+    ghCancelBtn.addEventListener('click', function() {
+      hideModal();
+      setMode('read');
+    });
   }
 
   // ── Token help popup ──
@@ -2132,34 +2395,93 @@ document.getElementById('navToggle').addEventListener('click', function() {
     });
   }
 
-  // ── Filmstrip: trap scroll events so page doesn't scroll ──
-  document.querySelectorAll('.filmstrip').forEach(function(fs) {
-    fs.addEventListener('wheel', function(e) {
-      var maxScroll = fs.scrollHeight - fs.clientHeight;
-      if (maxScroll <= 0) return; // nothing to scroll
-      // Prevent page scroll when filmstrip reaches top/bottom
-      if ((e.deltaY < 0 && fs.scrollTop <= 0) ||
-          (e.deltaY > 0 && fs.scrollTop >= maxScroll)) {
-        e.preventDefault();
+  // ── Undo / Redo ──
+  var undoStack = [];
+  var redoStack = [];
+
+  function captureState(spread, key) {
+    var mainImg = spread.querySelector('.ill-main img');
+    var caption = spread.querySelector('.ill-caption');
+    return {
+      key: key,
+      spreadId: spread.dataset.spread,
+      url: mainImg ? mainImg.src : null,
+      alt: mainImg ? mainImg.alt : '',
+      caption: caption ? caption.textContent : '',
+      wasDecorative: spread.querySelector('.decorative-panel') !== null,
+      pendingValue: pendingChanges[key] ? JSON.parse(JSON.stringify(pendingChanges[key])) : undefined
+    };
+  }
+
+  function restoreState(state) {
+    var spread = bookContent.querySelector('[data-spread="' + state.spreadId + '"]');
+    if (!spread) return;
+    var pageLeft = spread.querySelector('.page-left');
+    if (!pageLeft) return;
+
+    if (state.url === null) {
+      // Restore to decorative panel
+      var illMain = pageLeft.querySelector('.ill-main');
+      if (illMain) illMain.remove();
+      var ornament = pageLeft.querySelector('.chapter-ornament');
+      if (ornament) ornament.style.display = '';
+      pageLeft.classList.add('decorative-panel');
+      spread.classList.add('text-only');
+      delete pendingChanges[state.key];
+    } else {
+      var mainImg = spread.querySelector('.ill-main img');
+      if (mainImg) {
+        mainImg.src = state.url;
+        mainImg.alt = state.alt;
       }
-      e.stopPropagation();
-    }, { passive: false });
+      if (state.pendingValue !== undefined) {
+        pendingChanges[state.key] = state.pendingValue;
+      } else {
+        delete pendingChanges[state.key];
+      }
+    }
+
+    var caption = spread.querySelector('.ill-caption');
+    if (caption) caption.textContent = state.caption;
+
+    // Update carousel active state
+    updateCarouselActive();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (!editMode) return;
+    if (e.ctrlKey && e.key === 'z') {
+      e.preventDefault();
+      if (undoStack.length === 0) { flash('Nothing to undo'); return; }
+      var action = undoStack.pop();
+      redoStack.push(action.after);
+      restoreState(action.before);
+      flash('Undo');
+    } else if (e.ctrlKey && e.key === 'y') {
+      e.preventDefault();
+      if (redoStack.length === 0) { flash('Nothing to redo'); return; }
+      var state = redoStack.pop();
+      var spread = bookContent.querySelector('[data-spread="' + state.spreadId + '"]');
+      if (spread) {
+        var key = state.key;
+        var beforeState = captureState(spread, key);
+        undoStack.push({ before: beforeState, after: state });
+      }
+      restoreState(state);
+      flash('Redo');
+    }
   });
 
-  // ── Filmstrip click: set as primary (edit mode only) ──
-  document.addEventListener('click', function(e) {
-    if (!editMode) return;
-    var thumb = e.target.closest('.filmstrip-thumb');
-    if (!thumb) return;
-    e.stopPropagation();
-
-    var spread = thumb.closest('.spread');
+  // Helper: apply an illustration to the current visible spread
+  function applyIllustrationToSpread(spread, url, desc) {
     if (!spread) return;
     var ch = spread.dataset.ch;
     var pageLeft = spread.querySelector('.page-left');
     var localPage = pageLeft ? pageLeft.dataset.localPage : '1';
-    var url = thumb.dataset.url;
-    var desc = thumb.dataset.description || '';
+
+    // Capture state for undo
+    var key = 'ch' + ch + '_p' + localPage;
+    var beforeState = captureState(spread, key);
 
     // Update main image
     var mainImg = spread.querySelector('.ill-main img');
@@ -2194,22 +2516,39 @@ document.getElementById('navToggle').addEventListener('click', function() {
     }
     if (caption) caption.textContent = desc;
 
-    // Update active state in filmstrip
-    var allThumbs = spread.querySelectorAll('.filmstrip-thumb');
-    allThumbs.forEach(function(t) { t.classList.remove('active'); });
-    thumb.classList.add('active');
-
     // Track change
-    var key = 'ch' + ch + '_p' + localPage;
     pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc };
 
-    console.log('Pending change:', key, url.substring(0, 60) + '...');
-  });
+    // Push to undo stack
+    var afterState = captureState(spread, key);
+    undoStack.push({ before: beforeState, after: afterState });
+    redoStack = [];
 
-  // ── +Add button (edit mode only) ──
+    // Update carousel highlights
+    updateCarouselActive();
+
+    console.log('Pending change:', key, url.substring(0, 60) + '...');
+  }
+
+  // ── Carousel click: apply to current visible spread ──
   document.addEventListener('click', function(e) {
     if (!editMode) return;
-    var addBtn = e.target.closest('.filmstrip-add');
+    var thumb = e.target.closest('#illCarousel .filmstrip-thumb');
+    if (!thumb) return;
+    e.stopPropagation();
+
+    if (!currentVisibleSpread || !currentVisibleSpread.dataset.ch) {
+      flash('Scroll to a page first');
+      return;
+    }
+
+    applyIllustrationToSpread(currentVisibleSpread, thumb.dataset.url, thumb.dataset.description || '');
+  });
+
+  // ── +Add button in carousel ──
+  document.addEventListener('click', function(e) {
+    if (!editMode) return;
+    var addBtn = e.target.closest('#illCarousel .filmstrip-add');
     if (!addBtn) return;
     e.stopPropagation();
 
@@ -2218,29 +2557,22 @@ document.getElementById('navToggle').addEventListener('click', function() {
     url = url.trim();
     var desc = prompt('Description (optional):') || '';
 
-    var spread = addBtn.closest('.spread');
-    if (!spread) return;
-    var ch = spread.dataset.ch;
-    var pageLeft = spread.querySelector('.page-left');
-    var localPage = pageLeft ? pageLeft.dataset.localPage : '1';
-
-    // Add thumbnail to filmstrip
-    var filmstrip = addBtn.parentElement;
+    // Add to carousel
+    var carousel = document.getElementById('illCarousel');
     var newThumb = document.createElement('div');
     newThumb.className = 'filmstrip-thumb';
-    newThumb.dataset.illChapter = ch;
-    newThumb.dataset.illPage = localPage;
     newThumb.dataset.url = url;
     newThumb.dataset.description = desc;
     var img = document.createElement('img');
     img.src = url;
     img.loading = 'lazy';
     newThumb.appendChild(img);
-    filmstrip.insertBefore(newThumb, addBtn);
+    carousel.insertBefore(newThumb, addBtn);
 
-    // Track as pending
-    var key = 'ch' + ch + '_p' + localPage + '_add' + Date.now();
-    pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc };
+    // Apply to current spread if one is visible
+    if (currentVisibleSpread && currentVisibleSpread.dataset.ch) {
+      applyIllustrationToSpread(currentVisibleSpread, url, desc);
+    }
 
     console.log('Added illustration:', url.substring(0, 60) + '...');
   });
@@ -2272,13 +2604,24 @@ document.getElementById('navToggle').addEventListener('click', function() {
 
     flash('Saving...');
 
-    // 1. Fetch current CSV from GitHub to get SHA
+    // 1. Fetch current CSV from GitHub to get SHA (try gpt/preview first, fallback to main)
     var apiBase = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/';
     var csvApiPath = bookPath + '/illustrations.csv';
-    fetch(apiBase + csvApiPath, {
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
-    })
-    .then(function(r) { return r.json(); })
+    var saveBranch = 'gpt/preview';
+
+    function fetchCsv(branch) {
+      return fetch(apiBase + csvApiPath + '?ref=' + encodeURIComponent(branch), {
+        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+      }).then(function(r) {
+        if (!r.ok && branch === 'gpt/preview') {
+          saveBranch = 'main';
+          return fetchCsv('main').then(function(r2) { return r2.json(); });
+        }
+        return r.json();
+      });
+    }
+
+    fetchCsv(saveBranch)
     .then(function(data) {
       csvSha = data.sha;
       var content = atob(data.content.replace(/\\n/g, ''));
@@ -2318,7 +2661,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
       var newCsv = header + '\\n' + newRows.join('\\n') + '\\n';
       var encoded = btoa(unescape(encodeURIComponent(newCsv)));
 
-      // 2. PUT updated CSV
+      // 2. PUT updated CSV to gpt/preview branch
       return fetch(apiBase + csvApiPath, {
         method: 'PUT',
         headers: {
@@ -2329,7 +2672,8 @@ document.getElementById('navToggle').addEventListener('click', function() {
         body: JSON.stringify({
           message: 'Update illustrations via book editor',
           content: encoded,
-          sha: csvSha
+          sha: csvSha,
+          branch: saveBranch
         })
       });
     })
@@ -2350,6 +2694,171 @@ document.getElementById('navToggle').addEventListener('click', function() {
       console.error('Save failed:', err);
     });
   });
+
+  // ── Download CSV ──
+  var downloadCsvBtn = document.getElementById('downloadCsvBtn');
+  if (downloadCsvBtn) {
+    downloadCsvBtn.addEventListener('click', function() {
+      if (!token || !repoOwner || !repoName || !bookPath) {
+        alert('GitHub config incomplete.');
+        return;
+      }
+      var apiBase = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/';
+      var csvApiPath = bookPath + '/illustrations.csv';
+      // Try gpt/preview first, fallback to main
+      fetch(apiBase + csvApiPath + '?ref=gpt/preview', {
+        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+      })
+      .then(function(r) {
+        if (!r.ok) return fetch(apiBase + csvApiPath, {
+          headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        return r;
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var content = atob(data.content.replace(/\\n/g, ''));
+        var blob = new Blob([content], { type: 'text/csv' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'illustrations.csv';
+        a.click();
+        URL.revokeObjectURL(a.href);
+      })
+      .catch(function(err) {
+        alert('Download failed: ' + err.message);
+      });
+    });
+  }
+
+  // ── Booklet Print Mode: Imposition Algorithm ──
+  // Classify a page element into a category
+  function classifyPage(el) {
+    if (!el) return 'blank';
+    if (el.classList.contains('cover-image')) return 'illustration';
+    if (el.querySelector('.ill-main')) return 'illustration';
+    if (el.classList.contains('cover-title') || el.classList.contains('back-text')) return 'cover';
+    if (el.classList.contains('decorative-panel')) return 'decorative';
+    if (el.classList.contains('preface-text')) return 'preface-text';
+    if (el.querySelector('.text-block')) return 'text';
+    return 'other';
+  }
+
+  // Filter: which page types to include
+  function pagePassesFilter(el, filter) {
+    if (filter === 'all') return true;
+    var type = classifyPage(el);
+    if (filter === 'illustrations') {
+      return type === 'illustration';
+    }
+    if (filter === 'text') {
+      return type === 'text' || type === 'cover' || type === 'preface-text';
+    }
+    return true;
+  }
+
+  function buildBookletView(filter) {
+    var container = document.getElementById('bookletContainer');
+    if (!container) return;
+
+    // Create a wrapper for this filter view
+    var viewDiv = document.createElement('div');
+    viewDiv.className = 'booklet-view';
+    viewDiv.dataset.filter = filter;
+
+    // Collect pages, applying filter
+    var allPages = Array.from(bookContent.querySelectorAll('[data-page]'));
+    var filteredPages = [];
+    for (var i = 0; i < allPages.length; i++) {
+      if (pagePassesFilter(allPages[i], filter)) {
+        filteredPages.push(allPages[i]);
+      }
+    }
+    var totalPages = filteredPages.length;
+
+    // Pad to next multiple of 4
+    var padded = totalPages;
+    if (padded % 4 !== 0) {
+      padded = totalPages + (4 - (totalPages % 4));
+    }
+
+    var half = padded / 2;
+    console.log('Booklet (' + filter + '): ' + totalPages + ' pages, padded to ' + padded + ', half=' + half);
+
+    // Build page array with blanks for padding
+    var pageArray = [];
+    if (totalPages === padded) {
+      for (var i = 0; i < filteredPages.length; i++) pageArray.push(filteredPages[i]);
+    } else {
+      // Insert blank pages before the last 2 pages (back cover)
+      var blanksNeeded = padded - totalPages;
+      var insertAt = Math.max(0, totalPages - 2);
+      for (var i = 0; i < filteredPages.length; i++) {
+        if (i === insertAt) {
+          for (var b = 0; b < blanksNeeded; b++) pageArray.push(null);
+        }
+        pageArray.push(filteredPages[i]);
+      }
+    }
+
+    // Imposition: outermost spread first (sheet 1 = last page, first page)
+    // For a booklet, each physical sheet has the outermost pair on the outside.
+    // Sheet 1: [padded-1, 0], Sheet 2: [1, padded-2], Sheet 3: [padded-3, 2], ...
+    var spreads = [];
+    var lo = 0;
+    var hi = padded - 1;
+    while (lo < hi) {
+      spreads.push([hi, lo]);   // back side: [last, first]
+      lo++;
+      hi--;
+      if (lo < hi) {
+        spreads.push([lo, hi]); // front side: [second, second-to-last]
+        lo++;
+        hi--;
+      }
+    }
+
+    // Build booklet spreads
+    for (var s = 0; s < spreads.length; s++) {
+      var pair = spreads[s];
+      var spreadDiv = document.createElement('div');
+      spreadDiv.className = 'booklet-spread';
+      spreadDiv.appendChild(createBookletHalf(pageArray[pair[0]], pair[0] + 1));
+      spreadDiv.appendChild(createBookletHalf(pageArray[pair[1]], pair[1] + 1));
+      viewDiv.appendChild(spreadDiv);
+    }
+
+    container.appendChild(viewDiv);
+    console.log('Booklet (' + filter + '): ' + spreads.length + ' spreads created');
+  }
+
+  function createBookletHalf(pageEl, pageNum) {
+    var half = document.createElement('div');
+    half.className = 'booklet-half';
+
+    if (!pageEl) {
+      half.classList.add('blank-page');
+      var blank = document.createElement('div');
+      blank.className = 'booklet-page-single';
+      blank.style.background = 'white';
+      blank.innerHTML = '<div style="color:#ccc;font-size:10px;font-family:Georgia,serif">' + pageNum + '</div>';
+      half.appendChild(blank);
+      return half;
+    }
+
+    var clone = pageEl.cloneNode(true);
+    var pageType = classifyPage(pageEl);
+
+    var single = document.createElement('div');
+    single.className = 'booklet-page-single page-type-' + pageType;
+
+    while (clone.firstChild) {
+      single.appendChild(clone.firstChild);
+    }
+
+    half.appendChild(single);
+    return half;
+  }
 })();
 `;
 }
