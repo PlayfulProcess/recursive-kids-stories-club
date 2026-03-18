@@ -1,4 +1,4 @@
-chapter,page,url,description
+chapter,page,url,description,note
 1,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/gwynedd-hudson-1922.jpg,"chapter cover"
 1,1,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-01.jpg,"ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Lewis Carroll manuscript ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Chapter I title page ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Alice bored by the river"
 1,2,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/alice-b-woodward-1913.jpg,"ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Alice B. Woodward ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Suddenly a white rabbit ran by"
@@ -193,3 +193,7 @@ chapter,page,url,description
 12,13,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-waking-up/lewis-carroll-1864-manuscript.webp,"ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Lewis Carroll ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ The end - Alice waking up"
 12,14,,"text-only"
 12,15,,"text-only"
+0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-bored-by-the-river/brinsley-le-fanu-1910.jpg,"Alice took marmalade as she fell"
+0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-bored-by-the-river/lewis-carroll-1864-dedication.webp,"A Christmas Gift to a Dear Child"
+0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-drink-me/lewis-carroll-1864-manuscript.webp,"Alice at the golden key and little door"
+0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-eat-me/nursery-alice-1890-cover.jpg,"The Nursery Alice front cover"

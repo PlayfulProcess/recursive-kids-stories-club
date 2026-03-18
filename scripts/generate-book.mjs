@@ -86,6 +86,7 @@ function loadIllustrationsCsv(csvPath) {
       page: parseInt(row[1], 10),
       url: row[2] || '',
       description: row[3] || '',
+      note: row[4] || '',
     });
   }
   return rows;
@@ -447,7 +448,8 @@ function buildChapterPages(chNum, chapter) {
     const ill = pageIlls[pageNum] || null;
     pages.push({
       text: textPages[i],
-      illustration: ill?.url ? { url: ill.url, description: ill.description } : null,
+      illustration: ill?.url ? { url: ill.url, description: ill.description, note: ill.note || '' } : null,
+      note: ill?.note || '',
     });
   }
 
@@ -652,20 +654,25 @@ for (const chNum of chapterNums) {
 
     // Left page: illustration or decorative
     globalPageNum++;
+    const pageNote = page.note ? escapeHtml(page.note) : '';
+    const noteAttr = pageNote ? ` data-note="${pageNote}"` : '';
+    const noteBtn = `<button class="page-note-btn${pageNote ? ' has-note' : ''}" title="${pageNote || 'Add note for Claude'}">${pageNote ? '\\ud83d\\udcdd' : '\\u270f\\ufe0f'}</button>`;
     if (page.illustration) {
       const caption = page.illustration.description ? `<div class="ill-caption">${escapeHtml(page.illustration.description)}</div>` : '';
       spreadsHtml += `
     <div class="spread" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
-      <div class="page-left" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}">
+      <div class="page-left" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}"${noteAttr}>
         <div class="ill-main"><img src="${page.illustration.url}" alt="${escapeHtml(page.illustration.description || '')}" loading="lazy"></div>
         ${caption}
+        ${noteBtn}
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
     } else {
       spreadsHtml += `
     <div class="spread text-only" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
-      <div class="page-left decorative-panel" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}">
+      <div class="page-left decorative-panel" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}"${noteAttr}>
         <div class="chapter-ornament"><div class="ornament-number">${chNum}</div></div>
+        ${noteBtn}
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
     }
@@ -835,7 +842,7 @@ ${spreadsHtml}
 var AUDIO_DATA = ${audioDataJson};
 var CHAPTER_NAV = ${chapterNavJson};
 var GITHUB_CONFIG = ${githubConfig ? JSON.stringify(githubConfig) : 'null'};
-var ALL_ILLUSTRATIONS = ${JSON.stringify(illustrations.filter(ill => ill.url).map(ill => ({ chapter: ill.chapter, page: ill.page, url: ill.url, description: ill.description })))};
+var ALL_ILLUSTRATIONS = ${JSON.stringify(illustrations.filter(ill => ill.url || ill.note).map(ill => ({ chapter: ill.chapter, page: ill.page, url: ill.url, description: ill.description, note: ill.note })))};
 
 ${generateJS()}
 </script>
@@ -1190,15 +1197,20 @@ function generateCSS() {
       font-family: 'Georgia', serif; flex-shrink: 0;
       border-top: 1px dashed #5a4030; margin-top: 6px;
     }
-    .ill-carousel .filmstrip-request {
-      width: 100px; height: 36px; flex-shrink: 0;
-      border: 2px dashed #60a060; border-radius: 4px;
-      color: #60a060; font-size: 11px; font-weight: bold;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: border-color 0.2s, color 0.2s;
-      margin-top: 4px; font-family: 'Georgia', serif;
+    .ill-carousel .filmstrip-thumb .thumb-note-indicator {
+      position: absolute; bottom: 1px; left: 1px; font-size: 10px;
+      background: rgba(40,40,40,0.7); border-radius: 3px; padding: 0 2px;
+      pointer-events: none;
     }
-    .ill-carousel .filmstrip-request:hover { border-color: #90d090; color: #90d090; }
+    .page-note-btn {
+      display: none; position: absolute; bottom: 24px; right: 8px;
+      background: rgba(44,24,16,0.8); color: #a08060; border: 1px dashed #5a4030;
+      border-radius: 4px; padding: 2px 6px; font-size: 14px;
+      cursor: pointer; z-index: 5; transition: all 0.2s;
+    }
+    .page-note-btn.has-note { color: #90d090; border-color: #60a060; }
+    .page-note-btn:hover { background: rgba(44,24,16,0.95); color: #d4a76a; border-color: #d4a76a; }
+    body.edit-mode .page-note-btn { display: block; }
     body.edit-mode .book-content { margin-left: 120px; }
     body.edit-mode .toolbar { left: 120px; }
     .ill-main {
@@ -2339,13 +2351,6 @@ document.getElementById('navToggle').addEventListener('click', function() {
     addBtn.textContent = '+';
     carousel.appendChild(addBtn);
 
-    // Request illustration button
-    var reqBtn = document.createElement('div');
-    reqBtn.className = 'filmstrip-request';
-    reqBtn.id = 'illRequestBtn';
-    reqBtn.title = 'Request illustration (note for Claude coworker)';
-    reqBtn.textContent = 'Request';
-    carousel.appendChild(reqBtn);
   }
 
   function createThumb(ill) {
@@ -2355,6 +2360,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
     thumb.dataset.illPage = ill.page;
     thumb.dataset.url = ill.url;
     thumb.dataset.description = ill.description || '';
+    thumb.dataset.note = ill.note || '';
     var img = document.createElement('img');
     img.src = ill.url;
     img.loading = 'lazy';
@@ -2365,6 +2371,14 @@ document.getElementById('navToggle').addEventListener('click', function() {
     delBtn.textContent = '\\u00d7';
     delBtn.title = 'Remove from page (move to unused)';
     thumb.appendChild(delBtn);
+    // Note indicator
+    if (ill.note) {
+      var noteInd = document.createElement('div');
+      noteInd.className = 'thumb-note-indicator';
+      noteInd.title = ill.note;
+      noteInd.textContent = '\\ud83d\\udcdd';
+      thumb.appendChild(noteInd);
+    }
     return thumb;
   }
 
@@ -2578,8 +2592,9 @@ document.getElementById('navToggle').addEventListener('click', function() {
     }
     if (caption) caption.textContent = desc;
 
-    // Track change
-    pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc };
+    // Track change (preserve existing note)
+    var existingNote = (pendingChanges[key] && pendingChanges[key].note) || (pageLeft ? pageLeft.dataset.note : '') || '';
+    pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc, note: existingNote };
 
     // Push to undo stack
     var afterState = captureState(spread, key);
@@ -2666,8 +2681,9 @@ document.getElementById('navToggle').addEventListener('click', function() {
     pageEl.classList.add('decorative-panel');
     spread.classList.add('text-only');
 
-    // Track: set page to empty URL (text-only)
-    pendingChanges[key] = { chapter: ch, page: pg, url: '', description: 'text-only' };
+    // Track: set page to empty URL (text-only), preserve note
+    var existingNote = (pendingChanges[key] && pendingChanges[key].note) || (pageEl ? pageEl.dataset.note : '') || '';
+    pendingChanges[key] = { chapter: ch, page: pg, url: '', description: 'text-only', note: existingNote };
 
     // Push undo
     var afterState = captureState(spread, key);
@@ -2698,32 +2714,55 @@ document.getElementById('navToggle').addEventListener('click', function() {
     header.textContent = 'UNUSED (' + unusedThumbs.length + ')';
   }
 
-  // ── Request illustration (note for Claude coworker) ──
+  // ── Per-page note button (request/note for Claude coworker) ──
   document.addEventListener('click', function(e) {
     if (!editMode) return;
-    var reqBtn = e.target.closest('#illRequestBtn');
-    if (!reqBtn) return;
+    var noteBtn = e.target.closest('.page-note-btn');
+    if (!noteBtn) return;
     e.stopPropagation();
 
-    var ch = currentVisibleSpread ? currentVisibleSpread.dataset.ch : '';
-    var pageLeft = currentVisibleSpread ? currentVisibleSpread.querySelector('.page-left') : null;
-    var pg = pageLeft ? pageLeft.dataset.localPage : '';
-    var loc = ch ? 'Chapter ' + ch + (pg ? ', Page ' + pg : '') : 'General';
+    var pageLeft = noteBtn.closest('.page-left');
+    if (!pageLeft) return;
+    var ch = pageLeft.dataset.ch;
+    var pg = pageLeft.dataset.localPage;
+    var existingNote = pageLeft.dataset.note || '';
+    var loc = 'Chapter ' + ch + ', Page ' + pg;
 
-    var promptText = prompt('Illustration request for Claude coworker:\\n(' + loc + ')\\n\\nDescribe what illustration you need:');
-    if (!promptText || !promptText.trim()) return;
+    var promptText = prompt('Note for Claude coworker (' + loc + '):\\n\\nCurrent: ' + (existingNote || '(empty)') + '\\n\\nEnter note (or clear to remove):', existingNote);
+    if (promptText === null) return; // cancelled
 
-    // Save to requests list in pendingRequests
-    if (!window.pendingRequests) window.pendingRequests = [];
-    window.pendingRequests.push({
-      chapter: ch ? parseInt(ch) : 0,
-      page: pg ? parseInt(pg) : 0,
-      prompt: promptText.trim(),
-      location: loc
-    });
+    pageLeft.dataset.note = promptText.trim();
+    var key = 'ch' + ch + '_p' + pg;
 
-    flash('Request saved (' + window.pendingRequests.length + ' pending)');
-    console.log('Illustration request:', loc, promptText.trim());
+    // Update or create pending change with the note
+    if (!pendingChanges[key]) {
+      // No illustration change — just a note change
+      var mainImg = pageLeft.querySelector('.ill-main img');
+      var caption = pageLeft.closest('.spread')?.querySelector('.ill-caption');
+      pendingChanges[key] = {
+        chapter: parseInt(ch),
+        page: parseInt(pg),
+        url: mainImg ? mainImg.src : '',
+        description: caption ? caption.textContent : (mainImg ? mainImg.alt : 'text-only'),
+        note: promptText.trim()
+      };
+    } else {
+      pendingChanges[key].note = promptText.trim();
+    }
+
+    // Update button appearance
+    if (promptText.trim()) {
+      noteBtn.classList.add('has-note');
+      noteBtn.textContent = '\\ud83d\\udcdd';
+      noteBtn.title = promptText.trim();
+    } else {
+      noteBtn.classList.remove('has-note');
+      noteBtn.textContent = '\\u270f\\ufe0f';
+      noteBtn.title = 'Add note for Claude';
+    }
+
+    flash(promptText.trim() ? 'Note saved' : 'Note cleared');
+    console.log('Note for ' + loc + ':', promptText.trim());
   });
 
   // ── +Add button in carousel ──
@@ -2772,8 +2811,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
     e.preventDefault();
 
     var changeKeys = Object.keys(pendingChanges);
-    var hasRequests = window.pendingRequests && window.pendingRequests.length > 0;
-    if (changeKeys.length === 0 && !hasRequests) {
+    if (changeKeys.length === 0) {
       flash('No changes to save');
       return;
     }
@@ -2789,12 +2827,28 @@ document.getElementById('navToggle').addEventListener('click', function() {
     var csvApiPath = bookPath + '/illustrations.csv';
     var saveBranch = 'gpt/preview';
 
-    // If only requests, no CSV changes — just save requests
-    if (changeKeys.length === 0 && hasRequests) {
-      saveRequests().then(function() { flash('Requests saved! \\u2714'); })
-        .catch(function(err) { flash('Error: ' + err.message); });
-      return;
+    // Also collect notes from page-left elements that haven't been explicitly changed
+    var allPageLefts = bookContent.querySelectorAll('.page-left[data-ch][data-local-page]');
+    for (var pli = 0; pli < allPageLefts.length; pli++) {
+      var pl = allPageLefts[pli];
+      var plCh = pl.dataset.ch;
+      var plPg = pl.dataset.localPage;
+      var plNote = pl.dataset.note || '';
+      var plKey = 'ch' + plCh + '_p' + plPg;
+      if (plNote && !pendingChanges[plKey]) {
+        var plImg = pl.querySelector('.ill-main img');
+        var plCaption = pl.closest('.spread')?.querySelector('.ill-caption');
+        pendingChanges[plKey] = {
+          chapter: parseInt(plCh),
+          page: parseInt(plPg),
+          url: plImg ? plImg.src : '',
+          description: plCaption ? plCaption.textContent : (plImg ? plImg.alt : 'text-only'),
+          note: plNote
+        };
+      }
     }
+
+    changeKeys = Object.keys(pendingChanges);
     if (changeKeys.length === 0) return;
 
     // 1. Fetch current CSV from GitHub to get SHA (try gpt/preview first, fallback to main)
@@ -2849,6 +2903,9 @@ document.getElementById('navToggle').addEventListener('click', function() {
         }
       }
 
+      // Ensure header has note column
+      if (header.indexOf(',note') < 0) header = header.trimEnd() + ',note';
+
       // Apply pending changes (skip delete markers)
       for (var key in pendingChanges) {
         var c = pendingChanges[key];
@@ -2856,7 +2913,9 @@ document.getElementById('navToggle').addEventListener('click', function() {
         var rowKey = 'ch' + c.chapter + '_p' + c.page;
         var desc = c.description.replace(/"/g, '""');
         if (desc.indexOf(',') >= 0 || desc.indexOf('"') >= 0) desc = '"' + desc + '"';
-        existing[rowKey] = c.chapter + ',' + c.page + ',' + c.url + ',' + desc;
+        var note = (c.note || '').replace(/"/g, '""');
+        if (note.indexOf(',') >= 0 || note.indexOf('"') >= 0) note = '"' + note + '"';
+        existing[rowKey] = c.chapter + ',' + c.page + ',' + c.url + ',' + desc + ',' + note;
       }
 
       // Remove deleted unused URLs from existing rows
@@ -2915,12 +2974,6 @@ document.getElementById('navToggle').addEventListener('click', function() {
       if (result.content) {
         pendingChanges = {};
         csvSha = result.content.sha;
-        // Save requests if any
-        if (window.pendingRequests && window.pendingRequests.length > 0) {
-          return saveRequests().then(function() {
-            flash('Saved! \\u2714');
-          });
-        }
         flash('Saved! \\u2714');
         console.log('Saved to GitHub:', result.content.html_url);
       } else {
@@ -2932,58 +2985,6 @@ document.getElementById('navToggle').addEventListener('click', function() {
       flash('Error: ' + err.message);
       console.error('Save failed:', err);
     });
-
-    function saveRequests() {
-      if (!window.pendingRequests || window.pendingRequests.length === 0) {
-        return Promise.resolve();
-      }
-      var reqPath = bookPath + '/illustration-requests.csv';
-      // Fetch existing requests file (or create new)
-      return fetch(apiBase + reqPath + '?ref=' + encodeURIComponent(saveBranch), {
-        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
-      })
-      .then(function(r) { return r.ok ? r.json() : null; })
-      .then(function(data) {
-        var existingContent = '';
-        var sha = null;
-        if (data && data.content) {
-          existingContent = atob(data.content.replace(/\\n/g, ''));
-          sha = data.sha;
-        }
-        if (!existingContent) {
-          existingContent = 'chapter,page,prompt,status\\n';
-        }
-        // Append new requests
-        for (var i = 0; i < window.pendingRequests.length; i++) {
-          var req = window.pendingRequests[i];
-          var p = req.prompt.replace(/"/g, '""');
-          existingContent += req.chapter + ',' + req.page + ',"' + p + '",pending\\n';
-        }
-        var encoded = btoa(unescape(encodeURIComponent(existingContent)));
-        var body = {
-          message: 'Add illustration requests via book editor',
-          content: encoded,
-          branch: saveBranch
-        };
-        if (sha) body.sha = sha;
-        return fetch(apiBase + reqPath, {
-          method: 'PUT',
-          headers: {
-            'Authorization': 'token ' + token,
-            'Accept': 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(body)
-        });
-      })
-      .then(function(r) { return r.json(); })
-      .then(function(result) {
-        if (result.content) {
-          window.pendingRequests = [];
-          console.log('Requests saved to GitHub:', result.content.html_url);
-        }
-      });
-    }
   });
 
   // ── Download CSV ──
