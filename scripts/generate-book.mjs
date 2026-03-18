@@ -293,12 +293,13 @@ function splitIntoSentences(text) {
         let k = j;
         while (k < normalized.length && /[\s\n]/.test(normalized[k])) k++;
 
-        // Don't split if we're inside an unclosed quote (mid-dialogue)
-        const opens = (current.match(/[\u201c"]/g) || []).length;
-        const closes = (current.match(/[\u201d"]/g) || []).length;
-        const insideQuote = opens > closes;
-
         const hasParaBreak = normalized.slice(j, k).includes('\n\n');
+
+        // Don't split mid-dialogue (unclosed quote), but paragraph breaks always allow splits
+        const opens = (current.match(/\u201c/g) || []).length;
+        const closes = (current.match(/\u201d/g) || []).length;
+        const insideQuote = opens > closes && !hasParaBreak;
+
         if (!insideQuote && (k >= normalized.length || hasParaBreak || /[A-Z\u201c"(]/.test(normalized[k]))) {
           const match = current.match(/\b(\w+)[.!?][\u201d"'\u2019)]*$/);
           const word = match ? match[1].toLowerCase() : '';
