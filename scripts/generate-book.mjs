@@ -864,8 +864,9 @@ function generateCSS() {
     }
 
     /* ── Spreads ── */
+    :root { --spread-h: 100vh; }
     .spread {
-      width: 100vw; height: 100vh;
+      width: 100vw; height: var(--spread-h);
       display: flex;
       page-break-after: always; break-after: page;
       overflow: hidden;
@@ -1124,7 +1125,7 @@ function generateCSS() {
 
     /* ── Screen mode ── */
     @media screen {
-      .spread { border-bottom: 3px dashed #ccc; min-height: 100vh; }
+      .spread { border-bottom: 3px dashed #ccc; }
       .spread:last-child { border-bottom: none; }
       body { background: #e8e8e8; padding-top: 44px; }
     }
@@ -1293,7 +1294,7 @@ function generateCSS() {
     body.booklet-mode .booklet-container { display: block; }
     .booklet-container { display: none; }
     .booklet-spread {
-      width: 100vw; height: 100vh;
+      width: 100vw; height: var(--spread-h);
       display: flex; overflow: hidden;
       page-break-after: always; break-after: page;
     }
@@ -1389,7 +1390,7 @@ function generateCSS() {
     .booklet-page-single .ill-main img { max-width: 100%; max-height: 85%; object-fit: contain; border-radius: 4px; }
     @media screen {
       body.booklet-mode { background: #e8e8e8; }
-      .booklet-spread { border-bottom: 3px dashed #ccc; min-height: 100vh; }
+      .booklet-spread { border-bottom: 3px dashed #ccc; }
       .booklet-spread:last-child { border-bottom: none; }
     }
     body.booklet-mode .chapter-nav,
@@ -1452,6 +1453,12 @@ ${githubConfig ? '    <option value="edit">&#9998; Edit</option>' : ''}
 
 function generateJS() {
   return `
+// ── Lock spread height to pixels so browser zoom scales pages ──
+(function() {
+  var h = window.innerHeight;
+  document.documentElement.style.setProperty('--spread-h', h + 'px');
+})();
+
 // ── Chapter Navigation ──
 (function() {
   var navEl = document.getElementById('chapterNav');
