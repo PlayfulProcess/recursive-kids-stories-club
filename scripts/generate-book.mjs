@@ -293,8 +293,13 @@ function splitIntoSentences(text) {
         let k = j;
         while (k < normalized.length && /[\s\n]/.test(normalized[k])) k++;
 
+        // Don't split if we're inside an unclosed quote (mid-dialogue)
+        const opens = (current.match(/[\u201c"]/g) || []).length;
+        const closes = (current.match(/[\u201d"]/g) || []).length;
+        const insideQuote = opens > closes;
+
         const hasParaBreak = normalized.slice(j, k).includes('\n\n');
-        if (k >= normalized.length || hasParaBreak || /[A-Z\u201c"(]/.test(normalized[k])) {
+        if (!insideQuote && (k >= normalized.length || hasParaBreak || /[A-Z\u201c"(]/.test(normalized[k]))) {
           const match = current.match(/\b(\w+)[.!?][\u201d"'\u2019)]*$/);
           const word = match ? match[1].toLowerCase() : '';
           if (!ABBREVIATIONS.has(word)) {
@@ -1049,6 +1054,7 @@ function generateCSS() {
       background: rgba(255,255,255,0.08); color: #d4a76a; font-size: 11px;
       font-family: 'Georgia', serif; cursor: pointer; outline: none;
     }
+    .toolbar select option { background: #2c1810; color: #d4a76a; }
     .toolbar .match-count { font-size: 11px; color: #a08060; min-width: 60px; }
     .toolbar .spacer { flex: 1; }
     .toolbar .ch-title { font-size: 12px; letter-spacing: 1px; }
@@ -1538,7 +1544,7 @@ function generateToolbarHTML() {
   <span class="ch-title" style="color:#a08060" id="audioTime"></span>
   <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
   <span class="match-count" id="matchCount"></span>
-  <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:48px;font-size:13px;text-align:center;-moz-appearance:textfield;background:transparent;color:#a08060" autocomplete="off">
+  <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:52px;font-size:12px;text-align:center;-moz-appearance:textfield;background:rgba(255,255,255,0.08);color:#d4a76a;border:none;border-radius:4px;padding:4px 6px;font-family:Georgia,serif" autocomplete="off">
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
