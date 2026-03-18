@@ -838,7 +838,10 @@ ${githubConfig ? `<div class="edit-modal" id="editModal">
 
 <div class="save-flash" id="saveFlash">Saved!</div>
 
+<div class="book-content" id="bookContent">
 ${spreadsHtml}
+</div>
+<div class="booklet-container" id="bookletContainer"></div>
 
 <script>
 var AUDIO_DATA = ${audioDataJson};
@@ -1297,10 +1300,121 @@ function generateCSS() {
     }
     .save-flash.active { display: block; opacity: 1; }
 
+    /* ── Booklet Print Mode ── */
+    body.booklet-mode .book-content { display: none; }
+    body.booklet-mode .booklet-container { display: block; }
+    .booklet-container { display: none; }
+    .booklet-spread {
+      width: 100vw; height: 100vh;
+      display: flex; overflow: hidden;
+      page-break-after: always; break-after: page;
+    }
+    .booklet-spread:last-child { page-break-after: avoid; break-after: avoid; }
+    .booklet-half {
+      width: 50%; height: 100%;
+      overflow: hidden; position: relative;
+      border: 1px solid #d0c8b8;
+    }
+    .booklet-half.blank-page {
+      background: white;
+    }
+    .booklet-half .booklet-page-inner {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    /* Scale down a full spread into a half-page */
+    .booklet-half .booklet-page-inner .spread {
+      width: 100%; height: 100%;
+      min-height: 0 !important;
+      border-bottom: none !important;
+      page-break-after: avoid !important; break-after: avoid !important;
+    }
+    .booklet-half .booklet-page-inner .spread .page-left,
+    .booklet-half .booklet-page-inner .spread .page-right {
+      width: 100%; height: 50%;
+    }
+    /* Single page rendering inside booklet half */
+    .booklet-page-single {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .booklet-page-single.page-type-illustration {
+      background: #f8f5f0; padding: 8px;
+    }
+    .booklet-page-single.page-type-illustration img {
+      max-width: 100%; max-height: 85%;
+      object-fit: contain; border-radius: 4px;
+    }
+    .booklet-page-single.page-type-text {
+      background: white; padding: 16px 8%;
+    }
+    .booklet-page-single.page-type-text .text-block {
+      flex: 1 1 0; min-height: 0; width: 100%;
+      display: flex; flex-direction: column;
+      justify-content: center; overflow: hidden;
+    }
+    .booklet-page-single.page-type-text .text-block p {
+      font-size: 11px; line-height: 1.4;
+      text-align: justify; text-align-last: left;
+      margin-bottom: 0.4em; text-indent: 1em;
+    }
+    .booklet-page-single.page-type-cover {
+      background: #2c1810; color: white;
+    }
+    .booklet-page-single.page-type-cover .title-block,
+    .booklet-page-single.page-type-cover .back-block {
+      text-align: center; font-family: 'Georgia', serif;
+    }
+    .booklet-page-single.page-type-cover .title-block h1 { font-size: 16px; line-height: 1.2; margin-bottom: 8px; font-weight: 800; color: white; }
+    .booklet-page-single.page-type-cover .series-name,
+    .booklet-page-single.page-type-cover .book-number { font-size: 9px; letter-spacing: 2px; color: #d4a76a; margin-bottom: 4px; }
+    .booklet-page-single.page-type-cover .author { font-size: 9px; letter-spacing: 2px; color: #d4a76a; }
+    .booklet-page-single.page-type-cover .ornament { font-size: 14px; color: #d4a76a; margin-bottom: 12px; letter-spacing: 4px; }
+    .booklet-page-single.page-type-cover .edition { font-size: 8px; color: #a08060; letter-spacing: 1px; line-height: 1.6; }
+    .booklet-page-single.page-type-cover .page-info { font-size: 8px; color: #a08060; letter-spacing: 1px; }
+    .booklet-page-single.page-type-decorative {
+      background: #2c1810;
+    }
+    .booklet-page-single.page-type-decorative .chapter-ornament { text-align: center; color: #d4a76a; }
+    .booklet-page-single.page-type-decorative .ornament-number { font-size: 48px; font-weight: 800; opacity: 0.3; }
+    .booklet-page-single.page-type-decorative .ornament-star { font-size: 36px; opacity: 0.3; }
+    .booklet-page-single .ill-caption { font-size: 7px; color: #8a7a6a; text-align: center; margin-top: 4px; font-style: italic; }
+    .booklet-page-single .page-number { font-size: 8px; color: #999; position: absolute; bottom: 4px; }
+    .booklet-page-single .page-number-left { left: 8px; }
+    .booklet-page-single .page-number-right { right: 8px; }
+    .booklet-page-single .poem-block { text-align: center; max-width: 90%; }
+    .booklet-page-single .poem-title { font-size: 10px; letter-spacing: 2px; color: #d4a76a; margin-bottom: 12px; }
+    .booklet-page-single .poem-line { font-size: 9px; line-height: 1.5; font-style: italic; color: #e0d4c4; }
+    .booklet-page-single .poem-stanza { margin-bottom: 8px; }
+    .booklet-page-single.page-type-preface-text {
+      background: #2c1810; color: #f0e6d6;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .booklet-page-single .the-end { font-size: 20px; font-weight: 800; letter-spacing: 4px; color: #d4a76a; margin-bottom: 12px; }
+    .booklet-page-single .back-info p { font-size: 8px; letter-spacing: 1px; margin-bottom: 3px; color: #d4a76a; }
+    .booklet-page-single .back-info .small { font-size: 7px; color: #a08060; }
+    .booklet-page-single .filmstrip { display: none; }
+    .booklet-page-single .ill-main { padding-left: 0 !important; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
+    .booklet-page-single .ill-main img { max-width: 100%; max-height: 85%; object-fit: contain; border-radius: 4px; }
+    @media screen {
+      body.booklet-mode { background: #e8e8e8; }
+      .booklet-spread { border-bottom: 3px dashed #ccc; min-height: 100vh; }
+      .booklet-spread:last-child { border-bottom: none; }
+    }
+    body.booklet-mode .chapter-nav,
+    body.booklet-mode .zoom-overlay,
+    body.booklet-mode .edit-modal,
+    body.booklet-mode .metadata-overlay,
+    body.booklet-mode .save-flash { display: none !important; }
+
     /* ── Print ── */
     @media print {
       body { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-top: 0 !important; background: white !important; }
       .spread { height: 100vh; border-bottom: none !important; min-height: auto !important; page-break-inside: avoid; break-inside: avoid; }
+      .booklet-spread { height: 100vh; border-bottom: none !important; min-height: auto !important; page-break-inside: avoid; break-inside: avoid; }
       .page-left img { box-shadow: none; }
       .cover-image img { box-shadow: none; }
       .toolbar, .chapter-nav, .audio-progress, .zoom-overlay, .filmstrip, .edit-modal, .metadata-overlay, .save-flash { display: none !important; }
@@ -1334,7 +1448,12 @@ function generateToolbarHTML() {
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
-${githubConfig ? '  <button id="editToggle" title="Toggle edit mode">&#128274; Edit</button><span class="edit-indicator" id="editIndicator"></span>' : ''}
+  <select id="modeSelect" title="View mode">
+    <option value="read">&#128214; Read</option>
+${githubConfig ? '    <option value="edit">&#9998; Edit</option>' : ''}
+    <option value="booklet">&#128214; Booklet Print</option>
+  </select>
+  <span class="edit-indicator" id="editIndicator"></span>
 </div>`;
 }
 
@@ -2039,29 +2158,56 @@ document.getElementById('navToggle').addEventListener('click', function() {
   }
 })();
 
-// ── Edit Mode + Illustration Carousel ──
+// ── Mode Switcher (Read / Edit / Booklet Print) ──
 (function() {
-  if (!GITHUB_CONFIG) return;
-
-  var editMode = false;
-  var token = localStorage.getItem('rksc_github_token');
-  var repoOwner = GITHUB_CONFIG.owner || '';
-  var repoName = GITHUB_CONFIG.repo || '';
-  var bookPath = GITHUB_CONFIG.bookPath || '';
-  var csvSha = null;
-  var pendingChanges = {};
-  var editToggle = document.getElementById('editToggle');
+  var modeSelect = document.getElementById('modeSelect');
   var editIndicator = document.getElementById('editIndicator');
   var editModal = document.getElementById('editModal');
   var saveFlash = document.getElementById('saveFlash');
+  var bookContent = document.getElementById('bookContent');
+  var bookletContainer = document.getElementById('bookletContainer');
+  var currentMode = 'read';
+  var bookletBuilt = false;
 
-  if (!editToggle) return;
+  // Edit mode state
+  var editMode = false;
+  var token = GITHUB_CONFIG ? localStorage.getItem('rksc_github_token') : null;
+  var repoOwner = GITHUB_CONFIG ? (GITHUB_CONFIG.owner || '') : '';
+  var repoName = GITHUB_CONFIG ? (GITHUB_CONFIG.repo || '') : '';
+  var bookPath = GITHUB_CONFIG ? (GITHUB_CONFIG.bookPath || '') : '';
+  var csvSha = null;
+  var pendingChanges = {};
+
+  function setMode(mode) {
+    // Leaving old mode
+    if (currentMode === 'edit') setEditMode(false);
+    if (currentMode === 'booklet') document.body.classList.remove('booklet-mode');
+
+    currentMode = mode;
+    modeSelect.value = mode;
+
+    if (mode === 'read') {
+      if (editIndicator) editIndicator.textContent = '';
+    } else if (mode === 'edit') {
+      if (!GITHUB_CONFIG) { setMode('read'); return; }
+      if (!token) {
+        showModal();
+        return; // modal will call setMode('edit') after token is saved
+      }
+      setEditMode(true);
+    } else if (mode === 'booklet') {
+      document.body.classList.add('booklet-mode');
+      if (!bookletBuilt) {
+        buildBookletView();
+        bookletBuilt = true;
+      }
+      if (editIndicator) editIndicator.textContent = 'BOOKLET PRINT';
+    }
+  }
 
   function setEditMode(on) {
     editMode = on;
     document.body.classList.toggle('edit-mode', on);
-    editToggle.innerHTML = on ? '\\u270f\\ufe0f Editing' : '\\ud83d\\udd12 Edit';
-    editToggle.classList.toggle('active', on);
     if (editIndicator) {
       editIndicator.textContent = on ? 'EDIT MODE' : '';
     }
@@ -2083,16 +2229,8 @@ document.getElementById('navToggle').addEventListener('click', function() {
     if (editModal) editModal.classList.remove('active');
   }
 
-  editToggle.addEventListener('click', function() {
-    if (editMode) {
-      setEditMode(false);
-      return;
-    }
-    if (!token) {
-      showModal();
-    } else {
-      setEditMode(true);
-    }
+  modeSelect.addEventListener('change', function() {
+    setMode(modeSelect.value);
   });
 
   // Modal save/cancel
@@ -2109,11 +2247,14 @@ document.getElementById('navToggle').addEventListener('click', function() {
       repoName = r || repoName;
       localStorage.setItem('rksc_github_token', token);
       hideModal();
-      setEditMode(true);
+      setMode('edit');
     });
   }
   if (ghCancelBtn) {
-    ghCancelBtn.addEventListener('click', hideModal);
+    ghCancelBtn.addEventListener('click', function() {
+      hideModal();
+      setMode('read');
+    });
   }
 
   // ── Token help popup ──
@@ -2350,6 +2491,126 @@ document.getElementById('navToggle').addEventListener('click', function() {
       console.error('Save failed:', err);
     });
   });
+
+  // ── Booklet Print Mode: Imposition Algorithm ──
+  function buildBookletView() {
+    var container = document.getElementById('bookletContainer');
+    if (!container) return;
+    container.innerHTML = '';
+
+    // Collect all individual pages from the book content
+    var allPages = Array.from(bookContent.querySelectorAll('[data-page]'));
+    var totalPages = allPages.length;
+
+    // Pad to next multiple of 4
+    var padded = totalPages;
+    if (padded % 4 !== 0) {
+      padded = totalPages + (4 - (totalPages % 4));
+    }
+
+    var half = padded / 2;
+    console.log('Booklet: ' + totalPages + ' pages, padded to ' + padded + ', half=' + half);
+
+    // Build page array with blanks for padding
+    // Blank pages go between last text page and back cover (last page)
+    var pageArray = [];
+    if (totalPages === padded) {
+      // No padding needed
+      for (var i = 0; i < allPages.length; i++) pageArray.push(allPages[i]);
+    } else {
+      // Insert blank pages before the back cover pages
+      // The last 2 pages are the back cover spread (THE END)
+      var blanksNeeded = padded - totalPages;
+      var insertAt = totalPages - 2; // before the last 2 pages
+      for (var i = 0; i < allPages.length; i++) {
+        if (i === insertAt) {
+          for (var b = 0; b < blanksNeeded; b++) pageArray.push(null); // null = blank
+        }
+        pageArray.push(allPages[i]);
+      }
+    }
+
+    // Imposition: first spread is [half, half+1], then [half-1, half+2], etc.
+    // half is 1-indexed: page at index half-1 and half
+    var spreads = [];
+    var left = half - 1;  // 0-indexed
+    var right = half;     // 0-indexed
+    while (left >= 0 && right < padded) {
+      spreads.push([left, right]);
+      left--;
+      right++;
+    }
+
+    // Build booklet HTML
+    for (var s = 0; s < spreads.length; s++) {
+      var pair = spreads[s];
+      var spreadDiv = document.createElement('div');
+      spreadDiv.className = 'booklet-spread';
+
+      // Left half
+      spreadDiv.appendChild(createBookletHalf(pageArray[pair[0]], pair[0] + 1));
+      // Right half
+      spreadDiv.appendChild(createBookletHalf(pageArray[pair[1]], pair[1] + 1));
+
+      container.appendChild(spreadDiv);
+    }
+
+    console.log('Booklet: ' + spreads.length + ' booklet spreads created');
+  }
+
+  function createBookletHalf(pageEl, pageNum) {
+    var half = document.createElement('div');
+    half.className = 'booklet-half';
+
+    if (!pageEl) {
+      // Blank page
+      half.classList.add('blank-page');
+      var blank = document.createElement('div');
+      blank.className = 'booklet-page-single';
+      blank.style.background = 'white';
+      blank.innerHTML = '<div style="color:#ccc;font-size:10px;font-family:Georgia,serif">' + pageNum + '</div>';
+      half.appendChild(blank);
+      return half;
+    }
+
+    // Clone the page content
+    var clone = pageEl.cloneNode(true);
+
+    // Determine page type for styling
+    var pageType = 'text';
+    if (clone.classList.contains('cover-image') || clone.querySelector('.ill-main') || clone.querySelector('img:not(.filmstrip-thumb img)')) {
+      if (clone.classList.contains('cover-image')) {
+        pageType = 'illustration';
+      } else if (clone.querySelector('.ill-main')) {
+        pageType = 'illustration';
+      } else if (clone.classList.contains('decorative-panel')) {
+        pageType = 'decorative';
+      }
+    }
+    if (clone.classList.contains('cover-title') || clone.classList.contains('back-text')) {
+      pageType = 'cover';
+    }
+    if (clone.classList.contains('decorative-panel')) {
+      pageType = 'decorative';
+    }
+    if (clone.classList.contains('preface-text')) {
+      pageType = 'preface-text';
+    }
+    if (clone.querySelector('.text-block')) {
+      pageType = 'text';
+    }
+
+    var single = document.createElement('div');
+    single.className = 'booklet-page-single page-type-' + pageType;
+
+    // Copy inner content
+    while (clone.firstChild) {
+      single.appendChild(clone.firstChild);
+    }
+
+    half.appendChild(single);
+    return half;
+  }
 })();
 `;
 }
