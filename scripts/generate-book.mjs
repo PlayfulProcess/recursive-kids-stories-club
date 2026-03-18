@@ -1451,7 +1451,9 @@ function generateToolbarHTML() {
   <select id="modeSelect" title="View mode">
     <option value="read">&#128214; Read</option>
 ${githubConfig ? '    <option value="edit">&#9998; Edit</option>' : ''}
-    <option value="booklet">&#128214; Booklet Print</option>
+    <option value="booklet">&#128459; Booklet Print</option>
+    <option value="booklet-illustrations">&#127912; Illustrations Only</option>
+    <option value="booklet-text">&#128220; Text Only</option>
   </select>
   <span class="edit-indicator" id="editIndicator"></span>
 </div>`;
@@ -2167,7 +2169,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
   var bookContent = document.getElementById('bookContent');
   var bookletContainer = document.getElementById('bookletContainer');
   var currentMode = 'read';
-  var bookletBuilt = false;
+  var bookletCache = {}; // keyed by filter type: 'all', 'illustrations', 'text'
 
   // Edit mode state
   var editMode = false;
@@ -2181,7 +2183,7 @@ document.getElementById('navToggle').addEventListener('click', function() {
   function setMode(mode) {
     // Leaving old mode
     if (currentMode === 'edit') setEditMode(false);
-    if (currentMode === 'booklet') document.body.classList.remove('booklet-mode');
+    if (currentMode.indexOf('booklet') === 0) document.body.classList.remove('booklet-mode');
 
     currentMode = mode;
     modeSelect.value = mode;
@@ -2195,13 +2197,22 @@ document.getElementById('navToggle').addEventListener('click', function() {
         return; // modal will call setMode('edit') after token is saved
       }
       setEditMode(true);
-    } else if (mode === 'booklet') {
+    } else if (mode.indexOf('booklet') === 0) {
+      var filter = 'all';
+      var label = 'BOOKLET PRINT';
+      if (mode === 'booklet-illustrations') { filter = 'illustrations'; label = 'ILLUSTRATIONS ONLY'; }
+      else if (mode === 'booklet-text') { filter = 'text'; label = 'TEXT ONLY'; }
       document.body.classList.add('booklet-mode');
-      if (!bookletBuilt) {
-        buildBookletView();
-        bookletBuilt = true;
+      if (!bookletCache[filter]) {
+        buildBookletView(filter);
+        bookletCache[filter] = true;
       }
-      if (editIndicator) editIndicator.textContent = 'BOOKLET PRINT';
+      // Show only the active booklet view
+      var views = bookletContainer.querySelectorAll('.booklet-view');
+      for (var v = 0; v < views.length; v++) {
+        views[v].style.display = views[v].dataset.filter === filter ? '' : 'none';
+      }
+      if (editIndicator) editIndicator.textContent = label;
     }
   }
 
@@ -2493,14 +2504,49 @@ document.getElementById('navToggle').addEventListener('click', function() {
   });
 
   // ── Booklet Print Mode: Imposition Algorithm ──
-  function buildBookletView() {
+  // Classify a page element into a category
+  function classifyPage(el) {
+    if (!el) return 'blank';
+    if (el.classList.contains('cover-image')) return 'illustration';
+    if (el.querySelector('.ill-main')) return 'illustration';
+    if (el.classList.contains('cover-title') || el.classList.contains('back-text')) return 'cover';
+    if (el.classList.contains('decorative-panel')) return 'decorative';
+    if (el.classList.contains('preface-text')) return 'preface-text';
+    if (el.querySelector('.text-block')) return 'text';
+    return 'other';
+  }
+
+  // Filter: which page types to include
+  function pagePassesFilter(el, filter) {
+    if (filter === 'all') return true;
+    var type = classifyPage(el);
+    if (filter === 'illustrations') {
+      return type === 'illustration' || type === 'cover';
+    }
+    if (filter === 'text') {
+      return type === 'text' || type === 'cover' || type === 'preface-text';
+    }
+    return true;
+  }
+
+  function buildBookletView(filter) {
     var container = document.getElementById('bookletContainer');
     if (!container) return;
-    container.innerHTML = '';
 
-    // Collect all individual pages from the book content
+    // Create a wrapper for this filter view
+    var viewDiv = document.createElement('div');
+    viewDiv.className = 'booklet-view';
+    viewDiv.dataset.filter = filter;
+
+    // Collect pages, applying filter
     var allPages = Array.from(bookContent.querySelectorAll('[data-page]'));
-    var totalPages = allPages.length;
+    var filteredPages = [];
+    for (var i = 0; i < allPages.length; i++) {
+      if (pagePassesFilter(allPages[i], filter)) {
+        filteredPages.push(allPages[i]);
+      }
+    }
+    var totalPages = filteredPages.length;
 
     // Pad to next multiple of 4
     var padded = totalPages;
@@ -2509,53 +2555,46 @@ document.getElementById('navToggle').addEventListener('click', function() {
     }
 
     var half = padded / 2;
-    console.log('Booklet: ' + totalPages + ' pages, padded to ' + padded + ', half=' + half);
+    console.log('Booklet (' + filter + '): ' + totalPages + ' pages, padded to ' + padded + ', half=' + half);
 
     // Build page array with blanks for padding
-    // Blank pages go between last text page and back cover (last page)
     var pageArray = [];
     if (totalPages === padded) {
-      // No padding needed
-      for (var i = 0; i < allPages.length; i++) pageArray.push(allPages[i]);
+      for (var i = 0; i < filteredPages.length; i++) pageArray.push(filteredPages[i]);
     } else {
-      // Insert blank pages before the back cover pages
-      // The last 2 pages are the back cover spread (THE END)
+      // Insert blank pages before the last 2 pages (back cover)
       var blanksNeeded = padded - totalPages;
-      var insertAt = totalPages - 2; // before the last 2 pages
-      for (var i = 0; i < allPages.length; i++) {
+      var insertAt = Math.max(0, totalPages - 2);
+      for (var i = 0; i < filteredPages.length; i++) {
         if (i === insertAt) {
-          for (var b = 0; b < blanksNeeded; b++) pageArray.push(null); // null = blank
+          for (var b = 0; b < blanksNeeded; b++) pageArray.push(null);
         }
-        pageArray.push(allPages[i]);
+        pageArray.push(filteredPages[i]);
       }
     }
 
-    // Imposition: first spread is [half, half+1], then [half-1, half+2], etc.
-    // half is 1-indexed: page at index half-1 and half
+    // Imposition: center spread first, working outward
     var spreads = [];
-    var left = half - 1;  // 0-indexed
-    var right = half;     // 0-indexed
+    var left = half - 1;
+    var right = half;
     while (left >= 0 && right < padded) {
       spreads.push([left, right]);
       left--;
       right++;
     }
 
-    // Build booklet HTML
+    // Build booklet spreads
     for (var s = 0; s < spreads.length; s++) {
       var pair = spreads[s];
       var spreadDiv = document.createElement('div');
       spreadDiv.className = 'booklet-spread';
-
-      // Left half
       spreadDiv.appendChild(createBookletHalf(pageArray[pair[0]], pair[0] + 1));
-      // Right half
       spreadDiv.appendChild(createBookletHalf(pageArray[pair[1]], pair[1] + 1));
-
-      container.appendChild(spreadDiv);
+      viewDiv.appendChild(spreadDiv);
     }
 
-    console.log('Booklet: ' + spreads.length + ' booklet spreads created');
+    container.appendChild(viewDiv);
+    console.log('Booklet (' + filter + '): ' + spreads.length + ' spreads created');
   }
 
   function createBookletHalf(pageEl, pageNum) {
@@ -2563,7 +2602,6 @@ document.getElementById('navToggle').addEventListener('click', function() {
     half.className = 'booklet-half';
 
     if (!pageEl) {
-      // Blank page
       half.classList.add('blank-page');
       var blank = document.createElement('div');
       blank.className = 'booklet-page-single';
@@ -2573,37 +2611,12 @@ document.getElementById('navToggle').addEventListener('click', function() {
       return half;
     }
 
-    // Clone the page content
     var clone = pageEl.cloneNode(true);
-
-    // Determine page type for styling
-    var pageType = 'text';
-    if (clone.classList.contains('cover-image') || clone.querySelector('.ill-main') || clone.querySelector('img:not(.filmstrip-thumb img)')) {
-      if (clone.classList.contains('cover-image')) {
-        pageType = 'illustration';
-      } else if (clone.querySelector('.ill-main')) {
-        pageType = 'illustration';
-      } else if (clone.classList.contains('decorative-panel')) {
-        pageType = 'decorative';
-      }
-    }
-    if (clone.classList.contains('cover-title') || clone.classList.contains('back-text')) {
-      pageType = 'cover';
-    }
-    if (clone.classList.contains('decorative-panel')) {
-      pageType = 'decorative';
-    }
-    if (clone.classList.contains('preface-text')) {
-      pageType = 'preface-text';
-    }
-    if (clone.querySelector('.text-block')) {
-      pageType = 'text';
-    }
+    var pageType = classifyPage(pageEl);
 
     var single = document.createElement('div');
     single.className = 'booklet-page-single page-type-' + pageType;
 
-    // Copy inner content
     while (clone.firstChild) {
       single.appendChild(clone.firstChild);
     }
