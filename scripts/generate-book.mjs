@@ -570,6 +570,8 @@ if (config.preface) {
     <div class="spread preface-spread" data-spread="preface-${gi + 1}" id="preface">
       <div class="page-left cover-image" data-page="${globalPageNum}">
         <img src="${config.preface.image}" alt="Preface illustration" loading="lazy">
+        <button class="page-ill-delete" title="Remove illustration">\u00d7</button>
+        <button class="page-note-btn" title="Add note for Claude">\u{270F}\u{FE0F}</button>
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
     } else {
@@ -577,6 +579,7 @@ if (config.preface) {
     <div class="spread preface-spread" data-spread="preface-${gi + 1}">
       <div class="page-left decorative-panel" data-page="${globalPageNum}">
         <div class="chapter-ornament"><div class="ornament-star">&#10048;</div></div>
+        <button class="page-note-btn" title="Add note for Claude">\u{270F}\u{FE0F}</button>
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
     }
@@ -619,8 +622,9 @@ for (const chNum of chapterNums) {
   globalPageNum++;
   spreadsHtml += `
     <div class="spread cover-spread chapter-divider" data-spread="ch${chNum}-cover" id="ch${chNum}">
-      <div class="page-left cover-image" data-page="${globalPageNum}">
+      <div class="page-left cover-image" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="0">
         <img src="${coverImage}" alt="Chapter ${chNum} cover" loading="lazy">
+        <button class="page-ill-delete" title="Remove illustration">\u00d7</button>
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
   globalPageNum++;
@@ -662,7 +666,7 @@ for (const chNum of chapterNums) {
       spreadsHtml += `
     <div class="spread" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
       <div class="page-left" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}"${noteAttr}>
-        <div class="ill-main"><img src="${page.illustration.url}" alt="${escapeHtml(page.illustration.description || '')}" loading="lazy"></div>
+        <div class="ill-main"><img src="${page.illustration.url}" alt="${escapeHtml(page.illustration.description || '')}" loading="lazy"><button class="page-ill-delete" title="Remove illustration">\u00d7</button></div>
         ${caption}
         ${noteBtn}
         <div class="page-number page-number-left">${globalPageNum}</div>
@@ -1184,9 +1188,9 @@ function generateCSS() {
     }
     .ill-carousel .filmstrip-add:hover { border-color: #d4a76a; color: #d4a76a; }
     .ill-carousel .filmstrip-thumb .thumb-delete {
-      position: absolute; top: 2px; right: 2px; width: 20px; height: 20px;
-      background: rgba(180,40,40,0.9); color: #fff; border: none; border-radius: 50%;
-      font-size: 14px; line-height: 20px; text-align: center; cursor: pointer;
+      position: absolute; top: 1px; right: 1px; width: 16px; height: 16px;
+      background: rgba(180,40,40,0.85); color: #fff; border: none; border-radius: 50%;
+      font-size: 11px; line-height: 16px; text-align: center; cursor: pointer;
       display: block; z-index: 2; padding: 0; opacity: 0.8;
     }
     .ill-carousel .filmstrip-thumb:hover .thumb-delete { opacity: 1; }
@@ -1214,6 +1218,7 @@ function generateCSS() {
     body.edit-mode .book-content { margin-left: 120px; }
     body.edit-mode .toolbar { left: 120px; }
     .ill-main {
+      position: relative;
       display: flex; align-items: center; justify-content: center;
       flex: 1; width: 100%; height: 100%;
       padding-left: 0;
@@ -1224,6 +1229,18 @@ function generateCSS() {
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       cursor: pointer;
     }
+    .page-ill-delete {
+      display: none; position: absolute; top: 8px; right: 8px;
+      width: 28px; height: 28px;
+      background: rgba(180,40,40,0.85); color: #fff; border: none; border-radius: 50%;
+      font-size: 18px; line-height: 28px; text-align: center;
+      cursor: pointer; z-index: 10; opacity: 0;
+      transition: opacity 0.2s;
+    }
+    body.edit-mode .page-ill-delete { display: block; }
+    body.edit-mode .ill-main:hover .page-ill-delete,
+    body.edit-mode .cover-image:hover .page-ill-delete { opacity: 0.9; }
+    body.edit-mode .page-ill-delete:hover { background: #c02020; opacity: 1; }
     /* ── Edit Mode ── */
     .edit-indicator {
       font-size: 10px; letter-spacing: 1px; color: #ff9040;
@@ -2403,7 +2420,7 @@ if (goToPageInput) {
 
   // IntersectionObserver to track which spread is currently visible
   function startSpreadObserver() {
-    var spreads = bookContent.querySelectorAll('.spread[data-ch]');
+    var spreads = bookContent.querySelectorAll('.spread');
     var observer = new IntersectionObserver(function(entries) {
       for (var i = 0; i < entries.length; i++) {
         if (entries[i].isIntersecting) {
@@ -2574,8 +2591,15 @@ if (goToPageInput) {
     var pageLeft = spread.querySelector('.page-left');
     var localPage = pageLeft ? pageLeft.dataset.localPage : '1';
 
+    // Build key — use data-spread as fallback for non-chapter spreads (preface, back-cover)
+    var key;
+    if (ch) {
+      key = 'ch' + ch + '_p' + localPage;
+    } else {
+      key = spread.dataset.spread || 'unknown';
+    }
+
     // Capture state for undo
-    var key = 'ch' + ch + '_p' + localPage;
     var beforeState = captureState(spread, key);
 
     // Update main image
@@ -2594,6 +2618,11 @@ if (goToPageInput) {
         img.alt = desc;
         img.loading = 'lazy';
         illMain.appendChild(img);
+        var pageDelBtn = document.createElement('button');
+        pageDelBtn.className = 'page-ill-delete';
+        pageDelBtn.textContent = '\u00d7';
+        pageDelBtn.title = 'Remove illustration';
+        illMain.appendChild(pageDelBtn);
         var ornament = decoPanel.querySelector('.chapter-ornament');
         if (ornament) ornament.style.display = 'none';
         decoPanel.insertBefore(illMain, decoPanel.querySelector('.page-number'));
@@ -2613,7 +2642,9 @@ if (goToPageInput) {
 
     // Track change (preserve existing note)
     var existingNote = (pendingChanges[key] && pendingChanges[key].note) || (pageLeft ? pageLeft.dataset.note : '') || '';
-    pendingChanges[key] = { chapter: parseInt(ch), page: parseInt(localPage), url: url, description: desc, note: existingNote };
+    var chNum = ch ? parseInt(ch) : 0;
+    var pgNum = localPage ? parseInt(localPage) : 0;
+    pendingChanges[key] = { chapter: chNum, page: pgNum, url: url, description: desc, note: existingNote };
 
     // Push to undo stack
     var afterState = captureState(spread, key);
@@ -2625,6 +2656,35 @@ if (goToPageInput) {
 
     console.log('Pending change:', key, url.substring(0, 60) + '...');
   }
+
+  // ── X button on page illustration itself ──
+  document.addEventListener('click', function(e) {
+    if (!editMode) return;
+    var delBtn = e.target.closest('.page-ill-delete');
+    if (!delBtn) return;
+    e.stopPropagation();
+
+    var pageLeft = delBtn.closest('.page-left');
+    var spread = delBtn.closest('.spread');
+    if (!pageLeft || !spread) return;
+
+    var ch = parseInt(pageLeft.dataset.ch || '0');
+    var pg = parseInt(pageLeft.dataset.localPage || '0');
+
+    // Find matching carousel thumb to move to unused
+    var imgEl = pageLeft.querySelector('img');
+    var url = imgEl ? imgEl.src : '';
+    var carousel = document.getElementById('illCarousel');
+    var thumb = null;
+    if (carousel && url) {
+      var thumbs = carousel.querySelectorAll('.filmstrip-thumb');
+      for (var i = 0; i < thumbs.length; i++) {
+        if (thumbs[i].dataset.url === url) { thumb = thumbs[i]; break; }
+      }
+    }
+
+    removeIllustrationFromPage(ch, pg, thumb, pageLeft);
+  });
 
   // ── Carousel click: apply to current visible spread ──
   document.addEventListener('click', function(e) {
@@ -2660,7 +2720,7 @@ if (goToPageInput) {
     if (!thumb) return;
     e.stopPropagation();
 
-    if (!currentVisibleSpread || !currentVisibleSpread.dataset.ch) {
+    if (!currentVisibleSpread || !currentVisibleSpread.querySelector('.page-left')) {
       flash('Scroll to a page first');
       return;
     }
@@ -2669,16 +2729,32 @@ if (goToPageInput) {
   });
 
   // Remove illustration from a page: revert to decorative, move thumb to unused section
-  function removeIllustrationFromPage(ch, pg, thumb) {
+  // Can pass pageElOverride to skip lookup (used by page X button)
+  function removeIllustrationFromPage(ch, pg, thumb, pageElOverride) {
     // Find the spread
-    var pageEl = bookContent.querySelector(
-      '.page-left[data-ch="' + ch + '"][data-local-page="' + pg + '"]'
-    );
+    var pageEl = pageElOverride || null;
+    if (!pageEl) {
+      if (pg === 0 && ch > 0) {
+        // Cover page: use data-spread attribute
+        var coverSpread = bookContent.querySelector('.spread[data-spread="ch' + ch + '-cover"]');
+        pageEl = coverSpread ? coverSpread.querySelector('.page-left') : null;
+      } else if (ch > 0) {
+        pageEl = bookContent.querySelector(
+          '.page-left[data-ch="' + ch + '"][data-local-page="' + pg + '"]'
+        );
+      }
+    }
     if (!pageEl) { flash('Page not found'); return; }
     var spread = pageEl.closest('.spread');
     if (!spread) return;
 
-    var key = 'ch' + ch + '_p' + pg;
+    // Build key — use data-spread as fallback for non-chapter pages
+    var key;
+    if (ch > 0) {
+      key = 'ch' + ch + '_p' + pg;
+    } else {
+      key = spread.dataset.spread || 'unknown';
+    }
     var beforeState = captureState(spread, key);
 
     // Revert to decorative panel
@@ -2691,7 +2767,7 @@ if (goToPageInput) {
     if (!pageEl.querySelector('.chapter-ornament')) {
       var ornDiv = document.createElement('div');
       ornDiv.className = 'chapter-ornament';
-      ornDiv.innerHTML = '<div class="ornament-number">' + ch + '</div>';
+      ornDiv.innerHTML = ch > 0 ? '<div class="ornament-number">' + ch + '</div>' : '<div class="ornament-star">&#10048;</div>';
       pageEl.insertBefore(ornDiv, pageEl.querySelector('.page-number'));
     } else {
       var orn = pageEl.querySelector('.chapter-ornament');
@@ -2742,25 +2818,34 @@ if (goToPageInput) {
 
     var pageLeft = noteBtn.closest('.page-left');
     if (!pageLeft) return;
+    var spread = pageLeft.closest('.spread');
     var ch = pageLeft.dataset.ch;
     var pg = pageLeft.dataset.localPage;
     var existingNote = pageLeft.dataset.note || '';
-    var loc = 'Chapter ' + ch + ', Page ' + pg;
+
+    // Build key and location label
+    var key, loc;
+    if (ch) {
+      key = 'ch' + ch + '_p' + pg;
+      loc = 'Chapter ' + ch + ', Page ' + pg;
+    } else {
+      key = spread ? (spread.dataset.spread || 'unknown') : 'unknown';
+      loc = key;
+    }
 
     var promptText = prompt('Note for Claude coworker (' + loc + '):\\n\\nCurrent: ' + (existingNote || '(empty)') + '\\n\\nEnter note (or clear to remove):', existingNote);
     if (promptText === null) return; // cancelled
 
     pageLeft.dataset.note = promptText.trim();
-    var key = 'ch' + ch + '_p' + pg;
 
     // Update or create pending change with the note
     if (!pendingChanges[key]) {
       // No illustration change — just a note change
-      var mainImg = pageLeft.querySelector('.ill-main img');
-      var caption = pageLeft.closest('.spread')?.querySelector('.ill-caption');
+      var mainImg = pageLeft.querySelector('.ill-main img') || pageLeft.querySelector('img');
+      var caption = spread ? spread.querySelector('.ill-caption') : null;
       pendingChanges[key] = {
-        chapter: parseInt(ch),
-        page: parseInt(pg),
+        chapter: ch ? parseInt(ch) : 0,
+        page: pg ? parseInt(pg) : 0,
         url: mainImg ? mainImg.src : '',
         description: caption ? caption.textContent : (mainImg ? mainImg.alt : 'text-only'),
         note: promptText.trim()
