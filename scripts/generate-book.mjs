@@ -2859,6 +2859,112 @@ document.getElementById('navToggle').addEventListener('click', function() {
     half.appendChild(single);
     return half;
   }
+
+  // ── Runtime CSV Fetch: load latest illustrations from GitHub on page load ──
+  // This eliminates the need for a GitHub Action rebuild — changes are visible on refresh.
+  (function loadLatestIllustrations() {
+    if (!GITHUB_CONFIG) return;
+    var owner = GITHUB_CONFIG.owner;
+    var repo = GITHUB_CONFIG.repo;
+    var bp = GITHUB_CONFIG.bookPath;
+    if (!owner || !repo || !bp) return;
+
+    // Try gpt/preview first, fallback to main
+    var branches = ['gpt/preview', 'main'];
+    var idx = 0;
+
+    function tryFetch() {
+      if (idx >= branches.length) return;
+      var branch = branches[idx];
+      var rawUrl = 'https://raw.githubusercontent.com/' + owner + '/' + repo
+        + '/' + encodeURIComponent(branch) + '/' + bp + '/illustrations.csv';
+
+      fetch(rawUrl, { cache: 'no-store' })
+        .then(function(r) {
+          if (!r.ok) { idx++; tryFetch(); return; }
+          return r.text();
+        })
+        .then(function(csvText) {
+          if (!csvText) return;
+          applyIllustrationsFromCsv(csvText);
+          console.log('Loaded illustrations from ' + branch);
+        })
+        .catch(function() { idx++; tryFetch(); });
+    }
+
+    function applyIllustrationsFromCsv(csvText) {
+      var lines = csvText.split('\\n');
+      // Skip header row
+      for (var i = 1; i < lines.length; i++) {
+        var line = lines[i].trim();
+        if (!line) continue;
+
+        // Simple CSV parse: chapter,page,url,description
+        var m = line.match(/^(\\d+),(\\d+),(.*?),(.*)$/);
+        if (!m) continue;
+        var ch = m[1];
+        var pg = m[2];
+        var url = m[3].trim();
+        var desc = m[4] ? m[4].replace(/^"|"$/g, '').replace(/""/g, '"').trim() : '';
+
+        // Page 0 = chapter cover image
+        if (parseInt(pg) === 0) {
+          var coverSpread = bookContent.querySelector('#ch' + ch + ' .cover-image img');
+          if (coverSpread && url && coverSpread.src !== url) {
+            coverSpread.src = url;
+            coverSpread.alt = desc;
+          }
+          continue;
+        }
+
+        // Find the spread for this chapter + local page
+        var pageEl = bookContent.querySelector(
+          '.page-left[data-ch="' + ch + '"][data-local-page="' + pg + '"]'
+        );
+        if (!pageEl) continue;
+        var spread = pageEl.closest('.spread');
+        if (!spread) continue;
+
+        if (url) {
+          // Has illustration — update or create img
+          var mainImg = spread.querySelector('.ill-main img');
+          if (mainImg) {
+            if (mainImg.src !== url) {
+              mainImg.src = url;
+              mainImg.alt = desc;
+            }
+          } else {
+            // Convert decorative panel to illustrated
+            var decoPanel = spread.querySelector('.decorative-panel');
+            if (decoPanel) {
+              var illMain = document.createElement('div');
+              illMain.className = 'ill-main';
+              var img = document.createElement('img');
+              img.src = url;
+              img.alt = desc;
+              img.loading = 'lazy';
+              illMain.appendChild(img);
+              var ornament = decoPanel.querySelector('.chapter-ornament');
+              if (ornament) ornament.style.display = 'none';
+              decoPanel.insertBefore(illMain, decoPanel.querySelector('.page-number'));
+              decoPanel.classList.remove('decorative-panel');
+              spread.classList.remove('text-only');
+            }
+          }
+          // Update caption
+          var caption = spread.querySelector('.ill-caption');
+          if (desc && !caption) {
+            caption = document.createElement('div');
+            caption.className = 'ill-caption';
+            pageEl.appendChild(caption);
+          }
+          if (caption) caption.textContent = desc;
+        }
+      }
+    }
+
+    tryFetch();
+  })();
 })();
 `;
 }
