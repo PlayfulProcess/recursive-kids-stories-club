@@ -656,7 +656,7 @@ for (const chNum of chapterNums) {
     globalPageNum++;
     const pageNote = page.note ? escapeHtml(page.note) : '';
     const noteAttr = pageNote ? ` data-note="${pageNote}"` : '';
-    const noteBtn = `<button class="page-note-btn${pageNote ? ' has-note' : ''}" title="${pageNote || 'Add note for Claude'}">${pageNote ? '\\ud83d\\udcdd' : '\\u270f\\ufe0f'}</button>`;
+    const noteBtn = `<button class="page-note-btn${pageNote ? ' has-note' : ''}" title="${pageNote || 'Add note for Claude'}">${pageNote ? '\u{1F4DD}' : '\u{270F}\u{FE0F}'}</button>`;
     if (page.illustration) {
       const caption = page.illustration.description ? `<div class="ill-caption">${escapeHtml(page.illustration.description)}</div>` : '';
       spreadsHtml += `
@@ -1184,12 +1184,12 @@ function generateCSS() {
     }
     .ill-carousel .filmstrip-add:hover { border-color: #d4a76a; color: #d4a76a; }
     .ill-carousel .filmstrip-thumb .thumb-delete {
-      position: absolute; top: 1px; right: 1px; width: 16px; height: 16px;
-      background: rgba(180,40,40,0.85); color: #fff; border: none; border-radius: 50%;
-      font-size: 11px; line-height: 16px; text-align: center; cursor: pointer;
-      display: none; z-index: 2; padding: 0;
+      position: absolute; top: 2px; right: 2px; width: 20px; height: 20px;
+      background: rgba(180,40,40,0.9); color: #fff; border: none; border-radius: 50%;
+      font-size: 14px; line-height: 20px; text-align: center; cursor: pointer;
+      display: block; z-index: 2; padding: 0; opacity: 0.8;
     }
-    .ill-carousel .filmstrip-thumb:hover .thumb-delete { display: block; }
+    .ill-carousel .filmstrip-thumb:hover .thumb-delete { opacity: 1; }
     .ill-carousel .filmstrip-thumb .thumb-delete:hover { background: #c02020; }
     .ill-carousel .carousel-section-header {
       width: 100%; font-size: 9px; letter-spacing: 1px;
@@ -1504,6 +1504,7 @@ function generateToolbarHTML() {
   <span class="ch-title" style="color:#a08060" id="audioTime"></span>
   <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
   <span class="match-count" id="matchCount"></span>
+  <input type="number" id="goToPageInput" placeholder="Go to pg" min="1" style="width:70px" autocomplete="off">
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
@@ -1560,6 +1561,24 @@ function scrollToId(id) {
 document.getElementById('navToggle').addEventListener('click', function() {
   document.getElementById('chapterNav').classList.toggle('open');
 });
+
+// ── Go to page ──
+var goToPageInput = document.getElementById('goToPageInput');
+if (goToPageInput) {
+  goToPageInput.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    var pageNum = parseInt(goToPageInput.value);
+    if (!pageNum || pageNum < 1) return;
+    var target = document.querySelector('[data-page="' + pageNum + '"]');
+    if (target) {
+      var spread = target.closest('.spread');
+      if (spread) spread.scrollIntoView({ behavior: 'smooth' });
+      else target.scrollIntoView({ behavior: 'smooth' });
+    }
+    goToPageInput.value = '';
+    goToPageInput.blur();
+  });
+}
 
 // ── Update chapter label on scroll ──
 (function() {
