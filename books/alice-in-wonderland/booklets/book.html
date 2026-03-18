@@ -326,6 +326,29 @@
       margin-top: 4px;
     }
     .ill-carousel .filmstrip-add:hover { border-color: #d4a76a; color: #d4a76a; }
+    .ill-carousel .filmstrip-thumb .thumb-delete {
+      position: absolute; top: 1px; right: 1px; width: 16px; height: 16px;
+      background: rgba(180,40,40,0.85); color: #fff; border: none; border-radius: 50%;
+      font-size: 11px; line-height: 16px; text-align: center; cursor: pointer;
+      display: none; z-index: 2; padding: 0;
+    }
+    .ill-carousel .filmstrip-thumb:hover .thumb-delete { display: block; }
+    .ill-carousel .filmstrip-thumb .thumb-delete:hover { background: #c02020; }
+    .ill-carousel .carousel-section-header {
+      width: 100%; font-size: 9px; letter-spacing: 1px;
+      color: #60a060; text-align: center; padding: 10px 0 4px;
+      font-family: 'Georgia', serif; flex-shrink: 0;
+      border-top: 1px dashed #5a4030; margin-top: 6px;
+    }
+    .ill-carousel .filmstrip-request {
+      width: 100px; height: 36px; flex-shrink: 0;
+      border: 2px dashed #60a060; border-radius: 4px;
+      color: #60a060; font-size: 11px; font-weight: bold;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: border-color 0.2s, color 0.2s;
+      margin-top: 4px; font-family: 'Georgia', serif;
+    }
+    .ill-carousel .filmstrip-request:hover { border-color: #90d090; color: #90d090; }
     body.edit-mode .book-content { margin-left: 120px; }
     body.edit-mode .toolbar { left: 120px; }
     .ill-main {
@@ -4781,12 +4804,22 @@ document.getElementById('navToggle').addEventListener('click', function() {
     var carousel = document.getElementById('illCarousel');
     if (!carousel) return;
 
-    var lastCh = -1;
+    var assigned = [];
+    var unused = [];
     for (var i = 0; i < ALL_ILLUSTRATIONS.length; i++) {
       var ill = ALL_ILLUSTRATIONS[i];
       if (!ill.url) continue;
+      if (ill.chapter === 0) {
+        unused.push(ill);
+      } else {
+        assigned.push(ill);
+      }
+    }
 
-      // Chapter header
+    // Assigned illustrations grouped by chapter
+    var lastCh = -1;
+    for (var i = 0; i < assigned.length; i++) {
+      var ill = assigned[i];
       if (ill.chapter !== lastCh) {
         lastCh = ill.chapter;
         var header = document.createElement('div');
@@ -4794,25 +4827,54 @@ document.getElementById('navToggle').addEventListener('click', function() {
         header.textContent = 'CH ' + ill.chapter;
         carousel.appendChild(header);
       }
-
-      var thumb = document.createElement('div');
-      thumb.className = 'filmstrip-thumb';
-      thumb.dataset.illChapter = ill.chapter;
-      thumb.dataset.illPage = ill.page;
-      thumb.dataset.url = ill.url;
-      thumb.dataset.description = ill.description || '';
-      var img = document.createElement('img');
-      img.src = ill.url;
-      img.loading = 'lazy';
-      thumb.appendChild(img);
-      carousel.appendChild(thumb);
+      carousel.appendChild(createThumb(ill));
     }
 
+    // Unused section
+    var unusedHeader = document.createElement('div');
+    unusedHeader.className = 'carousel-section-header';
+    unusedHeader.id = 'unusedSectionHeader';
+    unusedHeader.textContent = 'UNUSED (' + unused.length + ')';
+    carousel.appendChild(unusedHeader);
+
+    for (var i = 0; i < unused.length; i++) {
+      carousel.appendChild(createThumb(unused[i]));
+    }
+
+    // Add URL button
     var addBtn = document.createElement('div');
     addBtn.className = 'filmstrip-add';
-    addBtn.title = 'Add illustration';
+    addBtn.title = 'Add illustration URL';
     addBtn.textContent = '+';
     carousel.appendChild(addBtn);
+
+    // Request illustration button
+    var reqBtn = document.createElement('div');
+    reqBtn.className = 'filmstrip-request';
+    reqBtn.id = 'illRequestBtn';
+    reqBtn.title = 'Request illustration (note for Claude coworker)';
+    reqBtn.textContent = 'Request';
+    carousel.appendChild(reqBtn);
+  }
+
+  function createThumb(ill) {
+    var thumb = document.createElement('div');
+    thumb.className = 'filmstrip-thumb';
+    thumb.dataset.illChapter = ill.chapter;
+    thumb.dataset.illPage = ill.page;
+    thumb.dataset.url = ill.url;
+    thumb.dataset.description = ill.description || '';
+    var img = document.createElement('img');
+    img.src = ill.url;
+    img.loading = 'lazy';
+    thumb.appendChild(img);
+    // Delete button (X) — removes illustration from its assigned page
+    var delBtn = document.createElement('button');
+    delBtn.className = 'thumb-delete';
+    delBtn.textContent = '\u00d7';
+    delBtn.title = 'Remove from page (move to unused)';
+    thumb.appendChild(delBtn);
+    return thumb;
   }
 
   // IntersectionObserver to track which spread is currently visible
@@ -5042,6 +5104,33 @@ document.getElementById('navToggle').addEventListener('click', function() {
   // ── Carousel click: apply to current visible spread ──
   document.addEventListener('click', function(e) {
     if (!editMode) return;
+
+    // Delete button on a thumbnail — remove illustration from its assigned page
+    var delBtn = e.target.closest('#illCarousel .thumb-delete');
+    if (delBtn) {
+      e.stopPropagation();
+      var thumb = delBtn.closest('.filmstrip-thumb');
+      if (!thumb) return;
+      var illCh = thumb.dataset.illChapter;
+      var illPg = thumb.dataset.illPage;
+      if (!illCh || illCh === '0') {
+        // Already unused — remove entirely from carousel
+        if (confirm('Remove this unused image from the list?')) {
+          pendingChanges['del_ch0_' + thumb.dataset.url.slice(-30)] = {
+            chapter: 0, page: 0, url: '', description: '',
+            _deleteUrl: thumb.dataset.url
+          };
+          thumb.remove();
+          updateUnusedCount();
+          flash('Removed from unused');
+        }
+        return;
+      }
+      // Move assigned image to unused
+      removeIllustrationFromPage(parseInt(illCh), parseInt(illPg), thumb);
+      return;
+    }
+
     var thumb = e.target.closest('#illCarousel .filmstrip-thumb');
     if (!thumb) return;
     e.stopPropagation();
@@ -5052,6 +5141,98 @@ document.getElementById('navToggle').addEventListener('click', function() {
     }
 
     applyIllustrationToSpread(currentVisibleSpread, thumb.dataset.url, thumb.dataset.description || '');
+  });
+
+  // Remove illustration from a page: revert to decorative, move thumb to unused section
+  function removeIllustrationFromPage(ch, pg, thumb) {
+    // Find the spread
+    var pageEl = bookContent.querySelector(
+      '.page-left[data-ch="' + ch + '"][data-local-page="' + pg + '"]'
+    );
+    if (!pageEl) { flash('Page not found'); return; }
+    var spread = pageEl.closest('.spread');
+    if (!spread) return;
+
+    var key = 'ch' + ch + '_p' + pg;
+    var beforeState = captureState(spread, key);
+
+    // Revert to decorative panel
+    var illMain = spread.querySelector('.ill-main');
+    if (illMain) illMain.remove();
+    var caption = spread.querySelector('.ill-caption');
+    if (caption) caption.remove();
+
+    // Re-add decorative panel elements if not present
+    if (!pageEl.querySelector('.chapter-ornament')) {
+      var ornDiv = document.createElement('div');
+      ornDiv.className = 'chapter-ornament';
+      ornDiv.innerHTML = '<div class="ornament-number">' + ch + '</div>';
+      pageEl.insertBefore(ornDiv, pageEl.querySelector('.page-number'));
+    } else {
+      var orn = pageEl.querySelector('.chapter-ornament');
+      if (orn) orn.style.display = '';
+    }
+    pageEl.classList.add('decorative-panel');
+    spread.classList.add('text-only');
+
+    // Track: set page to empty URL (text-only)
+    pendingChanges[key] = { chapter: ch, page: pg, url: '', description: 'text-only' };
+
+    // Push undo
+    var afterState = captureState(spread, key);
+    undoStack.push({ before: beforeState, after: afterState });
+    redoStack = [];
+
+    // Move thumb to unused section
+    if (thumb) {
+      thumb.dataset.illChapter = '0';
+      thumb.dataset.illPage = '0';
+      var unusedHeader = document.getElementById('unusedSectionHeader');
+      if (unusedHeader) {
+        unusedHeader.parentNode.insertBefore(thumb, unusedHeader.nextSibling);
+      }
+      updateUnusedCount();
+    }
+
+    updateCarouselActive();
+    flash('Removed illustration');
+    console.log('Removed illustration from ch' + ch + ' p' + pg);
+  }
+
+  function updateUnusedCount() {
+    var header = document.getElementById('unusedSectionHeader');
+    if (!header) return;
+    var carousel = document.getElementById('illCarousel');
+    var unusedThumbs = carousel.querySelectorAll('.filmstrip-thumb[data-ill-chapter="0"]');
+    header.textContent = 'UNUSED (' + unusedThumbs.length + ')';
+  }
+
+  // ── Request illustration (note for Claude coworker) ──
+  document.addEventListener('click', function(e) {
+    if (!editMode) return;
+    var reqBtn = e.target.closest('#illRequestBtn');
+    if (!reqBtn) return;
+    e.stopPropagation();
+
+    var ch = currentVisibleSpread ? currentVisibleSpread.dataset.ch : '';
+    var pageLeft = currentVisibleSpread ? currentVisibleSpread.querySelector('.page-left') : null;
+    var pg = pageLeft ? pageLeft.dataset.localPage : '';
+    var loc = ch ? 'Chapter ' + ch + (pg ? ', Page ' + pg : '') : 'General';
+
+    var promptText = prompt('Illustration request for Claude coworker:\n(' + loc + ')\n\nDescribe what illustration you need:');
+    if (!promptText || !promptText.trim()) return;
+
+    // Save to requests list in pendingRequests
+    if (!window.pendingRequests) window.pendingRequests = [];
+    window.pendingRequests.push({
+      chapter: ch ? parseInt(ch) : 0,
+      page: pg ? parseInt(pg) : 0,
+      prompt: promptText.trim(),
+      location: loc
+    });
+
+    flash('Request saved (' + window.pendingRequests.length + ' pending)');
+    console.log('Illustration request:', loc, promptText.trim());
   });
 
   // ── +Add button in carousel ──
@@ -5066,19 +5247,18 @@ document.getElementById('navToggle').addEventListener('click', function() {
     url = url.trim();
     var desc = prompt('Description (optional):') || '';
 
-    // Add to carousel
-    var carousel = document.getElementById('illCarousel');
-    var newThumb = document.createElement('div');
-    newThumb.className = 'filmstrip-thumb';
-    newThumb.dataset.url = url;
-    newThumb.dataset.description = desc;
-    var img = document.createElement('img');
-    img.src = url;
-    img.loading = 'lazy';
-    newThumb.appendChild(img);
-    carousel.insertBefore(newThumb, addBtn);
+    // Add to unused section of carousel
+    var newThumb = createThumb({ chapter: 0, page: 0, url: url, description: desc });
+    var unusedHeader = document.getElementById('unusedSectionHeader');
+    if (unusedHeader && unusedHeader.nextSibling) {
+      unusedHeader.parentNode.insertBefore(newThumb, unusedHeader.nextSibling);
+    } else {
+      var carousel = document.getElementById('illCarousel');
+      carousel.insertBefore(newThumb, addBtn);
+    }
+    updateUnusedCount();
 
-    // Apply to current spread if one is visible
+    // Also apply to current spread if one is visible
     if (currentVisibleSpread && currentVisibleSpread.dataset.ch) {
       applyIllustrationToSpread(currentVisibleSpread, url, desc);
     }
@@ -5101,7 +5281,8 @@ document.getElementById('navToggle').addEventListener('click', function() {
     e.preventDefault();
 
     var changeKeys = Object.keys(pendingChanges);
-    if (changeKeys.length === 0) {
+    var hasRequests = window.pendingRequests && window.pendingRequests.length > 0;
+    if (changeKeys.length === 0 && !hasRequests) {
       flash('No changes to save');
       return;
     }
@@ -5113,11 +5294,19 @@ document.getElementById('navToggle').addEventListener('click', function() {
 
     flash('Saving...');
 
-    // 1. Fetch current CSV from GitHub to get SHA (try gpt/preview first, fallback to main)
     var apiBase = 'https://api.github.com/repos/' + repoOwner + '/' + repoName + '/contents/';
     var csvApiPath = bookPath + '/illustrations.csv';
     var saveBranch = 'gpt/preview';
 
+    // If only requests, no CSV changes — just save requests
+    if (changeKeys.length === 0 && hasRequests) {
+      saveRequests().then(function() { flash('Requests saved! \u2714'); })
+        .catch(function(err) { flash('Error: ' + err.message); });
+      return;
+    }
+    if (changeKeys.length === 0) return;
+
+    // 1. Fetch current CSV from GitHub to get SHA (try gpt/preview first, fallback to main)
     function fetchCsv(branch) {
       return fetch(apiBase + csvApiPath + '?ref=' + encodeURIComponent(branch), {
         headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
@@ -5150,13 +5339,57 @@ document.getElementById('navToggle').addEventListener('click', function() {
         existing['ch' + ch + '_p' + pg] = rows[i];
       }
 
-      // Apply pending changes
+      // Collect URLs to delete from unused
+      var urlsToDelete = {};
+      for (var key in pendingChanges) {
+        if (pendingChanges[key]._deleteUrl) {
+          urlsToDelete[pendingChanges[key]._deleteUrl] = true;
+        }
+      }
+
+      // Collect unused images from carousel to ensure they're in CSV
+      var unusedFromCarousel = {};
+      var unusedThumbs = document.querySelectorAll('#illCarousel .filmstrip-thumb[data-ill-chapter="0"]');
+      for (var u = 0; u < unusedThumbs.length; u++) {
+        var uUrl = unusedThumbs[u].dataset.url;
+        var uDesc = unusedThumbs[u].dataset.description || '';
+        if (uUrl && !urlsToDelete[uUrl]) {
+          unusedFromCarousel[uUrl] = uDesc;
+        }
+      }
+
+      // Apply pending changes (skip delete markers)
       for (var key in pendingChanges) {
         var c = pendingChanges[key];
+        if (c._deleteUrl) continue;
         var rowKey = 'ch' + c.chapter + '_p' + c.page;
         var desc = c.description.replace(/"/g, '""');
         if (desc.indexOf(',') >= 0 || desc.indexOf('"') >= 0) desc = '"' + desc + '"';
         existing[rowKey] = c.chapter + ',' + c.page + ',' + c.url + ',' + desc;
+      }
+
+      // Remove deleted unused URLs from existing rows
+      for (var ek in existing) {
+        var eCols = existing[ek].split(',');
+        if (eCols[0] === '0' && eCols[2] && urlsToDelete[eCols[2]]) {
+          delete existing[ek];
+        }
+      }
+
+      // Ensure all carousel unused images are in existing (as chapter=0)
+      var unusedIdx = 0;
+      for (var uUrl in unusedFromCarousel) {
+        // Check if already in existing
+        var found = false;
+        for (var ek in existing) {
+          var eCols = existing[ek].split(',');
+          if (eCols[0] === '0' && eCols[2] === uUrl) { found = true; break; }
+        }
+        if (!found) {
+          var uDesc = unusedFromCarousel[uUrl].replace(/"/g, '""');
+          if (uDesc.indexOf(',') >= 0 || uDesc.indexOf('"') >= 0) uDesc = '"' + uDesc + '"';
+          existing['unused_' + (unusedIdx++)] = '0,0,' + uUrl + ',' + uDesc;
+        }
       }
 
       // Rebuild CSV
@@ -5191,6 +5424,12 @@ document.getElementById('navToggle').addEventListener('click', function() {
       if (result.content) {
         pendingChanges = {};
         csvSha = result.content.sha;
+        // Save requests if any
+        if (window.pendingRequests && window.pendingRequests.length > 0) {
+          return saveRequests().then(function() {
+            flash('Saved! \u2714');
+          });
+        }
         flash('Saved! \u2714');
         console.log('Saved to GitHub:', result.content.html_url);
       } else {
@@ -5202,6 +5441,58 @@ document.getElementById('navToggle').addEventListener('click', function() {
       flash('Error: ' + err.message);
       console.error('Save failed:', err);
     });
+
+    function saveRequests() {
+      if (!window.pendingRequests || window.pendingRequests.length === 0) {
+        return Promise.resolve();
+      }
+      var reqPath = bookPath + '/illustration-requests.csv';
+      // Fetch existing requests file (or create new)
+      return fetch(apiBase + reqPath + '?ref=' + encodeURIComponent(saveBranch), {
+        headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+      })
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        var existingContent = '';
+        var sha = null;
+        if (data && data.content) {
+          existingContent = atob(data.content.replace(/\n/g, ''));
+          sha = data.sha;
+        }
+        if (!existingContent) {
+          existingContent = 'chapter,page,prompt,status\n';
+        }
+        // Append new requests
+        for (var i = 0; i < window.pendingRequests.length; i++) {
+          var req = window.pendingRequests[i];
+          var p = req.prompt.replace(/"/g, '""');
+          existingContent += req.chapter + ',' + req.page + ',"' + p + '",pending\n';
+        }
+        var encoded = btoa(unescape(encodeURIComponent(existingContent)));
+        var body = {
+          message: 'Add illustration requests via book editor',
+          content: encoded,
+          branch: saveBranch
+        };
+        if (sha) body.sha = sha;
+        return fetch(apiBase + reqPath, {
+          method: 'PUT',
+          headers: {
+            'Authorization': 'token ' + token,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        });
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(result) {
+        if (result.content) {
+          window.pendingRequests = [];
+          console.log('Requests saved to GitHub:', result.content.html_url);
+        }
+      });
+    }
   });
 
   // ── Download CSV ──
