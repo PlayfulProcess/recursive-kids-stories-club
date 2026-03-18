@@ -145,31 +145,31 @@
     /* ── Toolbar ── */
     .toolbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; gap: 10px;
-      padding: 8px 16px; background: #2c1810; color: #d4a76a;
-      font-family: 'Georgia', serif; font-size: 13px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 16px; background: #2c1810; color: #d4a76a;
+      font-family: 'Georgia', serif; font-size: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
     .toolbar.toolbar-hidden {
       opacity: 0; transform: translateY(-100%); pointer-events: none;
     }
-    .toolbar input[type="text"] {
-      padding: 5px 10px; border: 1px solid #d4a76a; border-radius: 4px;
-      background: #1a0f08; color: #f0e6d6; font-size: 13px;
+    .toolbar input[type="text"], .toolbar input[type="number"] {
+      padding: 5px 10px; border: none; border-radius: 4px;
+      background: rgba(255,255,255,0.08); color: #f0e6d6; font-size: 12px;
       font-family: 'Georgia', serif; width: 120px;
     }
-    .toolbar input::placeholder { color: #8a7060; }
+    .toolbar input::placeholder { color: #7a6050; }
     .toolbar button {
-      padding: 5px 12px; border: 1px solid #d4a76a; border-radius: 4px;
-      background: #1a0f08; color: #d4a76a; font-size: 12px;
+      padding: 5px 12px; border: none; border-radius: 4px;
+      background: transparent; color: #d4a76a; font-size: 12px;
       cursor: pointer; font-family: 'Georgia', serif;
     }
-    .toolbar button:hover { background: #3c2820; }
+    .toolbar button:hover { background: rgba(255,255,255,0.08); }
     .toolbar button.active { background: #d4a76a; color: #2c1810; }
     .toolbar select {
-      padding: 4px 6px; border: 1px solid #d4a76a; border-radius: 4px;
-      background: #1a0f08; color: #d4a76a; font-size: 11px;
+      padding: 4px 6px; border: none; border-radius: 4px;
+      background: rgba(255,255,255,0.08); color: #d4a76a; font-size: 11px;
       font-family: 'Georgia', serif; cursor: pointer;
     }
     .toolbar .match-count { font-size: 11px; color: #a08060; min-width: 60px; }
@@ -659,7 +659,7 @@
   <span class="ch-title" style="color:#a08060" id="audioTime"></span>
   <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
   <span class="match-count" id="matchCount"></span>
-  <input type="number" id="goToPageInput" placeholder="Go to pg" min="1" style="width:70px" autocomplete="off">
+  <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:40px;font-size:11px;text-align:center;-moz-appearance:textfield" autocomplete="off">
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
