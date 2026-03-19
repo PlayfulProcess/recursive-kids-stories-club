@@ -622,11 +622,32 @@ if (config.preface) {
 
 // ── Chapter Spreads ─────────────────────────────────────────────────
 
+// Collect page text map for GPT illustration workflow
+const pageTextMap = {};
+
 for (const chNum of chapterNums) {
   const chapter = chapterMap[chNum];
   const { coverImage, pages, allChIlls } = buildChapterPages(chNum, chapter);
 
+  // Build page text map entries for this chapter
   const chName = chapter.l2?.metadata?.original_title || chapter.scenes[0]?.metadata?.chapter_name || `Chapter ${chNum}`;
+  for (let pi = 0; pi < pages.length; pi++) {
+    const pageNum = pi + 1;
+    const prevIll = pages[pi - 1]?.illustration || null;
+    const nextIll = pages[pi + 1]?.illustration || null;
+    pageTextMap[`${chNum}-${pageNum}`] = {
+      chapter: chNum,
+      chapterName: chName,
+      page: pageNum,
+      text: pages[pi].text,
+      hasIllustration: !!pages[pi].illustration,
+      illustrationDesc: pages[pi].illustration?.description || null,
+      prevIllustration: prevIll ? prevIll.description : null,
+      nextIllustration: nextIll ? nextIll.description : null,
+      note: pages[pi].note || '',
+    };
+  }
+
   const illCount = pages.filter(p => p.illustration).length;
   const chIllsJson = JSON.stringify(allChIlls).replace(/'/g, '&#39;').replace(/</g, '\\u003c');
 
@@ -878,7 +899,12 @@ const outputPath = resolvePath(config.output);
 mkdirSync(dirname(outputPath), { recursive: true });
 writeFileSync(outputPath, bookHtml);
 
+// Write page-text-map.json for GPT illustration workflow
+const pageMapPath = resolve(dirname(outputPath), '..', 'page-text-map.json');
+writeFileSync(pageMapPath, JSON.stringify(pageTextMap, null, 2));
+
 console.log(`\nOutput: ${outputPath}`);
+console.log(`  Page map: ${pageMapPath}`);
 console.log(`  ${chapterNums.length} chapters, ${totalContentPages} content pages, ${totalIll} illustrations`);
 console.log(`  ${globalPageNum} total pages, ${(bookHtml.length / 1024 / 1024).toFixed(1)} MB`);
 
