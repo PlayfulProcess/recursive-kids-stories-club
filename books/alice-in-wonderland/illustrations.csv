@@ -1,5 +1,5 @@
 chapter,page,url,description,note
-0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/dall-e-golden-afternoon-boat.png,DALL-E 3 (manuscript style) — The golden afternoon boat trip where Carroll first told the story,"generate an image inspired by the poem and what could have been LEwssi Carrol in the boat with 2 girls, when he first conceived the story. Get real Alice's pictures as insiration"
+0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-golden-afternoon-boat.png,GPT-4 (watercolor) — The golden afternoon boat trip on the Thames where Carroll first told the story,
 0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-the-pool-of-tears/alice-b-woodward-1913.jpg,Alice B. Woodward — They all swam to the shore
 0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/john-tenniel-colorized-e-g-thomson-1890.jpg,John Tenniel (colorized E.G. Thomson) — She grew and grew
 0,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-01-down-the-rabbit-hole/arthur-rackham-1907.jpg,Arthur Rackham — Alice portrait
@@ -83,7 +83,7 @@ chapter,page,url,description,note
 5,6,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-23.jpg,Lewis Carroll manuscript — Chapter II title page — Advice from a Caterpillar
 5,7,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-05-advice-from-a-caterpillar/john-tenniel-colorized-e-g-thomson-1890.jpg,John Tenniel (colorized E.G. Thomson) — Caterpillar
 5,8,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-24.jpg,Lewis Carroll manuscript — The Pigeon calling Alice a serpent in the tree
-5,9,,text-only
+5,9,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-pigeon-serpent-ch5.png,GPT-4 (watercolor) — The Pigeon accusing Alice of being a serpent,
 5,10,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-the-mushrooms-magic/lewis-carroll-1864-manuscript.webp,Lewis Carroll — Alice pondering the mushroom's effects
 5,11,,text-only
 5,12,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-liddell-1859.jpg,"Lewis Carroll (photograph) — Alice Liddell, 1859"
@@ -97,14 +97,14 @@ chapter,page,url,description,note
 6,4,,text-only
 6,5,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/arthur-rackham-1907.jpg,Arthur Rackham — Saucepan flew by
 6,6,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/alice-b-woodward-1913.jpg,Alice B. Woodward — Shan't said the Cook
-6,7,,text-only
+6,7,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-kitchen.png,GPT-4 (watercolor) — The Cheshire Cat materializing in the Duchess's kitchen,
 6,8,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/brinsley-le-fanu-1910.jpg,Brinsley Le Fanu — The Duchess's kitchen
 6,9,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/arthur-rackham-1907.jpg,Arthur Rackham — Pig baby
 6,10,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/gwynedd-hudson-1922.jpg,Gwynedd Hudson — Duchess & the Baby
 6,11,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/alice-b-woodward-1913.jpg,Alice B. Woodward — You may nurse the baby said Duchess
 6,12,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-beggar-girl-1858.jpg,"Lewis Carroll (photograph) — Alice as a beggar-girl, 1858"
 6,13,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-cheshire-cat/john-tenniel-harry-theaker-1911.jpg,John Tenniel & Harry Theaker — The Cheshire Cat
-6,14,,text-only
+6,14,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-tree.png,GPT-4 (watercolor) — Alice meets the Cheshire Cat in the tree,
 6,15,,text-only
 6,16,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-cheshire-cat/john-tenniel-colorized-e-g-thomson-1890.jpg,John Tenniel (colorized E.G. Thomson) — The Cheshire Cat in tree
 7,0,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/gwynedd-hudson-1922.jpg,chapter cover
@@ -138,7 +138,7 @@ chapter,page,url,description,note
 8,11,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-croquet-with-flamingos/john-tenniel-colorized-e-g-thomson-1890.jpg,"John Tenniel (colorized E.G. Thomson) — Alice, the Duchess & the Flamingo"
 8,12,,text-only
 8,13,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/gwynedd-hudson-1922.jpg,Gwynedd Hudson — King Queen Executioner
-8,14,,text-only
+8,14,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-croquet.png,GPT-4 (watercolor) — The Cheshire Cat's grin above the croquet ground,
 8,15,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/alice-b-woodward-1913.jpg,Alice B. Woodward — Executioner came back with Duchess
 8,16,,text-only
 8,17,https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/brinsley-le-fanu-1910.jpg,Brinsley Le Fanu — Dispute over Cheshire cat's head

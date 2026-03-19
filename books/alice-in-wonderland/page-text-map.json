@@ -656,7 +656,7 @@
     "hasIllustration": true,
     "illustrationDesc": "Lewis Carroll manuscript — The Pigeon calling Alice a serpent in the tree",
     "prevIllustration": "John Tenniel (colorized E.G. Thomson) — Caterpillar",
-    "nextIllustration": null,
+    "nextIllustration": "GPT-4 (watercolor) — The Pigeon accusing Alice of being a serpent",
     "note": ""
   },
   "5-9": {
@@ -664,8 +664,8 @@
     "chapterName": "Advice from a Caterpillar",
     "page": 9,
     "text": "She was a good deal frightened by this very sudden change, but she felt\nthat there was no time to be lost, as she was shrinking rapidly; so she\nset to work at once to eat some of the other bit. Her chin was pressed\nso closely against her foot, that there was hardly room to open her\nmouth; but she did it at last, and managed to swallow a morsel of the\nlefthand bit.\n\n“Come, my head’s free at last!” said Alice in a tone of delight, which\nchanged into alarm in another moment, when she found that her shoulders\nwere nowhere to be found: all she could see, when she looked down, was\nan immense length of neck, which seemed to rise like a stalk out of a\nsea of green leaves that lay far below her.\n\n“What can all that green stuff be?” said Alice. “And where have my\nshoulders got to? And oh, my poor hands, how is it I can’t see you?” She was moving them about as she spoke, but no result seemed to follow,\nexcept a little shaking among the distant green leaves.",
-    "hasIllustration": false,
-    "illustrationDesc": null,
+    "hasIllustration": true,
+    "illustrationDesc": "GPT-4 (watercolor) — The Pigeon accusing Alice of being a serpent",
     "prevIllustration": "Lewis Carroll manuscript — The Pigeon calling Alice a serpent in the tree",
     "nextIllustration": "Lewis Carroll — Alice pondering the mushroom's effects",
     "note": ""
@@ -677,7 +677,7 @@
     "text": "As there seemed to be no chance of getting her hands up to her head,\nshe tried to get her head down to them, and was delighted to find that\nher neck would bend about easily in any direction, like a serpent. She\nhad just succeeded in curving it down into a graceful zigzag, and was\ngoing to dive in among the leaves, which she found to be nothing but\nthe tops of the trees under which she had been wandering, when a sharp\nhiss made her draw back in a hurry: a large pigeon had flown into her\nface, and was beating her violently with its wings.\n\n“Serpent!” screamed the Pigeon.\n\n“I’m not a serpent!” said Alice indignantly. “Let me alone!”\n\n“Serpent, I say again!” repeated the Pigeon, but in a more subdued\ntone, and added with a kind of sob, “I’ve tried every way, and nothing\nseems to suit them!”\n\n“I haven’t the least idea what you’re talking about,” said Alice.",
     "hasIllustration": true,
     "illustrationDesc": "Lewis Carroll — Alice pondering the mushroom's effects",
-    "prevIllustration": null,
+    "prevIllustration": "GPT-4 (watercolor) — The Pigeon accusing Alice of being a serpent",
     "nextIllustration": null,
     "note": ""
   },
@@ -788,7 +788,7 @@
     "hasIllustration": true,
     "illustrationDesc": "Alice B. Woodward — Shan't said the Cook",
     "prevIllustration": "Arthur Rackham — Saucepan flew by",
-    "nextIllustration": null,
+    "nextIllustration": "GPT-4 (watercolor) — The Cheshire Cat materializing in the Duchess's kitchen",
     "note": ""
   },
   "6-7": {
@@ -796,8 +796,8 @@
     "chapterName": "Pig and Pepper",
     "page": 7,
     "text": "The Duchess took no notice of\nthem even when they hit her; and the baby was howling so much already,\nthat it was quite impossible to say whether the blows hurt it or not.\n\n“Oh, please mind what you’re doing!” cried Alice, jumping up and down\nin an agony of terror. “Oh, there goes his precious nose!” as an\nunusually large saucepan flew close by it, and very nearly carried it\noff.\n\n“If everybody minded their own business,” the Duchess said in a hoarse\ngrowl, “the world would go round a deal faster than it does.”\n\n“Which would not be an advantage,” said Alice, who felt very glad to\nget an opportunity of showing off a little of her knowledge. “Just\nthink of what work it would make with the day and night! You see the\nearth takes twenty-four hours to turn round on its axis—”\n\n“Talking of axes,” said the Duchess, “chop off her head!”",
-    "hasIllustration": false,
-    "illustrationDesc": null,
+    "hasIllustration": true,
+    "illustrationDesc": "GPT-4 (watercolor) — The Cheshire Cat materializing in the Duchess's kitchen",
     "prevIllustration": "Alice B. Woodward — Shan't said the Cook",
     "nextIllustration": "Brinsley Le Fanu — The Duchess's kitchen",
     "note": ""
@@ -809,7 +809,7 @@
     "text": "Alice glanced rather anxiously at the cook, to see if she meant to take\nthe hint; but the cook was busily stirring the soup, and seemed not to\nbe listening, so she went on again: “Twenty-four hours, I think; or\nis it twelve? I—”\n\n“Oh, don’t bother me,” said the Duchess; “I never could abide\nfigures!” And with that she began nursing her child again, singing a\nsort of lullaby to it as she did so, and giving it a violent shake at\nthe end of every line:\n\n“Speak roughly to your little boy,\n    And beat him when he sneezes:\nHe only does it to annoy,\n    Because he knows it teases.”\n\nCHORUS. (In which the cook and the baby joined):\n\n“Wow! wow! wow!”",
     "hasIllustration": true,
     "illustrationDesc": "Brinsley Le Fanu — The Duchess's kitchen",
-    "prevIllustration": null,
+    "prevIllustration": "GPT-4 (watercolor) — The Cheshire Cat materializing in the Duchess's kitchen",
     "nextIllustration": "Arthur Rackham — Pig baby",
     "note": ""
   },
@@ -865,7 +865,7 @@
     "hasIllustration": true,
     "illustrationDesc": "John Tenniel & Harry Theaker — The Cheshire Cat",
     "prevIllustration": "Lewis Carroll (photograph) — Alice as a beggar-girl, 1858",
-    "nextIllustration": null,
+    "nextIllustration": "GPT-4 (watercolor) — Alice meets the Cheshire Cat in the tree",
     "note": ""
   },
   "6-14": {
@@ -873,8 +873,8 @@
     "chapterName": "Pig and Pepper",
     "page": 14,
     "text": "“To begin with,” said the Cat, “a dog’s not mad. You grant that?” “I suppose so,” said Alice. “Well, then,” the Cat went on, “you see, a dog growls when it’s angry,\nand wags its tail when it’s pleased. Now I growl when I’m pleased,\nand wag my tail when I’m angry. Therefore I’m mad.” “I call it purring, not growling,” said Alice. “Call it what you like,” said the Cat. “Do you play croquet with the\nQueen to-day?” “I should like it very much,” said Alice, “but I haven’t been invited\nyet.” “You’ll see me there,” said the Cat, and vanished. Alice was not much surprised at this, she was getting so used to queer\nthings happening. While she was looking at the place where it had been,\nit suddenly appeared again. “By-the-bye, what became of the baby?” said the Cat. “I’d nearly\nforgotten to ask.” “It turned into a pig,” Alice quietly said, just as if it had come back\nin a natural way. “I thought it would,” said the Cat, and vanished again.",
-    "hasIllustration": false,
-    "illustrationDesc": null,
+    "hasIllustration": true,
+    "illustrationDesc": "GPT-4 (watercolor) — Alice meets the Cheshire Cat in the tree",
     "prevIllustration": "John Tenniel & Harry Theaker — The Cheshire Cat",
     "nextIllustration": null,
     "note": ""
@@ -886,7 +886,7 @@
     "text": "Alice waited a little, half expecting to see it again, but it did not\nappear, and after a minute or two she walked on in the direction in\nwhich the March Hare was said to live. “I’ve seen hatters before,” she\nsaid to herself; “the March Hare will be much the most interesting, and\nperhaps as this is May it won’t be raving mad—at least not so mad as it\nwas in March.” As she said this, she looked up, and there was the Cat\nagain, sitting on a branch of a tree. “Did you say pig, or fig?” said the Cat. “I said pig,” replied Alice; “and I wish you wouldn’t keep appearing\nand vanishing so suddenly: you make one quite giddy.” “All right,” said the Cat; and this time it vanished quite slowly,\nbeginning with the end of the tail, and ending with the grin, which\nremained some time after the rest of it had gone. “Well! I’ve often seen a cat without a grin,” thought Alice; “but a\ngrin without a cat! It’s the most curious thing I ever saw in my life!”",
     "hasIllustration": false,
     "illustrationDesc": null,
-    "prevIllustration": null,
+    "prevIllustration": "GPT-4 (watercolor) — Alice meets the Cheshire Cat in the tree",
     "nextIllustration": "John Tenniel (colorized E.G. Thomson) — The Cheshire Cat in tree",
     "note": ""
   },
@@ -1195,7 +1195,7 @@
     "hasIllustration": true,
     "illustrationDesc": "Gwynedd Hudson — King Queen Executioner",
     "prevIllustration": null,
-    "nextIllustration": null,
+    "nextIllustration": "GPT-4 (watercolor) — The Cheshire Cat's grin above the croquet ground",
     "note": ""
   },
   "8-14": {
@@ -1203,8 +1203,8 @@
     "chapterName": "The Queen's Croquet-Ground",
     "page": 14,
     "text": "She had already heard her sentence three of the players to be\nexecuted for having missed their turns, and she did not like the look\nof things at all, as the game was in such confusion that she never knew\nwhether it was her turn or not. So she went in search of her hedgehog. The hedgehog was engaged in a fight with another hedgehog, which seemed\nto Alice an excellent opportunity for croqueting one of them with the\nother: the only difficulty was, that her flamingo was gone across to\nthe other side of the garden, where Alice could see it trying in a\nhelpless sort of way to fly up into a tree. By the time she had caught the flamingo and brought it back, the fight\nwas over, and both the hedgehogs were out of sight: “but it doesn’t\nmatter much,” thought Alice, “as all the arches are gone from this side\nof the ground.” So she tucked it away under her arm, that it might not\nescape again, and went back for a little more conversation with her\nfriend.",
-    "hasIllustration": false,
-    "illustrationDesc": null,
+    "hasIllustration": true,
+    "illustrationDesc": "GPT-4 (watercolor) — The Cheshire Cat's grin above the croquet ground",
     "prevIllustration": "Gwynedd Hudson — King Queen Executioner",
     "nextIllustration": "Alice B. Woodward — Executioner came back with Duchess",
     "note": ""
@@ -1216,7 +1216,7 @@
     "text": "When she got back to the Cheshire Cat, she was surprised to find quite\na large crowd collected round it: there was a dispute going on between\nthe executioner, the King, and the Queen, who were all talking at once,\nwhile all the rest were quite silent, and looked very uncomfortable. The moment Alice appeared, she was appealed to by all three to settle\nthe question, and they repeated their arguments to her, though, as they\nall spoke at once, she found it very hard indeed to make out exactly\nwhat they said. The executioner’s argument was, that you couldn’t cut off a head unless\nthere was a body to cut it off from: that he had never had to do such a\nthing before, and he wasn’t going to begin at his time of life. The King’s argument was, that anything that had a head could be\nbeheaded, and that you weren’t to talk nonsense. The Queen’s argument was, that if something wasn’t done about it in\nless than no time she’d have everybody executed, all round.",
     "hasIllustration": true,
     "illustrationDesc": "Alice B. Woodward — Executioner came back with Duchess",
-    "prevIllustration": null,
+    "prevIllustration": "GPT-4 (watercolor) — The Cheshire Cat's grin above the croquet ground",
     "nextIllustration": null,
     "note": ""
   },
