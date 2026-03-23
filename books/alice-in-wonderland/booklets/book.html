@@ -479,6 +479,44 @@
     }
     .metadata-close:hover { background: #3c2820; color: #d4a76a; }
 
+    /* ── R2 Upload UI ── */
+    .r2-drop-zone {
+      position: absolute; inset: 0; z-index: 8;
+      display: none; align-items: center; justify-content: center;
+      background: rgba(44,24,16,0.85); border: 3px dashed #d4a76a;
+      border-radius: 8px; pointer-events: none;
+    }
+    .r2-drop-zone.active { display: flex; pointer-events: auto; }
+    .r2-drop-zone-text {
+      color: #d4a76a; font-family: 'Georgia', serif; font-size: 14px;
+      text-align: center; letter-spacing: 1px; padding: 16px;
+    }
+    .r2-upload-progress {
+      position: absolute; bottom: 40px; left: 16px; right: 16px;
+      height: 4px; background: #5a4030; border-radius: 2px;
+      z-index: 12; display: none;
+    }
+    .r2-upload-progress.active { display: block; }
+    .r2-upload-progress-bar {
+      height: 100%; width: 0; background: #d4a76a; border-radius: 2px;
+      transition: width 0.3s;
+    }
+    .ill-carousel .filmstrip-upload {
+      width: 80px; height: 30px; margin: 4px auto; flex-shrink: 0;
+      border: 1px dashed #5a4030; border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      color: #8a7060; font-size: 10px; cursor: pointer;
+      letter-spacing: 0.5px; font-family: 'Georgia', serif;
+    }
+    .ill-carousel .filmstrip-upload:hover { border-color: #d4a76a; color: #d4a76a; }
+    body:not(.edit-mode) .filmstrip-upload { display: none; }
+    .r2-status-dot {
+      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      margin-left: 6px; vertical-align: middle;
+    }
+    .r2-status-dot.connected { background: #60a060; }
+    .r2-status-dot.disconnected { background: #8a7060; }
+
     /* ── Save Flash ── */
     .save-flash {
       position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -730,6 +768,15 @@
     </div>
     <label>Owner<br><input type="text" id="ghOwnerInput" value="PlayfulProcess" style="width:100%;margin:4px 0 8px"></label>
     <label>Repo<br><input type="text" id="ghRepoInput" value="recursive-kids-stories-club" style="width:100%;margin:4px 0 8px"></label>
+    <div style="border-top:1px solid #5a4030;margin-top:16px;padding-top:14px">
+      <h3 style="font-size:14px;margin-bottom:12px">R2 Image Upload <span style="font-size:10px;color:#8a7060">(optional)</span></h3>
+      <label>Cloudflare Account ID<br><input type="text" id="r2AccountIdInput" placeholder="e.g. 1a2b3c..." style="width:100%;margin:4px 0 8px"></label>
+      <label>R2 Access Key ID<br><input type="text" id="r2AccessKeyInput" placeholder="S3-compatible access key" style="width:100%;margin:4px 0 8px"></label>
+      <label>R2 Secret Access Key<br><input type="password" id="r2SecretKeyInput" placeholder="S3-compatible secret key" style="width:100%;margin:4px 0 8px"></label>
+      <label>R2 Bucket Name<br><input type="text" id="r2BucketInput" placeholder="e.g. my-illustrations" style="width:100%;margin:4px 0 8px"></label>
+      <label>R2 Public URL Base<br><input type="text" id="r2PublicUrlInput" placeholder="https://pub-xxx.r2.dev" value="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev" style="width:100%;margin:4px 0 8px"></label>
+      <p style="font-size:10px;color:#8a7060;margin:4px 0 0">Keys stay in your browser only. Enable drag-and-drop image upload to R2.</p>
+    </div>
     <div style="display:flex;gap:8px;margin-top:12px">
       <button id="ghSaveBtn">Save & Enable</button>
       <button id="ghCancelBtn">Cancel</button>
@@ -4637,6 +4684,258 @@ if (goToPageInput) {
   var csvSha = null;
   var pendingChanges = {};
 
+  // ── R2 Upload Configuration ──
+  var r2AccountId = localStorage.getItem('rksc_r2_account_id') || '';
+  var r2AccessKey = localStorage.getItem('rksc_r2_access_key') || '';
+  var r2SecretKey = localStorage.getItem('rksc_r2_secret_key') || '';
+  var r2Bucket = localStorage.getItem('rksc_r2_bucket') || '';
+  var r2PublicUrl = localStorage.getItem('rksc_r2_public_url') || 'https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev';
+
+  function r2Configured() {
+    return !!(r2AccountId && r2AccessKey && r2SecretKey && r2Bucket);
+  }
+
+  // ── AWS Signature V4 for R2 (S3-compatible) ──
+  var R2_REGION = 'auto';
+  var R2_SERVICE = 's3';
+
+  function toHex(buffer) {
+    return Array.from(new Uint8Array(buffer)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
+
+  function sha256(data) {
+    if (typeof data === 'string') {
+      data = new TextEncoder().encode(data);
+    }
+    return crypto.subtle.digest('SHA-256', data);
+  }
+
+  function hmacSha256(key, data) {
+    if (typeof key === 'string') {
+      key = new TextEncoder().encode(key);
+    }
+    if (typeof data === 'string') {
+      data = new TextEncoder().encode(data);
+    }
+    return crypto.subtle.importKey('raw', key, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'])
+      .then(function(k) { return crypto.subtle.sign('HMAC', k, data); });
+  }
+
+  function getSignatureKey(secretKey, dateStamp, region, service) {
+    return hmacSha256('AWS4' + secretKey, dateStamp)
+      .then(function(k1) { return hmacSha256(k1, region); })
+      .then(function(k2) { return hmacSha256(k2, service); })
+      .then(function(k3) { return hmacSha256(k3, 'aws4_request'); });
+  }
+
+  function r2Upload(file, objectKey) {
+    if (!r2Configured()) return Promise.reject(new Error('R2 not configured'));
+
+    var host = r2AccountId + '.r2.cloudflarestorage.com';
+    var url = 'https://' + host + '/' + r2Bucket + '/' + objectKey;
+    var now = new Date();
+    var dateStamp = now.toISOString().replace(/[-:]/g, '').slice(0, 8);
+    var amzDate = dateStamp + 'T' + now.toISOString().replace(/[-:]/g, '').slice(9, 15) + 'Z';
+    var contentType = file.type || 'application/octet-stream';
+    var credentialScope = dateStamp + '/' + R2_REGION + '/' + R2_SERVICE + '/aws4_request';
+
+    return file.arrayBuffer().then(function(fileBuffer) {
+      return sha256(fileBuffer).then(function(payloadHash) {
+        var payloadHex = toHex(payloadHash);
+
+        var canonicalHeaders =
+          'content-type:' + contentType + '\n' +
+          'host:' + host + '\n' +
+          'x-amz-content-sha256:' + payloadHex + '\n' +
+          'x-amz-date:' + amzDate + '\n';
+
+        var signedHeaders = 'content-type;host;x-amz-content-sha256;x-amz-date';
+
+        var canonicalRequest = 'PUT\n' +
+          '/' + r2Bucket + '/' + objectKey + '\n' +
+          '\n' +
+          canonicalHeaders + '\n' +
+          signedHeaders + '\n' +
+          payloadHex;
+
+        return sha256(canonicalRequest).then(function(canonHash) {
+          var stringToSign = 'AWS4-HMAC-SHA256\n' +
+            amzDate + '\n' +
+            credentialScope + '\n' +
+            toHex(canonHash);
+
+          return getSignatureKey(r2SecretKey, dateStamp, R2_REGION, R2_SERVICE).then(function(sigKey) {
+            return hmacSha256(sigKey, stringToSign).then(function(sig) {
+              var signature = toHex(sig);
+              var authHeader = 'AWS4-HMAC-SHA256 Credential=' + r2AccessKey + '/' + credentialScope +
+                ', SignedHeaders=' + signedHeaders +
+                ', Signature=' + signature;
+
+              return fetch(url, {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': contentType,
+                  'x-amz-content-sha256': payloadHex,
+                  'x-amz-date': amzDate,
+                  'Authorization': authHeader
+                },
+                body: fileBuffer
+              }).then(function(resp) {
+                if (!resp.ok) {
+                  return resp.text().then(function(t) { throw new Error('R2 upload failed (' + resp.status + '): ' + t); });
+                }
+                // Return the public URL
+                var publicBase = r2PublicUrl.replace(/\/+$/, '');
+                return publicBase + '/' + objectKey;
+              });
+            });
+          });
+        });
+      });
+    });
+  }
+
+  // Generate a path for the uploaded image based on context
+  function r2ObjectKey(spread, fileName) {
+    var ch = spread ? spread.dataset.ch : null;
+    var ext = fileName.split('.').pop().toLowerCase();
+    var baseName = fileName.replace(/\.[^.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '-').toLowerCase();
+    var timestamp = Date.now().toString(36);
+    var prefix = 'grammar-illustrations/alice-in-wonderland';
+
+    if (ch) {
+      // Find chapter slug from the chapter section id
+      var chSection = spread.closest('[id^="ch"]');
+      var chId = chSection ? chSection.id : 'chapter-' + ch.padStart(2, '0');
+      return prefix + '/' + chId + '/' + baseName + '-' + timestamp + '.' + ext;
+    }
+    return prefix + '/uploaded/' + baseName + '-' + timestamp + '.' + ext;
+  }
+
+  // Handle a file drop or selection for a given spread
+  function handleImageUpload(file, spread) {
+    if (!file || !file.type.startsWith('image/')) {
+      flash('Not an image file');
+      return;
+    }
+    if (file.size > 20 * 1024 * 1024) {
+      flash('File too large (max 20MB)');
+      return;
+    }
+
+    var objectKey = r2ObjectKey(spread, file.name);
+    var pageLeft = spread ? spread.querySelector('.page-left') : null;
+
+    // Show progress
+    var progressEl = null;
+    if (pageLeft) {
+      progressEl = pageLeft.querySelector('.r2-upload-progress');
+      if (!progressEl) {
+        progressEl = document.createElement('div');
+        progressEl.className = 'r2-upload-progress';
+        progressEl.innerHTML = '<div class="r2-upload-progress-bar"></div>';
+        pageLeft.appendChild(progressEl);
+      }
+      progressEl.classList.add('active');
+      progressEl.querySelector('.r2-upload-progress-bar').style.width = '30%';
+    }
+
+    flash('Uploading...');
+
+    r2Upload(file, objectKey).then(function(publicUrl) {
+      if (progressEl) {
+        progressEl.querySelector('.r2-upload-progress-bar').style.width = '100%';
+        setTimeout(function() { progressEl.classList.remove('active'); }, 800);
+      }
+
+      var desc = file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+      applyIllustrationToSpread(spread, publicUrl, desc);
+
+      // Also add to carousel
+      var newThumb = createThumb({ chapter: 0, page: 0, url: publicUrl, description: desc });
+      var carousel = document.getElementById('illCarousel');
+      var unusedHeader = document.getElementById('unusedSectionHeader');
+      if (unusedHeader && unusedHeader.nextSibling) {
+        unusedHeader.parentNode.insertBefore(newThumb, unusedHeader.nextSibling);
+      } else if (carousel) {
+        carousel.appendChild(newThumb);
+      }
+      updateUnusedCount();
+
+      flash('Uploaded!');
+      console.log('R2 upload complete:', publicUrl);
+    }).catch(function(err) {
+      if (progressEl) progressEl.classList.remove('active');
+      flash('Upload failed');
+      console.error('R2 upload error:', err);
+      alert('R2 upload failed: ' + err.message + '\n\nCheck your R2 credentials and bucket CORS settings.');
+    });
+  }
+
+  // Hidden file input for image selection
+  var r2FileInput = document.createElement('input');
+  r2FileInput.type = 'file';
+  r2FileInput.accept = 'image/*';
+  r2FileInput.style.display = 'none';
+  document.body.appendChild(r2FileInput);
+  var r2FileTargetSpread = null;
+
+  r2FileInput.addEventListener('change', function() {
+    if (r2FileInput.files.length > 0 && r2FileTargetSpread) {
+      handleImageUpload(r2FileInput.files[0], r2FileTargetSpread);
+    }
+    r2FileInput.value = '';
+  });
+
+  // ── Drag and Drop on page-left in edit mode ──
+  document.addEventListener('dragenter', function(e) {
+    if (!editMode || !r2Configured()) return;
+    var pageLeft = e.target.closest('.page-left');
+    if (!pageLeft) return;
+    e.preventDefault();
+    var dropZone = pageLeft.querySelector('.r2-drop-zone');
+    if (!dropZone) {
+      dropZone = document.createElement('div');
+      dropZone.className = 'r2-drop-zone';
+      dropZone.innerHTML = '<div class="r2-drop-zone-text">Drop image to upload to R2</div>';
+      pageLeft.appendChild(dropZone);
+    }
+    dropZone.classList.add('active');
+  });
+
+  document.addEventListener('dragover', function(e) {
+    if (!editMode || !r2Configured()) return;
+    var dropZone = e.target.closest('.r2-drop-zone');
+    if (dropZone) e.preventDefault();
+  });
+
+  document.addEventListener('dragleave', function(e) {
+    var dropZone = e.target.closest('.r2-drop-zone');
+    if (!dropZone) return;
+    var rect = dropZone.getBoundingClientRect();
+    if (e.clientX <= rect.left || e.clientX >= rect.right ||
+        e.clientY <= rect.top || e.clientY >= rect.bottom) {
+      dropZone.classList.remove('active');
+    }
+  });
+
+  document.addEventListener('drop', function(e) {
+    if (!editMode || !r2Configured()) return;
+    var dropZone = e.target.closest('.r2-drop-zone');
+    if (!dropZone) return;
+    e.preventDefault();
+    dropZone.classList.remove('active');
+
+    var pageLeft = dropZone.closest('.page-left');
+    var spread = pageLeft ? pageLeft.closest('.spread') : null;
+    if (!spread) return;
+
+    var files = e.dataTransfer.files;
+    if (files.length > 0) {
+      handleImageUpload(files[0], spread);
+    }
+  });
+
   function setMode(mode) {
     // Leaving old mode
     if (currentMode === 'edit') setEditMode(false);
@@ -4741,6 +5040,21 @@ if (goToPageInput) {
     addBtn.textContent = '+';
     carousel.appendChild(addBtn);
 
+    // Upload file button (only shows if R2 is configured)
+    if (r2Configured()) {
+      var uploadBtn = document.createElement('div');
+      uploadBtn.className = 'filmstrip-upload';
+      uploadBtn.title = 'Upload image file to R2';
+      uploadBtn.textContent = 'Upload';
+      carousel.appendChild(uploadBtn);
+
+      // R2 status indicator
+      var statusDiv = document.createElement('div');
+      statusDiv.style.cssText = 'text-align:center;font-size:9px;color:#8a7060;padding:4px;';
+      statusDiv.innerHTML = 'R2 <span class="r2-status-dot connected"></span>';
+      carousel.appendChild(statusDiv);
+    }
+
   }
 
   function createThumb(ill) {
@@ -4810,6 +5124,17 @@ if (goToPageInput) {
     if (token) tokenInput.value = token;
     if (repoOwner) ownerInput.value = repoOwner;
     if (repoName) repoInput.value = repoName;
+    // Populate R2 fields
+    var r2aInput = document.getElementById('r2AccountIdInput');
+    var r2kInput = document.getElementById('r2AccessKeyInput');
+    var r2sInput = document.getElementById('r2SecretKeyInput');
+    var r2bInput = document.getElementById('r2BucketInput');
+    var r2pInput = document.getElementById('r2PublicUrlInput');
+    if (r2aInput && r2AccountId) r2aInput.value = r2AccountId;
+    if (r2kInput && r2AccessKey) r2kInput.value = r2AccessKey;
+    if (r2sInput && r2SecretKey) r2sInput.value = r2SecretKey;
+    if (r2bInput && r2Bucket) r2bInput.value = r2Bucket;
+    if (r2pInput && r2PublicUrl) r2pInput.value = r2PublicUrl;
     editModal.classList.add('active');
   }
 
@@ -4834,6 +5159,19 @@ if (goToPageInput) {
       repoOwner = o || repoOwner;
       repoName = r || repoName;
       localStorage.setItem('rksc_github_token', token);
+      // Save R2 credentials
+      var r2a = (document.getElementById('r2AccountIdInput').value || '').trim();
+      var r2k = (document.getElementById('r2AccessKeyInput').value || '').trim();
+      var r2s = (document.getElementById('r2SecretKeyInput').value || '').trim();
+      var r2b = (document.getElementById('r2BucketInput').value || '').trim();
+      var r2p = (document.getElementById('r2PublicUrlInput').value || '').trim();
+      r2AccountId = r2a; r2AccessKey = r2k; r2SecretKey = r2s; r2Bucket = r2b;
+      if (r2p) r2PublicUrl = r2p;
+      if (r2a) localStorage.setItem('rksc_r2_account_id', r2a);
+      if (r2k) localStorage.setItem('rksc_r2_access_key', r2k);
+      if (r2s) localStorage.setItem('rksc_r2_secret_key', r2s);
+      if (r2b) localStorage.setItem('rksc_r2_bucket', r2b);
+      if (r2p) localStorage.setItem('rksc_r2_public_url', r2p);
       hideModal();
       setMode('edit');
     });
@@ -5230,28 +5568,49 @@ if (goToPageInput) {
     if (!addBtn) return;
     e.stopPropagation();
 
-    var url = prompt('Image URL:');
-    if (!url || !url.trim()) return;
-    url = url.trim();
-    var desc = prompt('Description (optional):') || '';
+    var url = prompt('Image URL (or leave empty to upload a file):');
+    if (url === null) return; // cancelled
 
-    // Add to unused section of carousel
-    var newThumb = createThumb({ chapter: 0, page: 0, url: url, description: desc });
-    var unusedHeader = document.getElementById('unusedSectionHeader');
-    if (unusedHeader && unusedHeader.nextSibling) {
-      unusedHeader.parentNode.insertBefore(newThumb, unusedHeader.nextSibling);
+    if (url.trim()) {
+      // URL mode — existing behavior
+      url = url.trim();
+      var desc = prompt('Description (optional):') || '';
+      var newThumb = createThumb({ chapter: 0, page: 0, url: url, description: desc });
+      var unusedHeader = document.getElementById('unusedSectionHeader');
+      if (unusedHeader && unusedHeader.nextSibling) {
+        unusedHeader.parentNode.insertBefore(newThumb, unusedHeader.nextSibling);
+      } else {
+        var carousel = document.getElementById('illCarousel');
+        carousel.insertBefore(newThumb, addBtn);
+      }
+      updateUnusedCount();
+      if (currentVisibleSpread && currentVisibleSpread.dataset.ch) {
+        applyIllustrationToSpread(currentVisibleSpread, url, desc);
+      }
+      console.log('Added illustration:', url.substring(0, 60) + '...');
     } else {
-      var carousel = document.getElementById('illCarousel');
-      carousel.insertBefore(newThumb, addBtn);
+      // File upload mode
+      if (!r2Configured()) {
+        alert('R2 not configured. Click the mode dropdown and select Edit to configure R2 credentials.');
+        return;
+      }
+      r2FileTargetSpread = currentVisibleSpread;
+      r2FileInput.click();
     }
-    updateUnusedCount();
+  });
 
-    // Also apply to current spread if one is visible
-    if (currentVisibleSpread && currentVisibleSpread.dataset.ch) {
-      applyIllustrationToSpread(currentVisibleSpread, url, desc);
+  // ── Upload button in carousel ──
+  document.addEventListener('click', function(e) {
+    if (!editMode) return;
+    var uploadBtn = e.target.closest('#illCarousel .filmstrip-upload');
+    if (!uploadBtn) return;
+    e.stopPropagation();
+    if (!r2Configured()) {
+      alert('R2 not configured. Click the mode dropdown and select Edit to configure R2 credentials.');
+      return;
     }
-
-    console.log('Added illustration:', url.substring(0, 60) + '...');
+    r2FileTargetSpread = currentVisibleSpread;
+    r2FileInput.click();
   });
 
   // ── Flash message ──
