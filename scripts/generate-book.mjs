@@ -133,10 +133,10 @@ function escapeHtml(text) {
     .replace(/"/g, '&quot;');
 }
 
-// Format illustration caption: split on em-dashes, use bullet separators
+// Format illustration caption: split on ' - ' separator, render as bullets
 function formatCaption(desc) {
   if (!desc) return '';
-  let parts = desc.split(/\s*[\u2014\u2013]\s*|\s*--\s*/).filter(p => p.trim());
+  let parts = desc.split(/\s+-\s+/).filter(p => p.trim());
   return parts.map(p => escapeHtml(p.trim())).join(' &#8226; ');
 }
 

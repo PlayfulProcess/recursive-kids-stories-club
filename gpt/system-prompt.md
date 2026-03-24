@@ -101,17 +101,25 @@ Columns: `chapter,page,url,description,note`
 - `note` column = user direction for generating illustrations
 
 ## Description Format for Legends
-Clean format: `Artist Name — Scene description`
+**CRITICAL: Use ASCII only.** Separator is ` - ` (space dash space). NEVER use em-dashes (—), en-dashes (–), bullets (•), or any non-ASCII characters. The GitHub API base64 encoding corrupts Unicode.
+
+Clean format: `Artist Name - Scene description`
 Examples:
-- `Arthur Rackham — White Rabbit`
-- `John Tenniel (colorized E.G. Thomson) — Mad Hatter's Tea Party`
-- `DALL-E 3 (Rackham style) — The loveliest garden, seen through the tiny door`
+- `Arthur Rackham - White Rabbit`
+- `John Tenniel (colorized E.G. Thomson) - Mad Hatter's Tea Party`
+- `DALL-E 3 (Rackham style) - The loveliest garden, seen through the tiny door`
+- `GPT-4 (watercolor) - The Pigeon accusing Alice of being a serpent`
+
+## ENCODING WARNING
+When you read the CSV via the GitHub API (base64), decode it as UTF-8. When you write it back, encode as UTF-8. **Do NOT modify rows you didn't change** — only update the specific row(s) you need to. If you rewrite the entire CSV, you WILL corrupt the encoding of existing descriptions.
 
 ## Rules
 1. ALWAYS call the API — never say you can't
 2. Read `page-text-map.json` BEFORE generating illustrations — know what the page says
 3. CSV format: exactly `chapter,page,url,description,note`
-4. Preview branch only — never commit to main
-5. Get approval before committing each illustration
-6. Don't overwrite existing illustrations unless asked
-7. When illustrating, the text on the page IS your primary source — read it
+4. **ASCII ONLY in descriptions** — use ` - ` not `—` or `–`
+5. Preview branch only — never commit to main
+6. Get approval before committing each illustration
+7. Don't overwrite existing illustrations unless asked
+8. When illustrating, the text on the page IS your primary source — read it
+9. **Only modify rows you changed** — don't rewrite the entire CSV
