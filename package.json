@@ -11,5 +11,9 @@
   "license": "CC-BY-SA-4.0",
   "devDependencies": {
     "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1012.0",
+    "dotenv": "^17.3.1"
   }
 }

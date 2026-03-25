@@ -9,14 +9,41 @@
     @page { size: landscape; margin: 0; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --bg: white;
+      --text: #1a1a1a;
+      --page-bg: white;
+      --page-left-bg: #f8f5f0;
+      --border: #d0c8b8;
+      --caption: #8a7a6a;
+      --page-num: #999;
+      --panel-bg: #2c1810;
+      --panel-text: #f0e6d6;
+      --gold: #d4a76a;
+      --toolbar-bg: #2c1810;
+      --spread-h: 100vh;
+    }
+
+    body.dark-mode {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --page-bg: #161b22;
+      --page-left-bg: #1c2128;
+      --border: #30363d;
+      --caption: #8b949e;
+      --page-num: #484f58;
+      --panel-bg: #0d1117;
+      --panel-text: #e6edf3;
+      --toolbar-bg: #161b22;
+    }
+
     body {
       font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-      background: white;
-      color: #1a1a1a;
+      background: var(--bg);
+      color: var(--text);
     }
 
     /* ── Spreads ── */
-    :root { --spread-h: 100vh; }
     .spread {
       width: 100vw; height: var(--spread-h);
       display: flex;
@@ -29,9 +56,9 @@
     .page-left {
       width: 50%; height: 100%;
       display: flex; align-items: center; justify-content: center;
-      background: #f8f5f0; padding: 16px;
+      background: var(--page-left-bg); padding: 16px;
       overflow: hidden; position: relative;
-      border-right: 2px solid #d0c8b8;
+      border-right: 2px solid var(--border);
     }
     .page-left img {
       max-width: 100%; max-height: 100%;
@@ -45,9 +72,9 @@
       width: 50%; height: 100%;
       display: flex; flex-direction: column;
       align-items: flex-start; justify-content: center;
-      padding: 32px 5%; background: white;
+      padding: 32px 5%; background: var(--page-bg);
       position: relative; overflow: hidden;
-      border-left: 2px solid #d0c8b8;
+      border-left: 2px solid var(--border);
     }
 
     /* ── Text block ── */
@@ -68,7 +95,7 @@
     /* ── Illustration caption ── */
     .ill-caption {
       position: absolute; bottom: 20px; left: 16px; right: 16px;
-      font-size: 9px; color: #8a7a6a; text-align: center;
+      font-size: 9px; color: var(--caption); text-align: center;
       letter-spacing: 0.5px; line-height: 1.4;
       font-family: 'Georgia', serif; font-style: italic;
       opacity: 0.7;
@@ -76,7 +103,7 @@
 
     /* ── Page numbers ── */
     .page-number {
-      font-size: 11px; color: #999;
+      font-size: 11px; color: var(--page-num);
       position: absolute; bottom: 14px;
     }
     .page-number-left { left: 20px; }
@@ -84,7 +111,7 @@
 
     /* ── Decorative panel (text-only pages) ── */
     .decorative-panel {
-      background: #2c1810; border-right-color: #5a4030;
+      background: var(--panel-bg); border-right-color: #5a4030;
     }
     .decorative-panel .page-number { color: #5a4030; }
     .chapter-ornament { text-align: center; color: #d4a76a; }
@@ -146,7 +173,7 @@
     .toolbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; gap: 8px;
-      padding: 6px 16px; background: #2c1810; color: #d4a76a;
+      padding: 6px 16px; background: var(--toolbar-bg); color: #d4a76a;
       font-family: 'Georgia', serif; font-size: 12px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.2);
       transition: opacity 0.5s ease, transform 0.5s ease;
@@ -592,6 +619,40 @@
       .booklet-spread { border-bottom: 3px dashed #ccc; }
       .booklet-spread:last-child { border-bottom: none; }
     }
+    /* ── Settings Panel ── */
+    .settings-panel {
+      position: fixed; top: 44px; right: 0; width: 240px;
+      background: var(--toolbar-bg); color: var(--gold);
+      border-left: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px; z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      font-family: Georgia, serif; font-size: 13px;
+    }
+    .settings-panel.open { transform: translateX(0); }
+    .settings-header {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px; opacity: 0.7;
+    }
+    .settings-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      cursor: pointer;
+    }
+    .settings-row span { color: var(--panel-text); }
+    .settings-row input[type="checkbox"] {
+      width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer;
+    }
+
+    /* ── Dark mode image adjustments ── */
+    body.dark-mode .page-left img {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    body.dark-mode .cover-image img {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
     /* ── Ink Saver: strip dark backgrounds, use dark text on white ── */
     body.ink-saver .booklet-page-single.page-type-cover {
       background: white; color: #1a1a1a;
@@ -664,6 +725,7 @@
   <span class="match-count" id="matchCount"></span>
   <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:52px;font-size:12px;text-align:center;-moz-appearance:textfield;background:rgba(255,255,255,0.08);color:#d4a76a;border:none;border-radius:4px;padding:4px 6px;font-family:Georgia,serif" autocomplete="off">
   <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
+  <button id="settingsToggle" title="Settings">&#9881;</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
   <select id="modeSelect" title="View mode">
@@ -676,6 +738,17 @@
   </select>
   <button id="downloadCsvBtn" class="edit-only-btn" style="display:none" title="Download illustrations.csv">&#8681; CSV</button>
   <span class="edit-indicator" id="editIndicator"></span>
+</div>
+<div class="settings-panel" id="settingsPanel">
+  <div class="settings-header">Settings</div>
+  <label class="settings-row">
+    <span>Dark mode</span>
+    <input type="checkbox" id="darkModeToggle">
+  </label>
+  <label class="settings-row">
+    <span>Uppercase text</span>
+    <input type="checkbox" id="uppercaseToggle">
+  </label>
 </div>
 
 <div class="chapter-nav" id="chapterNav">
@@ -4278,6 +4351,56 @@ if (goToPageInput) {
       p.style.letterSpacing = isUpper ? '0.3px' : '0';
     });
   });
+})();
+
+// ── Settings Panel ──
+(function() {
+  var panel = document.getElementById('settingsPanel');
+  var toggleBtn = document.getElementById('settingsToggle');
+  var darkToggle = document.getElementById('darkModeToggle');
+  var upperToggle = document.getElementById('uppercaseToggle');
+
+  // Toggle panel open/close
+  toggleBtn.addEventListener('click', function() {
+    panel.classList.toggle('open');
+    // Close chapter nav if open
+    var nav = document.getElementById('chapterNav');
+    if (nav) nav.classList.remove('open');
+  });
+
+  // Close panel when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!panel.contains(e.target) && e.target !== toggleBtn) {
+      panel.classList.remove('open');
+    }
+  });
+
+  // Dark mode
+  var savedDark = localStorage.getItem('book-dark-mode') === 'true';
+  if (savedDark) {
+    document.body.classList.add('dark-mode');
+    darkToggle.checked = true;
+  }
+  darkToggle.addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode', this.checked);
+    localStorage.setItem('book-dark-mode', this.checked);
+  });
+
+  // Uppercase (reuse existing Aa logic but connect to settings)
+  var caseBtn = document.getElementById('caseToggle');
+  upperToggle.addEventListener('change', function() {
+    if (caseBtn) caseBtn.click();
+  });
+  // Sync settings checkbox with Aa button state
+  if (caseBtn) {
+    var observer = new MutationObserver(function() {
+      var ps = document.querySelectorAll('.text-block p');
+      if (ps.length > 0) {
+        upperToggle.checked = (ps[0].style.textTransform === 'uppercase');
+      }
+    });
+    observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['style'] });
+  }
 })();
 
 // ── Fullscreen toggle ──

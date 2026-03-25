@@ -1,0 +1,53 @@
+{
+  "title": "A Painful Playful Process Song",
+  "author": "Playful Process Family",
+  "contentType": "song",
+  "grammar": "grammar.json",
+  "textSection": "Lyrics",
+  "illustrations": "illustrations.csv",
+  "audio": {
+    "versions": [
+      {
+        "name": "Piano Alto 2",
+        "url": "audio/piano-alto-2.mp3",
+        "manifest": "audio/piano-alto-2-manifest.json",
+        "favorite": true
+      },
+      {
+        "name": "Piano Alto 1",
+        "url": "audio/piano-alto-1.mp3",
+        "manifest": "audio/piano-alto-1-manifest.json"
+      },
+      {
+        "name": "Piano 2",
+        "url": "audio/piano-2.mp3",
+        "manifest": "audio/piano-2-manifest.json"
+      },
+      {
+        "name": "Piano 1",
+        "url": "audio/piano-1.mp3",
+        "manifest": "audio/piano-1-manifest.json"
+      },
+      {
+        "name": "Guitar 2",
+        "url": "audio/guitar-2.mp3",
+        "manifest": "audio/guitar-2-manifest.json"
+      },
+      {
+        "name": "Guitar 1",
+        "url": "audio/guitar-1.mp3",
+        "manifest": "audio/guitar-1-manifest.json"
+      }
+    ]
+  },
+  "cover": {
+    "image": "",
+    "illustrators": "AI GENERATED"
+  },
+  "output": "booklets/book.html",
+  "github": {
+    "owner": "PlayfulProcess",
+    "repo": "recursive-kids-stories-club",
+    "bookPath": "books/a-painful-playful-process-song"
+  }
+}
