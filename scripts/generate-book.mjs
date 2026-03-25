@@ -56,6 +56,17 @@ if (config.audio?.manifest) {
     console.log(`Audio: unified manifest (${(karaokeManifest.total_duration_s / 60).toFixed(1)} min)`);
   }
 }
+// For songs: load the favorite version's manifest if no top-level manifest
+if (!karaokeManifest && config.contentType === 'song' && config.audio?.versions) {
+  const fav = config.audio.versions.find(v => v.favorite) || config.audio.versions[0];
+  if (fav?.manifest) {
+    const manifestPath = resolvePath(fav.manifest);
+    if (existsSync(manifestPath)) {
+      karaokeManifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+      console.log(`Song audio: manifest from "${fav.name}" (${Object.keys(karaokeManifest.chapters || {}).length} chapters)`);
+    }
+  }
+}
 
 // Load poem whisper timestamps (optional)
 let poemWhisperWords = null;
@@ -153,8 +164,14 @@ function transformText(text) {
 }
 
 function formatTextAsHtml(text) {
+  const isSong = config.contentType === 'song';
   const paragraphs = text.split(/\n\n+/).filter(p => p.trim());
   return paragraphs.map(p => {
+    if (isSong) {
+      // Preserve line breaks for song lyrics
+      const lines = p.split(/\n/).map(l => escapeHtml(l.trim())).filter(l => l);
+      return `<p class="verse-lines">${lines.join('<br>\n          ')}</p>`;
+    }
     let cleaned = p.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
     return `<p>${escapeHtml(cleaned)}</p>`;
   }).join('\n          ');
@@ -193,16 +210,32 @@ function wordsMatch(a, b) {
  * Returns { html, cursor } so cursor carries across pages.
  */
 function formatTextAsKaraokeHtml(text, manifestWords, cursor) {
+  const isSong = config.contentType === 'song';
   const paragraphs = text.split(/\n\n+/).filter(p => p.trim());
   const htmlParts = [];
 
   // Collect all text words with paragraph info for bigram lookahead
   const allTextWords = [];
   for (const p of paragraphs) {
-    const cleaned = p.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-    const words = cleaned.split(/\s+/).filter(w => w);
-    for (let i = 0; i < words.length; i++) {
-      allTextWords.push({ word: words[i], paraIdx: htmlParts.length, wordIdx: i });
+    if (isSong) {
+      // For songs: preserve line breaks, insert BR markers between lines
+      const lines = p.split(/\n/).filter(l => l.trim());
+      for (let li = 0; li < lines.length; li++) {
+        const words = lines[li].trim().split(/\s+/).filter(w => w);
+        for (let i = 0; i < words.length; i++) {
+          allTextWords.push({ word: words[i], paraIdx: htmlParts.length, wordIdx: allTextWords.length, lineBreakAfter: false });
+        }
+        // Mark last word of line (except last line) for BR insertion
+        if (li < lines.length - 1 && allTextWords.length > 0) {
+          allTextWords[allTextWords.length - 1].lineBreakAfter = true;
+        }
+      }
+    } else {
+      const cleaned = p.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+      const words = cleaned.split(/\s+/).filter(w => w);
+      for (let i = 0; i < words.length; i++) {
+        allTextWords.push({ word: words[i], paraIdx: htmlParts.length, wordIdx: i, lineBreakAfter: false });
+      }
     }
     htmlParts.push([]); // placeholder for this paragraph's word HTMLs
   }
@@ -244,9 +277,15 @@ function formatTextAsKaraokeHtml(text, manifestWords, cursor) {
     if (!matched) {
       htmlParts[paraIdx].push(`<span class="k-word">${escapeHtml(word)}</span>`);
     }
+
+    // Insert line break marker after this word if flagged (song mode)
+    if (allTextWords[wi].lineBreakAfter) {
+      htmlParts[paraIdx].push('<br>');
+    }
   }
 
-  const html = htmlParts.map(words => `<p>${words.join(' ')}</p>`).join('\n          ');
+  const cls = isSong ? ' class="verse-lines"' : '';
+  const html = htmlParts.map(words => `<p${cls}>${words.join(' ')}</p>`).join('\n          ');
   return { html, cursor };
 }
 
@@ -630,7 +669,7 @@ for (const chNum of chapterNums) {
   const { coverImage, pages, allChIlls } = buildChapterPages(chNum, chapter);
 
   // Build page text map entries for this chapter
-  const chName = chapter.l2?.metadata?.original_title || chapter.scenes[0]?.metadata?.chapter_name || `Chapter ${chNum}`;
+  const chName = chapter.l2?.metadata?.original_title || chapter.scenes[0]?.metadata?.chapter_title || chapter.scenes[0]?.metadata?.chapter_name || `Chapter ${chNum}`;
   for (let pi = 0; pi < pages.length; pi++) {
     const pageNum = pi + 1;
     const prevIll = pages[pi - 1]?.illustration || null;
@@ -717,10 +756,11 @@ for (const chNum of chapterNums) {
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
     } else {
+      const isSongMode = config.contentType === 'song';
       spreadsHtml += `
     <div class="spread text-only" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
-      <div class="page-left decorative-panel" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}"${noteAttr}>
-        <div class="chapter-ornament"><div class="ornament-number">${chNum}</div></div>
+      <div class="page-left ${isSongMode ? 'song-verse-panel' : 'decorative-panel'}" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}"${noteAttr}>
+        ${isSongMode ? `<div class="verse-label">${escapeHtml(chName)}</div>` : `<div class="chapter-ornament"><div class="ornament-number">${chNum}</div></div>`}
         ${noteBtn}
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
@@ -1631,15 +1671,34 @@ function generateCSS() {
 
     /* ── Song lyrics styling ── */
     body.content-song .text-block p {
-      text-align: center;
+      text-align: left;
       text-indent: 0;
-      font-size: 22px;
-      line-height: 1.8;
+      font-size: 20px;
+      line-height: 1.9;
       font-style: italic;
+    }
+    body.content-song .text-block p.verse-lines {
+      white-space: pre-line;
     }
     body.content-song .text-block {
       justify-content: center;
       align-items: center;
+    }
+    body.content-song .song-verse-panel {
+      background: var(--page-left-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body.content-song .verse-label {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.6;
+      text-align: center;
+      padding: 20px;
     }
     body.content-song #versionSelect {
       background: rgba(255,255,255,0.08);

@@ -1,3 +1,7 @@
 node_modules/
 .env
 .env.local
+
+# Large audio files — stored on Cloudflare R2, not in git
+books/winnie-the-pooh/audio/*.mp3
+books/winnie-the-pooh/audio/*-whisper.json

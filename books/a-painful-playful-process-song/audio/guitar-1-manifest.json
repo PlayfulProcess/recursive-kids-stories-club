@@ -1,5065 +1,3290 @@
 {
-  "text": " We gathered up our things one day, and set them out to give away. We gathered up our things one day, and set them out to give away. Old dresses, toys, books and a chair for people who might care and share. We laughed while clearing out the room, made space for something new to bloom. We played and packed and sang out loud, feeling spaciousness, feeling proud. But then the truck came down our street with grinding gears and heavy beats. It grabbed up things above the ground, and crushed them with a terrible sound. I felt it in my chest and bones, cracking snapping bendin' bones. I watched our car get pressed and torn, I stood there frozen, lost and worn. You looked at me with puzzled eyes, not understanding how or why. I reached the driver at his door, without a sign it's gone no more. We didn't know we needed a sign, a little note, a symbol line. Please reuse these, they still have life, without it everything was lost to strife. The truck pulled off and drove away. Your things were gone, they couldn't stay. And when you heard you understood, and something broke inside of you. You ran and screamed down our whole street, they seemed the truck with a racing beat. You screamed until the driver heard, he stopped the truck without a word. He stepped outside, he looked at you, but there was nothing he could do. I ran to you and held you close, you screamed and screamed and screamed. We sat together on the ground, and all the world was just that sound. Your voice, your tears, the empty street, a moment frozen in the heat. You screamed when threw me like a blade, I felt the mess that we had made. I couldn't fix it, couldn't speak. Just hold you while we both were weak. The crash, the crush, that awful sound, it planted something in the ground. And what grew up between the cracks is this, a song that loves you back. The pictures came back in your head, they followed you right into bed. They knocked and knocked and wouldn't leave reminding us. We need to greet. Like loamy's knee that sometimes screams, paint tells us what the body needs. If we keep saying go away, it only screams out more each day. The crash, the crush, that awful sound, it planted something in the ground. And what grew up between the cracks is this, a song that loves you back. So next time we will make a sign, please reuse these a simple line. Our feelings found their hands and feet, and walked right out onto the street. There's a part of us that wants to hide, lock the door and stay inside. Don't put anything out again, don't risk the hurt, don't risk the pain. There's a punch that knows we must let go of things, rebuild our trust. The two parts argue, pushing home, and that's the game that is the rule. The two parts argue, pushing home, and that's the rule. We need to let the two parts together. Because the game is never done, it's not a game that can be won. The game is played by those who stay, who feel the pain and still the play. If it weren't for the pain we knew, this song would not be here for you. The hurt that made us cry and shake is why we sing for both our sake.",
-  "segments": [
-    {
-      "id": 0,
-      "seek": 0,
-      "start": 4.08,
-      "end": 12.88,
-      "text": " We gathered up our things one day, and set them out to give away.",
-      "tokens": [
-        50364,
-        492,
-        13032,
-        493,
-        527,
-        721,
-        472,
-        786,
-        11,
-        293,
-        992,
-        552,
-        484,
-        281,
-        976,
-        1314,
-        13,
-        51128
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.3168774404023823,
-      "compression_ratio": 1.7945205479452055,
-      "no_speech_prob": 0.33727896213531494,
+  "total_duration_s": 471.9,
+  "chapters": {
+    "1": {
+      "chapter": 1,
+      "title": "The Hopeful Day",
+      "offset": 4.08,
+      "duration": 38.16,
       "words": [
         {
-          "word": " We",
+          "word": "We",
           "start": 4.08,
-          "end": 5.0,
-          "probability": 0.09576983749866486
+          "end": 5.0
         },
         {
-          "word": " gathered",
+          "word": "gathered",
           "start": 5.0,
-          "end": 5.46,
-          "probability": 0.943044900894165
+          "end": 5.46
         },
         {
-          "word": " up",
+          "word": "up",
           "start": 5.46,
-          "end": 5.94,
-          "probability": 0.9811259508132935
+          "end": 5.94
         },
         {
-          "word": " our",
+          "word": "our",
           "start": 5.94,
-          "end": 6.14,
-          "probability": 0.9634943604469299
+          "end": 6.14
         },
         {
-          "word": " things",
+          "word": "things",
           "start": 6.14,
-          "end": 6.6,
-          "probability": 0.949181318283081
+          "end": 6.6
         },
         {
-          "word": " one",
+          "word": "one",
           "start": 6.6,
-          "end": 6.92,
-          "probability": 0.9767778515815735
+          "end": 6.92
         },
         {
-          "word": " day,",
+          "word": "day,",
           "start": 6.92,
-          "end": 7.54,
-          "probability": 0.9929516911506653
+          "end": 7.54
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 8.04,
-          "end": 10.12,
-          "probability": 0.6560426354408264
+          "end": 10.12
         },
         {
-          "word": " set",
+          "word": "set",
           "start": 10.12,
-          "end": 10.4,
-          "probability": 0.9903725385665894
+          "end": 10.4
         },
         {
-          "word": " them",
+          "word": "them",
           "start": 10.4,
-          "end": 10.64,
-          "probability": 0.9977923631668091
+          "end": 10.64
         },
         {
-          "word": " out",
+          "word": "out",
           "start": 10.64,
-          "end": 11.08,
-          "probability": 0.9853249192237854
+          "end": 11.08
         },
         {
-          "word": " to",
+          "word": "to",
           "start": 11.08,
-          "end": 11.48,
-          "probability": 0.8882716298103333
+          "end": 11.48
         },
         {
-          "word": " give",
+          "word": "give",
           "start": 11.48,
-          "end": 11.86,
-          "probability": 0.8877676725387573
+          "end": 11.86
         },
         {
-          "word": " away.",
+          "word": "away.",
           "start": 11.86,
-          "end": 12.88,
-          "probability": 0.9867109656333923
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "seek": 0,
-      "start": 15.280000000000001,
-      "end": 23.12,
-      "text": " We gathered up our things one day, and set them out to give away.",
-      "tokens": [
-        51128,
-        492,
-        13032,
-        493,
-        527,
-        721,
-        472,
-        786,
-        11,
-        293,
-        992,
-        552,
-        484,
-        281,
-        976,
-        1314,
-        13,
-        51634
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.3168774404023823,
-      "compression_ratio": 1.7945205479452055,
-      "no_speech_prob": 0.33727896213531494,
-      "words": [
+          "end": 12.88
+        },
         {
-          "word": " We",
+          "word": "We",
           "start": 14.84,
-          "end": 15.3,
-          "probability": 0.9389985203742981
+          "end": 15.3
         },
         {
-          "word": " gathered",
+          "word": "gathered",
           "start": 15.3,
-          "end": 15.66,
-          "probability": 0.9930018782615662
+          "end": 15.66
         },
         {
-          "word": " up",
+          "word": "up",
           "start": 15.66,
-          "end": 16.2,
-          "probability": 0.9950738549232483
+          "end": 16.2
         },
         {
-          "word": " our",
+          "word": "our",
           "start": 16.2,
-          "end": 16.36,
-          "probability": 0.9938603639602661
+          "end": 16.36
         },
         {
-          "word": " things",
+          "word": "things",
           "start": 16.36,
-          "end": 16.78,
-          "probability": 0.9942002296447754
+          "end": 16.78
         },
         {
-          "word": " one",
+          "word": "one",
           "start": 16.78,
-          "end": 17.16,
-          "probability": 0.9957180619239807
+          "end": 17.16
         },
         {
-          "word": " day,",
+          "word": "day,",
           "start": 17.16,
-          "end": 17.68,
-          "probability": 0.9987215399742126
+          "end": 17.68
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 19.82,
-          "end": 20.38,
-          "probability": 0.9834457039833069
+          "end": 20.38
         },
         {
-          "word": " set",
+          "word": "set",
           "start": 20.38,
-          "end": 20.62,
-          "probability": 0.9985871315002441
+          "end": 20.62
         },
         {
-          "word": " them",
+          "word": "them",
           "start": 20.62,
-          "end": 20.9,
-          "probability": 0.9995158910751343
+          "end": 20.9
         },
         {
-          "word": " out",
+          "word": "out",
           "start": 20.9,
-          "end": 21.4,
-          "probability": 0.9972289204597473
+          "end": 21.4
         },
         {
-          "word": " to",
+          "word": "to",
           "start": 21.4,
-          "end": 21.7,
-          "probability": 0.9967551827430725
+          "end": 21.7
         },
         {
-          "word": " give",
+          "word": "give",
           "start": 21.7,
-          "end": 22.08,
-          "probability": 0.9897804260253906
+          "end": 22.08
         },
         {
-          "word": " away.",
+          "word": "away.",
           "start": 22.08,
-          "end": 23.12,
-          "probability": 0.9982852339744568
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "seek": 2312,
-      "start": 24.460000000000004,
-      "end": 31.96,
-      "text": " Old dresses, toys, books and a chair for people who might care and share.",
-      "tokens": [
-        50414,
-        8633,
-        25156,
-        11,
-        13753,
-        11,
-        3642,
-        293,
-        257,
-        6090,
-        337,
-        561,
-        567,
-        1062,
-        1127,
-        293,
-        2073,
-        13,
-        50864
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.25243010887732875,
-      "compression_ratio": 1.2773109243697478,
-      "no_speech_prob": 0.20899619162082672,
-      "words": [
-        {
-          "word": " Old",
-          "start": 24.460000000000004,
-          "end": 25.38,
-          "probability": 0.6366330981254578
+          "end": 23.12
         },
         {
-          "word": " dresses,",
+          "word": "Old",
+          "start": 24.46,
+          "end": 25.38
+        },
+        {
+          "word": "dresses,",
           "start": 25.38,
-          "end": 25.88,
-          "probability": 0.5888662338256836
+          "end": 25.88
         },
         {
-          "word": " toys,",
+          "word": "toys,",
           "start": 26.24,
-          "end": 26.54,
-          "probability": 0.9869703054428101
+          "end": 26.54
         },
         {
-          "word": " books",
+          "word": "books",
           "start": 26.82,
-          "end": 26.96,
-          "probability": 0.9958577752113342
+          "end": 26.96
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 26.96,
-          "end": 27.2,
-          "probability": 0.6068757772445679
+          "end": 27.2
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 27.2,
-          "end": 27.36,
-          "probability": 0.9685109853744507
+          "end": 27.36
         },
         {
-          "word": " chair",
+          "word": "chair",
           "start": 27.36,
-          "end": 27.76,
-          "probability": 0.9731228351593018
+          "end": 27.76
         },
         {
-          "word": " for",
+          "word": "for",
           "start": 27.76,
-          "end": 28.54,
-          "probability": 0.3861309289932251
+          "end": 28.54
         },
         {
-          "word": " people",
+          "word": "people",
           "start": 28.54,
-          "end": 29.0,
-          "probability": 0.9966403245925903
+          "end": 29.0
         },
         {
-          "word": " who",
+          "word": "who",
           "start": 29.0,
-          "end": 29.44,
-          "probability": 0.9705941081047058
+          "end": 29.44
         },
         {
-          "word": " might",
+          "word": "might",
           "start": 29.44,
-          "end": 29.84,
-          "probability": 0.9961340427398682
+          "end": 29.84
         },
         {
-          "word": " care",
+          "word": "care",
           "start": 29.84,
-          "end": 30.52,
-          "probability": 0.9979263544082642
+          "end": 30.52
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 30.52,
-          "end": 31.06,
-          "probability": 0.9909294247627258
+          "end": 31.06
         },
         {
-          "word": " share.",
+          "word": "share.",
           "start": 31.06,
-          "end": 31.96,
-          "probability": 0.991905927658081
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "seek": 2312,
-      "start": 34.82000000000001,
-      "end": 42.66,
-      "text": " We laughed while clearing out the room, made space for something new to bloom.",
-      "tokens": [
-        50964,
-        492,
-        20881,
-        1339,
-        23937,
-        484,
-        264,
-        1808,
-        11,
-        1027,
-        1901,
-        337,
-        746,
-        777,
-        281,
-        26899,
-        13,
-        51364
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.25243010887732875,
-      "compression_ratio": 1.2773109243697478,
-      "no_speech_prob": 0.20899619162082672,
-      "words": [
-        {
-          "word": " We",
-          "start": 34.82000000000001,
-          "end": 35.74,
-          "probability": 0.9854468107223511
+          "end": 31.96
         },
         {
-          "word": " laughed",
+          "word": "We",
+          "start": 34.82,
+          "end": 35.74
+        },
+        {
+          "word": "laughed",
           "start": 35.74,
-          "end": 36.08,
-          "probability": 0.9033920764923096
+          "end": 36.08
         },
         {
-          "word": " while",
+          "word": "while",
           "start": 36.08,
-          "end": 36.46,
-          "probability": 0.996476948261261
+          "end": 36.46
         },
         {
-          "word": " clearing",
+          "word": "clearing",
           "start": 36.46,
-          "end": 36.92,
-          "probability": 0.991104006767273
+          "end": 36.92
         },
         {
-          "word": " out",
+          "word": "out",
           "start": 36.92,
-          "end": 37.4,
-          "probability": 0.9972629547119141
+          "end": 37.4
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 37.4,
-          "end": 37.72,
-          "probability": 0.9964398741722107
+          "end": 37.72
         },
         {
-          "word": " room,",
+          "word": "room,",
           "start": 37.72,
-          "end": 38.5,
-          "probability": 0.9940694570541382
+          "end": 38.5
         },
         {
-          "word": " made",
+          "word": "made",
           "start": 39.62,
-          "end": 40.0,
-          "probability": 0.5300202965736389
+          "end": 40.0
         },
         {
-          "word": " space",
+          "word": "space",
           "start": 40.0,
-          "end": 40.54,
-          "probability": 0.997308611869812
+          "end": 40.54
         },
         {
-          "word": " for",
+          "word": "for",
           "start": 40.54,
-          "end": 40.86,
-          "probability": 0.9978141784667969
+          "end": 40.86
         },
         {
-          "word": " something",
+          "word": "something",
           "start": 40.86,
-          "end": 41.4,
-          "probability": 0.9976286292076111
+          "end": 41.4
         },
         {
-          "word": " new",
+          "word": "new",
           "start": 41.4,
-          "end": 41.86,
-          "probability": 0.9834854602813721
+          "end": 41.86
         },
         {
-          "word": " to",
+          "word": "to",
           "start": 41.86,
-          "end": 42.24,
-          "probability": 0.9935266971588135
+          "end": 42.24
         },
         {
-          "word": " bloom.",
+          "word": "bloom.",
           "start": 42.24,
-          "end": 42.66,
-          "probability": 0.9548792243003845
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "seek": 4266,
-      "start": 43.64,
-      "end": 52.0,
-      "text": " We played and packed and sang out loud, feeling spaciousness, feeling proud.",
-      "tokens": [
-        50414,
-        492,
-        3737,
-        293,
-        13265,
-        293,
-        9980,
-        484,
-        6588,
-        11,
-        2633,
-        36801,
-        1287,
-        11,
-        2633,
-        4570,
-        13,
-        50864
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.14858853375470196,
-      "compression_ratio": 1.4591194968553458,
-      "no_speech_prob": 0.10053738951683044,
-      "words": [
+          "end": 42.66
+        },
         {
-          "word": " We",
+          "word": "We",
           "start": 43.64,
-          "end": 44.44,
-          "probability": 0.5977417826652527
+          "end": 44.44
         },
         {
-          "word": " played",
+          "word": "played",
           "start": 44.44,
-          "end": 44.98,
-          "probability": 0.8663262128829956
+          "end": 44.98
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 44.98,
-          "end": 45.36,
-          "probability": 0.7574443817138672
+          "end": 45.36
         },
         {
-          "word": " packed",
+          "word": "packed",
           "start": 45.36,
-          "end": 45.64,
-          "probability": 0.9899309873580933
+          "end": 45.64
+        }
+      ]
+    },
+    "2": {
+      "chapter": 2,
+      "title": "The Truck",
+      "offset": 42.24,
+      "duration": 42.04,
+      "words": [
+        {
+          "word": "bloom.",
+          "start": 42.24,
+          "end": 42.66
         },
         {
-          "word": " and",
+          "word": "We",
+          "start": 43.64,
+          "end": 44.44
+        },
+        {
+          "word": "played",
+          "start": 44.44,
+          "end": 44.98
+        },
+        {
+          "word": "and",
+          "start": 44.98,
+          "end": 45.36
+        },
+        {
+          "word": "packed",
+          "start": 45.36,
+          "end": 45.64
+        },
+        {
+          "word": "and",
           "start": 45.64,
-          "end": 45.98,
-          "probability": 0.6553782820701599
+          "end": 45.98
         },
         {
-          "word": " sang",
+          "word": "sang",
           "start": 45.98,
-          "end": 46.38,
-          "probability": 0.9496772885322571
+          "end": 46.38
         },
         {
-          "word": " out",
+          "word": "out",
           "start": 46.38,
-          "end": 46.86,
-          "probability": 0.944909393787384
+          "end": 46.86
         },
         {
-          "word": " loud,",
+          "word": "loud,",
           "start": 46.86,
-          "end": 48.02,
-          "probability": 0.9988409876823425
+          "end": 48.02
         },
         {
-          "word": " feeling",
+          "word": "feeling",
           "start": 48.34,
-          "end": 48.86,
-          "probability": 0.49563902616500854
+          "end": 48.86
         },
         {
-          "word": " spaciousness,",
+          "word": "spaciousness,",
           "start": 48.86,
-          "end": 50.16,
-          "probability": 0.9831656515598297
+          "end": 50.16
         },
         {
-          "word": " feeling",
+          "word": "feeling",
           "start": 50.5,
-          "end": 51.06,
-          "probability": 0.9913585186004639
+          "end": 51.06
         },
         {
-          "word": " proud.",
+          "word": "proud.",
           "start": 51.06,
-          "end": 52.0,
-          "probability": 0.9952051639556885
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "seek": 4266,
-      "start": 53.38,
-      "end": 60.1,
-      "text": " But then the truck came down our street with grinding gears and heavy beats.",
-      "tokens": [
-        50864,
-        583,
-        550,
-        264,
-        5898,
-        1361,
-        760,
-        527,
-        4838,
-        365,
-        25300,
-        20915,
-        293,
-        4676,
-        16447,
-        13,
-        51264
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.14858853375470196,
-      "compression_ratio": 1.4591194968553458,
-      "no_speech_prob": 0.10053738951683044,
-      "words": [
+          "end": 52.0
+        },
         {
-          "word": " But",
+          "word": "But",
           "start": 53.38,
-          "end": 54.18,
-          "probability": 0.9854637980461121
+          "end": 54.18
         },
         {
-          "word": " then",
+          "word": "then",
           "start": 54.18,
-          "end": 54.5,
-          "probability": 0.9898033142089844
+          "end": 54.5
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 54.5,
-          "end": 54.74,
-          "probability": 0.965708315372467
+          "end": 54.74
         },
         {
-          "word": " truck",
+          "word": "truck",
           "start": 54.74,
-          "end": 54.96,
-          "probability": 0.9923270344734192
+          "end": 54.96
         },
         {
-          "word": " came",
+          "word": "came",
           "start": 54.96,
-          "end": 55.36,
-          "probability": 0.9969319105148315
+          "end": 55.36
         },
         {
-          "word": " down",
+          "word": "down",
           "start": 55.36,
-          "end": 55.68,
-          "probability": 0.9961622953414917
+          "end": 55.68
         },
         {
-          "word": " our",
+          "word": "our",
           "start": 55.68,
-          "end": 56.04,
-          "probability": 0.9850173592567444
+          "end": 56.04
         },
         {
-          "word": " street",
+          "word": "street",
           "start": 56.04,
-          "end": 56.38,
-          "probability": 0.8811056017875671
+          "end": 56.38
         },
         {
-          "word": " with",
+          "word": "with",
           "start": 56.38,
-          "end": 56.72,
-          "probability": 0.871713399887085
+          "end": 56.72
         },
         {
-          "word": " grinding",
+          "word": "grinding",
           "start": 56.72,
-          "end": 57.22,
-          "probability": 0.9768839478492737
+          "end": 57.22
         },
         {
-          "word": " gears",
+          "word": "gears",
           "start": 57.22,
-          "end": 57.96,
-          "probability": 0.9514027237892151
+          "end": 57.96
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 57.96,
-          "end": 58.22,
-          "probability": 0.8108360171318054
+          "end": 58.22
         },
         {
-          "word": " heavy",
+          "word": "heavy",
           "start": 58.22,
-          "end": 58.8,
-          "probability": 0.9929139614105225
+          "end": 58.8
         },
         {
-          "word": " beats.",
+          "word": "beats.",
           "start": 58.8,
-          "end": 60.1,
-          "probability": 0.7254139184951782
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "seek": 4266,
-      "start": 60.96,
-      "end": 69.26,
-      "text": " It grabbed up things above the ground, and crushed them with a terrible sound.",
-      "tokens": [
-        51264,
-        467,
-        18607,
-        493,
-        721,
-        3673,
-        264,
-        2727,
-        11,
-        293,
-        19889,
-        552,
-        365,
-        257,
-        6237,
-        1626,
-        13,
-        51764
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.14858853375470196,
-      "compression_ratio": 1.4591194968553458,
-      "no_speech_prob": 0.10053738951683044,
-      "words": [
+          "end": 60.1
+        },
         {
-          "word": " It",
+          "word": "It",
           "start": 60.96,
-          "end": 61.76,
-          "probability": 0.978935718536377
+          "end": 61.76
         },
         {
-          "word": " grabbed",
+          "word": "grabbed",
           "start": 61.76,
-          "end": 62.06,
-          "probability": 0.9951803684234619
+          "end": 62.06
         },
         {
-          "word": " up",
+          "word": "up",
           "start": 62.06,
-          "end": 62.34,
-          "probability": 0.009463508613407612
+          "end": 62.34
         },
         {
-          "word": " things",
+          "word": "things",
           "start": 62.34,
-          "end": 62.74,
-          "probability": 0.9865052103996277
+          "end": 62.74
         },
         {
-          "word": " above",
+          "word": "above",
           "start": 62.74,
-          "end": 63.36,
-          "probability": 0.5473547577857971
+          "end": 63.36
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 63.36,
-          "end": 63.7,
-          "probability": 0.986952543258667
+          "end": 63.7
         },
         {
-          "word": " ground,",
+          "word": "ground,",
           "start": 63.7,
-          "end": 64.4,
-          "probability": 0.9987615346908569
+          "end": 64.4
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 65.72,
-          "end": 66.1,
-          "probability": 0.9618813991546631
+          "end": 66.1
         },
         {
-          "word": " crushed",
+          "word": "crushed",
           "start": 66.1,
-          "end": 66.6,
-          "probability": 0.9428485035896301
+          "end": 66.6
         },
         {
-          "word": " them",
+          "word": "them",
           "start": 66.6,
-          "end": 67.0,
-          "probability": 0.9983812570571899
+          "end": 67.0
         },
         {
-          "word": " with",
+          "word": "with",
           "start": 67.0,
-          "end": 67.38,
-          "probability": 0.9950217008590698
+          "end": 67.38
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 67.38,
-          "end": 67.6,
-          "probability": 0.9889354109764099
+          "end": 67.6
         },
         {
-          "word": " terrible",
+          "word": "terrible",
           "start": 67.6,
-          "end": 68.26,
-          "probability": 0.9325162172317505
+          "end": 68.26
         },
         {
-          "word": " sound.",
+          "word": "sound.",
           "start": 68.26,
-          "end": 69.26,
-          "probability": 0.9940055012702942
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "seek": 7266,
-      "start": 73.66,
-      "end": 81.76,
-      "text": " I felt it in my chest and bones, cracking snapping bendin' bones.",
-      "tokens": [
-        50414,
-        286,
-        2762,
-        309,
-        294,
-        452,
-        7443,
-        293,
-        10491,
-        11,
-        25229,
-        42727,
-        11229,
-        259,
-        6,
-        10491,
-        13,
-        50814
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.22726644549453467,
-      "compression_ratio": 1.3866666666666667,
-      "no_speech_prob": 0.09908724576234818,
-      "words": [
+          "end": 69.26
+        },
         {
-          "word": " I",
+          "word": "I",
           "start": 73.48,
-          "end": 73.92,
-          "probability": 0.480627179145813
+          "end": 73.92
         },
         {
-          "word": " felt",
+          "word": "felt",
           "start": 73.92,
-          "end": 74.28,
-          "probability": 0.48312491178512573
+          "end": 74.28
         },
         {
-          "word": " it",
+          "word": "it",
           "start": 74.28,
-          "end": 74.6,
-          "probability": 0.9842993021011353
+          "end": 74.6
         },
         {
-          "word": " in",
+          "word": "in",
           "start": 74.6,
-          "end": 74.86,
-          "probability": 0.9847865700721741
+          "end": 74.86
         },
         {
-          "word": " my",
+          "word": "my",
           "start": 74.86,
-          "end": 75.1,
-          "probability": 0.995692789554596
+          "end": 75.1
         },
         {
-          "word": " chest",
+          "word": "chest",
           "start": 75.1,
-          "end": 75.66,
-          "probability": 0.9893860816955566
+          "end": 75.66
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 75.66,
-          "end": 76.0,
-          "probability": 0.9657461047172546
+          "end": 76.0
         },
         {
-          "word": " bones,",
+          "word": "bones,",
           "start": 76.0,
-          "end": 76.98,
-          "probability": 0.9859545826911926
+          "end": 76.98
         },
         {
-          "word": " cracking",
+          "word": "cracking",
           "start": 77.04,
-          "end": 78.96,
-          "probability": 0.541346549987793
+          "end": 78.96
         },
         {
-          "word": " snapping",
+          "word": "snapping",
           "start": 78.96,
-          "end": 79.72,
-          "probability": 0.8956595659255981
+          "end": 79.72
         },
         {
-          "word": " bendin'",
+          "word": "bendin'",
           "start": 79.72,
-          "end": 80.96,
-          "probability": 0.5072513818740845
+          "end": 80.96
         },
         {
-          "word": " bones.",
+          "word": "bones.",
           "start": 81.06,
-          "end": 81.76,
-          "probability": 0.40514522790908813
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "seek": 7266,
-      "start": 82.66,
-      "end": 90.22,
-      "text": " I watched our car get pressed and torn, I stood there frozen, lost and worn.",
-      "tokens": [
-        50814,
-        286,
-        6337,
-        527,
-        1032,
-        483,
-        17355,
-        293,
-        10885,
-        11,
-        286,
-        9371,
-        456,
-        12496,
-        11,
-        2731,
-        293,
-        15254,
-        13,
-        51264
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.22726644549453467,
-      "compression_ratio": 1.3866666666666667,
-      "no_speech_prob": 0.09908724576234818,
-      "words": [
+          "end": 81.76
+        },
         {
-          "word": " I",
+          "word": "I",
           "start": 82.66,
-          "end": 82.8,
-          "probability": 0.9853879809379578
+          "end": 82.8
         },
         {
-          "word": " watched",
+          "word": "watched",
           "start": 82.8,
-          "end": 83.36,
-          "probability": 0.9772852659225464
+          "end": 83.36
         },
         {
-          "word": " our",
+          "word": "our",
           "start": 83.36,
-          "end": 83.58,
-          "probability": 0.9299803972244263
+          "end": 83.58
         },
         {
-          "word": " car",
+          "word": "car",
           "start": 83.58,
-          "end": 83.94,
-          "probability": 0.372625470161438
+          "end": 83.94
         },
         {
-          "word": " get",
+          "word": "get",
           "start": 83.94,
-          "end": 84.28,
-          "probability": 0.3165343701839447
+          "end": 84.28
         },
         {
-          "word": " pressed",
+          "word": "pressed",
           "start": 84.28,
-          "end": 84.68,
-          "probability": 0.8861235976219177
+          "end": 84.68
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 84.68,
-          "end": 85.3,
-          "probability": 0.44020846486091614
+          "end": 85.3
         },
         {
-          "word": " torn,",
+          "word": "torn,",
           "start": 85.3,
-          "end": 85.96,
-          "probability": 0.9833866953849792
+          "end": 85.96
         },
         {
-          "word": " I",
+          "word": "I",
           "start": 86.6,
-          "end": 86.68,
-          "probability": 0.9220575094223022
+          "end": 86.68
         },
         {
-          "word": " stood",
+          "word": "stood",
           "start": 86.68,
-          "end": 86.94,
-          "probability": 0.9753398299217224
+          "end": 86.94
+        }
+      ]
+    },
+    "3": {
+      "chapter": 3,
+      "title": "The Doubt",
+      "offset": 84.28,
+      "duration": 39.12,
+      "words": [
+        {
+          "word": "pressed",
+          "start": 84.28,
+          "end": 84.68
         },
         {
-          "word": " there",
+          "word": "and",
+          "start": 84.68,
+          "end": 85.3
+        },
+        {
+          "word": "torn,",
+          "start": 85.3,
+          "end": 85.96
+        },
+        {
+          "word": "I",
+          "start": 86.6,
+          "end": 86.68
+        },
+        {
+          "word": "stood",
+          "start": 86.68,
+          "end": 86.94
+        },
+        {
+          "word": "there",
           "start": 86.94,
-          "end": 87.28,
-          "probability": 0.8289032578468323
+          "end": 87.28
         },
         {
-          "word": " frozen,",
+          "word": "frozen,",
           "start": 87.28,
-          "end": 88.06,
-          "probability": 0.9668436050415039
+          "end": 88.06
         },
         {
-          "word": " lost",
+          "word": "lost",
           "start": 88.5,
-          "end": 88.86,
-          "probability": 0.9912512898445129
+          "end": 88.86
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 88.86,
-          "end": 89.58,
-          "probability": 0.7522523403167725
+          "end": 89.58
         },
         {
-          "word": " worn.",
+          "word": "worn.",
           "start": 89.58,
-          "end": 90.22,
-          "probability": 0.965355396270752
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "seek": 7266,
-      "start": 91.36,
-      "end": 97.92,
-      "text": " You looked at me with puzzled eyes, not understanding how or why.",
-      "tokens": [
-        51264,
-        509,
-        2956,
-        412,
-        385,
-        365,
-        18741,
-        1493,
-        2575,
-        11,
-        406,
-        3701,
-        577,
-        420,
-        983,
-        13,
-        51664
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.22726644549453467,
-      "compression_ratio": 1.3866666666666667,
-      "no_speech_prob": 0.09908724576234818,
-      "words": [
+          "end": 90.22
+        },
         {
-          "word": " You",
+          "word": "You",
           "start": 91.36,
-          "end": 91.82,
-          "probability": 0.9784335494041443
+          "end": 91.82
         },
         {
-          "word": " looked",
+          "word": "looked",
           "start": 91.82,
-          "end": 92.24,
-          "probability": 0.9814519286155701
+          "end": 92.24
         },
         {
-          "word": " at",
+          "word": "at",
           "start": 92.24,
-          "end": 92.4,
-          "probability": 0.9975946545600891
+          "end": 92.4
         },
         {
-          "word": " me",
+          "word": "me",
           "start": 92.4,
-          "end": 92.7,
-          "probability": 0.9985119700431824
+          "end": 92.7
         },
         {
-          "word": " with",
+          "word": "with",
           "start": 92.7,
-          "end": 93.14,
-          "probability": 0.9389672875404358
+          "end": 93.14
         },
         {
-          "word": " puzzled",
+          "word": "puzzled",
           "start": 93.14,
-          "end": 93.74,
-          "probability": 0.9855665266513824
+          "end": 93.74
         },
         {
-          "word": " eyes,",
+          "word": "eyes,",
           "start": 93.74,
-          "end": 94.16,
-          "probability": 0.9997327923774719
+          "end": 94.16
         },
         {
-          "word": " not",
+          "word": "not",
           "start": 94.38,
-          "end": 94.5,
-          "probability": 0.9656835198402405
+          "end": 94.5
         },
         {
-          "word": " understanding",
+          "word": "understanding",
           "start": 94.5,
-          "end": 95.42,
-          "probability": 0.7932974696159363
+          "end": 95.42
         },
         {
-          "word": " how",
+          "word": "how",
           "start": 95.42,
-          "end": 96.44,
-          "probability": 0.9805117845535278
+          "end": 96.44
         },
         {
-          "word": " or",
+          "word": "or",
           "start": 96.44,
-          "end": 96.94,
-          "probability": 0.45038872957229614
+          "end": 96.94
         },
         {
-          "word": " why.",
+          "word": "why.",
           "start": 96.94,
-          "end": 97.92,
-          "probability": 0.9822182059288025
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "seek": 9792,
-      "start": 98.92,
-      "end": 107.8,
-      "text": " I reached the driver at his door, without a sign it's gone no more.",
-      "tokens": [
-        50414,
-        286,
-        6488,
-        264,
-        6787,
-        412,
-        702,
-        2853,
-        11,
-        1553,
-        257,
-        1465,
-        309,
-        311,
-        2780,
-        572,
-        544,
-        13,
-        50864
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.15069297552108765,
-      "compression_ratio": 1.2149532710280373,
-      "no_speech_prob": 0.11751290410757065,
-      "words": [
+          "end": 97.92
+        },
         {
-          "word": " I",
+          "word": "I",
           "start": 98.34,
-          "end": 98.94,
-          "probability": 0.24330469965934753
+          "end": 98.94
         },
         {
-          "word": " reached",
+          "word": "reached",
           "start": 98.94,
-          "end": 100.52,
-          "probability": 0.41059133410453796
+          "end": 100.52
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 100.52,
-          "end": 100.72,
-          "probability": 0.9750553369522095
+          "end": 100.72
         },
         {
-          "word": " driver",
+          "word": "driver",
           "start": 100.72,
-          "end": 101.32,
-          "probability": 0.9544300436973572
+          "end": 101.32
         },
         {
-          "word": " at",
+          "word": "at",
           "start": 101.32,
-          "end": 101.7,
-          "probability": 0.9289901256561279
+          "end": 101.7
         },
         {
-          "word": " his",
+          "word": "his",
           "start": 101.7,
-          "end": 102.0,
-          "probability": 0.9883670210838318
+          "end": 102.0
         },
         {
-          "word": " door,",
+          "word": "door,",
           "start": 102.0,
-          "end": 102.78,
-          "probability": 0.9937313199043274
+          "end": 102.78
         },
         {
-          "word": " without",
+          "word": "without",
           "start": 103.2,
-          "end": 104.2,
-          "probability": 0.703100860118866
+          "end": 104.2
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 104.2,
-          "end": 104.5,
-          "probability": 0.986613929271698
+          "end": 104.5
         },
         {
-          "word": " sign",
+          "word": "sign",
           "start": 104.5,
-          "end": 105.06,
-          "probability": 0.9874384999275208
+          "end": 105.06
         },
         {
-          "word": " it's",
+          "word": "it's",
           "start": 105.06,
-          "end": 105.94,
-          "probability": 0.6632614284753799
+          "end": 105.94
         },
         {
-          "word": " gone",
+          "word": "gone",
           "start": 105.94,
-          "end": 106.44,
-          "probability": 0.9858744144439697
+          "end": 106.44
         },
         {
-          "word": " no",
+          "word": "no",
           "start": 106.44,
-          "end": 106.98,
-          "probability": 0.9695935249328613
+          "end": 106.98
         },
         {
-          "word": " more.",
+          "word": "more.",
           "start": 106.98,
-          "end": 107.8,
-          "probability": 0.998817503452301
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "seek": 9792,
-      "start": 110.96,
-      "end": 119.8,
-      "text": " We didn't know we needed a sign, a little note, a symbol line.",
-      "tokens": [
-        51014,
-        492,
-        994,
-        380,
-        458,
-        321,
-        2978,
-        257,
-        1465,
-        11,
-        257,
-        707,
-        3637,
-        11,
-        257,
-        5986,
-        1622,
-        13,
-        51464
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.15069297552108765,
-      "compression_ratio": 1.2149532710280373,
-      "no_speech_prob": 0.11751290410757065,
-      "words": [
+          "end": 107.8
+        },
         {
-          "word": " We",
+          "word": "We",
           "start": 110.96,
-          "end": 112.16,
-          "probability": 0.9222428798675537
+          "end": 112.16
         },
         {
-          "word": " didn't",
+          "word": "didn't",
           "start": 112.16,
-          "end": 112.8,
-          "probability": 0.9951107800006866
+          "end": 112.8
         },
         {
-          "word": " know",
+          "word": "know",
           "start": 112.8,
-          "end": 113.16,
-          "probability": 0.9992764592170715
+          "end": 113.16
         },
         {
-          "word": " we",
+          "word": "we",
           "start": 113.16,
-          "end": 113.54,
-          "probability": 0.9205349683761597
+          "end": 113.54
         },
         {
-          "word": " needed",
+          "word": "needed",
           "start": 113.54,
-          "end": 113.9,
-          "probability": 0.9886243343353271
+          "end": 113.9
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 113.9,
-          "end": 114.32,
-          "probability": 0.9809592366218567
+          "end": 114.32
         },
         {
-          "word": " sign,",
+          "word": "sign,",
           "start": 114.32,
-          "end": 114.84,
-          "probability": 0.9961169958114624
+          "end": 114.84
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 115.8,
-          "end": 116.82,
-          "probability": 0.9689998030662537
+          "end": 116.82
         },
         {
-          "word": " little",
+          "word": "little",
           "start": 116.82,
-          "end": 117.14,
-          "probability": 0.9966644644737244
+          "end": 117.14
         },
         {
-          "word": " note,",
+          "word": "note,",
           "start": 117.14,
-          "end": 117.74,
-          "probability": 0.9469622373580933
+          "end": 117.74
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 118.06,
-          "end": 118.06,
-          "probability": 0.9915421009063721
+          "end": 118.06
         },
         {
-          "word": " symbol",
+          "word": "symbol",
           "start": 118.06,
-          "end": 118.8,
-          "probability": 0.9564641118049622
+          "end": 118.8
         },
         {
-          "word": " line.",
+          "word": "line.",
           "start": 118.8,
-          "end": 119.8,
-          "probability": 0.716492235660553
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "seek": 11980,
-      "start": 120.8,
-      "end": 128.8,
-      "text": " Please reuse these, they still have life, without it everything was lost to strife.",
-      "tokens": [
-        50414,
-        2555,
-        26225,
-        613,
-        11,
-        436,
-        920,
-        362,
-        993,
-        11,
-        1553,
-        309,
-        1203,
-        390,
-        2731,
-        281,
-        1056,
-        863,
-        13,
-        50814
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.1605326811472575,
-      "compression_ratio": 1.4036144578313252,
-      "no_speech_prob": 0.32298552989959717,
-      "words": [
+          "end": 119.8
+        },
         {
-          "word": " Please",
+          "word": "Please",
           "start": 120.38,
-          "end": 120.88,
-          "probability": 0.19741182029247284
+          "end": 120.88
         },
         {
-          "word": " reuse",
+          "word": "reuse",
           "start": 120.88,
-          "end": 121.64,
-          "probability": 0.8315317034721375
+          "end": 121.64
         },
         {
-          "word": " these,",
+          "word": "these,",
           "start": 121.64,
-          "end": 122.1,
-          "probability": 0.9589263200759888
+          "end": 122.1
         },
         {
-          "word": " they",
+          "word": "they",
           "start": 122.36,
-          "end": 122.46,
-          "probability": 0.9509533047676086
+          "end": 122.46
         },
         {
-          "word": " still",
+          "word": "still",
           "start": 122.46,
-          "end": 122.9,
-          "probability": 0.9918559789657593
+          "end": 122.9
         },
         {
-          "word": " have",
+          "word": "have",
           "start": 122.9,
-          "end": 123.4,
-          "probability": 0.9929683804512024
+          "end": 123.4
         },
         {
-          "word": " life,",
+          "word": "life,",
           "start": 123.4,
-          "end": 124.22,
-          "probability": 0.9916572570800781
+          "end": 124.22
         },
         {
-          "word": " without",
+          "word": "without",
           "start": 124.26,
-          "end": 125.28,
-          "probability": 0.7305215001106262
+          "end": 125.28
         },
         {
-          "word": " it",
+          "word": "it",
           "start": 125.28,
-          "end": 125.62,
-          "probability": 0.9814701676368713
+          "end": 125.62
         },
         {
-          "word": " everything",
+          "word": "everything",
           "start": 125.62,
-          "end": 126.36,
-          "probability": 0.6693475842475891
+          "end": 126.36
         },
         {
-          "word": " was",
+          "word": "was",
           "start": 126.36,
-          "end": 126.8,
-          "probability": 0.9925893545150757
+          "end": 126.8
+        }
+      ]
+    },
+    "4": {
+      "chapter": 4,
+      "title": "The Scream",
+      "offset": 123.4,
+      "duration": 34.54,
+      "words": [
+        {
+          "word": "life,",
+          "start": 123.4,
+          "end": 124.22
         },
         {
-          "word": " lost",
+          "word": "without",
+          "start": 124.26,
+          "end": 125.28
+        },
+        {
+          "word": "it",
+          "start": 125.28,
+          "end": 125.62
+        },
+        {
+          "word": "everything",
+          "start": 125.62,
+          "end": 126.36
+        },
+        {
+          "word": "was",
+          "start": 126.36,
+          "end": 126.8
+        },
+        {
+          "word": "lost",
           "start": 126.8,
-          "end": 127.36,
-          "probability": 0.9887554049491882
+          "end": 127.36
         },
         {
-          "word": " to",
+          "word": "to",
           "start": 127.36,
-          "end": 127.86,
-          "probability": 0.8538556098937988
+          "end": 127.86
         },
         {
-          "word": " strife.",
+          "word": "strife.",
           "start": 127.86,
-          "end": 128.8,
-          "probability": 0.8514108955860138
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "seek": 11980,
-      "start": 129.7,
-      "end": 132.76,
-      "text": " The truck pulled off and drove away.",
-      "tokens": [
-        50864,
-        440,
-        5898,
-        7373,
-        766,
-        293,
-        13226,
-        1314,
-        13,
-        51014
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.1605326811472575,
-      "compression_ratio": 1.4036144578313252,
-      "no_speech_prob": 0.32298552989959717,
-      "words": [
+          "end": 128.8
+        },
         {
-          "word": " The",
+          "word": "The",
           "start": 129.7,
-          "end": 130.16,
-          "probability": 0.9159820079803467
+          "end": 130.16
         },
         {
-          "word": " truck",
+          "word": "truck",
           "start": 130.16,
-          "end": 130.44,
-          "probability": 0.8551477789878845
+          "end": 130.44
         },
         {
-          "word": " pulled",
+          "word": "pulled",
           "start": 130.44,
-          "end": 130.9,
-          "probability": 0.9931672215461731
+          "end": 130.9
         },
         {
-          "word": " off",
+          "word": "off",
           "start": 130.9,
-          "end": 131.16,
-          "probability": 0.9842983484268188
+          "end": 131.16
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 131.16,
-          "end": 131.44,
-          "probability": 0.9011980891227722
+          "end": 131.44
         },
         {
-          "word": " drove",
+          "word": "drove",
           "start": 131.44,
-          "end": 131.86,
-          "probability": 0.9920752048492432
+          "end": 131.86
         },
         {
-          "word": " away.",
+          "word": "away.",
           "start": 131.86,
-          "end": 132.76,
-          "probability": 0.9955736398696899
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "seek": 11980,
-      "start": 133.78,
-      "end": 136.98,
-      "text": " Your things were gone, they couldn't stay.",
-      "tokens": [
-        51014,
-        2260,
-        721,
-        645,
-        2780,
-        11,
-        436,
-        2809,
-        380,
-        1754,
-        13,
-        51264
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.1605326811472575,
-      "compression_ratio": 1.4036144578313252,
-      "no_speech_prob": 0.32298552989959717,
-      "words": [
+          "end": 132.76
+        },
         {
-          "word": " Your",
+          "word": "Your",
           "start": 133.78,
-          "end": 133.92,
-          "probability": 0.970421552658081
+          "end": 133.92
         },
         {
-          "word": " things",
+          "word": "things",
           "start": 133.92,
-          "end": 134.24,
-          "probability": 0.992355465888977
+          "end": 134.24
         },
         {
-          "word": " were",
+          "word": "were",
           "start": 134.24,
-          "end": 134.52,
-          "probability": 0.9967327117919922
+          "end": 134.52
         },
         {
-          "word": " gone,",
+          "word": "gone,",
           "start": 134.52,
-          "end": 135.0,
-          "probability": 0.9987140893936157
+          "end": 135.0
         },
         {
-          "word": " they",
+          "word": "they",
           "start": 135.6,
-          "end": 135.84,
-          "probability": 0.9859397411346436
+          "end": 135.84
         },
         {
-          "word": " couldn't",
+          "word": "couldn't",
           "start": 135.84,
-          "end": 136.34,
-          "probability": 0.9965818822383881
+          "end": 136.34
         },
         {
-          "word": " stay.",
+          "word": "stay.",
           "start": 136.34,
-          "end": 136.98,
-          "probability": 0.99576735496521
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "seek": 11980,
-      "start": 138.08,
-      "end": 146.24,
-      "text": " And when you heard you understood, and something broke inside of you.",
-      "tokens": [
-        51264,
-        400,
-        562,
-        291,
-        2198,
-        291,
-        7320,
-        11,
-        293,
-        746,
-        6902,
-        1854,
-        295,
-        291,
-        13,
-        51714
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.1605326811472575,
-      "compression_ratio": 1.4036144578313252,
-      "no_speech_prob": 0.32298552989959717,
-      "words": [
+          "end": 136.98
+        },
         {
-          "word": " And",
+          "word": "And",
           "start": 138.08,
-          "end": 138.44,
-          "probability": 0.9689833521842957
+          "end": 138.44
         },
         {
-          "word": " when",
+          "word": "when",
           "start": 138.44,
-          "end": 138.7,
-          "probability": 0.9926445484161377
+          "end": 138.7
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 138.7,
-          "end": 139.0,
-          "probability": 0.9976934790611267
+          "end": 139.0
         },
         {
-          "word": " heard",
+          "word": "heard",
           "start": 139.0,
-          "end": 139.56,
-          "probability": 0.9919255375862122
+          "end": 139.56
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 139.56,
-          "end": 140.34,
-          "probability": 0.5039330124855042
+          "end": 140.34
         },
         {
-          "word": " understood,",
+          "word": "understood,",
           "start": 140.34,
-          "end": 141.4,
-          "probability": 0.9911194443702698
+          "end": 141.4
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 142.6,
-          "end": 142.78,
-          "probability": 0.7991302609443665
+          "end": 142.78
         },
         {
-          "word": " something",
+          "word": "something",
           "start": 142.78,
-          "end": 143.44,
-          "probability": 0.9939965009689331
+          "end": 143.44
         },
         {
-          "word": " broke",
+          "word": "broke",
           "start": 143.44,
-          "end": 143.98,
-          "probability": 0.9947746992111206
+          "end": 143.98
         },
         {
-          "word": " inside",
+          "word": "inside",
           "start": 143.98,
-          "end": 144.84,
-          "probability": 0.9755638241767883
+          "end": 144.84
         },
         {
-          "word": " of",
+          "word": "of",
           "start": 144.84,
-          "end": 145.52,
-          "probability": 0.9940524697303772
+          "end": 145.52
         },
         {
-          "word": " you.",
+          "word": "you.",
           "start": 145.52,
-          "end": 146.24,
-          "probability": 0.9983575940132141
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "seek": 14624,
-      "start": 147.28,
-      "end": 153.58,
-      "text": " You ran and screamed down our whole street, they seemed the truck with a racing beat.",
-      "tokens": [
-        50414,
-        509,
-        5872,
-        293,
-        41069,
-        760,
-        527,
-        1379,
-        4838,
-        11,
-        436,
-        6576,
-        264,
-        5898,
-        365,
-        257,
-        12553,
-        4224,
-        13,
-        50814
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.17025606448833758,
-      "compression_ratio": 1.407079646017699,
-      "no_speech_prob": 0.25324392318725586,
-      "words": [
+          "end": 146.24
+        },
         {
-          "word": " You",
+          "word": "You",
           "start": 147.28,
-          "end": 148.0,
-          "probability": 0.278933048248291
+          "end": 148.0
         },
         {
-          "word": " ran",
+          "word": "ran",
           "start": 148.0,
-          "end": 148.34,
-          "probability": 0.6384267210960388
+          "end": 148.34
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 148.34,
-          "end": 148.66,
-          "probability": 0.9290434122085571
+          "end": 148.66
         },
         {
-          "word": " screamed",
+          "word": "screamed",
           "start": 148.66,
-          "end": 148.88,
-          "probability": 0.9888136982917786
+          "end": 148.88
         },
         {
-          "word": " down",
+          "word": "down",
           "start": 148.88,
-          "end": 149.36,
-          "probability": 0.9119676947593689
+          "end": 149.36
         },
         {
-          "word": " our",
+          "word": "our",
           "start": 149.36,
-          "end": 149.68,
-          "probability": 0.8634101152420044
+          "end": 149.68
         },
         {
-          "word": " whole",
+          "word": "whole",
           "start": 149.68,
-          "end": 149.92,
-          "probability": 0.7380598783493042
+          "end": 149.92
         },
         {
-          "word": " street,",
+          "word": "street,",
           "start": 149.92,
-          "end": 150.24,
-          "probability": 0.9209004044532776
+          "end": 150.24
         },
         {
-          "word": " they",
+          "word": "they",
           "start": 150.46,
-          "end": 150.6,
-          "probability": 0.5169001817703247
+          "end": 150.6
         },
         {
-          "word": " seemed",
+          "word": "seemed",
           "start": 150.6,
-          "end": 150.98,
-          "probability": 0.6829595565795898
+          "end": 150.98
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 150.98,
-          "end": 151.12,
-          "probability": 0.6750381588935852
+          "end": 151.12
         },
         {
-          "word": " truck",
+          "word": "truck",
           "start": 151.12,
-          "end": 151.48,
-          "probability": 0.9935209155082703
+          "end": 151.48
         },
         {
-          "word": " with",
+          "word": "with",
           "start": 151.48,
-          "end": 151.82,
-          "probability": 0.9398204684257507
+          "end": 151.82
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 151.82,
-          "end": 151.96,
-          "probability": 0.5460027456283569
+          "end": 151.96
         },
         {
-          "word": " racing",
+          "word": "racing",
           "start": 151.96,
-          "end": 152.6,
-          "probability": 0.9804722666740417
+          "end": 152.6
         },
         {
-          "word": " beat.",
+          "word": "beat.",
           "start": 152.6,
-          "end": 153.58,
-          "probability": 0.8038528561592102
-        }
-      ]
-    },
-    {
-      "id": 17,
-      "seek": 14624,
-      "start": 155.88,
-      "end": 163.98,
-      "text": " You screamed until the driver heard, he stopped the truck without a word.",
-      "tokens": [
-        50814,
-        509,
-        41069,
-        1826,
-        264,
-        6787,
-        2198,
-        11,
-        415,
-        5936,
-        264,
-        5898,
-        1553,
-        257,
-        1349,
-        13,
-        51264
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.17025606448833758,
-      "compression_ratio": 1.407079646017699,
-      "no_speech_prob": 0.25324392318725586,
-      "words": [
+          "end": 153.58
+        },
         {
-          "word": " You",
+          "word": "You",
           "start": 155.88,
-          "end": 156.24,
-          "probability": 0.9819186925888062
+          "end": 156.24
         },
         {
-          "word": " screamed",
+          "word": "screamed",
           "start": 156.24,
-          "end": 156.7,
-          "probability": 0.9962956309318542
+          "end": 156.7
         },
         {
-          "word": " until",
+          "word": "until",
           "start": 156.7,
-          "end": 157.2,
-          "probability": 0.9869406819343567
+          "end": 157.2
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 157.2,
-          "end": 157.52,
-          "probability": 0.9961937665939331
+          "end": 157.52
         },
         {
-          "word": " driver",
+          "word": "driver",
           "start": 157.52,
-          "end": 157.94,
-          "probability": 0.9897469282150269
+          "end": 157.94
         },
         {
-          "word": " heard,",
+          "word": "heard,",
           "start": 157.94,
-          "end": 159.0,
-          "probability": 0.9684074521064758
+          "end": 159.0
         },
         {
-          "word": " he",
+          "word": "he",
           "start": 159.94,
-          "end": 160.06,
-          "probability": 0.604547381401062
+          "end": 160.06
         },
         {
-          "word": " stopped",
+          "word": "stopped",
           "start": 160.06,
-          "end": 160.38,
-          "probability": 0.8539117574691772
+          "end": 160.38
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 160.38,
-          "end": 160.7,
-          "probability": 0.9976775050163269
+          "end": 160.7
         },
         {
-          "word": " truck",
+          "word": "truck",
           "start": 160.7,
-          "end": 161.2,
-          "probability": 0.9992800354957581
+          "end": 161.2
+        }
+      ]
+    },
+    "5": {
+      "chapter": 5,
+      "title": "Nothing He Could Do",
+      "offset": 157.94,
+      "duration": 43.58,
+      "words": [
+        {
+          "word": "heard,",
+          "start": 157.94,
+          "end": 159.0
         },
         {
-          "word": " without",
+          "word": "he",
+          "start": 159.94,
+          "end": 160.06
+        },
+        {
+          "word": "stopped",
+          "start": 160.06,
+          "end": 160.38
+        },
+        {
+          "word": "the",
+          "start": 160.38,
+          "end": 160.7
+        },
+        {
+          "word": "truck",
+          "start": 160.7,
+          "end": 161.2
+        },
+        {
+          "word": "without",
           "start": 161.2,
-          "end": 162.34,
-          "probability": 0.9788818359375
+          "end": 162.34
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 162.34,
-          "end": 162.78,
-          "probability": 0.9826889038085938
+          "end": 162.78
         },
         {
-          "word": " word.",
+          "word": "word.",
           "start": 162.78,
-          "end": 163.98,
-          "probability": 0.9967893958091736
-        }
-      ]
-    },
-    {
-      "id": 18,
-      "seek": 16398,
-      "start": 166.52,
-      "end": 175.98,
-      "text": " He stepped outside, he looked at you, but there was nothing he could do.",
-      "tokens": [
-        50414,
-        634,
-        15251,
-        2380,
-        11,
-        415,
-        2956,
-        412,
-        291,
-        11,
-        457,
-        456,
-        390,
-        1825,
-        415,
-        727,
-        360,
-        13,
-        50964
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.19808480678460536,
-      "compression_ratio": 1.4077669902912622,
-      "no_speech_prob": 0.5238364934921265,
-      "words": [
+          "end": 163.98
+        },
         {
-          "word": " He",
+          "word": "He",
           "start": 166.52,
-          "end": 167.72,
-          "probability": 0.24565330147743225
+          "end": 167.72
         },
         {
-          "word": " stepped",
+          "word": "stepped",
           "start": 167.72,
-          "end": 168.06,
-          "probability": 0.909856915473938
+          "end": 168.06
         },
         {
-          "word": " outside,",
+          "word": "outside,",
           "start": 168.06,
-          "end": 169.18,
-          "probability": 0.9604892730712891
+          "end": 169.18
         },
         {
-          "word": " he",
+          "word": "he",
           "start": 170.02,
-          "end": 170.36,
-          "probability": 0.8610013723373413
+          "end": 170.36
         },
         {
-          "word": " looked",
+          "word": "looked",
           "start": 170.36,
-          "end": 170.78,
-          "probability": 0.9983832836151123
+          "end": 170.78
         },
         {
-          "word": " at",
+          "word": "at",
           "start": 170.78,
-          "end": 170.98,
-          "probability": 0.966360330581665
+          "end": 170.98
         },
         {
-          "word": " you,",
+          "word": "you,",
           "start": 170.98,
-          "end": 171.72,
-          "probability": 0.9697624444961548
+          "end": 171.72
         },
         {
-          "word": " but",
+          "word": "but",
           "start": 171.94,
-          "end": 172.86,
-          "probability": 0.7643958926200867
+          "end": 172.86
         },
         {
-          "word": " there",
+          "word": "there",
           "start": 172.86,
-          "end": 173.28,
-          "probability": 0.991275429725647
+          "end": 173.28
         },
         {
-          "word": " was",
+          "word": "was",
           "start": 173.28,
-          "end": 173.56,
-          "probability": 0.9960702657699585
+          "end": 173.56
         },
         {
-          "word": " nothing",
+          "word": "nothing",
           "start": 173.56,
-          "end": 174.16,
-          "probability": 0.9868142604827881
+          "end": 174.16
         },
         {
-          "word": " he",
+          "word": "he",
           "start": 174.16,
-          "end": 174.96,
-          "probability": 0.9845261573791504
+          "end": 174.96
         },
         {
-          "word": " could",
+          "word": "could",
           "start": 174.96,
-          "end": 175.56,
-          "probability": 0.9979610443115234
+          "end": 175.56
         },
         {
-          "word": " do.",
+          "word": "do.",
           "start": 175.56,
-          "end": 176.16,
-          "probability": 0.9989743232727051
-        }
-      ]
-    },
-    {
-      "id": 19,
-      "seek": 16398,
-      "start": 177.54,
-      "end": 186.98,
-      "text": " I ran to you and held you close, you screamed and screamed and screamed.",
-      "tokens": [
-        50964,
-        286,
-        5872,
-        281,
-        291,
-        293,
-        5167,
-        291,
-        1998,
-        11,
-        291,
-        41069,
-        293,
-        41069,
-        293,
-        41069,
-        13,
-        51514
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.19808480678460536,
-      "compression_ratio": 1.4077669902912622,
-      "no_speech_prob": 0.5238364934921265,
-      "words": [
+          "end": 176.16
+        },
         {
-          "word": " I",
+          "word": "I",
           "start": 177.54,
-          "end": 178.0,
-          "probability": 0.971988320350647
+          "end": 178.0
         },
         {
-          "word": " ran",
+          "word": "ran",
           "start": 178.0,
-          "end": 178.46,
-          "probability": 0.9705384969711304
+          "end": 178.46
         },
         {
-          "word": " to",
+          "word": "to",
           "start": 178.46,
-          "end": 178.84,
-          "probability": 0.9701196551322937
+          "end": 178.84
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 178.84,
-          "end": 179.72,
-          "probability": 0.9823545217514038
+          "end": 179.72
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 179.72,
-          "end": 180.5,
-          "probability": 0.5626482963562012
+          "end": 180.5
         },
         {
-          "word": " held",
+          "word": "held",
           "start": 180.5,
-          "end": 181.22,
-          "probability": 0.9745376706123352
+          "end": 181.22
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 181.22,
-          "end": 181.5,
-          "probability": 0.9947203397750854
+          "end": 181.5
         },
         {
-          "word": " close,",
+          "word": "close,",
           "start": 181.5,
-          "end": 182.46,
-          "probability": 0.979724645614624
+          "end": 182.46
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 182.9,
-          "end": 183.06,
-          "probability": 0.9102760553359985
+          "end": 183.06
         },
         {
-          "word": " screamed",
+          "word": "screamed",
           "start": 183.06,
-          "end": 183.82,
-          "probability": 0.9727345705032349
+          "end": 183.82
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 183.82,
-          "end": 184.26,
-          "probability": 0.7024550437927246
+          "end": 184.26
         },
         {
-          "word": " screamed",
+          "word": "screamed",
           "start": 184.26,
-          "end": 185.06,
-          "probability": 0.9786456227302551
+          "end": 185.06
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 185.06,
-          "end": 185.58,
-          "probability": 0.36769288778305054
+          "end": 185.58
         },
         {
-          "word": " screamed.",
+          "word": "screamed.",
           "start": 185.58,
-          "end": 186.98,
-          "probability": 0.9775573015213013
-        }
-      ]
-    },
-    {
-      "id": 20,
-      "seek": 18698,
-      "start": 187.89999999999998,
-      "end": 196.26,
-      "text": " We sat together on the ground, and all the world was just that sound.",
-      "tokens": [
-        50414,
-        492,
-        3227,
-        1214,
-        322,
-        264,
-        2727,
-        11,
-        293,
-        439,
-        264,
-        1002,
-        390,
-        445,
-        300,
-        1626,
-        13,
-        50814
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.08910431296138441,
-      "compression_ratio": 1.4429530201342282,
-      "no_speech_prob": 0.5426802039146423,
-      "words": [
-        {
-          "word": " We",
-          "start": 187.89999999999998,
-          "end": 188.76,
-          "probability": 0.041345056146383286
+          "end": 186.98
         },
         {
-          "word": " sat",
+          "word": "We",
+          "start": 187.9,
+          "end": 188.76
+        },
+        {
+          "word": "sat",
           "start": 188.76,
-          "end": 189.12,
-          "probability": 0.8690481185913086
+          "end": 189.12
         },
         {
-          "word": " together",
+          "word": "together",
           "start": 189.12,
-          "end": 189.84,
-          "probability": 0.9774035215377808
+          "end": 189.84
         },
         {
-          "word": " on",
+          "word": "on",
           "start": 189.84,
-          "end": 190.46,
-          "probability": 0.9436725378036499
+          "end": 190.46
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 190.46,
-          "end": 190.74,
-          "probability": 0.9749388694763184
+          "end": 190.74
         },
         {
-          "word": " ground,",
+          "word": "ground,",
           "start": 190.74,
-          "end": 191.46,
-          "probability": 0.9932085871696472
+          "end": 191.46
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 191.46,
-          "end": 192.68,
-          "probability": 0.7933549284934998
+          "end": 192.68
         },
         {
-          "word": " all",
+          "word": "all",
           "start": 192.68,
-          "end": 193.02,
-          "probability": 0.9853610396385193
+          "end": 193.02
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 193.02,
-          "end": 193.3,
-          "probability": 0.9750231504440308
+          "end": 193.3
         },
         {
-          "word": " world",
+          "word": "world",
           "start": 193.3,
-          "end": 193.72,
-          "probability": 0.9922654032707214
+          "end": 193.72
         },
         {
-          "word": " was",
+          "word": "was",
           "start": 193.72,
-          "end": 194.22,
-          "probability": 0.9917884469032288
+          "end": 194.22
         },
         {
-          "word": " just",
+          "word": "just",
           "start": 194.22,
-          "end": 194.6,
-          "probability": 0.9947788715362549
+          "end": 194.6
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 194.6,
-          "end": 195.12,
-          "probability": 0.9774349927902222
+          "end": 195.12
         },
         {
-          "word": " sound.",
+          "word": "sound.",
           "start": 195.12,
-          "end": 196.26,
-          "probability": 0.9892407059669495
-        }
-      ]
-    },
-    {
-      "id": 21,
-      "seek": 18698,
-      "start": 196.9,
-      "end": 205.32,
-      "text": " Your voice, your tears, the empty street, a moment frozen in the heat.",
-      "tokens": [
-        50814,
-        2260,
-        3177,
-        11,
-        428,
-        10462,
-        11,
-        264,
-        6707,
-        4838,
-        11,
-        257,
-        1623,
-        12496,
-        294,
-        264,
-        3738,
-        13,
-        51264
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.08910431296138441,
-      "compression_ratio": 1.4429530201342282,
-      "no_speech_prob": 0.5426802039146423,
-      "words": [
+          "end": 196.26
+        },
         {
-          "word": " Your",
+          "word": "Your",
           "start": 196.9,
-          "end": 197.08,
-          "probability": 0.9523690938949585
+          "end": 197.08
         },
         {
-          "word": " voice,",
+          "word": "voice,",
           "start": 197.08,
-          "end": 197.6,
-          "probability": 0.9845554232597351
+          "end": 197.6
         },
         {
-          "word": " your",
+          "word": "your",
           "start": 197.8,
-          "end": 198.0,
-          "probability": 0.9905914664268494
+          "end": 198.0
         },
         {
-          "word": " tears,",
+          "word": "tears,",
           "start": 198.0,
-          "end": 198.66,
-          "probability": 0.98490309715271
+          "end": 198.66
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 199.02,
-          "end": 199.04,
-          "probability": 0.9626558423042297
+          "end": 199.04
         },
         {
-          "word": " empty",
+          "word": "empty",
           "start": 199.04,
-          "end": 199.74,
-          "probability": 0.9809837937355042
+          "end": 199.74
         },
         {
-          "word": " street,",
+          "word": "street,",
           "start": 199.74,
-          "end": 201.0,
-          "probability": 0.8177042603492737
+          "end": 201.0
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 201.44,
-          "end": 201.52,
-          "probability": 0.8931524753570557
+          "end": 201.52
         },
         {
-          "word": " moment",
+          "word": "moment",
           "start": 201.52,
-          "end": 202.0,
-          "probability": 0.9912950992584229
+          "end": 202.0
         },
         {
-          "word": " frozen",
+          "word": "frozen",
           "start": 202.0,
-          "end": 202.96,
-          "probability": 0.9891576766967773
+          "end": 202.96
         },
         {
-          "word": " in",
+          "word": "in",
           "start": 202.96,
-          "end": 203.94,
-          "probability": 0.9505550265312195
+          "end": 203.94
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 203.94,
-          "end": 204.42,
-          "probability": 0.9946674108505249
+          "end": 204.42
         },
         {
-          "word": " heat.",
+          "word": "heat.",
           "start": 204.42,
-          "end": 205.32,
-          "probability": 0.9914698004722595
+          "end": 205.32
         }
       ]
     },
-    {
-      "id": 22,
-      "seek": 18698,
-      "start": 206.4,
-      "end": 212.48,
-      "text": " You screamed when threw me like a blade, I felt the mess that we had made.",
-      "tokens": [
-        51264,
-        509,
-        41069,
-        562,
-        11918,
-        385,
-        411,
-        257,
-        10959,
-        11,
-        286,
-        2762,
-        264,
-        2082,
-        300,
-        321,
-        632,
-        1027,
-        13,
-        51714
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.08910431296138441,
-      "compression_ratio": 1.4429530201342282,
-      "no_speech_prob": 0.5426802039146423,
+    "6": {
+      "chapter": 6,
+      "title": "I Was Broken Too",
+      "offset": 201.52,
+      "duration": 42.86,
       "words": [
         {
-          "word": " You",
+          "word": "moment",
+          "start": 201.52,
+          "end": 202.0
+        },
+        {
+          "word": "frozen",
+          "start": 202.0,
+          "end": 202.96
+        },
+        {
+          "word": "in",
+          "start": 202.96,
+          "end": 203.94
+        },
+        {
+          "word": "the",
+          "start": 203.94,
+          "end": 204.42
+        },
+        {
+          "word": "heat.",
+          "start": 204.42,
+          "end": 205.32
+        },
+        {
+          "word": "You",
           "start": 206.4,
-          "end": 206.56,
-          "probability": 0.785341203212738
+          "end": 206.56
         },
         {
-          "word": " screamed",
+          "word": "screamed",
           "start": 206.56,
-          "end": 207.04,
-          "probability": 0.4107297956943512
+          "end": 207.04
         },
         {
-          "word": " when",
+          "word": "when",
           "start": 207.04,
-          "end": 207.4,
-          "probability": 0.789825439453125
+          "end": 207.4
         },
         {
-          "word": " threw",
+          "word": "threw",
           "start": 207.4,
-          "end": 207.76,
-          "probability": 0.41942098736763
+          "end": 207.76
         },
         {
-          "word": " me",
+          "word": "me",
           "start": 207.76,
-          "end": 208.0,
-          "probability": 0.9990997314453125
+          "end": 208.0
         },
         {
-          "word": " like",
+          "word": "like",
           "start": 208.0,
-          "end": 208.38,
-          "probability": 0.9636766910552979
+          "end": 208.38
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 208.38,
-          "end": 208.6,
-          "probability": 0.9569536447525024
+          "end": 208.6
         },
         {
-          "word": " blade,",
+          "word": "blade,",
           "start": 208.6,
-          "end": 208.96,
-          "probability": 0.9829051494598389
+          "end": 208.96
         },
         {
-          "word": " I",
+          "word": "I",
           "start": 209.1,
-          "end": 209.26,
-          "probability": 0.9723799228668213
+          "end": 209.26
         },
         {
-          "word": " felt",
+          "word": "felt",
           "start": 209.26,
-          "end": 209.54,
-          "probability": 0.9674009084701538
+          "end": 209.54
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 209.54,
-          "end": 209.92,
-          "probability": 0.9598265886306763
+          "end": 209.92
         },
         {
-          "word": " mess",
+          "word": "mess",
           "start": 209.92,
-          "end": 210.24,
-          "probability": 0.9241926074028015
+          "end": 210.24
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 210.24,
-          "end": 210.72,
-          "probability": 0.9768111705780029
+          "end": 210.72
         },
         {
-          "word": " we",
+          "word": "we",
           "start": 210.72,
-          "end": 211.06,
-          "probability": 0.9975735545158386
+          "end": 211.06
         },
         {
-          "word": " had",
+          "word": "had",
           "start": 211.06,
-          "end": 211.74,
-          "probability": 0.9931086301803589
+          "end": 211.74
         },
         {
-          "word": " made.",
+          "word": "made.",
           "start": 211.74,
-          "end": 212.48,
-          "probability": 0.9953677654266357
-        }
-      ]
-    },
-    {
-      "id": 23,
-      "seek": 21248,
-      "start": 214.06,
-      "end": 217.44,
-      "text": " I couldn't fix it, couldn't speak.",
-      "tokens": [
-        50414,
-        286,
-        2809,
-        380,
-        3191,
-        309,
-        11,
-        2809,
-        380,
-        1710,
-        13,
-        50614
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.24183435873551803,
-      "compression_ratio": 1.2844827586206897,
-      "no_speech_prob": 0.08166977018117905,
-      "words": [
+          "end": 212.48
+        },
         {
-          "word": " I",
+          "word": "I",
           "start": 214.06,
-          "end": 215.02,
-          "probability": 0.23686277866363525
+          "end": 215.02
         },
         {
-          "word": " couldn't",
+          "word": "couldn't",
           "start": 215.02,
-          "end": 215.58,
-          "probability": 0.9426440298557281
+          "end": 215.58
         },
         {
-          "word": " fix",
+          "word": "fix",
           "start": 215.58,
-          "end": 215.9,
-          "probability": 0.9556095004081726
+          "end": 215.9
         },
         {
-          "word": " it,",
+          "word": "it,",
           "start": 215.9,
-          "end": 216.36,
-          "probability": 0.9951139688491821
+          "end": 216.36
         },
         {
-          "word": " couldn't",
+          "word": "couldn't",
           "start": 216.48,
-          "end": 216.8,
-          "probability": 0.9811851382255554
+          "end": 216.8
         },
         {
-          "word": " speak.",
+          "word": "speak.",
           "start": 216.8,
-          "end": 217.44,
-          "probability": 0.99397873878479
-        }
-      ]
-    },
-    {
-      "id": 24,
-      "seek": 21248,
-      "start": 218.44,
-      "end": 222.5,
-      "text": " Just hold you while we both were weak.",
-      "tokens": [
-        50614,
-        1449,
-        1797,
-        291,
-        1339,
-        321,
-        1293,
-        645,
-        5336,
-        13,
-        50864
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.24183435873551803,
-      "compression_ratio": 1.2844827586206897,
-      "no_speech_prob": 0.08166977018117905,
-      "words": [
+          "end": 217.44
+        },
         {
-          "word": " Just",
+          "word": "Just",
           "start": 218.44,
-          "end": 219.4,
-          "probability": 0.8812176585197449
+          "end": 219.4
         },
         {
-          "word": " hold",
+          "word": "hold",
           "start": 219.4,
-          "end": 219.72,
-          "probability": 0.8803443908691406
+          "end": 219.72
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 219.72,
-          "end": 220.1,
-          "probability": 0.9849863648414612
+          "end": 220.1
         },
         {
-          "word": " while",
+          "word": "while",
           "start": 220.1,
-          "end": 220.48,
-          "probability": 0.34051063656806946
+          "end": 220.48
         },
         {
-          "word": " we",
+          "word": "we",
           "start": 220.48,
-          "end": 220.76,
-          "probability": 0.9817360043525696
+          "end": 220.76
         },
         {
-          "word": " both",
+          "word": "both",
           "start": 220.76,
-          "end": 221.22,
-          "probability": 0.8036614656448364
+          "end": 221.22
         },
         {
-          "word": " were",
+          "word": "were",
           "start": 221.22,
-          "end": 221.64,
-          "probability": 0.9874956607818604
+          "end": 221.64
         },
         {
-          "word": " weak.",
+          "word": "weak.",
           "start": 221.64,
-          "end": 222.5,
-          "probability": 0.9790538549423218
-        }
-      ]
-    },
-    {
-      "id": 25,
-      "seek": 21248,
-      "start": 225.46,
-      "end": 234.84,
-      "text": " The crash, the crush, that awful sound, it planted something in the ground.",
-      "tokens": [
-        51014,
-        440,
-        8252,
-        11,
-        264,
-        10321,
-        11,
-        300,
-        11232,
-        1626,
-        11,
-        309,
-        17395,
-        746,
-        294,
-        264,
-        2727,
-        13,
-        51464
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.24183435873551803,
-      "compression_ratio": 1.2844827586206897,
-      "no_speech_prob": 0.08166977018117905,
-      "words": [
+          "end": 222.5
+        },
         {
-          "word": " The",
+          "word": "The",
           "start": 225.46,
-          "end": 226.42,
-          "probability": 0.6809735894203186
+          "end": 226.42
         },
         {
-          "word": " crash,",
+          "word": "crash,",
           "start": 226.42,
-          "end": 226.8,
-          "probability": 0.9177330732345581
+          "end": 226.8
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 226.82,
-          "end": 227.1,
-          "probability": 0.9907134771347046
+          "end": 227.1
         },
         {
-          "word": " crush,",
+          "word": "crush,",
           "start": 227.1,
-          "end": 227.54,
-          "probability": 0.24507303535938263
+          "end": 227.54
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 228.1,
-          "end": 228.5,
-          "probability": 0.9686722755432129
+          "end": 228.5
         },
         {
-          "word": " awful",
+          "word": "awful",
           "start": 228.5,
-          "end": 229.22,
-          "probability": 0.997153639793396
+          "end": 229.22
         },
         {
-          "word": " sound,",
+          "word": "sound,",
           "start": 229.22,
-          "end": 230.76,
-          "probability": 0.9827569723129272
+          "end": 230.76
         },
         {
-          "word": " it",
+          "word": "it",
           "start": 231.38,
-          "end": 231.48,
-          "probability": 0.7325274348258972
+          "end": 231.48
         },
         {
-          "word": " planted",
+          "word": "planted",
           "start": 231.48,
-          "end": 232.08,
-          "probability": 0.8627365827560425
+          "end": 232.08
         },
         {
-          "word": " something",
+          "word": "something",
           "start": 232.08,
-          "end": 232.94,
-          "probability": 0.983658492565155
+          "end": 232.94
         },
         {
-          "word": " in",
+          "word": "in",
           "start": 232.94,
-          "end": 233.76,
-          "probability": 0.9956396818161011
+          "end": 233.76
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 233.76,
-          "end": 234.08,
-          "probability": 0.9978762865066528
+          "end": 234.08
         },
         {
-          "word": " ground.",
+          "word": "ground.",
           "start": 234.08,
-          "end": 234.84,
-          "probability": 0.9993840456008911
-        }
-      ]
-    },
-    {
-      "id": 26,
-      "seek": 23484,
-      "start": 235.84,
-      "end": 246.72,
-      "text": " And what grew up between the cracks is this, a song that loves you back.",
-      "tokens": [
-        50414,
-        400,
-        437,
-        6109,
-        493,
-        1296,
-        264,
-        21770,
-        307,
-        341,
-        11,
-        257,
-        2153,
-        300,
-        6752,
-        291,
-        646,
-        13,
-        50964
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.17889593161788642,
-      "compression_ratio": 1.3958333333333333,
-      "no_speech_prob": 0.49337145686149597,
-      "words": [
+          "end": 234.84
+        },
         {
-          "word": " And",
+          "word": "And",
           "start": 235.84,
-          "end": 236.56,
-          "probability": 0.05043938383460045
+          "end": 236.56
         },
         {
-          "word": " what",
+          "word": "what",
           "start": 236.56,
-          "end": 236.86,
-          "probability": 0.866533637046814
+          "end": 236.86
         },
         {
-          "word": " grew",
+          "word": "grew",
           "start": 236.86,
-          "end": 237.32,
-          "probability": 0.9907763600349426
+          "end": 237.32
         },
         {
-          "word": " up",
+          "word": "up",
           "start": 237.32,
-          "end": 237.98,
-          "probability": 0.9625617265701294
+          "end": 237.98
         },
         {
-          "word": " between",
+          "word": "between",
           "start": 237.98,
-          "end": 238.94,
-          "probability": 0.9532760381698608
+          "end": 238.94
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 238.94,
-          "end": 239.56,
-          "probability": 0.9741378426551819
+          "end": 239.56
         },
         {
-          "word": " cracks",
+          "word": "cracks",
           "start": 239.56,
-          "end": 240.86,
-          "probability": 0.08603136986494064
+          "end": 240.86
         },
         {
-          "word": " is",
+          "word": "is",
           "start": 240.86,
-          "end": 241.82,
-          "probability": 0.35947322845458984
+          "end": 241.82
         },
         {
-          "word": " this,",
+          "word": "this,",
           "start": 241.82,
-          "end": 242.52,
-          "probability": 0.9343125820159912
+          "end": 242.52
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 243.0,
-          "end": 243.6,
-          "probability": 0.8381334543228149
+          "end": 243.6
         },
         {
-          "word": " song",
+          "word": "song",
           "start": 243.6,
-          "end": 244.06,
-          "probability": 0.9984017014503479
+          "end": 244.06
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 244.06,
-          "end": 244.38,
-          "probability": 0.9922335147857666
+          "end": 244.38
         },
         {
-          "word": " loves",
+          "word": "loves",
           "start": 244.38,
-          "end": 245.2,
-          "probability": 0.9631829857826233
+          "end": 245.2
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 245.2,
-          "end": 245.64,
-          "probability": 0.9954083561897278
+          "end": 245.64
         },
         {
-          "word": " back.",
+          "word": "back.",
           "start": 245.64,
-          "end": 246.72,
-          "probability": 0.9626669883728027
-        }
-      ]
-    },
-    {
-      "id": 27,
-      "seek": 23484,
-      "start": 249.84,
-      "end": 257.56,
-      "text": " The pictures came back in your head, they followed you right into bed.",
-      "tokens": [
-        51114,
-        440,
-        5242,
-        1361,
-        646,
-        294,
-        428,
-        1378,
-        11,
-        436,
-        6263,
-        291,
-        558,
-        666,
-        2901,
-        13,
-        51514
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.17889593161788642,
-      "compression_ratio": 1.3958333333333333,
-      "no_speech_prob": 0.49337145686149597,
-      "words": [
+          "end": 246.72
+        },
         {
-          "word": " The",
+          "word": "The",
           "start": 249.61,
-          "end": 250.18,
-          "probability": 0.9189760088920593
+          "end": 250.18
         },
         {
-          "word": " pictures",
+          "word": "pictures",
           "start": 250.18,
-          "end": 250.56,
-          "probability": 0.9854485392570496
+          "end": 250.56
+        }
+      ]
+    },
+    "7": {
+      "chapter": 7,
+      "title": "The Thought That Stays",
+      "offset": 244.38,
+      "duration": 38.08,
+      "words": [
+        {
+          "word": "loves",
+          "start": 244.38,
+          "end": 245.2
         },
         {
-          "word": " came",
+          "word": "you",
+          "start": 245.2,
+          "end": 245.64
+        },
+        {
+          "word": "back.",
+          "start": 245.64,
+          "end": 246.72
+        },
+        {
+          "word": "The",
+          "start": 249.61,
+          "end": 250.18
+        },
+        {
+          "word": "pictures",
+          "start": 250.18,
+          "end": 250.56
+        },
+        {
+          "word": "came",
           "start": 250.56,
-          "end": 251.02,
-          "probability": 0.9974735379219055
+          "end": 251.02
         },
         {
-          "word": " back",
+          "word": "back",
           "start": 251.02,
-          "end": 251.4,
-          "probability": 0.9985111355781555
+          "end": 251.4
         },
         {
-          "word": " in",
+          "word": "in",
           "start": 251.4,
-          "end": 251.74,
-          "probability": 0.994111955165863
+          "end": 251.74
         },
         {
-          "word": " your",
+          "word": "your",
           "start": 251.74,
-          "end": 252.06,
-          "probability": 0.9979867935180664
+          "end": 252.06
         },
         {
-          "word": " head,",
+          "word": "head,",
           "start": 252.06,
-          "end": 252.94,
-          "probability": 0.9845300912857056
+          "end": 252.94
         },
         {
-          "word": " they",
+          "word": "they",
           "start": 253.66,
-          "end": 254.52,
-          "probability": 0.8414316177368164
+          "end": 254.52
         },
         {
-          "word": " followed",
+          "word": "followed",
           "start": 254.52,
-          "end": 255.06,
-          "probability": 0.9951634407043457
+          "end": 255.06
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 255.06,
-          "end": 255.5,
-          "probability": 0.996258020401001
+          "end": 255.5
         },
         {
-          "word": " right",
+          "word": "right",
           "start": 255.5,
-          "end": 256.0,
-          "probability": 0.9838671684265137
+          "end": 256.0
         },
         {
-          "word": " into",
+          "word": "into",
           "start": 256.0,
-          "end": 256.9,
-          "probability": 0.9818859100341797
+          "end": 256.9
         },
         {
-          "word": " bed.",
+          "word": "bed.",
           "start": 256.9,
-          "end": 257.56,
-          "probability": 0.9583364129066467
-        }
-      ]
-    },
-    {
-      "id": 28,
-      "seek": 23484,
-      "start": 258.54,
-      "end": 264.18,
-      "text": " They knocked and knocked and wouldn't leave reminding us.",
-      "tokens": [
-        51514,
-        814,
-        16914,
-        293,
-        16914,
-        293,
-        2759,
-        380,
-        1856,
-        27639,
-        505,
-        13,
-        51814
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.17889593161788642,
-      "compression_ratio": 1.3958333333333333,
-      "no_speech_prob": 0.49337145686149597,
-      "words": [
+          "end": 257.56
+        },
         {
-          "word": " They",
+          "word": "They",
           "start": 258.54,
-          "end": 258.98,
-          "probability": 0.9833463430404663
+          "end": 258.98
         },
         {
-          "word": " knocked",
+          "word": "knocked",
           "start": 258.98,
-          "end": 259.42,
-          "probability": 0.9914451837539673
+          "end": 259.42
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 259.42,
-          "end": 259.74,
-          "probability": 0.8599219918251038
+          "end": 259.74
         },
         {
-          "word": " knocked",
+          "word": "knocked",
           "start": 259.74,
-          "end": 260.12,
-          "probability": 0.9874611496925354
+          "end": 260.12
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 260.12,
-          "end": 260.52,
-          "probability": 0.9441624879837036
+          "end": 260.52
         },
         {
-          "word": " wouldn't",
+          "word": "wouldn't",
           "start": 260.52,
-          "end": 261.26,
-          "probability": 0.9577108919620514
+          "end": 261.26
         },
         {
-          "word": " leave",
+          "word": "leave",
           "start": 261.26,
-          "end": 261.86,
-          "probability": 0.9875344038009644
+          "end": 261.86
         },
         {
-          "word": " reminding",
+          "word": "reminding",
           "start": 261.86,
-          "end": 263.14,
-          "probability": 0.40926074981689453
+          "end": 263.14
         },
         {
-          "word": " us.",
+          "word": "us.",
           "start": 263.14,
-          "end": 264.18,
-          "probability": 0.99774169921875
-        }
-      ]
-    },
-    {
-      "id": 29,
-      "seek": 26418,
-      "start": 264.18,
-      "end": 266.46,
-      "text": " We need to greet.",
-      "tokens": [
-        50364,
-        492,
-        643,
-        281,
-        12044,
-        13,
-        50514
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.26580304039849173,
-      "compression_ratio": 1.2868852459016393,
-      "no_speech_prob": 0.051363732665777206,
-      "words": [
+          "end": 264.18
+        },
         {
-          "word": " We",
+          "word": "We",
           "start": 264.18,
-          "end": 264.82,
-          "probability": 0.2768944501876831
+          "end": 264.82
         },
         {
-          "word": " need",
+          "word": "need",
           "start": 264.82,
-          "end": 265.3,
-          "probability": 0.961903989315033
+          "end": 265.3
         },
         {
-          "word": " to",
+          "word": "to",
           "start": 265.3,
-          "end": 265.76,
-          "probability": 0.985004186630249
+          "end": 265.76
         },
         {
-          "word": " greet.",
+          "word": "greet.",
           "start": 265.76,
-          "end": 266.46,
-          "probability": 0.08283615112304688
-        }
-      ]
-    },
-    {
-      "id": 30,
-      "seek": 26418,
-      "start": 267.58,
-      "end": 274.84,
-      "text": " Like loamy's knee that sometimes screams, paint tells us what the body needs.",
-      "tokens": [
-        50514,
-        1743,
-        450,
-        7804,
-        311,
-        9434,
-        300,
-        2171,
-        22832,
-        11,
-        4225,
-        5112,
-        505,
-        437,
-        264,
-        1772,
-        2203,
-        13,
-        50964
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.26580304039849173,
-      "compression_ratio": 1.2868852459016393,
-      "no_speech_prob": 0.051363732665777206,
-      "words": [
+          "end": 266.46
+        },
         {
-          "word": " Like",
+          "word": "Like",
           "start": 267.58,
-          "end": 267.94,
-          "probability": 0.7480824589729309
+          "end": 267.94
         },
         {
-          "word": " loamy's",
+          "word": "loamy's",
           "start": 267.94,
-          "end": 268.7,
-          "probability": 0.5612136026223501
+          "end": 268.7
         },
         {
-          "word": " knee",
+          "word": "knee",
           "start": 268.7,
-          "end": 268.96,
-          "probability": 0.5198946595191956
+          "end": 268.96
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 268.96,
-          "end": 269.24,
-          "probability": 0.5242173075675964
+          "end": 269.24
         },
         {
-          "word": " sometimes",
+          "word": "sometimes",
           "start": 269.24,
-          "end": 269.78,
-          "probability": 0.7282499670982361
+          "end": 269.78
         },
         {
-          "word": " screams,",
+          "word": "screams,",
           "start": 269.78,
-          "end": 270.42,
-          "probability": 0.5618690252304077
+          "end": 270.42
         },
         {
-          "word": " paint",
+          "word": "paint",
           "start": 270.72,
-          "end": 270.96,
-          "probability": 0.12581917643547058
+          "end": 270.96
         },
         {
-          "word": " tells",
+          "word": "tells",
           "start": 270.96,
-          "end": 271.48,
-          "probability": 0.8240988850593567
+          "end": 271.48
         },
         {
-          "word": " us",
+          "word": "us",
           "start": 271.48,
-          "end": 271.68,
-          "probability": 0.9995552897453308
+          "end": 271.68
         },
         {
-          "word": " what",
+          "word": "what",
           "start": 271.68,
-          "end": 271.98,
-          "probability": 0.9819215536117554
+          "end": 271.98
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 271.98,
-          "end": 272.22,
-          "probability": 0.9935727119445801
+          "end": 272.22
         },
         {
-          "word": " body",
+          "word": "body",
           "start": 272.22,
-          "end": 272.98,
-          "probability": 0.9627014398574829
+          "end": 272.98
         },
         {
-          "word": " needs.",
+          "word": "needs.",
           "start": 272.98,
-          "end": 274.84,
-          "probability": 0.9728823304176331
-        }
-      ]
-    },
-    {
-      "id": 31,
-      "seek": 26418,
-      "start": 276.18,
-      "end": 284.14,
-      "text": " If we keep saying go away, it only screams out more each day.",
-      "tokens": [
-        50964,
-        759,
-        321,
-        1066,
-        1566,
-        352,
-        1314,
-        11,
-        309,
-        787,
-        22832,
-        484,
-        544,
-        1184,
-        786,
-        13,
-        51364
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.26580304039849173,
-      "compression_ratio": 1.2868852459016393,
-      "no_speech_prob": 0.051363732665777206,
-      "words": [
+          "end": 274.84
+        },
         {
-          "word": " If",
+          "word": "If",
           "start": 275.74,
-          "end": 276.3,
-          "probability": 0.9247946739196777
+          "end": 276.3
         },
         {
-          "word": " we",
+          "word": "we",
           "start": 276.3,
-          "end": 276.54,
-          "probability": 0.998082160949707
+          "end": 276.54
         },
         {
-          "word": " keep",
+          "word": "keep",
           "start": 276.54,
-          "end": 276.8,
-          "probability": 0.9909052848815918
+          "end": 276.8
         },
         {
-          "word": " saying",
+          "word": "saying",
           "start": 276.8,
-          "end": 277.36,
-          "probability": 0.8843539357185364
+          "end": 277.36
         },
         {
-          "word": " go",
+          "word": "go",
           "start": 277.36,
-          "end": 277.94,
-          "probability": 0.4641581177711487
+          "end": 277.94
         },
         {
-          "word": " away,",
+          "word": "away,",
           "start": 277.94,
-          "end": 279.04,
-          "probability": 0.9450793862342834
+          "end": 279.04
         },
         {
-          "word": " it",
+          "word": "it",
           "start": 279.7,
-          "end": 280.1,
-          "probability": 0.8800371289253235
+          "end": 280.1
         },
         {
-          "word": " only",
+          "word": "only",
           "start": 280.1,
-          "end": 280.48,
-          "probability": 0.9850473403930664
+          "end": 280.48
         },
         {
-          "word": " screams",
+          "word": "screams",
           "start": 280.48,
-          "end": 281.16,
-          "probability": 0.9827113747596741
+          "end": 281.16
         },
         {
-          "word": " out",
+          "word": "out",
           "start": 281.16,
-          "end": 281.9,
-          "probability": 0.9970786571502686
+          "end": 281.9
         },
         {
-          "word": " more",
+          "word": "more",
           "start": 281.9,
-          "end": 282.46,
-          "probability": 0.9642062783241272
+          "end": 282.46
         },
         {
-          "word": " each",
+          "word": "each",
           "start": 282.46,
-          "end": 283.08,
-          "probability": 0.9938380122184753
+          "end": 283.08
         },
         {
-          "word": " day.",
+          "word": "day.",
           "start": 283.08,
-          "end": 284.14,
-          "probability": 0.9992345571517944
-        }
-      ]
-    },
-    {
-      "id": 32,
-      "seek": 28414,
-      "start": 286.38,
-      "end": 296.18,
-      "text": " The crash, the crush, that awful sound, it planted something in the ground.",
-      "tokens": [
-        50414,
-        440,
-        8252,
-        11,
-        264,
-        10321,
-        11,
-        300,
-        11232,
-        1626,
-        11,
-        309,
-        17395,
-        746,
-        294,
-        264,
-        2727,
-        13,
-        50964
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.10061323642730713,
-      "compression_ratio": 1.3097345132743363,
-      "no_speech_prob": 0.16492506861686707,
-      "words": [
+          "end": 284.14
+        },
         {
-          "word": " The",
+          "word": "The",
           "start": 286.38,
-          "end": 287.68,
-          "probability": 0.1828242987394333
+          "end": 287.68
         },
         {
-          "word": " crash,",
+          "word": "crash,",
           "start": 287.68,
-          "end": 288.12,
-          "probability": 0.7067446112632751
+          "end": 288.12
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 288.44,
-          "end": 288.54,
-          "probability": 0.9546054601669312
+          "end": 288.54
+        }
+      ]
+    },
+    "8": {
+      "chapter": 8,
+      "title": "Care Finds Its Feet",
+      "offset": 282.46,
+      "duration": 45.64,
+      "words": [
+        {
+          "word": "each",
+          "start": 282.46,
+          "end": 283.08
         },
         {
-          "word": " crush,",
+          "word": "day.",
+          "start": 283.08,
+          "end": 284.14
+        },
+        {
+          "word": "The",
+          "start": 286.38,
+          "end": 287.68
+        },
+        {
+          "word": "crash,",
+          "start": 287.68,
+          "end": 288.12
+        },
+        {
+          "word": "the",
+          "start": 288.44,
+          "end": 288.54
+        },
+        {
+          "word": "crush,",
           "start": 288.54,
-          "end": 289.32,
-          "probability": 0.3670511543750763
+          "end": 289.32
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 289.54,
-          "end": 289.8,
-          "probability": 0.8518555164337158
+          "end": 289.8
         },
         {
-          "word": " awful",
+          "word": "awful",
           "start": 289.8,
-          "end": 290.52,
-          "probability": 0.9943625926971436
+          "end": 290.52
         },
         {
-          "word": " sound,",
+          "word": "sound,",
           "start": 290.52,
-          "end": 292.18,
-          "probability": 0.9902281761169434
+          "end": 292.18
         },
         {
-          "word": " it",
+          "word": "it",
           "start": 292.68,
-          "end": 292.78,
-          "probability": 0.6290906667709351
+          "end": 292.78
         },
         {
-          "word": " planted",
+          "word": "planted",
           "start": 292.78,
-          "end": 293.36,
-          "probability": 0.7806984782218933
+          "end": 293.36
         },
         {
-          "word": " something",
+          "word": "something",
           "start": 293.36,
-          "end": 294.26,
-          "probability": 0.9703485369682312
+          "end": 294.26
         },
         {
-          "word": " in",
+          "word": "in",
           "start": 294.26,
-          "end": 295.08,
-          "probability": 0.9968287348747253
+          "end": 295.08
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 295.08,
-          "end": 295.4,
-          "probability": 0.9974068999290466
+          "end": 295.4
         },
         {
-          "word": " ground.",
+          "word": "ground.",
           "start": 295.4,
-          "end": 296.18,
-          "probability": 0.9419612884521484
-        }
-      ]
-    },
-    {
-      "id": 33,
-      "seek": 28414,
-      "start": 297.38,
-      "end": 307.74,
-      "text": " And what grew up between the cracks is this, a song that loves you back.",
-      "tokens": [
-        50964,
-        400,
-        437,
-        6109,
-        493,
-        1296,
-        264,
-        21770,
-        307,
-        341,
-        11,
-        257,
-        2153,
-        300,
-        6752,
-        291,
-        646,
-        13,
-        51564
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.10061323642730713,
-      "compression_ratio": 1.3097345132743363,
-      "no_speech_prob": 0.16492506861686707,
-      "words": [
+          "end": 296.18
+        },
         {
-          "word": " And",
+          "word": "And",
           "start": 297.38,
-          "end": 297.86,
-          "probability": 0.9392052292823792
+          "end": 297.86
         },
         {
-          "word": " what",
+          "word": "what",
           "start": 297.86,
-          "end": 298.16,
-          "probability": 0.9934304356575012
+          "end": 298.16
         },
         {
-          "word": " grew",
+          "word": "grew",
           "start": 298.16,
-          "end": 298.62,
-          "probability": 0.9939677715301514
+          "end": 298.62
         },
         {
-          "word": " up",
+          "word": "up",
           "start": 298.62,
-          "end": 299.3,
-          "probability": 0.9949594736099243
+          "end": 299.3
         },
         {
-          "word": " between",
+          "word": "between",
           "start": 299.3,
-          "end": 300.3,
-          "probability": 0.9762303829193115
+          "end": 300.3
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 300.3,
-          "end": 301.04,
-          "probability": 0.9881712198257446
+          "end": 301.04
         },
         {
-          "word": " cracks",
+          "word": "cracks",
           "start": 301.04,
-          "end": 302.0,
-          "probability": 0.9708407521247864
+          "end": 302.0
         },
         {
-          "word": " is",
+          "word": "is",
           "start": 302.0,
-          "end": 303.1,
-          "probability": 0.7851250171661377
+          "end": 303.1
         },
         {
-          "word": " this,",
+          "word": "this,",
           "start": 303.1,
-          "end": 303.72,
-          "probability": 0.9938387274742126
+          "end": 303.72
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 304.8,
-          "end": 304.88,
-          "probability": 0.9726369976997375
+          "end": 304.88
         },
         {
-          "word": " song",
+          "word": "song",
           "start": 304.88,
-          "end": 305.36,
-          "probability": 0.999325156211853
+          "end": 305.36
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 305.36,
-          "end": 305.66,
-          "probability": 0.9968164563179016
+          "end": 305.66
         },
         {
-          "word": " loves",
+          "word": "loves",
           "start": 305.66,
-          "end": 306.44,
-          "probability": 0.985454797744751
+          "end": 306.44
         },
         {
-          "word": " you",
+          "word": "you",
           "start": 306.44,
-          "end": 306.94,
-          "probability": 0.9903468489646912
+          "end": 306.94
         },
         {
-          "word": " back.",
+          "word": "back.",
           "start": 306.94,
-          "end": 307.74,
-          "probability": 0.7118033170700073
-        }
-      ]
-    },
-    {
-      "id": 34,
-      "seek": 30774,
-      "start": 310.38,
-      "end": 318.88,
-      "text": " So next time we will make a sign, please reuse these a simple line.",
-      "tokens": [
-        50414,
-        407,
-        958,
-        565,
-        321,
-        486,
-        652,
-        257,
-        1465,
-        11,
-        1767,
-        26225,
-        613,
-        257,
-        2199,
-        1622,
-        13,
-        50864
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.15030374025043688,
-      "compression_ratio": 1.3153153153153154,
-      "no_speech_prob": 0.36015692353248596,
-      "words": [
+          "end": 307.74
+        },
         {
-          "word": " So",
+          "word": "So",
           "start": 310.38,
-          "end": 311.34,
-          "probability": 0.4071289896965027
+          "end": 311.34
         },
         {
-          "word": " next",
+          "word": "next",
           "start": 311.34,
-          "end": 311.58,
-          "probability": 0.947757363319397
+          "end": 311.58
         },
         {
-          "word": " time",
+          "word": "time",
           "start": 311.58,
-          "end": 312.02,
-          "probability": 0.9979249238967896
+          "end": 312.02
         },
         {
-          "word": " we",
+          "word": "we",
           "start": 312.02,
-          "end": 312.42,
-          "probability": 0.9610369205474854
+          "end": 312.42
         },
         {
-          "word": " will",
+          "word": "will",
           "start": 312.42,
-          "end": 312.66,
-          "probability": 0.9708259701728821
+          "end": 312.66
         },
         {
-          "word": " make",
+          "word": "make",
           "start": 312.66,
-          "end": 313.06,
-          "probability": 0.9959412813186646
+          "end": 313.06
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 313.06,
-          "end": 313.3,
-          "probability": 0.9853514432907104
+          "end": 313.3
         },
         {
-          "word": " sign,",
+          "word": "sign,",
           "start": 313.3,
-          "end": 314.08,
-          "probability": 0.9749554991722107
+          "end": 314.08
         },
         {
-          "word": " please",
+          "word": "please",
           "start": 314.42,
-          "end": 315.62,
-          "probability": 0.8388978838920593
+          "end": 315.62
         },
         {
-          "word": " reuse",
+          "word": "reuse",
           "start": 315.62,
-          "end": 316.26,
-          "probability": 0.96544349193573
+          "end": 316.26
         },
         {
-          "word": " these",
+          "word": "these",
           "start": 316.26,
-          "end": 316.74,
-          "probability": 0.9729002714157104
+          "end": 316.74
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 316.74,
-          "end": 317.14,
-          "probability": 0.6086704730987549
+          "end": 317.14
         },
         {
-          "word": " simple",
+          "word": "simple",
           "start": 317.14,
-          "end": 317.86,
-          "probability": 0.9773821234703064
+          "end": 317.86
         },
         {
-          "word": " line.",
+          "word": "line.",
           "start": 317.86,
-          "end": 318.88,
-          "probability": 0.9952394962310791
-        }
-      ]
-    },
-    {
-      "id": 35,
-      "seek": 30774,
-      "start": 319.36,
-      "end": 328.1,
-      "text": " Our feelings found their hands and feet, and walked right out onto the street.",
-      "tokens": [
-        50864,
-        2621,
-        6640,
-        1352,
-        641,
-        2377,
-        293,
-        3521,
-        11,
-        293,
-        7628,
-        558,
-        484,
-        3911,
-        264,
-        4838,
-        13,
-        51364
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.15030374025043688,
-      "compression_ratio": 1.3153153153153154,
-      "no_speech_prob": 0.36015692353248596,
-      "words": [
+          "end": 318.88
+        },
         {
-          "word": " Our",
+          "word": "Our",
           "start": 319.36,
-          "end": 319.68,
-          "probability": 0.9708760380744934
+          "end": 319.68
         },
         {
-          "word": " feelings",
+          "word": "feelings",
           "start": 319.68,
-          "end": 320.2,
-          "probability": 0.986226499080658
+          "end": 320.2
         },
         {
-          "word": " found",
+          "word": "found",
           "start": 320.2,
-          "end": 320.74,
-          "probability": 0.8976002931594849
+          "end": 320.74
         },
         {
-          "word": " their",
+          "word": "their",
           "start": 320.74,
-          "end": 321.18,
-          "probability": 0.9690092206001282
+          "end": 321.18
         },
         {
-          "word": " hands",
+          "word": "hands",
           "start": 321.18,
-          "end": 321.92,
-          "probability": 0.9964396357536316
+          "end": 321.92
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 321.92,
-          "end": 322.22,
-          "probability": 0.8292416930198669
+          "end": 322.22
         },
         {
-          "word": " feet,",
+          "word": "feet,",
           "start": 322.22,
-          "end": 322.76,
-          "probability": 0.9997594952583313
+          "end": 322.76
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 323.94,
-          "end": 324.02,
-          "probability": 0.9353423714637756
+          "end": 324.02
         },
         {
-          "word": " walked",
+          "word": "walked",
           "start": 324.02,
-          "end": 324.48,
-          "probability": 0.9896565675735474
+          "end": 324.48
         },
         {
-          "word": " right",
+          "word": "right",
           "start": 324.48,
-          "end": 324.8,
-          "probability": 0.9864715933799744
+          "end": 324.8
         },
         {
-          "word": " out",
+          "word": "out",
           "start": 324.8,
-          "end": 325.46,
-          "probability": 0.9928760528564453
+          "end": 325.46
         },
         {
-          "word": " onto",
+          "word": "onto",
           "start": 325.46,
-          "end": 326.54,
-          "probability": 0.9198096394538879
+          "end": 326.54
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 326.54,
-          "end": 327.14,
-          "probability": 0.9986593723297119
+          "end": 327.14
         },
         {
-          "word": " street.",
+          "word": "street.",
           "start": 327.14,
-          "end": 328.1,
-          "probability": 0.9912262558937073
-        }
-      ]
-    },
-    {
-      "id": 36,
-      "seek": 32810,
-      "start": 328.96,
-      "end": 335.24,
-      "text": " There's a part of us that wants to hide, lock the door and stay inside.",
-      "tokens": [
-        50414,
-        821,
-        311,
-        257,
-        644,
-        295,
-        505,
-        300,
-        2738,
-        281,
-        6479,
-        11,
-        4017,
-        264,
-        2853,
-        293,
-        1754,
-        1854,
-        13,
-        50864
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.15436934315881065,
-      "compression_ratio": 1.3364485981308412,
-      "no_speech_prob": 0.8658894300460815,
-      "words": [
+          "end": 328.1
+        },
         {
-          "word": " There's",
+          "word": "There's",
           "start": 328.96,
-          "end": 329.76,
-          "probability": 0.5214411020278931
+          "end": 329.76
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 329.76,
-          "end": 329.88,
-          "probability": 0.9756959080696106
+          "end": 329.88
         },
         {
-          "word": " part",
+          "word": "part",
           "start": 329.88,
-          "end": 330.24,
-          "probability": 0.9368185997009277
+          "end": 330.24
         },
         {
-          "word": " of",
+          "word": "of",
           "start": 330.24,
-          "end": 330.54,
-          "probability": 0.9939316511154175
+          "end": 330.54
         },
         {
-          "word": " us",
+          "word": "us",
           "start": 330.54,
-          "end": 330.94,
-          "probability": 0.9937052130699158
+          "end": 330.94
+        }
+      ]
+    },
+    "9": {
+      "chapter": 9,
+      "title": "The Parts of Us",
+      "offset": 328.96,
+      "duration": 70.42,
+      "words": [
+        {
+          "word": "There's",
+          "start": 328.96,
+          "end": 329.76
         },
         {
-          "word": " that",
+          "word": "a",
+          "start": 329.76,
+          "end": 329.88
+        },
+        {
+          "word": "part",
+          "start": 329.88,
+          "end": 330.24
+        },
+        {
+          "word": "of",
+          "start": 330.24,
+          "end": 330.54
+        },
+        {
+          "word": "us",
+          "start": 330.54,
+          "end": 330.94
+        },
+        {
+          "word": "that",
           "start": 330.94,
-          "end": 331.14,
-          "probability": 0.8935644626617432
+          "end": 331.14
         },
         {
-          "word": " wants",
+          "word": "wants",
           "start": 331.14,
-          "end": 331.56,
-          "probability": 0.9627017974853516
+          "end": 331.56
         },
         {
-          "word": " to",
+          "word": "to",
           "start": 331.56,
-          "end": 331.94,
-          "probability": 0.9855599403381348
+          "end": 331.94
         },
         {
-          "word": " hide,",
+          "word": "hide,",
           "start": 331.94,
-          "end": 332.42,
-          "probability": 0.9849424362182617
+          "end": 332.42
         },
         {
-          "word": " lock",
+          "word": "lock",
           "start": 332.7,
-          "end": 332.78,
-          "probability": 0.9327949285507202
+          "end": 332.78
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 332.78,
-          "end": 333.06,
-          "probability": 0.9784969091415405
+          "end": 333.06
         },
         {
-          "word": " door",
+          "word": "door",
           "start": 333.06,
-          "end": 333.42,
-          "probability": 0.9934705495834351
+          "end": 333.42
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 333.42,
-          "end": 333.74,
-          "probability": 0.602722704410553
+          "end": 333.74
         },
         {
-          "word": " stay",
+          "word": "stay",
           "start": 333.74,
-          "end": 334.28,
-          "probability": 0.9919916987419128
+          "end": 334.28
         },
         {
-          "word": " inside.",
+          "word": "inside.",
           "start": 334.28,
-          "end": 335.24,
-          "probability": 0.9732945561408997
-        }
-      ]
-    },
-    {
-      "id": 37,
-      "seek": 32810,
-      "start": 337.86,
-      "end": 346.08,
-      "text": " Don't put anything out again, don't risk the hurt, don't risk the pain.",
-      "tokens": [
-        50864,
-        1468,
-        380,
-        829,
-        1340,
-        484,
-        797,
-        11,
-        500,
-        380,
-        3148,
-        264,
-        4607,
-        11,
-        500,
-        380,
-        3148,
-        264,
-        1822,
-        13,
-        51364
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.15436934315881065,
-      "compression_ratio": 1.3364485981308412,
-      "no_speech_prob": 0.8658894300460815,
-      "words": [
+          "end": 335.24
+        },
         {
-          "word": " Don't",
+          "word": "Don't",
           "start": 337.86,
-          "end": 338.46,
-          "probability": 0.9659675657749176
+          "end": 338.46
         },
         {
-          "word": " put",
+          "word": "put",
           "start": 338.46,
-          "end": 338.72,
-          "probability": 0.9961510896682739
+          "end": 338.72
         },
         {
-          "word": " anything",
+          "word": "anything",
           "start": 338.72,
-          "end": 339.36,
-          "probability": 0.9800247550010681
+          "end": 339.36
         },
         {
-          "word": " out",
+          "word": "out",
           "start": 339.36,
-          "end": 340.36,
-          "probability": 0.9883737564086914
+          "end": 340.36
         },
         {
-          "word": " again,",
+          "word": "again,",
           "start": 340.36,
-          "end": 341.14,
-          "probability": 0.9866815805435181
+          "end": 341.14
         },
         {
-          "word": " don't",
+          "word": "don't",
           "start": 341.88,
-          "end": 342.16,
-          "probability": 0.9708375930786133
+          "end": 342.16
         },
         {
-          "word": " risk",
+          "word": "risk",
           "start": 342.16,
-          "end": 342.38,
-          "probability": 0.8915504217147827
+          "end": 342.38
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 342.38,
-          "end": 342.64,
-          "probability": 0.9845423698425293
+          "end": 342.64
         },
         {
-          "word": " hurt,",
+          "word": "hurt,",
           "start": 342.64,
-          "end": 343.04,
-          "probability": 0.9188865423202515
+          "end": 343.04
         },
         {
-          "word": " don't",
+          "word": "don't",
           "start": 343.7,
-          "end": 344.14,
-          "probability": 0.9963233768939972
+          "end": 344.14
         },
         {
-          "word": " risk",
+          "word": "risk",
           "start": 344.14,
-          "end": 344.56,
-          "probability": 0.9959495067596436
+          "end": 344.56
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 344.56,
-          "end": 344.88,
-          "probability": 0.9966827034950256
+          "end": 344.88
         },
         {
-          "word": " pain.",
+          "word": "pain.",
           "start": 344.88,
-          "end": 346.08,
-          "probability": 0.9996888637542725
-        }
-      ]
-    },
-    {
-      "id": 38,
-      "seek": 34608,
-      "start": 348.96,
-      "end": 358.08,
-      "text": " There's a punch that knows we must let go of things, rebuild our trust.",
-      "tokens": [
-        50414,
-        821,
-        311,
-        257,
-        8135,
-        300,
-        3255,
-        321,
-        1633,
-        718,
-        352,
-        295,
-        721,
-        11,
-        16877,
-        527,
-        3361,
-        13,
-        50964
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.2583476275932498,
-      "compression_ratio": 1.309090909090909,
-      "no_speech_prob": 0.3950464725494385,
-      "words": [
+          "end": 346.08
+        },
         {
-          "word": " There's",
+          "word": "There's",
           "start": 348.96,
-          "end": 350.12,
-          "probability": 0.5559390261769295
+          "end": 350.12
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 350.12,
-          "end": 350.22,
-          "probability": 0.9821316003799438
+          "end": 350.22
         },
         {
-          "word": " punch",
+          "word": "punch",
           "start": 350.22,
-          "end": 350.92,
-          "probability": 0.08442950993776321
+          "end": 350.92
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 350.92,
-          "end": 352.12,
-          "probability": 0.6642290949821472
+          "end": 352.12
         },
         {
-          "word": " knows",
+          "word": "knows",
           "start": 352.12,
-          "end": 352.54,
-          "probability": 0.9848060011863708
+          "end": 352.54
         },
         {
-          "word": " we",
+          "word": "we",
           "start": 352.54,
-          "end": 353.04,
-          "probability": 0.8729851841926575
+          "end": 353.04
         },
         {
-          "word": " must",
+          "word": "must",
           "start": 353.04,
-          "end": 353.68,
-          "probability": 0.9945566654205322
+          "end": 353.68
         },
         {
-          "word": " let",
+          "word": "let",
           "start": 353.68,
-          "end": 354.7,
-          "probability": 0.38958024978637695
+          "end": 354.7
         },
         {
-          "word": " go",
+          "word": "go",
           "start": 354.7,
-          "end": 355.14,
-          "probability": 0.9809261560440063
+          "end": 355.14
         },
         {
-          "word": " of",
+          "word": "of",
           "start": 355.14,
-          "end": 355.62,
-          "probability": 0.9188777804374695
+          "end": 355.62
         },
         {
-          "word": " things,",
+          "word": "things,",
           "start": 355.62,
-          "end": 356.26,
-          "probability": 0.988926887512207
+          "end": 356.26
         },
         {
-          "word": " rebuild",
+          "word": "rebuild",
           "start": 356.66,
-          "end": 357.08,
-          "probability": 0.9742898344993591
+          "end": 357.08
         },
         {
-          "word": " our",
+          "word": "our",
           "start": 357.08,
-          "end": 357.66,
-          "probability": 0.9902287721633911
+          "end": 357.66
         },
         {
-          "word": " trust.",
+          "word": "trust.",
           "start": 357.66,
-          "end": 358.24,
-          "probability": 0.9911692142486572
-        }
-      ]
-    },
-    {
-      "id": 39,
-      "seek": 34608,
-      "start": 359.12,
-      "end": 369.66,
-      "text": " The two parts argue, pushing home, and that's the game that is the rule.",
-      "tokens": [
-        50964,
-        440,
-        732,
-        3166,
-        9695,
-        11,
-        7380,
-        1280,
-        11,
-        293,
-        300,
-        311,
-        264,
-        1216,
-        300,
-        307,
-        264,
-        4978,
-        13,
-        51464
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.2583476275932498,
-      "compression_ratio": 1.309090909090909,
-      "no_speech_prob": 0.3950464725494385,
-      "words": [
+          "end": 358.24
+        },
         {
-          "word": " The",
+          "word": "The",
           "start": 359.12,
-          "end": 359.8,
-          "probability": 0.9637421369552612
+          "end": 359.8
         },
         {
-          "word": " two",
+          "word": "two",
           "start": 359.8,
-          "end": 360.08,
-          "probability": 0.9904873967170715
+          "end": 360.08
         },
         {
-          "word": " parts",
+          "word": "parts",
           "start": 360.08,
-          "end": 360.5,
-          "probability": 0.9902359843254089
+          "end": 360.5
         },
         {
-          "word": " argue,",
+          "word": "argue,",
           "start": 360.5,
-          "end": 361.38,
-          "probability": 0.9574858546257019
+          "end": 361.38
         },
         {
-          "word": " pushing",
+          "word": "pushing",
           "start": 362.12,
-          "end": 362.86,
-          "probability": 0.4821544587612152
+          "end": 362.86
         },
         {
-          "word": " home,",
+          "word": "home,",
           "start": 362.86,
-          "end": 363.86,
-          "probability": 0.33767324686050415
+          "end": 363.86
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 364.28,
-          "end": 364.96,
-          "probability": 0.9498382806777954
+          "end": 364.96
         },
         {
-          "word": " that's",
+          "word": "that's",
           "start": 364.96,
-          "end": 365.44,
-          "probability": 0.9957152903079987
+          "end": 365.44
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 365.44,
-          "end": 365.58,
-          "probability": 0.9968593120574951
+          "end": 365.58
         },
         {
-          "word": " game",
+          "word": "game",
           "start": 365.58,
-          "end": 366.26,
-          "probability": 0.9725605249404907
+          "end": 366.26
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 366.26,
-          "end": 367.5,
-          "probability": 0.36430230736732483
+          "end": 367.5
         },
         {
-          "word": " is",
+          "word": "is",
           "start": 367.5,
-          "end": 368.02,
-          "probability": 0.991540253162384
+          "end": 368.02
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 368.02,
-          "end": 368.42,
-          "probability": 0.5953170657157898
+          "end": 368.42
         },
         {
-          "word": " rule.",
+          "word": "rule.",
           "start": 368.42,
-          "end": 369.66,
-          "probability": 0.3134574890136719
-        }
-      ]
-    },
-    {
-      "id": 40,
-      "seek": 36966,
-      "start": 396.58000000000004,
-      "end": 399.38,
-      "text": " The two parts argue, pushing home, and that's the rule.",
-      "tokens": [
-        50414,
-        440,
-        732,
-        3166,
-        9695,
-        11,
-        7380,
-        1280,
-        11,
-        293,
-        300,
-        311,
-        264,
-        4978,
-        13,
-        50714
-      ],
-      "temperature": 0.4,
-      "avg_logprob": -0.8887818455696106,
-      "compression_ratio": 2.305263157894737,
-      "no_speech_prob": 0.8904321193695068,
-      "words": [
-        {
-          "word": " The",
-          "start": 396.58000000000004,
-          "end": 397.98,
-          "probability": 0.008660377934575081
+          "end": 369.66
         },
         {
-          "word": " two",
+          "word": "The",
+          "start": 396.58,
+          "end": 397.98
+        },
+        {
+          "word": "two",
           "start": 397.98,
-          "end": 399.38,
-          "probability": 0.0053773485124111176
+          "end": 399.38
         },
         {
-          "word": " parts",
+          "word": "parts",
           "start": 399.38,
-          "end": 399.38,
-          "probability": 0.0005003415863029659
+          "end": 399.38
         },
         {
-          "word": " argue,",
+          "word": "argue,",
           "start": 399.38,
-          "end": 399.38,
-          "probability": 2.137112915079342e-06
+          "end": 399.38
         },
         {
-          "word": " pushing",
+          "word": "pushing",
           "start": 399.38,
-          "end": 399.38,
-          "probability": 3.349823964526877e-05
+          "end": 399.38
         },
         {
-          "word": " home,",
+          "word": "home,",
           "start": 399.38,
-          "end": 399.38,
-          "probability": 5.934321598033421e-05
+          "end": 399.38
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 399.38,
-          "end": 399.38,
-          "probability": 0.09294436126947403
+          "end": 399.38
         },
         {
-          "word": " that's",
+          "word": "that's",
           "start": 399.38,
-          "end": 399.38,
-          "probability": 0.21476231678389013
-        },
-        {
-          "word": " the",
-          "start": 399.38,
-          "end": 399.38,
-          "probability": 0.1407226175069809
-        },
-        {
-          "word": " rule.",
-          "start": 399.38,
-          "end": 399.38,
-          "probability": 0.003656130051240325
+          "end": 399.38
         }
       ]
     },
-    {
-      "id": 41,
-      "seek": 36966,
-      "start": 399.62,
-      "end": 399.62,
-      "text": "",
-      "tokens": [],
-      "temperature": 0.4,
-      "avg_logprob": -0.8887818455696106,
-      "compression_ratio": 2.305263157894737,
-      "no_speech_prob": 0.8904321193695068,
-      "words": []
-    },
-    {
-      "id": 42,
-      "seek": 36966,
-      "start": 399.62,
-      "end": 399.62,
-      "text": "",
-      "tokens": [],
-      "temperature": 0.4,
-      "avg_logprob": -0.8887818455696106,
-      "compression_ratio": 2.305263157894737,
-      "no_speech_prob": 0.8904321193695068,
-      "words": []
-    },
-    {
-      "id": 43,
-      "seek": 36966,
-      "start": 399.62,
-      "end": 399.62,
-      "text": "",
-      "tokens": [],
-      "temperature": 0.4,
-      "avg_logprob": -0.8887818455696106,
-      "compression_ratio": 2.305263157894737,
-      "no_speech_prob": 0.8904321193695068,
-      "words": []
-    },
-    {
-      "id": 44,
-      "seek": 36966,
-      "start": 399.62,
-      "end": 399.64,
-      "text": " We need to let the two parts together.",
-      "tokens": [
-        51364,
-        492,
-        643,
-        281,
-        718,
-        264,
-        732,
-        3166,
-        1214,
-        13,
-        51514
-      ],
-      "temperature": 0.4,
-      "avg_logprob": -0.8887818455696106,
-      "compression_ratio": 2.305263157894737,
-      "no_speech_prob": 0.8904321193695068,
+    "10": {
+      "chapter": 10,
+      "title": "The Playful Process",
+      "offset": 399.38,
+      "duration": 56.64,
       "words": [
         {
-          "word": " We",
-          "start": 399.62,
-          "end": 399.62,
-          "probability": 0.40314623713493347
+          "word": "argue,",
+          "start": 399.38,
+          "end": 399.38
         },
         {
-          "word": " need",
-          "start": 399.62,
-          "end": 399.62,
-          "probability": 0.8279149532318115
+          "word": "pushing",
+          "start": 399.38,
+          "end": 399.38
         },
         {
-          "word": " to",
-          "start": 399.62,
-          "end": 399.62,
-          "probability": 0.9697840809822083
+          "word": "home,",
+          "start": 399.38,
+          "end": 399.38
         },
         {
-          "word": " let",
-          "start": 399.62,
-          "end": 399.62,
-          "probability": 0.5949195027351379
+          "word": "and",
+          "start": 399.38,
+          "end": 399.38
         },
         {
-          "word": " the",
-          "start": 399.62,
-          "end": 399.62,
-          "probability": 0.8962313532829285
+          "word": "that's",
+          "start": 399.38,
+          "end": 399.38
         },
         {
-          "word": " two",
-          "start": 399.62,
-          "end": 399.62,
-          "probability": 0.9317612051963806
+          "word": "the",
+          "start": 399.38,
+          "end": 399.38
         },
         {
-          "word": " parts",
-          "start": 399.62,
-          "end": 399.62,
-          "probability": 0.9810964465141296
+          "word": "rule.",
+          "start": 399.38,
+          "end": 399.38
         },
         {
-          "word": " together.",
+          "word": "We",
           "start": 399.62,
-          "end": 399.64,
-          "probability": 0.964236855506897
-        }
-      ]
-    },
-    {
-      "id": 45,
-      "seek": 42964,
-      "start": 430.44,
-      "end": 440.3,
-      "text": " Because the game is never done, it's not a game that can be won.",
-      "tokens": [
-        50414,
-        1436,
-        264,
-        1216,
-        307,
-        1128,
-        1096,
-        11,
-        309,
-        311,
-        406,
-        257,
-        1216,
-        300,
-        393,
-        312,
-        1582,
-        13,
-        50914
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.14161175053294112,
-      "compression_ratio": 1.308411214953271,
-      "no_speech_prob": 0.729468047618866,
-      "words": [
+          "end": 399.62
+        },
         {
-          "word": " Because",
+          "word": "need",
+          "start": 399.62,
+          "end": 399.62
+        },
+        {
+          "word": "to",
+          "start": 399.62,
+          "end": 399.62
+        },
+        {
+          "word": "let",
+          "start": 399.62,
+          "end": 399.62
+        },
+        {
+          "word": "the",
+          "start": 399.62,
+          "end": 399.62
+        },
+        {
+          "word": "two",
+          "start": 399.62,
+          "end": 399.62
+        },
+        {
+          "word": "parts",
+          "start": 399.62,
+          "end": 399.62
+        },
+        {
+          "word": "together.",
+          "start": 399.62,
+          "end": 399.64
+        },
+        {
+          "word": "Because",
           "start": 430.44,
-          "end": 431.62,
-          "probability": 0.18745706975460052
+          "end": 431.62
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 431.62,
-          "end": 432.0,
-          "probability": 0.9510899782180786
+          "end": 432.0
         },
         {
-          "word": " game",
+          "word": "game",
           "start": 432.0,
-          "end": 432.62,
-          "probability": 0.9819989204406738
+          "end": 432.62
         },
         {
-          "word": " is",
+          "word": "is",
           "start": 432.62,
-          "end": 433.36,
-          "probability": 0.9223510026931763
+          "end": 433.36
         },
         {
-          "word": " never",
+          "word": "never",
           "start": 433.36,
-          "end": 433.84,
-          "probability": 0.9871865510940552
+          "end": 433.84
         },
         {
-          "word": " done,",
+          "word": "done,",
           "start": 433.84,
-          "end": 435.18,
-          "probability": 0.9750378131866455
+          "end": 435.18
         },
         {
-          "word": " it's",
+          "word": "it's",
           "start": 435.66,
-          "end": 436.56,
-          "probability": 0.7605050802230835
+          "end": 436.56
         },
         {
-          "word": " not",
+          "word": "not",
           "start": 436.56,
-          "end": 436.9,
-          "probability": 0.9971063733100891
+          "end": 436.9
         },
         {
-          "word": " a",
+          "word": "a",
           "start": 436.9,
-          "end": 437.16,
-          "probability": 0.9896820187568665
+          "end": 437.16
         },
         {
-          "word": " game",
+          "word": "game",
           "start": 437.16,
-          "end": 437.66,
-          "probability": 0.9952400922775269
+          "end": 437.66
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 437.66,
-          "end": 438.38,
-          "probability": 0.9169256687164307
+          "end": 438.38
         },
         {
-          "word": " can",
+          "word": "can",
           "start": 438.38,
-          "end": 438.86,
-          "probability": 0.9961091876029968
+          "end": 438.86
         },
         {
-          "word": " be",
+          "word": "be",
           "start": 438.86,
-          "end": 439.42,
-          "probability": 0.9409672021865845
+          "end": 439.42
         },
         {
-          "word": " won.",
+          "word": "won.",
           "start": 439.42,
-          "end": 440.3,
-          "probability": 0.9482186436653137
-        }
-      ]
-    },
-    {
-      "id": 46,
-      "seek": 42964,
-      "start": 440.96,
-      "end": 450.76,
-      "text": " The game is played by those who stay, who feel the pain and still the play.",
-      "tokens": [
-        50914,
-        440,
-        1216,
-        307,
-        3737,
-        538,
-        729,
-        567,
-        1754,
-        11,
-        567,
-        841,
-        264,
-        1822,
-        293,
-        920,
-        264,
-        862,
-        13,
-        51464
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.14161175053294112,
-      "compression_ratio": 1.308411214953271,
-      "no_speech_prob": 0.729468047618866,
-      "words": [
+          "end": 440.3
+        },
         {
-          "word": " The",
+          "word": "The",
           "start": 440.96,
-          "end": 441.52,
-          "probability": 0.9425095915794373
+          "end": 441.52
         },
         {
-          "word": " game",
+          "word": "game",
           "start": 441.52,
-          "end": 441.9,
-          "probability": 0.9908565282821655
+          "end": 441.9
         },
         {
-          "word": " is",
+          "word": "is",
           "start": 441.9,
-          "end": 442.26,
-          "probability": 0.9974080920219421
+          "end": 442.26
         },
         {
-          "word": " played",
+          "word": "played",
           "start": 442.26,
-          "end": 442.9,
-          "probability": 0.9282619953155518
+          "end": 442.9
         },
         {
-          "word": " by",
+          "word": "by",
           "start": 442.9,
-          "end": 443.52,
-          "probability": 0.9947852492332458
+          "end": 443.52
         },
         {
-          "word": " those",
+          "word": "those",
           "start": 443.52,
-          "end": 444.18,
-          "probability": 0.9962873458862305
+          "end": 444.18
         },
         {
-          "word": " who",
+          "word": "who",
           "start": 444.18,
-          "end": 444.62,
-          "probability": 0.985188364982605
+          "end": 444.62
         },
         {
-          "word": " stay,",
+          "word": "stay,",
           "start": 444.62,
-          "end": 445.66,
-          "probability": 0.9386358261108398
+          "end": 445.66
         },
         {
-          "word": " who",
+          "word": "who",
           "start": 446.5,
-          "end": 446.7,
-          "probability": 0.9338589310646057
+          "end": 446.7
         },
         {
-          "word": " feel",
+          "word": "feel",
           "start": 446.7,
-          "end": 447.1,
-          "probability": 0.9103534817695618
+          "end": 447.1
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 447.1,
-          "end": 447.32,
-          "probability": 0.976496160030365
+          "end": 447.32
         },
         {
-          "word": " pain",
+          "word": "pain",
           "start": 447.32,
-          "end": 447.8,
-          "probability": 0.9989460110664368
+          "end": 447.8
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 447.8,
-          "end": 448.62,
-          "probability": 0.7198978066444397
+          "end": 448.62
         },
         {
-          "word": " still",
+          "word": "still",
           "start": 448.62,
-          "end": 449.18,
-          "probability": 0.9396266341209412
+          "end": 449.18
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 449.18,
-          "end": 449.8,
-          "probability": 0.9593487977981567
+          "end": 449.8
         },
         {
-          "word": " play.",
+          "word": "play.",
           "start": 449.8,
-          "end": 450.76,
-          "probability": 0.6540167331695557
-        }
-      ]
-    },
-    {
-      "id": 47,
-      "seek": 45076,
-      "start": 453.58,
-      "end": 462.84,
-      "text": " If it weren't for the pain we knew, this song would not be here for you.",
-      "tokens": [
-        50414,
-        759,
-        309,
-        4999,
-        380,
-        337,
-        264,
-        1822,
-        321,
-        2586,
-        11,
-        341,
-        2153,
-        576,
-        406,
-        312,
-        510,
-        337,
-        291,
-        13,
-        50864
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.12723915751387432,
-      "compression_ratio": 1.2678571428571428,
-      "no_speech_prob": 0.6397228837013245,
-      "words": [
+          "end": 450.76
+        },
         {
-          "word": " If",
+          "word": "If",
           "start": 453.58,
-          "end": 454.62,
-          "probability": 0.35321298241615295
+          "end": 454.62
         },
         {
-          "word": " it",
+          "word": "it",
           "start": 454.62,
-          "end": 454.98,
-          "probability": 0.9613118171691895
+          "end": 454.98
         },
         {
-          "word": " weren't",
+          "word": "weren't",
           "start": 454.98,
-          "end": 455.78,
-          "probability": 0.983773410320282
+          "end": 455.78
         },
         {
-          "word": " for",
+          "word": "for",
           "start": 455.78,
-          "end": 456.02,
-          "probability": 0.9992488026618958
+          "end": 456.02
         },
         {
-          "word": " the",
+          "word": "the",
           "start": 456.02,
-          "end": 456.24,
-          "probability": 0.9957875609397888
+          "end": 456.24
         },
         {
-          "word": " pain",
+          "word": "pain",
           "start": 456.24,
-          "end": 456.7,
-          "probability": 0.9875701069831848
+          "end": 456.7
         },
         {
-          "word": " we",
+          "word": "we",
           "start": 456.7,
-          "end": 457.2,
-          "probability": 0.8979991674423218
+          "end": 457.2
         },
         {
-          "word": " knew,",
+          "word": "knew,",
           "start": 457.2,
-          "end": 458.02,
-          "probability": 0.9965552091598511
+          "end": 458.02
         },
         {
-          "word": " this",
+          "word": "this",
           "start": 458.94,
-          "end": 459.36,
-          "probability": 0.7358226776123047
-        },
-        {
-          "word": " song",
-          "start": 459.36,
-          "end": 459.94,
-          "probability": 0.998984158039093
-        },
-        {
-          "word": " would",
-          "start": 459.94,
-          "end": 460.26,
-          "probability": 0.9854809641838074
-        },
-        {
-          "word": " not",
-          "start": 460.26,
-          "end": 460.56,
-          "probability": 0.9974777102470398
-        },
-        {
-          "word": " be",
-          "start": 460.56,
-          "end": 460.88,
-          "probability": 0.9926687479019165
-        },
-        {
-          "word": " here",
-          "start": 460.88,
-          "end": 461.58,
-          "probability": 0.978816568851471
-        },
-        {
-          "word": " for",
-          "start": 461.58,
-          "end": 462.08,
-          "probability": 0.9951251149177551
-        },
-        {
-          "word": " you.",
-          "start": 462.08,
-          "end": 462.84,
-          "probability": 0.9968709349632263
+          "end": 459.36
         }
       ]
     },
-    {
-      "id": 48,
-      "seek": 45076,
-      "start": 463.74,
-      "end": 471.9,
-      "text": " The hurt that made us cry and shake is why we sing for both our sake.",
-      "tokens": [
-        50864,
-        440,
-        4607,
-        300,
-        1027,
-        505,
-        3305,
-        293,
-        10283,
-        307,
-        983,
-        321,
-        1522,
-        337,
-        1293,
-        527,
-        9717,
-        13,
-        51314
-      ],
-      "temperature": 0.0,
-      "avg_logprob": -0.12723915751387432,
-      "compression_ratio": 1.2678571428571428,
-      "no_speech_prob": 0.6397228837013245,
+    "11": {
+      "chapter": 11,
+      "title": "The Game",
+      "offset": 456.02,
+      "duration": 15.88,
       "words": [
         {
-          "word": " The",
+          "word": "the",
+          "start": 456.02,
+          "end": 456.24
+        },
+        {
+          "word": "pain",
+          "start": 456.24,
+          "end": 456.7
+        },
+        {
+          "word": "we",
+          "start": 456.7,
+          "end": 457.2
+        },
+        {
+          "word": "knew,",
+          "start": 457.2,
+          "end": 458.02
+        },
+        {
+          "word": "this",
+          "start": 458.94,
+          "end": 459.36
+        },
+        {
+          "word": "song",
+          "start": 459.36,
+          "end": 459.94
+        },
+        {
+          "word": "would",
+          "start": 459.94,
+          "end": 460.26
+        },
+        {
+          "word": "not",
+          "start": 460.26,
+          "end": 460.56
+        },
+        {
+          "word": "be",
+          "start": 460.56,
+          "end": 460.88
+        },
+        {
+          "word": "here",
+          "start": 460.88,
+          "end": 461.58
+        },
+        {
+          "word": "for",
+          "start": 461.58,
+          "end": 462.08
+        },
+        {
+          "word": "you.",
+          "start": 462.08,
+          "end": 462.84
+        },
+        {
+          "word": "The",
           "start": 463.74,
-          "end": 463.9,
-          "probability": 0.9766297340393066
+          "end": 463.9
         },
         {
-          "word": " hurt",
+          "word": "hurt",
           "start": 463.9,
-          "end": 464.24,
-          "probability": 0.9788753986358643
+          "end": 464.24
         },
         {
-          "word": " that",
+          "word": "that",
           "start": 464.24,
-          "end": 464.52,
-          "probability": 0.99592125415802
+          "end": 464.52
         },
         {
-          "word": " made",
+          "word": "made",
           "start": 464.52,
-          "end": 464.82,
-          "probability": 0.9984564781188965
+          "end": 464.82
         },
         {
-          "word": " us",
+          "word": "us",
           "start": 464.82,
-          "end": 465.12,
-          "probability": 0.9993305206298828
+          "end": 465.12
         },
         {
-          "word": " cry",
+          "word": "cry",
           "start": 465.12,
-          "end": 465.64,
-          "probability": 0.9561773538589478
+          "end": 465.64
         },
         {
-          "word": " and",
+          "word": "and",
           "start": 465.64,
-          "end": 466.18,
-          "probability": 0.9056275486946106
+          "end": 466.18
         },
         {
-          "word": " shake",
+          "word": "shake",
           "start": 466.18,
-          "end": 466.76,
-          "probability": 0.9526504278182983
+          "end": 466.76
         },
         {
-          "word": " is",
+          "word": "is",
           "start": 466.76,
-          "end": 467.74,
-          "probability": 0.7978032231330872
+          "end": 467.74
         },
         {
-          "word": " why",
+          "word": "why",
           "start": 467.74,
-          "end": 468.18,
-          "probability": 0.9915876984596252
+          "end": 468.18
         },
         {
-          "word": " we",
+          "word": "we",
           "start": 468.18,
-          "end": 468.5,
-          "probability": 0.9985339641571045
+          "end": 468.5
         },
         {
-          "word": " sing",
+          "word": "sing",
           "start": 468.5,
-          "end": 469.1,
-          "probability": 0.5655167698860168
+          "end": 469.1
         },
         {
-          "word": " for",
+          "word": "for",
           "start": 469.1,
-          "end": 469.64,
-          "probability": 0.9609050750732422
+          "end": 469.64
         },
         {
-          "word": " both",
+          "word": "both",
           "start": 469.64,
-          "end": 470.26,
-          "probability": 0.9973113536834717
+          "end": 470.26
         },
         {
-          "word": " our",
+          "word": "our",
           "start": 470.26,
-          "end": 470.84,
-          "probability": 0.9698629975318909
+          "end": 470.84
         },
         {
-          "word": " sake.",
+          "word": "sake.",
           "start": 470.84,
-          "end": 471.9,
-          "probability": 0.8619734048843384
+          "end": 471.9
         }
       ]
+    },
+    "12": {
+      "chapter": 12,
+      "title": "The Song Itself",
+      "offset": 0,
+      "duration": 0,
+      "words": []
     }
-  ],
-  "language": "en"
+  }
 }
