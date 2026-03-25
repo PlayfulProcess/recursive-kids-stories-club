@@ -5,8 +5,8 @@
   "textSection": "Story",
   "illustrations": "illustrations.csv",
   "cover": {
-    "image": "",
-    "illustrators": "YOUR ILLUSTRATIONS HERE"
+    "image": "https://www.gutenberg.org/cache/epub/67098/images/cover.jpg",
+    "illustrators": "E. H. SHEPARD"
   },
   "output": "booklets/book.html",
   "github": {
