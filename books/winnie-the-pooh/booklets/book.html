@@ -9,14 +9,41 @@
     @page { size: landscape; margin: 0; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --bg: white;
+      --text: #1a1a1a;
+      --page-bg: white;
+      --page-left-bg: #f8f5f0;
+      --border: #d0c8b8;
+      --caption: #8a7a6a;
+      --page-num: #999;
+      --panel-bg: #2c1810;
+      --panel-text: #f0e6d6;
+      --gold: #d4a76a;
+      --toolbar-bg: #2c1810;
+      --spread-h: 100vh;
+    }
+
+    body.dark-mode {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --page-bg: #161b22;
+      --page-left-bg: #1c2128;
+      --border: #30363d;
+      --caption: #8b949e;
+      --page-num: #484f58;
+      --panel-bg: #0d1117;
+      --panel-text: #e6edf3;
+      --toolbar-bg: #161b22;
+    }
+
     body {
       font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-      background: white;
-      color: #1a1a1a;
+      background: var(--bg);
+      color: var(--text);
     }
 
     /* ── Spreads ── */
-    :root { --spread-h: 100vh; }
     .spread {
       width: 100vw; height: var(--spread-h);
       display: flex;
@@ -29,9 +56,9 @@
     .page-left {
       width: 50%; height: 100%;
       display: flex; align-items: center; justify-content: center;
-      background: #f8f5f0; padding: 16px;
+      background: var(--page-left-bg); padding: 16px;
       overflow: hidden; position: relative;
-      border-right: 2px solid #d0c8b8;
+      border-right: 2px solid var(--border);
     }
     .page-left img {
       max-width: 100%; max-height: 100%;
@@ -45,9 +72,9 @@
       width: 50%; height: 100%;
       display: flex; flex-direction: column;
       align-items: flex-start; justify-content: center;
-      padding: 32px 5%; background: white;
+      padding: 32px 5%; background: var(--page-bg);
       position: relative; overflow: hidden;
-      border-left: 2px solid #d0c8b8;
+      border-left: 2px solid var(--border);
     }
 
     /* ── Text block ── */
@@ -68,7 +95,7 @@
     /* ── Illustration caption ── */
     .ill-caption {
       position: absolute; bottom: 20px; left: 16px; right: 16px;
-      font-size: 9px; color: #8a7a6a; text-align: center;
+      font-size: 9px; color: var(--caption); text-align: center;
       letter-spacing: 0.5px; line-height: 1.4;
       font-family: 'Georgia', serif; font-style: italic;
       opacity: 0.7;
@@ -76,7 +103,7 @@
 
     /* ── Page numbers ── */
     .page-number {
-      font-size: 11px; color: #999;
+      font-size: 11px; color: var(--page-num);
       position: absolute; bottom: 14px;
     }
     .page-number-left { left: 20px; }
@@ -84,7 +111,7 @@
 
     /* ── Decorative panel (text-only pages) ── */
     .decorative-panel {
-      background: #2c1810; border-right-color: #5a4030;
+      background: var(--panel-bg); border-right-color: #5a4030;
     }
     .decorative-panel .page-number { color: #5a4030; }
     .chapter-ornament { text-align: center; color: #d4a76a; }
@@ -146,7 +173,7 @@
     .toolbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; gap: 8px;
-      padding: 6px 16px; background: #2c1810; color: #d4a76a;
+      padding: 6px 16px; background: var(--toolbar-bg); color: #d4a76a;
       font-family: 'Georgia', serif; font-size: 12px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.2);
       transition: opacity 0.5s ease, transform 0.5s ease;
@@ -592,6 +619,40 @@
       .booklet-spread { border-bottom: 3px dashed #ccc; }
       .booklet-spread:last-child { border-bottom: none; }
     }
+    /* ── Settings Panel ── */
+    .settings-panel {
+      position: fixed; top: 44px; right: 0; width: 240px;
+      background: var(--toolbar-bg); color: var(--gold);
+      border-left: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px; z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      font-family: Georgia, serif; font-size: 13px;
+    }
+    .settings-panel.open { transform: translateX(0); }
+    .settings-header {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px; opacity: 0.7;
+    }
+    .settings-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      cursor: pointer;
+    }
+    .settings-row span { color: var(--panel-text); }
+    .settings-row input[type="checkbox"] {
+      width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer;
+    }
+
+    /* ── Dark mode image adjustments ── */
+    body.dark-mode .page-left img {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    body.dark-mode .cover-image img {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
     /* ── Ink Saver: strip dark backgrounds, use dark text on white ── */
     body.ink-saver .booklet-page-single.page-type-cover {
       background: white; color: #1a1a1a;
@@ -640,13 +701,37 @@
       mark.search-match { background: transparent !important; color: inherit !important; }
     }
 
+    /* ── Song lyrics styling ── */
+    body.content-song .text-block p {
+      text-align: center;
+      text-indent: 0;
+      font-size: 22px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+    body.content-song .text-block {
+      justify-content: center;
+      align-items: center;
+    }
+    body.content-song #versionSelect {
+      background: rgba(255,255,255,0.08);
+      color: #d4a76a;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-family: Georgia, serif;
+      cursor: pointer;
+    }
+
   </style>
 </head>
-<body>
+<body class="content-book">
 
 
 <div class="toolbar">
   <span class="ch-title" id="currentChLabel">WINNIE-THE-POOH</span>
+  
   <button id="playBtn">&#9654; Play</button>
   <select id="speedCtrl" title="Playback speed">
     <option value="0.5">0.5x</option>
@@ -663,7 +748,8 @@
   <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
   <span class="match-count" id="matchCount"></span>
   <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:52px;font-size:12px;text-align:center;-moz-appearance:textfield;background:rgba(255,255,255,0.08);color:#d4a76a;border:none;border-radius:4px;padding:4px 6px;font-family:Georgia,serif" autocomplete="off">
-  <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
+  <button id="caseToggle" title="Toggle uppercase/lowercase" style="display:none">Aa</button>
+  <button id="settingsToggle" title="Settings">&#9881;</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
   <select id="modeSelect" title="View mode">
@@ -676,6 +762,17 @@
   </select>
   <button id="downloadCsvBtn" class="edit-only-btn" style="display:none" title="Download illustrations.csv">&#8681; CSV</button>
   <span class="edit-indicator" id="editIndicator"></span>
+</div>
+<div class="settings-panel" id="settingsPanel">
+  <div class="settings-header">Settings</div>
+  <label class="settings-row">
+    <span>Dark mode</span>
+    <input type="checkbox" id="darkModeToggle">
+  </label>
+  <label class="settings-row">
+    <span>Uppercase text</span>
+    <input type="checkbox" id="uppercaseToggle">
+  </label>
 </div>
 
 <div class="chapter-nav" id="chapterNav">
@@ -752,23 +849,23 @@
         <div class="page-number page-number-right">2</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch1-cover" id="ch1">
-      <div class="page-left cover-image" data-page="3" data-ch="1" data-local-page="0">
-        <img src="" alt="Chapter 1 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">3</div>
-      </div>
-      <div class="page-right cover-title" data-page="4">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 1</div>
-          <h1>IN WHICH WE ARE INTRODUCED TO WINNIE-THE-POOH AND SOME BEES, AND THE STORIES BEGIN</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">13 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch1-cover" id="ch1">
+        <div class="page-left cover-image" data-page="3" data-ch="1" data-local-page="0">
+          <img src="" alt="Chapter 1 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">3</div>
         </div>
-        <div class="page-number page-number-right">4</div>
+        <div class="page-right cover-title" data-page="4">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 1</div>
+            <h1>IN WHICH WE ARE INTRODUCED TO WINNIE-THE-POOH AND SOME BEES, AND THE STORIES BEGIN</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">13 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">4</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch1-1" data-ch="1" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="5" data-ch="1" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">1</div></div>
@@ -1024,23 +1121,23 @@
         <div class="page-number page-number-right">30</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch2-cover" id="ch2">
-      <div class="page-left cover-image" data-page="31" data-ch="2" data-local-page="0">
-        <img src="" alt="Chapter 2 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">31</div>
-      </div>
-      <div class="page-right cover-title" data-page="32">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 2</div>
-          <h1>IN WHICH POOH GOES VISITING AND GETS INTO A TIGHT PLACE</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">9 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch2-cover" id="ch2">
+        <div class="page-left cover-image" data-page="31" data-ch="2" data-local-page="0">
+          <img src="" alt="Chapter 2 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">31</div>
         </div>
-        <div class="page-number page-number-right">32</div>
+        <div class="page-right cover-title" data-page="32">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 2</div>
+            <h1>IN WHICH POOH GOES VISITING AND GETS INTO A TIGHT PLACE</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">9 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">32</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch2-1" data-ch="2" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="33" data-ch="2" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">2</div></div>
@@ -1213,23 +1310,23 @@
         <div class="page-number page-number-right">50</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch3-cover" id="ch3">
-      <div class="page-left cover-image" data-page="51" data-ch="3" data-local-page="0">
-        <img src="" alt="Chapter 3 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">51</div>
-      </div>
-      <div class="page-right cover-title" data-page="52">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 3</div>
-          <h1>IN WHICH POOH AND PIGLET GO HUNTING AND NEARLY CATCH A WOOZLE</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">8 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch3-cover" id="ch3">
+        <div class="page-left cover-image" data-page="51" data-ch="3" data-local-page="0">
+          <img src="" alt="Chapter 3 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">51</div>
         </div>
-        <div class="page-number page-number-right">52</div>
+        <div class="page-right cover-title" data-page="52">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 3</div>
+            <h1>IN WHICH POOH AND PIGLET GO HUNTING AND NEARLY CATCH A WOOZLE</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">8 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">52</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch3-1" data-ch="3" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="53" data-ch="3" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">3</div></div>
@@ -1360,23 +1457,23 @@
         <div class="page-number page-number-right">68</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch4-cover" id="ch4">
-      <div class="page-left cover-image" data-page="69" data-ch="4" data-local-page="0">
-        <img src="" alt="Chapter 4 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">69</div>
-      </div>
-      <div class="page-right cover-title" data-page="70">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 4</div>
-          <h1>IN WHICH EEYORE LOSES A TAIL AND POOH FINDS ONE</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">9 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch4-cover" id="ch4">
+        <div class="page-left cover-image" data-page="69" data-ch="4" data-local-page="0">
+          <img src="" alt="Chapter 4 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">69</div>
         </div>
-        <div class="page-number page-number-right">70</div>
+        <div class="page-right cover-title" data-page="70">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 4</div>
+            <h1>IN WHICH EEYORE LOSES A TAIL AND POOH FINDS ONE</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">9 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">70</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch4-1" data-ch="4" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="71" data-ch="4" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">4</div></div>
@@ -1538,23 +1635,23 @@
         <div class="page-number page-number-right">88</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch5-cover" id="ch5">
-      <div class="page-left cover-image" data-page="89" data-ch="5" data-local-page="0">
-        <img src="" alt="Chapter 5 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">89</div>
-      </div>
-      <div class="page-right cover-title" data-page="90">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 5</div>
-          <h1>IN WHICH PIGLET MEETS A HEFFALUMP</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">15 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch5-cover" id="ch5">
+        <div class="page-left cover-image" data-page="89" data-ch="5" data-local-page="0">
+          <img src="" alt="Chapter 5 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">89</div>
         </div>
-        <div class="page-number page-number-right">90</div>
+        <div class="page-right cover-title" data-page="90">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 5</div>
+            <h1>IN WHICH PIGLET MEETS A HEFFALUMP</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">15 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">90</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch5-1" data-ch="5" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="91" data-ch="5" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">5</div></div>
@@ -1810,23 +1907,23 @@
         <div class="page-number page-number-right">120</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch6-cover" id="ch6">
-      <div class="page-left cover-image" data-page="121" data-ch="6" data-local-page="0">
-        <img src="" alt="Chapter 6 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">121</div>
-      </div>
-      <div class="page-right cover-title" data-page="122">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 6</div>
-          <h1>IN WHICH EEYORE HAS A BIRTHDAY AND GETS TWO PRESENTS</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">16 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch6-cover" id="ch6">
+        <div class="page-left cover-image" data-page="121" data-ch="6" data-local-page="0">
+          <img src="" alt="Chapter 6 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">121</div>
         </div>
-        <div class="page-number page-number-right">122</div>
+        <div class="page-right cover-title" data-page="122">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 6</div>
+            <h1>IN WHICH EEYORE HAS A BIRTHDAY AND GETS TWO PRESENTS</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">16 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">122</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch6-1" data-ch="6" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="123" data-ch="6" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">6</div></div>
@@ -2165,23 +2262,23 @@
         <div class="page-number page-number-right">154</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch7-cover" id="ch7">
-      <div class="page-left cover-image" data-page="155" data-ch="7" data-local-page="0">
-        <img src="" alt="Chapter 7 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">155</div>
-      </div>
-      <div class="page-right cover-title" data-page="156">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 7</div>
-          <h1>IN WHICH KANGA AND BABY ROO COME TO THE FOREST, AND PIGLET HAS A BATH</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">17 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch7-cover" id="ch7">
+        <div class="page-left cover-image" data-page="155" data-ch="7" data-local-page="0">
+          <img src="" alt="Chapter 7 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">155</div>
         </div>
-        <div class="page-number page-number-right">156</div>
+        <div class="page-right cover-title" data-page="156">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 7</div>
+            <h1>IN WHICH KANGA AND BABY ROO COME TO THE FOREST, AND PIGLET HAS A BATH</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">17 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">156</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch7-1" data-ch="7" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="157" data-ch="7" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">7</div></div>
@@ -2533,23 +2630,23 @@
         <div class="page-number page-number-right">190</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch8-cover" id="ch8">
-      <div class="page-left cover-image" data-page="191" data-ch="8" data-local-page="0">
-        <img src="" alt="Chapter 8 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">191</div>
-      </div>
-      <div class="page-right cover-title" data-page="192">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 8</div>
-          <h1>IN WHICH CHRISTOPHER ROBIN LEADS AN EXPOTITION TO THE NORTH POLE</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">18 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch8-cover" id="ch8">
+        <div class="page-left cover-image" data-page="191" data-ch="8" data-local-page="0">
+          <img src="" alt="Chapter 8 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">191</div>
         </div>
-        <div class="page-number page-number-right">192</div>
+        <div class="page-right cover-title" data-page="192">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 8</div>
+            <h1>IN WHICH CHRISTOPHER ROBIN LEADS AN EXPOTITION TO THE NORTH POLE</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">18 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">192</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch8-1" data-ch="8" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="193" data-ch="8" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">8</div></div>
@@ -2896,23 +2993,23 @@
         <div class="page-number page-number-right">228</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch9-cover" id="ch9">
-      <div class="page-left cover-image" data-page="229" data-ch="9" data-local-page="0">
-        <img src="" alt="Chapter 9 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">229</div>
-      </div>
-      <div class="page-right cover-title" data-page="230">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 9</div>
-          <h1>IN WHICH PIGLET IS ENTIRELY SURROUNDED BY WATER</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">16 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch9-cover" id="ch9">
+        <div class="page-left cover-image" data-page="229" data-ch="9" data-local-page="0">
+          <img src="" alt="Chapter 9 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">229</div>
         </div>
-        <div class="page-number page-number-right">230</div>
+        <div class="page-right cover-title" data-page="230">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 9</div>
+            <h1>IN WHICH PIGLET IS ENTIRELY SURROUNDED BY WATER</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">16 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">230</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch9-1" data-ch="9" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="231" data-ch="9" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
@@ -3179,23 +3276,23 @@
         <div class="page-number page-number-right">262</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch10-cover" id="ch10">
-      <div class="page-left cover-image" data-page="263" data-ch="10" data-local-page="0">
-        <img src="" alt="Chapter 10 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">263</div>
-      </div>
-      <div class="page-right cover-title" data-page="264">
-        <div class="title-block">
-          <div class="series-name">WINNIE-THE-POOH</div>
-          <div class="book-number">CHAPTER 10</div>
-          <h1>IN WHICH CHRISTOPHER ROBIN GIVES POOH A PARTY, AND WE SAY GOOD-BYE</h1>
-          <div class="author">BY A. A. MILNE</div>
-          <div class="page-info">11 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch10-cover" id="ch10">
+        <div class="page-left cover-image" data-page="263" data-ch="10" data-local-page="0">
+          <img src="" alt="Chapter 10 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">263</div>
         </div>
-        <div class="page-number page-number-right">264</div>
+        <div class="page-right cover-title" data-page="264">
+          <div class="title-block">
+            <div class="series-name">WINNIE-THE-POOH</div>
+            <div class="book-number">CHAPTER 10</div>
+            <h1>IN WHICH CHRISTOPHER ROBIN GIVES POOH A PARTY, AND WE SAY GOOD-BYE</h1>
+            <div class="author">BY A. A. MILNE</div>
+            <div class="page-info">11 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">264</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch10-1" data-ch="10" data-ch-ills='[{"page":0,"url":"","description":"chapter cover — add your illustration!"}]'>
       <div class="page-left decorative-panel" data-page="265" data-ch="10" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
@@ -3420,6 +3517,7 @@
 var AUDIO_DATA = null;
 var CHAPTER_NAV = [{"num":1,"name":"In Which We Are Introduced to Winnie-the-Pooh and Some Bees, and the Stories Begin","id":"ch1","pages":13,"ills":0},{"num":2,"name":"In Which Pooh Goes Visiting and Gets Into a Tight Place","id":"ch2","pages":9,"ills":0},{"num":3,"name":"In Which Pooh and Piglet Go Hunting and Nearly Catch a Woozle","id":"ch3","pages":8,"ills":0},{"num":4,"name":"In Which Eeyore Loses a Tail and Pooh Finds One","id":"ch4","pages":9,"ills":0},{"num":5,"name":"In Which Piglet Meets a Heffalump","id":"ch5","pages":15,"ills":0},{"num":6,"name":"In Which Eeyore Has a Birthday and Gets Two Presents","id":"ch6","pages":16,"ills":0},{"num":7,"name":"In Which Kanga and Baby Roo Come to the Forest, and Piglet Has a Bath","id":"ch7","pages":17,"ills":0},{"num":8,"name":"In Which Christopher Robin Leads an Expotition to the North Pole","id":"ch8","pages":18,"ills":0},{"num":9,"name":"In Which Piglet Is Entirely Surrounded by Water","id":"ch9","pages":16,"ills":0},{"num":10,"name":"In Which Christopher Robin Gives Pooh a Party, and We Say Good-Bye","id":"ch10","pages":11,"ills":0}];
 var GITHUB_CONFIG = {"owner":"PlayfulProcess","repo":"recursive-kids-stories-club","bookPath":"books/winnie-the-pooh"};
+
 var ALL_ILLUSTRATIONS = [];
 
 
@@ -3842,6 +3940,56 @@ if (goToPageInput) {
   });
 })();
 
+// ── Settings Panel ──
+(function() {
+  var panel = document.getElementById('settingsPanel');
+  var toggleBtn = document.getElementById('settingsToggle');
+  var darkToggle = document.getElementById('darkModeToggle');
+  var upperToggle = document.getElementById('uppercaseToggle');
+
+  // Toggle panel open/close
+  toggleBtn.addEventListener('click', function() {
+    panel.classList.toggle('open');
+    // Close chapter nav if open
+    var nav = document.getElementById('chapterNav');
+    if (nav) nav.classList.remove('open');
+  });
+
+  // Close panel when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!panel.contains(e.target) && e.target !== toggleBtn) {
+      panel.classList.remove('open');
+    }
+  });
+
+  // Dark mode
+  var savedDark = localStorage.getItem('book-dark-mode') === 'true';
+  if (savedDark) {
+    document.body.classList.add('dark-mode');
+    darkToggle.checked = true;
+  }
+  darkToggle.addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode', this.checked);
+    localStorage.setItem('book-dark-mode', this.checked);
+  });
+
+  // Uppercase (reuse existing Aa logic but connect to settings)
+  var caseBtn = document.getElementById('caseToggle');
+  upperToggle.addEventListener('change', function() {
+    if (caseBtn) caseBtn.click();
+  });
+  // Sync settings checkbox with Aa button state
+  if (caseBtn) {
+    var observer = new MutationObserver(function() {
+      var ps = document.querySelectorAll('.text-block p');
+      if (ps.length > 0) {
+        upperToggle.checked = (ps[0].style.textTransform === 'uppercase');
+      }
+    });
+    observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['style'] });
+  }
+})();
+
 // ── Fullscreen toggle ──
 (function() {
   var fsBtn = document.getElementById('fullscreenBtn');
@@ -3870,9 +4018,9 @@ if (goToPageInput) {
 
   var audio = document.createElement('audio');
   audio.preload = 'auto';
-  // If on localhost, use local audio path for instant loading (no R2 dependency)
-  // Otherwise use the R2 CDN URL
-  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+  // Songs use relative URLs directly; books use localhost fallback for dev
+  var isSong = document.body.classList.contains('content-song');
+  if (!isSong && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
     // Extract relative path: the audio file lives under the same directory tree as the book
     var localPath = '/audio/librivox/wonderland-complete.mp3';
     audio.src = localPath;
@@ -5277,6 +5425,41 @@ if (goToPageInput) {
 
     tryFetch();
   })();
+})();
+
+// ── Version switching for songs ──
+(function() {
+  var sel = document.getElementById('versionSelect');
+  if (!sel || typeof AUDIO_VERSIONS === 'undefined') return;
+  var versions = AUDIO_VERSIONS;
+  sel.addEventListener('change', function() {
+    var v = versions[this.value];
+    if (!v) return;
+    var aud = document.querySelector('audio');
+    var pos = aud ? aud.currentTime : 0;
+    var wasPlaying = aud && !aud.paused;
+    if (aud) {
+      aud.src = v.url;
+      aud.currentTime = pos;
+      if (wasPlaying) aud.play();
+    }
+    // Reload karaoke manifest if available
+    if (v.manifest) {
+      fetch(v.manifest).then(function(r) { return r.json(); }).then(function(data) {
+        if (!data || !data.segments) return;
+        // Re-map karaoke word spans with new timing
+        var words = document.querySelectorAll('.k-word[data-start]');
+        var segments = data.segments;
+        for (var i = 0; i < Math.min(words.length, segments.length); i++) {
+          words[i].dataset.start = segments[i].start;
+          words[i].dataset.end = segments[i].end;
+        }
+        console.log('Karaoke manifest reloaded for version: ' + v.name);
+      }).catch(function(err) {
+        console.warn('Failed to load karaoke manifest for version:', err);
+      });
+    }
+  });
 })();
 
 </script>
