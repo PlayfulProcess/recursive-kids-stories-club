@@ -8,7 +8,7 @@
     "illustrationDesc": "Edward Bear coming downstairs bump bump bump",
     "prevIllustration": null,
     "nextIllustration": "Winnie-the-Pooh sitting by the fire",
-    "note": ""
+    "note": "\r"
   },
   "1-2": {
     "chapter": 1,
@@ -19,7 +19,7 @@
     "illustrationDesc": "Winnie-the-Pooh sitting by the fire",
     "prevIllustration": "Edward Bear coming downstairs bump bump bump",
     "nextIllustration": "Pooh lived under the name of Sanders",
-    "note": ""
+    "note": "\r"
   },
   "1-3": {
     "chapter": 1,
@@ -30,7 +30,7 @@
     "illustrationDesc": "Pooh lived under the name of Sanders",
     "prevIllustration": "Winnie-the-Pooh sitting by the fire",
     "nextIllustration": "Pooh sat at the foot of the tree and began to think",
-    "note": ""
+    "note": "\r"
   },
   "1-4": {
     "chapter": 1,
@@ -41,7 +41,7 @@
     "illustrationDesc": "Pooh sat at the foot of the tree and began to think",
     "prevIllustration": "Pooh lived under the name of Sanders",
     "nextIllustration": "Pooh climbing the honey tree",
-    "note": ""
+    "note": "\r"
   },
   "1-5": {
     "chapter": 1,
@@ -52,7 +52,7 @@
     "illustrationDesc": "Pooh climbing the honey tree",
     "prevIllustration": "Pooh sat at the foot of the tree and began to think",
     "nextIllustration": "Pooh fell into the gorse-bush",
-    "note": ""
+    "note": "\r"
   },
   "1-6": {
     "chapter": 1,
@@ -63,7 +63,7 @@
     "illustrationDesc": "Pooh fell into the gorse-bush",
     "prevIllustration": "Pooh climbing the honey tree",
     "nextIllustration": "Christopher Robin with his balloon",
-    "note": ""
+    "note": "\r"
   },
   "1-7": {
     "chapter": 1,
@@ -74,7 +74,7 @@
     "illustrationDesc": "Christopher Robin with his balloon",
     "prevIllustration": "Pooh fell into the gorse-bush",
     "nextIllustration": "Pooh rolling in the muddy place",
-    "note": ""
+    "note": "\r"
   },
   "1-8": {
     "chapter": 1,
@@ -85,7 +85,7 @@
     "illustrationDesc": "Pooh rolling in the muddy place",
     "prevIllustration": "Christopher Robin with his balloon",
     "nextIllustration": "Pooh floating up with the blue balloon",
-    "note": ""
+    "note": "\r"
   },
   "1-9": {
     "chapter": 1,
@@ -96,7 +96,7 @@
     "illustrationDesc": "Pooh floating up with the blue balloon",
     "prevIllustration": "Pooh rolling in the muddy place",
     "nextIllustration": "Pooh hanging from the balloon near the tree",
-    "note": ""
+    "note": "\r"
   },
   "1-10": {
     "chapter": 1,
@@ -107,7 +107,7 @@
     "illustrationDesc": "Pooh hanging from the balloon near the tree",
     "prevIllustration": "Pooh floating up with the blue balloon",
     "nextIllustration": "Christopher Robin walking with his umbrella",
-    "note": ""
+    "note": "\r"
   },
   "1-11": {
     "chapter": 1,
@@ -118,7 +118,7 @@
     "illustrationDesc": "Christopher Robin walking with his umbrella",
     "prevIllustration": "Pooh hanging from the balloon near the tree",
     "nextIllustration": "Bees buzzing around the cloud",
-    "note": ""
+    "note": "\r"
   },
   "1-12": {
     "chapter": 1,
@@ -129,7 +129,7 @@
     "illustrationDesc": "Bees buzzing around the cloud",
     "prevIllustration": "Christopher Robin walking with his umbrella",
     "nextIllustration": "Christopher Robin shooting at the balloon",
-    "note": ""
+    "note": "\r"
   },
   "1-13": {
     "chapter": 1,
@@ -140,7 +140,7 @@
     "illustrationDesc": "Christopher Robin shooting at the balloon",
     "prevIllustration": "Bees buzzing around the cloud",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "2-1": {
     "chapter": 2,
@@ -151,7 +151,7 @@
     "illustrationDesc": "Pooh on his way to visit Rabbit",
     "prevIllustration": null,
     "nextIllustration": "Pooh at Rabbit's front door",
-    "note": ""
+    "note": "\r"
   },
   "2-2": {
     "chapter": 2,
@@ -162,7 +162,7 @@
     "illustrationDesc": "Pooh at Rabbit's front door",
     "prevIllustration": "Pooh on his way to visit Rabbit",
     "nextIllustration": "Pooh eating honey at Rabbit's house",
-    "note": ""
+    "note": "\r"
   },
   "2-3": {
     "chapter": 2,
@@ -173,7 +173,7 @@
     "illustrationDesc": "Pooh eating honey at Rabbit's house",
     "prevIllustration": "Pooh at Rabbit's front door",
     "nextIllustration": "Pooh stuck in Rabbit's doorway",
-    "note": ""
+    "note": "\r"
   },
   "2-4": {
     "chapter": 2,
@@ -184,7 +184,7 @@
     "illustrationDesc": "Pooh stuck in Rabbit's doorway",
     "prevIllustration": "Pooh eating honey at Rabbit's house",
     "nextIllustration": "Christopher Robin reading to Pooh while stuck",
-    "note": ""
+    "note": "\r"
   },
   "2-5": {
     "chapter": 2,
@@ -195,7 +195,7 @@
     "illustrationDesc": "Christopher Robin reading to Pooh while stuck",
     "prevIllustration": "Pooh stuck in Rabbit's doorway",
     "nextIllustration": "Rabbit using Pooh's legs as a towel-horse",
-    "note": ""
+    "note": "\r"
   },
   "2-6": {
     "chapter": 2,
@@ -206,7 +206,7 @@
     "illustrationDesc": "Rabbit using Pooh's legs as a towel-horse",
     "prevIllustration": "Christopher Robin reading to Pooh while stuck",
     "nextIllustration": "Everyone pulling Pooh out of the hole",
-    "note": ""
+    "note": "\r"
   },
   "2-7": {
     "chapter": 2,
@@ -217,7 +217,7 @@
     "illustrationDesc": "Everyone pulling Pooh out of the hole",
     "prevIllustration": "Rabbit using Pooh's legs as a towel-horse",
     "nextIllustration": "Chapter two decorative tailpiece",
-    "note": ""
+    "note": "\r"
   },
   "2-8": {
     "chapter": 2,
@@ -228,7 +228,7 @@
     "illustrationDesc": "Chapter two decorative tailpiece",
     "prevIllustration": "Everyone pulling Pooh out of the hole",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "2-9": {
     "chapter": 2,
@@ -250,7 +250,7 @@
     "illustrationDesc": "Piglet in his grand house",
     "prevIllustration": null,
     "nextIllustration": "Pooh and Piglet tracking in the snow",
-    "note": ""
+    "note": "\r"
   },
   "3-2": {
     "chapter": 3,
@@ -261,7 +261,7 @@
     "illustrationDesc": "Pooh and Piglet tracking in the snow",
     "prevIllustration": "Piglet in his grand house",
     "nextIllustration": "Following the footprints round and round",
-    "note": ""
+    "note": "\r"
   },
   "3-3": {
     "chapter": 3,
@@ -272,7 +272,7 @@
     "illustrationDesc": "Following the footprints round and round",
     "prevIllustration": "Pooh and Piglet tracking in the snow",
     "nextIllustration": "More and more footprints appearing",
-    "note": ""
+    "note": "\r"
   },
   "3-4": {
     "chapter": 3,
@@ -283,7 +283,7 @@
     "illustrationDesc": "More and more footprints appearing",
     "prevIllustration": "Following the footprints round and round",
     "nextIllustration": "Christopher Robin up in the tree watching",
-    "note": ""
+    "note": "\r"
   },
   "3-5": {
     "chapter": 3,
@@ -294,7 +294,7 @@
     "illustrationDesc": "Christopher Robin up in the tree watching",
     "prevIllustration": "More and more footprints appearing",
     "nextIllustration": "Piglet running home to bed",
-    "note": ""
+    "note": "\r"
   },
   "3-6": {
     "chapter": 3,
@@ -305,7 +305,7 @@
     "illustrationDesc": "Piglet running home to bed",
     "prevIllustration": "Christopher Robin up in the tree watching",
     "nextIllustration": "Chapter three decorative tailpiece",
-    "note": ""
+    "note": "\r"
   },
   "3-7": {
     "chapter": 3,
@@ -316,7 +316,7 @@
     "illustrationDesc": "Chapter three decorative tailpiece",
     "prevIllustration": "Piglet running home to bed",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "3-8": {
     "chapter": 3,
@@ -338,7 +338,7 @@
     "illustrationDesc": "Eeyore by the stream",
     "prevIllustration": null,
     "nextIllustration": "Eeyore looking at his reflection gloomily",
-    "note": ""
+    "note": "\r"
   },
   "4-2": {
     "chapter": 4,
@@ -349,7 +349,7 @@
     "illustrationDesc": "Eeyore looking at his reflection gloomily",
     "prevIllustration": "Eeyore by the stream",
     "nextIllustration": "Pooh finding Eeyore without his tail",
-    "note": ""
+    "note": "\r"
   },
   "4-3": {
     "chapter": 4,
@@ -360,7 +360,7 @@
     "illustrationDesc": "Pooh finding Eeyore without his tail",
     "prevIllustration": "Eeyore looking at his reflection gloomily",
     "nextIllustration": "Pooh searching for the tail",
-    "note": ""
+    "note": "\r"
   },
   "4-4": {
     "chapter": 4,
@@ -371,7 +371,7 @@
     "illustrationDesc": "Pooh searching for the tail",
     "prevIllustration": "Pooh finding Eeyore without his tail",
     "nextIllustration": "Owl in his house",
-    "note": ""
+    "note": "\r"
   },
   "4-5": {
     "chapter": 4,
@@ -382,7 +382,7 @@
     "illustrationDesc": "Owl in his house",
     "prevIllustration": "Pooh searching for the tail",
     "nextIllustration": "Pooh noticing the bell-pull",
-    "note": ""
+    "note": "\r"
   },
   "4-6": {
     "chapter": 4,
@@ -393,7 +393,7 @@
     "illustrationDesc": "Pooh noticing the bell-pull",
     "prevIllustration": "Owl in his house",
     "nextIllustration": "The tail used as a bell-pull at Owl's house",
-    "note": ""
+    "note": "\r"
   },
   "4-7": {
     "chapter": 4,
@@ -404,7 +404,7 @@
     "illustrationDesc": "The tail used as a bell-pull at Owl's house",
     "prevIllustration": "Pooh noticing the bell-pull",
     "nextIllustration": "Christopher Robin nailing the tail back on",
-    "note": ""
+    "note": "\r"
   },
   "4-8": {
     "chapter": 4,
@@ -415,7 +415,7 @@
     "illustrationDesc": "Christopher Robin nailing the tail back on",
     "prevIllustration": "The tail used as a bell-pull at Owl's house",
     "nextIllustration": "Eeyore frisking about happily with his tail restored",
-    "note": ""
+    "note": "\r"
   },
   "4-9": {
     "chapter": 4,
@@ -426,7 +426,7 @@
     "illustrationDesc": "Eeyore frisking about happily with his tail restored",
     "prevIllustration": "Christopher Robin nailing the tail back on",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "5-1": {
     "chapter": 5,
@@ -437,7 +437,7 @@
     "illustrationDesc": "Pooh Piglet and Christopher Robin at a picnic",
     "prevIllustration": null,
     "nextIllustration": "Pooh's larder with just one jar",
-    "note": ""
+    "note": "\r"
   },
   "5-2": {
     "chapter": 5,
@@ -448,7 +448,7 @@
     "illustrationDesc": "Pooh's larder with just one jar",
     "prevIllustration": "Pooh Piglet and Christopher Robin at a picnic",
     "nextIllustration": "Pooh carrying the honey jar to the Very Deep Pit",
-    "note": ""
+    "note": "\r"
   },
   "5-3": {
     "chapter": 5,
@@ -459,7 +459,7 @@
     "illustrationDesc": "Pooh carrying the honey jar to the Very Deep Pit",
     "prevIllustration": "Pooh's larder with just one jar",
     "nextIllustration": "Piglet standing at the bottom of the Very Deep Pit",
-    "note": ""
+    "note": "\r"
   },
   "5-4": {
     "chapter": 5,
@@ -470,7 +470,7 @@
     "illustrationDesc": "Piglet standing at the bottom of the Very Deep Pit",
     "prevIllustration": "Pooh carrying the honey jar to the Very Deep Pit",
     "nextIllustration": "Pooh dreaming of a large Heffalump holding honey",
-    "note": ""
+    "note": "\r"
   },
   "5-5": {
     "chapter": 5,
@@ -481,7 +481,7 @@
     "illustrationDesc": "Pooh dreaming of a large Heffalump holding honey",
     "prevIllustration": "Piglet standing at the bottom of the Very Deep Pit",
     "nextIllustration": "Pooh trying to see down into the Very Deep Pit in the dark",
-    "note": ""
+    "note": "\r"
   },
   "5-6": {
     "chapter": 5,
@@ -492,7 +492,7 @@
     "illustrationDesc": "Pooh trying to see down into the Very Deep Pit in the dark",
     "prevIllustration": "Pooh dreaming of a large Heffalump holding honey",
     "nextIllustration": "Odd creature with Pooh body and honey jar for head",
-    "note": ""
+    "note": "\r"
   },
   "5-7": {
     "chapter": 5,
@@ -503,7 +503,7 @@
     "illustrationDesc": "Odd creature with Pooh body and honey jar for head",
     "prevIllustration": "Pooh trying to see down into the Very Deep Pit in the dark",
     "nextIllustration": "Piglet dreaming of an angry Heffalump chasing him",
-    "note": ""
+    "note": "\r"
   },
   "5-8": {
     "chapter": 5,
@@ -514,7 +514,7 @@
     "illustrationDesc": "Piglet dreaming of an angry Heffalump chasing him",
     "prevIllustration": "Odd creature with Pooh body and honey jar for head",
     "nextIllustration": "Piglet peeking down into the Very Deep Pit",
-    "note": ""
+    "note": "\r"
   },
   "5-9": {
     "chapter": 5,
@@ -525,7 +525,7 @@
     "illustrationDesc": "Piglet peeking down into the Very Deep Pit",
     "prevIllustration": "Piglet dreaming of an angry Heffalump chasing him",
     "nextIllustration": "Pooh trying to get the honey pot off his head",
-    "note": ""
+    "note": "\r"
   },
   "5-10": {
     "chapter": 5,
@@ -536,7 +536,7 @@
     "illustrationDesc": "Pooh trying to get the honey pot off his head",
     "prevIllustration": "Piglet peeking down into the Very Deep Pit",
     "nextIllustration": "Christopher Robin jumping up to go and Piglet looking up",
-    "note": ""
+    "note": "\r"
   },
   "5-11": {
     "chapter": 5,
@@ -547,7 +547,7 @@
     "illustrationDesc": "Christopher Robin jumping up to go and Piglet looking up",
     "prevIllustration": "Pooh trying to get the honey pot off his head",
     "nextIllustration": "Pooh bumping his honey-pot head against the tree root",
-    "note": ""
+    "note": "\r"
   },
   "5-12": {
     "chapter": 5,
@@ -558,7 +558,7 @@
     "illustrationDesc": "Pooh bumping his honey-pot head against the tree root",
     "prevIllustration": "Christopher Robin jumping up to go and Piglet looking up",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "5-13": {
     "chapter": 5,
@@ -602,7 +602,7 @@
     "illustrationDesc": "Eeyore looking at his image in a stream by a big old tree",
     "prevIllustration": null,
     "nextIllustration": "Pooh sitting on a stone singing",
-    "note": ""
+    "note": "\r"
   },
   "6-2": {
     "chapter": 6,
@@ -613,7 +613,7 @@
     "illustrationDesc": "Pooh sitting on a stone singing",
     "prevIllustration": "Eeyore looking at his image in a stream by a big old tree",
     "nextIllustration": "Pooh leaning over at Eeyore",
-    "note": ""
+    "note": "\r"
   },
   "6-3": {
     "chapter": 6,
@@ -624,7 +624,7 @@
     "illustrationDesc": "Pooh leaning over at Eeyore",
     "prevIllustration": "Pooh sitting on a stone singing",
     "nextIllustration": "Piglet at Pooh's door under the Mr Sanders sign",
-    "note": ""
+    "note": "\r"
   },
   "6-4": {
     "chapter": 6,
@@ -635,7 +635,7 @@
     "illustrationDesc": "Piglet at Pooh's door under the Mr Sanders sign",
     "prevIllustration": "Pooh leaning over at Eeyore",
     "nextIllustration": "Pooh holding a jar of honey",
-    "note": ""
+    "note": "\r"
   },
   "6-5": {
     "chapter": 6,
@@ -646,7 +646,7 @@
     "illustrationDesc": "Pooh holding a jar of honey",
     "prevIllustration": "Piglet at Pooh's door under the Mr Sanders sign",
     "nextIllustration": "Pooh looking at the jar of honey",
-    "note": ""
+    "note": "\r"
   },
   "6-6": {
     "chapter": 6,
@@ -657,7 +657,7 @@
     "illustrationDesc": "Pooh looking at the jar of honey",
     "prevIllustration": "Pooh holding a jar of honey",
     "nextIllustration": "Pooh sitting with his face in the honey jar",
-    "note": ""
+    "note": "\r"
   },
   "6-7": {
     "chapter": 6,
@@ -668,7 +668,7 @@
     "illustrationDesc": "Pooh sitting with his face in the honey jar",
     "prevIllustration": "Pooh looking at the jar of honey",
     "nextIllustration": "Pooh sitting with the empty honey jar thinking",
-    "note": ""
+    "note": "\r"
   },
   "6-8": {
     "chapter": 6,
@@ -679,7 +679,7 @@
     "illustrationDesc": "Pooh sitting with the empty honey jar thinking",
     "prevIllustration": "Pooh sitting with his face in the honey jar",
     "nextIllustration": "Owl standing on his chair with spectacles and pen",
-    "note": ""
+    "note": "\r"
   },
   "6-9": {
     "chapter": 6,
@@ -690,7 +690,7 @@
     "illustrationDesc": "Owl standing on his chair with spectacles and pen",
     "prevIllustration": "Pooh sitting with the empty honey jar thinking",
     "nextIllustration": "Piglet running with a big balloon then falling",
-    "note": ""
+    "note": "\r"
   },
   "6-10": {
     "chapter": 6,
@@ -701,7 +701,7 @@
     "illustrationDesc": "Piglet running with a big balloon then falling",
     "prevIllustration": "Owl standing on his chair with spectacles and pen",
     "nextIllustration": "Eeyore on the ground twisting around to hear",
-    "note": ""
+    "note": "\r"
   },
   "6-11": {
     "chapter": 6,
@@ -712,7 +712,7 @@
     "illustrationDesc": "Eeyore on the ground twisting around to hear",
     "prevIllustration": "Piglet running with a big balloon then falling",
     "nextIllustration": "Eeyore looking at Piglet and the balloon-scrap",
-    "note": ""
+    "note": "\r"
   },
   "6-12": {
     "chapter": 6,
@@ -723,7 +723,7 @@
     "illustrationDesc": "Eeyore looking at Piglet and the balloon-scrap",
     "prevIllustration": "Eeyore on the ground twisting around to hear",
     "nextIllustration": "Eeyore with his Balloon and Useful Pot as Pooh and Piglet walk away",
-    "note": ""
+    "note": "\r"
   },
   "6-13": {
     "chapter": 6,
@@ -734,7 +734,7 @@
     "illustrationDesc": "Eeyore with his Balloon and Useful Pot as Pooh and Piglet walk away",
     "prevIllustration": "Eeyore looking at Piglet and the balloon-scrap",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "6-14": {
     "chapter": 6,
@@ -778,7 +778,7 @@
     "illustrationDesc": "Rabbit Pooh and Piglet looking at a Strange Animal hopping away",
     "prevIllustration": null,
     "nextIllustration": "Rabbit holding a sheet of paper looking down at Piglet",
-    "note": ""
+    "note": "\r"
   },
   "7-2": {
     "chapter": 7,
@@ -789,7 +789,7 @@
     "illustrationDesc": "Rabbit holding a sheet of paper looking down at Piglet",
     "prevIllustration": "Rabbit Pooh and Piglet looking at a Strange Animal hopping away",
     "nextIllustration": "Pooh and Piglet on a bench listening to Rabbit read his plan",
-    "note": ""
+    "note": "\r"
   },
   "7-3": {
     "chapter": 7,
@@ -800,7 +800,7 @@
     "illustrationDesc": "Pooh and Piglet on a bench listening to Rabbit read his plan",
     "prevIllustration": "Rabbit holding a sheet of paper looking down at Piglet",
     "nextIllustration": "Kanga with arms open smiling at tiny Roo climbing from mousehole",
-    "note": ""
+    "note": "\r"
   },
   "7-4": {
     "chapter": 7,
@@ -811,7 +811,7 @@
     "illustrationDesc": "Kanga with arms open smiling at tiny Roo climbing from mousehole",
     "prevIllustration": "Pooh and Piglet on a bench listening to Rabbit read his plan",
     "nextIllustration": "Pooh thinking while Kanga attends Roo and Rabbit nudges Pooh",
-    "note": ""
+    "note": "\r"
   },
   "7-5": {
     "chapter": 7,
@@ -822,7 +822,7 @@
     "illustrationDesc": "Pooh thinking while Kanga attends Roo and Rabbit nudges Pooh",
     "prevIllustration": "Kanga with arms open smiling at tiny Roo climbing from mousehole",
     "nextIllustration": "Kanga bounding off with Piglet peering from her pocket",
-    "note": ""
+    "note": "\r"
   },
   "7-6": {
     "chapter": 7,
@@ -833,7 +833,7 @@
     "illustrationDesc": "Kanga bounding off with Piglet peering from her pocket",
     "prevIllustration": "Pooh thinking while Kanga attends Roo and Rabbit nudges Pooh",
     "nextIllustration": "Kanga looking in closet with washtub while Piglet turns away",
-    "note": ""
+    "note": "\r"
   },
   "7-7": {
     "chapter": 7,
@@ -844,7 +844,7 @@
     "illustrationDesc": "Kanga looking in closet with washtub while Piglet turns away",
     "prevIllustration": "Kanga bounding off with Piglet peering from her pocket",
     "nextIllustration": "Pooh practicing jumps - thinking then twist then bouncy",
-    "note": ""
+    "note": "\r"
   },
   "7-8": {
     "chapter": 7,
@@ -855,7 +855,7 @@
     "illustrationDesc": "Pooh practicing jumps - thinking then twist then bouncy",
     "prevIllustration": "Kanga looking in closet with washtub while Piglet turns away",
     "nextIllustration": "Piglet in the washtub getting scrubbed by Kanga",
-    "note": ""
+    "note": "\r"
   },
   "7-9": {
     "chapter": 7,
@@ -866,7 +866,7 @@
     "illustrationDesc": "Piglet in the washtub getting scrubbed by Kanga",
     "prevIllustration": "Pooh practicing jumps - thinking then twist then bouncy",
     "nextIllustration": "Christopher Robin sees Kanga with washtub and Piglet protesting",
-    "note": ""
+    "note": "\r"
   },
   "7-10": {
     "chapter": 7,
@@ -877,7 +877,7 @@
     "illustrationDesc": "Christopher Robin sees Kanga with washtub and Piglet protesting",
     "prevIllustration": "Piglet in the washtub getting scrubbed by Kanga",
     "nextIllustration": "Piglet rolling happily in the dirt with dust clouds flying",
-    "note": ""
+    "note": "\r"
   },
   "7-11": {
     "chapter": 7,
@@ -888,7 +888,7 @@
     "illustrationDesc": "Piglet rolling happily in the dirt with dust clouds flying",
     "prevIllustration": "Christopher Robin sees Kanga with washtub and Piglet protesting",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "7-12": {
     "chapter": 7,
@@ -965,7 +965,7 @@
     "illustrationDesc": "Pooh and Christopher Robin sitting back-to-back with Big Boots",
     "prevIllustration": null,
     "nextIllustration": "Pooh meeting Rabbit on a path",
-    "note": ""
+    "note": "\r"
   },
   "8-2": {
     "chapter": 8,
@@ -976,7 +976,7 @@
     "illustrationDesc": "Pooh meeting Rabbit on a path",
     "prevIllustration": "Pooh and Christopher Robin sitting back-to-back with Big Boots",
     "nextIllustration": "Piglet sitting on a dandelion blowing feathery tufts",
-    "note": ""
+    "note": "\r"
   },
   "8-3": {
     "chapter": 8,
@@ -987,7 +987,7 @@
     "illustrationDesc": "Piglet sitting on a dandelion blowing feathery tufts",
     "prevIllustration": "Pooh meeting Rabbit on a path",
     "nextIllustration": "Eeyore eyeing Rabbit's Friends and Relations",
-    "note": ""
+    "note": "\r"
   },
   "8-4": {
     "chapter": 8,
@@ -998,7 +998,7 @@
     "illustrationDesc": "Eeyore eyeing Rabbit's Friends and Relations",
     "prevIllustration": "Piglet sitting on a dandelion blowing feathery tufts",
     "nextIllustration": "Christopher Robin shouting to the expedition line",
-    "note": ""
+    "note": "\r"
   },
   "8-5": {
     "chapter": 8,
@@ -1009,7 +1009,7 @@
     "illustrationDesc": "Christopher Robin shouting to the expedition line",
     "prevIllustration": "Eeyore eyeing Rabbit's Friends and Relations",
     "nextIllustration": "Rabbit leading the line into dense brush",
-    "note": ""
+    "note": "\r"
   },
   "8-6": {
     "chapter": 8,
@@ -1020,7 +1020,7 @@
     "illustrationDesc": "Rabbit leading the line into dense brush",
     "prevIllustration": "Christopher Robin shouting to the expedition line",
     "nextIllustration": "A dark place in the brush",
-    "note": ""
+    "note": "\r"
   },
   "8-7": {
     "chapter": 8,
@@ -1031,7 +1031,7 @@
     "illustrationDesc": "A dark place in the brush",
     "prevIllustration": "Rabbit leading the line into dense brush",
     "nextIllustration": "Eeyore munching a thistle while Pooh has burrs on his behind",
-    "note": ""
+    "note": "\r"
   },
   "8-8": {
     "chapter": 8,
@@ -1042,7 +1042,7 @@
     "illustrationDesc": "Eeyore munching a thistle while Pooh has burrs on his behind",
     "prevIllustration": "A dark place in the brush",
     "nextIllustration": "Kanga Pooh Piglet and Christopher Robin rushing to the Pool where Roo splashes",
-    "note": ""
+    "note": "\r"
   },
   "8-9": {
     "chapter": 8,
@@ -1053,7 +1053,7 @@
     "illustrationDesc": "Kanga Pooh Piglet and Christopher Robin rushing to the Pool where Roo splashes",
     "prevIllustration": "Eeyore munching a thistle while Pooh has burrs on his behind",
     "nextIllustration": "Pooh holding a long pole across the stream with Kanga and Owl",
-    "note": ""
+    "note": "\r"
   },
   "8-10": {
     "chapter": 8,
@@ -1064,7 +1064,7 @@
     "illustrationDesc": "Pooh holding a long pole across the stream with Kanga and Owl",
     "prevIllustration": "Kanga Pooh Piglet and Christopher Robin rushing to the Pool where Roo splashes",
     "nextIllustration": "Eeyore waiting alone with his tail in the water",
-    "note": ""
+    "note": "\r"
   },
   "8-11": {
     "chapter": 8,
@@ -1075,7 +1075,7 @@
     "illustrationDesc": "Eeyore waiting alone with his tail in the water",
     "prevIllustration": "Pooh holding a long pole across the stream with Kanga and Owl",
     "nextIllustration": "Everyone admiring the North Pole with Discovered by Pooh sign",
-    "note": ""
+    "note": "\r"
   },
   "8-12": {
     "chapter": 8,
@@ -1086,7 +1086,7 @@
     "illustrationDesc": "Everyone admiring the North Pole with Discovered by Pooh sign",
     "prevIllustration": "Eeyore waiting alone with his tail in the water",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "8-13": {
     "chapter": 8,
@@ -1163,7 +1163,7 @@
     "illustrationDesc": "Piglet looking out window of his tree-house in heavy rain and swirling water",
     "prevIllustration": null,
     "nextIllustration": "Piglet leaning out the window tossing a bottle",
-    "note": ""
+    "note": "\r"
   },
   "9-2": {
     "chapter": 9,
@@ -1174,7 +1174,7 @@
     "illustrationDesc": "Piglet leaning out the window tossing a bottle",
     "prevIllustration": "Piglet looking out window of his tree-house in heavy rain and swirling water",
     "nextIllustration": "Pooh on a long branch with nine pots of honey in the rain",
-    "note": ""
+    "note": "\r"
   },
   "9-3": {
     "chapter": 9,
@@ -1185,7 +1185,7 @@
     "illustrationDesc": "Pooh on a long branch with nine pots of honey in the rain",
     "prevIllustration": "Piglet leaning out the window tossing a bottle",
     "nextIllustration": "Pooh's head above water clutching his last jar of honey",
-    "note": ""
+    "note": "\r"
   },
   "9-4": {
     "chapter": 9,
@@ -1196,7 +1196,7 @@
     "illustrationDesc": "Pooh's head above water clutching his last jar of honey",
     "prevIllustration": "Pooh on a long branch with nine pots of honey in the rain",
     "nextIllustration": "Pooh holding his floating empty jar",
-    "note": ""
+    "note": "\r"
   },
   "9-5": {
     "chapter": 9,
@@ -1207,7 +1207,7 @@
     "illustrationDesc": "Pooh holding his floating empty jar",
     "prevIllustration": "Pooh's head above water clutching his last jar of honey",
     "nextIllustration": "The jar floating as Pooh tries to hold on",
-    "note": ""
+    "note": "\r"
   },
   "9-6": {
     "chapter": 9,
@@ -1218,7 +1218,7 @@
     "illustrationDesc": "The jar floating as Pooh tries to hold on",
     "prevIllustration": "Pooh holding his floating empty jar",
     "nextIllustration": "Pooh has lost hold of the jar",
-    "note": ""
+    "note": "\r"
   },
   "9-7": {
     "chapter": 9,
@@ -1229,7 +1229,7 @@
     "illustrationDesc": "Pooh has lost hold of the jar",
     "prevIllustration": "The jar floating as Pooh tries to hold on",
     "nextIllustration": "Christopher Robin holding big umbrella planting a stick at waters edge",
-    "note": ""
+    "note": "\r"
   },
   "9-8": {
     "chapter": 9,
@@ -1240,7 +1240,7 @@
     "illustrationDesc": "Christopher Robin holding big umbrella planting a stick at waters edge",
     "prevIllustration": "Pooh has lost hold of the jar",
     "nextIllustration": "Pooh crawling out from the edge of the water",
-    "note": ""
+    "note": "\r"
   },
   "9-9": {
     "chapter": 9,
@@ -1251,7 +1251,7 @@
     "illustrationDesc": "Pooh crawling out from the edge of the water",
     "prevIllustration": "Christopher Robin holding big umbrella planting a stick at waters edge",
     "nextIllustration": "Pooh astride his empty jar emerging from the water in rain",
-    "note": ""
+    "note": "\r"
   },
   "9-10": {
     "chapter": 9,
@@ -1262,7 +1262,7 @@
     "illustrationDesc": "Pooh astride his empty jar emerging from the water in rain",
     "prevIllustration": "Pooh crawling out from the edge of the water",
     "nextIllustration": "Pooh climbing into the upside-down umbrella as Christopher Robin watches",
-    "note": ""
+    "note": "\r"
   },
   "9-11": {
     "chapter": 9,
@@ -1273,7 +1273,7 @@
     "illustrationDesc": "Pooh climbing into the upside-down umbrella as Christopher Robin watches",
     "prevIllustration": "Pooh astride his empty jar emerging from the water in rain",
     "nextIllustration": "Owl perched on Piglet's tree branch as Piglet waves a cloth in flood",
-    "note": ""
+    "note": "\r"
   },
   "9-12": {
     "chapter": 9,
@@ -1284,7 +1284,7 @@
     "illustrationDesc": "Owl perched on Piglet's tree branch as Piglet waves a cloth in flood",
     "prevIllustration": "Pooh climbing into the upside-down umbrella as Christopher Robin watches",
     "nextIllustration": "Christopher Robin waving from the Brain of Pooh umbrella-boat",
-    "note": ""
+    "note": "\r"
   },
   "9-13": {
     "chapter": 9,
@@ -1295,7 +1295,7 @@
     "illustrationDesc": "Christopher Robin waving from the Brain of Pooh umbrella-boat",
     "prevIllustration": "Owl perched on Piglet's tree branch as Piglet waves a cloth in flood",
     "nextIllustration": null,
-    "note": ""
+    "note": "\r"
   },
   "9-14": {
     "chapter": 9,
@@ -1339,7 +1339,7 @@
     "illustrationDesc": "Christopher Robin at a huge old tree-house with Owl flying down",
     "prevIllustration": null,
     "nextIllustration": "Pooh in front of his mirror holding pie-tin cymbals above his head",
-    "note": ""
+    "note": "\r"
   },
   "10-2": {
     "chapter": 10,
@@ -1350,7 +1350,7 @@
     "illustrationDesc": "Pooh in front of his mirror holding pie-tin cymbals above his head",
     "prevIllustration": "Christopher Robin at a huge old tree-house with Owl flying down",
     "nextIllustration": "Eeyore with a large bow on his tail",
-    "note": ""
+    "note": "\r"
   },
   "10-3": {
     "chapter": 10,
@@ -1361,7 +1361,7 @@
     "illustrationDesc": "Eeyore with a large bow on his tail",
     "prevIllustration": "Pooh in front of his mirror holding pie-tin cymbals above his head",
     "nextIllustration": "Owl with claws clawing at Eeyore",
-    "note": ""
+    "note": "\r"
   },
   "10-4": {
     "chapter": 10,
@@ -1372,7 +1372,7 @@
     "illustrationDesc": "Owl with claws clawing at Eeyore",
     "prevIllustration": "Eeyore with a large bow on his tail",
     "nextIllustration": "Piglet considering a pitcher set in a wide bowl on a stand",
-    "note": ""
+    "note": "\r"
   },
   "10-5": {
     "chapter": 10,
@@ -1383,7 +1383,7 @@
     "illustrationDesc": "Piglet considering a pitcher set in a wide bowl on a stand",
     "prevIllustration": "Owl with claws clawing at Eeyore",
     "nextIllustration": "Kanga tending to Roo who has dropped a cup",
-    "note": ""
+    "note": "\r"
   },
   "10-6": {
     "chapter": 10,
@@ -1394,7 +1394,7 @@
     "illustrationDesc": "Kanga tending to Roo who has dropped a cup",
     "prevIllustration": "Piglet considering a pitcher set in a wide bowl on a stand",
     "nextIllustration": "Christopher Robin speaking to the whole party at the table",
-    "note": ""
+    "note": "\r"
   },
   "10-7": {
     "chapter": 10,
@@ -1405,7 +1405,7 @@
     "illustrationDesc": "Christopher Robin speaking to the whole party at the table",
     "prevIllustration": "Kanga tending to Roo who has dropped a cup",
     "nextIllustration": "Pooh opening a present with everyone excited around him",
-    "note": ""
+    "note": "\r"
   },
   "10-8": {
     "chapter": 10,
@@ -1416,7 +1416,7 @@
     "illustrationDesc": "Pooh opening a present with everyone excited around him",
     "prevIllustration": "Christopher Robin speaking to the whole party at the table",
     "nextIllustration": "Pooh and Piglet walking into the sunset carrying the present",
-    "note": ""
+    "note": "\r"
   },
   "10-9": {
     "chapter": 10,
@@ -1427,7 +1427,7 @@
     "illustrationDesc": "Pooh and Piglet walking into the sunset carrying the present",
     "prevIllustration": "Pooh opening a present with everyone excited around him",
     "nextIllustration": "Christopher Robin dragging his toy bear up the stairs to end the book",
-    "note": ""
+    "note": "\r"
   },
   "10-10": {
     "chapter": 10,
