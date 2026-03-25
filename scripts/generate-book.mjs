@@ -658,28 +658,33 @@ for (const chNum of chapterNums) {
     : [];
   let karaokeCursor = 0;
 
-  // Chapter divider spread
-  globalPageNum++;
-  spreadsHtml += `
-    <div class="spread cover-spread chapter-divider" data-spread="ch${chNum}-cover" id="ch${chNum}">
-      <div class="page-left cover-image" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="0">
-        <img src="${coverImage}" alt="Chapter ${chNum} cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">\u00d7</button>
-        <div class="page-number page-number-left">${globalPageNum}</div>
-      </div>`;
-  globalPageNum++;
-  spreadsHtml += `
-      <div class="page-right cover-title" data-page="${globalPageNum}">
-        <div class="title-block">
-          <div class="series-name">${escapeHtml(config.title.toUpperCase())}</div>
-          <div class="book-number">CHAPTER ${chNum}</div>
-          <h1>${escapeHtml(chName.toUpperCase())}</h1>
-          <div class="author">BY ${escapeHtml(config.author.toUpperCase())}</div>
-          <div class="page-info">${pages.length} PAGES</div>
+  // Chapter divider spread (skip for songs — verses flow continuously)
+  if (config.contentType !== 'song') {
+    globalPageNum++;
+    spreadsHtml += `
+      <div class="spread cover-spread chapter-divider" data-spread="ch${chNum}-cover" id="ch${chNum}">
+        <div class="page-left cover-image" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="0">
+          <img src="${coverImage}" alt="Chapter ${chNum} cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">\u00d7</button>
+          <div class="page-number page-number-left">${globalPageNum}</div>
+        </div>`;
+    globalPageNum++;
+    spreadsHtml += `
+        <div class="page-right cover-title" data-page="${globalPageNum}">
+          <div class="title-block">
+            <div class="series-name">${escapeHtml(config.title.toUpperCase())}</div>
+            <div class="book-number">CHAPTER ${chNum}</div>
+            <h1>${escapeHtml(chName.toUpperCase())}</h1>
+            <div class="author">BY ${escapeHtml(config.author.toUpperCase())}</div>
+            <div class="page-info">${pages.length} PAGES</div>
+          </div>
+          <div class="page-number page-number-right">${globalPageNum}</div>
         </div>
-        <div class="page-number page-number-right">${globalPageNum}</div>
-      </div>
-    </div>`;
+      </div>`;
+  } else {
+    // For songs, just add an anchor for navigation
+    spreadsHtml += `<span id="ch${chNum}"></span>`;
+  }
 
   // Content spreads
   for (let i = 0; i < pages.length; i++) {
@@ -780,10 +785,10 @@ if (config.contentType === 'song' && config.audio?.versions) {
   // Song mode: use the favorite version (or first) as default audio
   const favoriteVersion = config.audio.versions.find(v => v.favorite) || config.audio.versions[0];
   if (favoriteVersion) {
-    // Song audio URLs are relative paths, not absolute R2 URLs
+    // Song audio URLs are relative to book root, prefix with ../ since book.html is in booklets/
     audioDataJson = JSON.stringify({
-      url: favoriteVersion.url,
-      manifest: favoriteVersion.manifest || null,
+      url: '../' + favoriteVersion.url,
+      manifest: favoriteVersion.manifest ? '../' + favoriteVersion.manifest : null,
       totalDuration: karaokeManifest?.total_duration_s || 0,
       chapters: karaokeManifest ? Object.values(karaokeManifest.chapters).map(ch => ({
         chapter: ch.chapter,
@@ -902,7 +907,7 @@ ${spreadsHtml}
 var AUDIO_DATA = ${audioDataJson};
 var CHAPTER_NAV = ${chapterNavJson};
 var GITHUB_CONFIG = ${githubConfig ? JSON.stringify(githubConfig) : 'null'};
-${config.contentType === 'song' && config.audio?.versions ? `var AUDIO_VERSIONS = ${JSON.stringify(config.audio.versions)};` : ''}
+${config.contentType === 'song' && config.audio?.versions ? `var AUDIO_VERSIONS = ${JSON.stringify(config.audio.versions.map(v => ({...v, url: '../' + v.url, manifest: v.manifest ? '../' + v.manifest : null})))};` : ''}
 var ALL_ILLUSTRATIONS = ${JSON.stringify(illustrations.filter(ill => ill.url || ill.note).map(ill => ({ chapter: ill.chapter, page: ill.page, url: ill.url, description: ill.description, note: ill.note })))};
 
 ${generateJS()}
