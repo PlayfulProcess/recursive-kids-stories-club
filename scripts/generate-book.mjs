@@ -595,7 +595,7 @@ spreadsHtml += `
 
 // ── Preface Poem Spreads ────────────────────────────────────────────
 
-if (config.preface) {
+if (config.preface?.poem) {
   const poemAligned = buildPoemAligned();
   const poemGroups = [
     { stanzas: [0, 1], title: 'ALL IN THE GOLDEN AFTERNOON' },
