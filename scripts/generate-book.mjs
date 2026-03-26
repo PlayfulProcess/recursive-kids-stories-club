@@ -477,7 +477,7 @@ function getChapterIllustrations(chNum) {
 
 function buildChapterPages(chNum, chapter) {
   const chIlls = getChapterIllustrations(chNum);
-  const coverIll = chIlls.find(ill => ill.page === 0);
+  const coverIll = chIlls.find(ill => ill.page === 0) || chIlls[0];
   const coverImage = coverIll?.url || chapter.l2?.image_url || chapter.scenes[0]?.image_url || '';
 
   // Get page illustrations (page >= 1), indexed by page number
