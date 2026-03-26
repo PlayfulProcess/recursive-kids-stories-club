@@ -703,15 +703,34 @@
 
     /* ── Song lyrics styling ── */
     body.content-song .text-block p {
-      text-align: center;
+      text-align: left;
       text-indent: 0;
-      font-size: 22px;
-      line-height: 1.8;
+      font-size: 20px;
+      line-height: 1.9;
       font-style: italic;
+    }
+    body.content-song .text-block p.verse-lines {
+      white-space: pre-line;
     }
     body.content-song .text-block {
       justify-content: center;
       align-items: center;
+    }
+    body.content-song .song-verse-panel {
+      background: var(--page-left-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body.content-song .verse-label {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.6;
+      text-align: center;
+      padding: 20px;
     }
     body.content-song #versionSelect {
       background: rgba(255,255,255,0.08);
