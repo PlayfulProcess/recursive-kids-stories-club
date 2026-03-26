@@ -6,7 +6,7 @@
   "illustrations": "illustrations.csv",
   "audio": {
     "manifest": "audio/karaoke-manifest.json",
-    "url": "audio/winnie-the-pooh-complete.mp3"
+    "url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/book-audio/winnie-the-pooh-complete.mp3"
   },
   "preface": {
     "image": "https://www.gutenberg.org/cache/epub/67098/images/cover.jpg"
