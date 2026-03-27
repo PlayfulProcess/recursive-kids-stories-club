@@ -837,19 +837,21 @@ if (config.contentType === 'song' && config.audio?.versions) {
       })) : [],
     });
   }
-} else if (karaokeManifest && config.audio?.url) {
-  const chapterOffsets = Object.values(karaokeManifest.chapters).map(ch => ({
-    chapter: ch.chapter,
-    offset: ch.offset,
-    duration: ch.duration,
-  }));
+} else if (config.audio?.url) {
+  const chapterOffsets = karaokeManifest
+    ? Object.values(karaokeManifest.chapters).map(ch => ({
+        chapter: ch.chapter,
+        offset: ch.offset,
+        duration: ch.duration,
+      }))
+    : [];
 
   // Add cache buster to audio URL to force browsers to fetch the latest version
   // (old merged MP3 had Xing header bug declaring only chapter 1 duration)
   const audioCacheBuster = config.audio.url + (config.audio.url.includes('?') ? '&' : '?') + 'v=2';
   audioDataJson = JSON.stringify({
     url: audioCacheBuster,
-    totalDuration: karaokeManifest.total_duration_s,
+    totalDuration: karaokeManifest?.total_duration_s || 0,
     chapters: chapterOffsets,
   });
 }
