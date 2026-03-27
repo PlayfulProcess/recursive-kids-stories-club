@@ -87,23 +87,23 @@ const illustrations = [
   {
     chapter: 0,
     page: 0,
-    r2Key: 'grammar-illustrations/alice-in-wonderland/generated/dall-e-golden-afternoon-boat.png',
-    prompt: `A manuscript-style pen and ink drawing with light sepia wash, in the style of Lewis Carroll's own 1864 illustrations for "Alice's Adventures Under Ground." The scene shows a man in Victorian clothing (resembling Charles Dodgson/Lewis Carroll) rowing a small boat on a calm river on a golden summer afternoon. Three young girls sit in the boat — the middle one has dark hair (like the real Alice Liddell). Willows trail in the water, dragonflies hover. The style should be delicate pen strokes with crosshatching, slightly naive and charming like Carroll's original manuscript drawings. Warm sepia tones. No modern elements.`,
-    description: 'DALL-E 3 (manuscript style) \u2014 The golden afternoon boat trip where Carroll first told the story',
+    r2Key: 'grammar-illustrations/alice-in-wonderland/generated/dall-e-golden-afternoon-v3.png',
+    prompt: `A Pre-Raphaelite watercolor painting in the style of Arthur Rackham's 1907 book illustrations. A wooden rowing boat on a calm river on a golden summer afternoon near Oxford, England, 1862. A thin Victorian gentleman in a dark coat rows the boat. Three passengers in white Victorian summer dresses sit listening to a story. Trailing willow trees, warm late-afternoon sunlight filtering through leaves, dragonflies hovering over water lilies. Muted earth tones — amber, olive, dusty gold — with Rackham's characteristic gnarled organic linework. Atmospheric, dreamy, nostalgic mood. Absolutely no text, no writing, no words, no letters anywhere in the image.`,
+    description: 'DALL-E 3 (Rackham style) \u2014 The golden afternoon boat trip, July 4 1862',
   },
   {
     chapter: 1,
     page: 8,
-    r2Key: 'grammar-illustrations/alice-in-wonderland/generated/dall-e-ch1-dinah-and-bats.png',
-    prompt: `A manuscript-style pen and ink drawing with light sepia wash, in the style of Lewis Carroll's own 1864 illustrations for "Alice's Adventures Under Ground." A young girl with dark hair (like the real Alice Liddell, age 10) falls slowly through a deep well shaft. Around her float jars of marmalade and maps. She has a dreamy, curious expression. A cat (Dinah) appears in a thought bubble above her head. Below her, small bats flutter. The walls of the well have bookshelves and cupboards. Delicate pen strokes with crosshatching, slightly naive and charming like Carroll's original manuscript drawings. Warm sepia tones.`,
-    description: 'DALL-E 3 (manuscript style) \u2014 Alice falling down the rabbit-hole, thinking of Dinah',
+    r2Key: 'grammar-illustrations/alice-in-wonderland/generated/dall-e-ch1-hall-of-doors-v3.png',
+    prompt: `A watercolor illustration in the style of Arthur Rackham's 1907 Alice in Wonderland plates. The scene shows a long low hall lit by a row of lamps hanging from the ceiling. A dark-haired girl of about 10 (inspired by Alice Liddell — short dark bob, bangs, large wondering eyes) stands beside a three-legged glass table. On the table sits a tiny golden key. Around the hall are many locked doors of all sizes. The girl gazes at a tiny door, only about fifteen inches high, through which we glimpse the most beautiful garden with bright flowers and cool fountains. The mood is wonder and longing. Rackham's characteristic gnarled linework, muted watercolor washes of amber, olive, and dusty rose. Absolutely no text, no writing, no words anywhere in the image.`,
+    description: 'DALL-E 3 (Rackham style) \u2014 The hall of doors and the tiny golden key',
   },
   {
     chapter: 2,
     page: 2,
-    r2Key: 'grammar-illustrations/alice-in-wonderland/generated/dall-e-ch2-head-hitting-roof.png',
-    prompt: `A manuscript-style pen and ink drawing with light sepia wash, in the style of Lewis Carroll's own 1864 illustrations for "Alice's Adventures Under Ground." A young girl with dark hair (like the real Alice Liddell) has grown enormously tall — her head is pressed against and crumpling into the ceiling of a small hall. She is crouched and bent, one arm reaching down toward a tiny golden key on a glass table far below. Her expression is distressed and uncomfortable. The proportions are exaggerated and whimsical. Delicate pen strokes with crosshatching, slightly naive and charming like Carroll's original manuscript drawings. Warm sepia tones.`,
-    description: 'DALL-E 3 (manuscript style) \u2014 Alice grown too tall, head striking the roof',
+    r2Key: 'grammar-illustrations/alice-in-wonderland/generated/dall-e-ch2-nine-feet-tall-v3.png',
+    prompt: `A watercolor book illustration in the style of classic Victorian fairy tale art, reminiscent of John Tenniel's Alice engravings with added color washes. A dark-haired character in a blue dress has magically grown enormously tall — nine feet — and is crammed into a tiny hallway. The figure's head presses sideways against the low ceiling, body crouched and folded awkwardly because the room is far too small. One comically elongated arm reaches down toward a tiny three-legged glass table with a golden key on it. Near the baseboard, a tiny fifteen-inch door is visible. The proportions are absurd and whimsical — like a giant squeezed into a dollhouse. Soft watercolor washes over delicate crosshatched linework. Warm sepia and blue tones. Absolutely no text, no writing, no words, no letters anywhere in the image.`,
+    description: 'DALL-E 3 (Tenniel style) \u2014 Nine feet tall, head striking the roof',
   },
 ];
 
@@ -139,8 +139,8 @@ async function main() {
         const url = (parts[2] || '').trim();
         const note = (parts[4] || '').trim();
 
-        // Match: same chapter+page, no url, has a note (our instruction)
-        if (ch === ill.chapter && pg === ill.page && !url && note) {
+        // Match: same chapter+page, either no url or existing DALL-E url, with a note
+        if (ch === ill.chapter && pg === ill.page && (!url || url.includes('/generated/dall-e')) && note) {
           parts[2] = publicUrl;
           parts[3] = ill.description;
           // Keep the note but mark as done

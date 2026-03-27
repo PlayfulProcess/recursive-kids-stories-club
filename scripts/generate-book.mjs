@@ -56,6 +56,17 @@ if (config.audio?.manifest) {
     console.log(`Audio: unified manifest (${(karaokeManifest.total_duration_s / 60).toFixed(1)} min)`);
   }
 }
+// For songs: load the favorite version's manifest if no top-level manifest
+if (!karaokeManifest && config.contentType === 'song' && config.audio?.versions) {
+  const fav = config.audio.versions.find(v => v.favorite) || config.audio.versions[0];
+  if (fav?.manifest) {
+    const manifestPath = resolvePath(fav.manifest);
+    if (existsSync(manifestPath)) {
+      karaokeManifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+      console.log(`Song audio: manifest from "${fav.name}" (${Object.keys(karaokeManifest.chapters || {}).length} chapters)`);
+    }
+  }
+}
 
 // Load poem whisper timestamps (optional)
 let poemWhisperWords = null;
@@ -153,8 +164,14 @@ function transformText(text) {
 }
 
 function formatTextAsHtml(text) {
+  const isSong = config.contentType === 'song';
   const paragraphs = text.split(/\n\n+/).filter(p => p.trim());
   return paragraphs.map(p => {
+    if (isSong) {
+      // Preserve line breaks for song lyrics
+      const lines = p.split(/\n/).map(l => escapeHtml(l.trim())).filter(l => l);
+      return `<p class="verse-lines">${lines.join('<br>\n          ')}</p>`;
+    }
     let cleaned = p.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
     return `<p>${escapeHtml(cleaned)}</p>`;
   }).join('\n          ');
@@ -193,16 +210,32 @@ function wordsMatch(a, b) {
  * Returns { html, cursor } so cursor carries across pages.
  */
 function formatTextAsKaraokeHtml(text, manifestWords, cursor) {
+  const isSong = config.contentType === 'song';
   const paragraphs = text.split(/\n\n+/).filter(p => p.trim());
   const htmlParts = [];
 
   // Collect all text words with paragraph info for bigram lookahead
   const allTextWords = [];
   for (const p of paragraphs) {
-    const cleaned = p.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-    const words = cleaned.split(/\s+/).filter(w => w);
-    for (let i = 0; i < words.length; i++) {
-      allTextWords.push({ word: words[i], paraIdx: htmlParts.length, wordIdx: i });
+    if (isSong) {
+      // For songs: preserve line breaks, insert BR markers between lines
+      const lines = p.split(/\n/).filter(l => l.trim());
+      for (let li = 0; li < lines.length; li++) {
+        const words = lines[li].trim().split(/\s+/).filter(w => w);
+        for (let i = 0; i < words.length; i++) {
+          allTextWords.push({ word: words[i], paraIdx: htmlParts.length, wordIdx: allTextWords.length, lineBreakAfter: false });
+        }
+        // Mark last word of line (except last line) for BR insertion
+        if (li < lines.length - 1 && allTextWords.length > 0) {
+          allTextWords[allTextWords.length - 1].lineBreakAfter = true;
+        }
+      }
+    } else {
+      const cleaned = p.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+      const words = cleaned.split(/\s+/).filter(w => w);
+      for (let i = 0; i < words.length; i++) {
+        allTextWords.push({ word: words[i], paraIdx: htmlParts.length, wordIdx: i, lineBreakAfter: false });
+      }
     }
     htmlParts.push([]); // placeholder for this paragraph's word HTMLs
   }
@@ -244,9 +277,15 @@ function formatTextAsKaraokeHtml(text, manifestWords, cursor) {
     if (!matched) {
       htmlParts[paraIdx].push(`<span class="k-word">${escapeHtml(word)}</span>`);
     }
+
+    // Insert line break marker after this word if flagged (song mode)
+    if (allTextWords[wi].lineBreakAfter) {
+      htmlParts[paraIdx].push('<br>');
+    }
   }
 
-  const html = htmlParts.map(words => `<p>${words.join(' ')}</p>`).join('\n          ');
+  const cls = isSong ? ' class="verse-lines"' : '';
+  const html = htmlParts.map(words => `<p${cls}>${words.join(' ')}</p>`).join('\n          ');
   return { html, cursor };
 }
 
@@ -438,7 +477,7 @@ function getChapterIllustrations(chNum) {
 
 function buildChapterPages(chNum, chapter) {
   const chIlls = getChapterIllustrations(chNum);
-  const coverIll = chIlls.find(ill => ill.page === 0);
+  const coverIll = chIlls.find(ill => ill.page === 0) || chIlls[0];
   const coverImage = coverIll?.url || chapter.l2?.image_url || chapter.scenes[0]?.image_url || '';
 
   // Get page illustrations (page >= 1), indexed by page number
@@ -556,7 +595,7 @@ spreadsHtml += `
 
 // ── Preface Poem Spreads ────────────────────────────────────────────
 
-if (config.preface) {
+if (config.preface?.poem) {
   const poemAligned = buildPoemAligned();
   const poemGroups = [
     { stanzas: [0, 1], title: 'ALL IN THE GOLDEN AFTERNOON' },
@@ -630,7 +669,7 @@ for (const chNum of chapterNums) {
   const { coverImage, pages, allChIlls } = buildChapterPages(chNum, chapter);
 
   // Build page text map entries for this chapter
-  const chName = chapter.l2?.metadata?.original_title || chapter.scenes[0]?.metadata?.chapter_name || `Chapter ${chNum}`;
+  const chName = chapter.l2?.metadata?.original_title || chapter.scenes[0]?.metadata?.chapter_title || chapter.scenes[0]?.metadata?.chapter_name || `Chapter ${chNum}`;
   for (let pi = 0; pi < pages.length; pi++) {
     const pageNum = pi + 1;
     const prevIll = pages[pi - 1]?.illustration || null;
@@ -658,28 +697,33 @@ for (const chNum of chapterNums) {
     : [];
   let karaokeCursor = 0;
 
-  // Chapter divider spread
-  globalPageNum++;
-  spreadsHtml += `
-    <div class="spread cover-spread chapter-divider" data-spread="ch${chNum}-cover" id="ch${chNum}">
-      <div class="page-left cover-image" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="0">
-        <img src="${coverImage}" alt="Chapter ${chNum} cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">\u00d7</button>
-        <div class="page-number page-number-left">${globalPageNum}</div>
-      </div>`;
-  globalPageNum++;
-  spreadsHtml += `
-      <div class="page-right cover-title" data-page="${globalPageNum}">
-        <div class="title-block">
-          <div class="series-name">${escapeHtml(config.title.toUpperCase())}</div>
-          <div class="book-number">CHAPTER ${chNum}</div>
-          <h1>${escapeHtml(chName.toUpperCase())}</h1>
-          <div class="author">BY ${escapeHtml(config.author.toUpperCase())}</div>
-          <div class="page-info">${pages.length} PAGES</div>
+  // Chapter divider spread (skip for songs — verses flow continuously)
+  if (config.contentType !== 'song') {
+    globalPageNum++;
+    spreadsHtml += `
+      <div class="spread cover-spread chapter-divider" data-spread="ch${chNum}-cover" id="ch${chNum}">
+        <div class="page-left cover-image" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="0">
+          <img src="${coverImage}" alt="Chapter ${chNum} cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">\u00d7</button>
+          <div class="page-number page-number-left">${globalPageNum}</div>
+        </div>`;
+    globalPageNum++;
+    spreadsHtml += `
+        <div class="page-right cover-title" data-page="${globalPageNum}">
+          <div class="title-block">
+            <div class="series-name">${escapeHtml(config.title.toUpperCase())}</div>
+            <div class="book-number">CHAPTER ${chNum}</div>
+            <h1>${escapeHtml(chName.toUpperCase())}</h1>
+            <div class="author">BY ${escapeHtml(config.author.toUpperCase())}</div>
+            <div class="page-info">${pages.length} PAGES</div>
+          </div>
+          <div class="page-number page-number-right">${globalPageNum}</div>
         </div>
-        <div class="page-number page-number-right">${globalPageNum}</div>
-      </div>
-    </div>`;
+      </div>`;
+  } else {
+    // For songs, just add an anchor for navigation
+    spreadsHtml += `<span id="ch${chNum}"></span>`;
+  }
 
   // Content spreads
   for (let i = 0; i < pages.length; i++) {
@@ -712,10 +756,11 @@ for (const chNum of chapterNums) {
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
     } else {
+      const isSongMode = config.contentType === 'song';
       spreadsHtml += `
     <div class="spread text-only" data-spread="${spreadIdx}" data-ch="${chNum}" data-ch-ills='${chIllsJson}'>
-      <div class="page-left decorative-panel" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}"${noteAttr}>
-        <div class="chapter-ornament"><div class="ornament-number">${chNum}</div></div>
+      <div class="page-left ${isSongMode ? 'song-verse-panel' : 'decorative-panel'}" data-page="${globalPageNum}" data-ch="${chNum}" data-local-page="${i + 1}"${noteAttr}>
+        ${isSongMode ? `<div class="verse-label">${escapeHtml(chName)}</div>` : `<div class="chapter-ornament"><div class="ornament-number">${chNum}</div></div>`}
         ${noteBtn}
         <div class="page-number page-number-left">${globalPageNum}</div>
       </div>`;
@@ -776,19 +821,37 @@ spreadsHtml += `
 
 let audioDataJson = 'null';
 
-if (karaokeManifest && config.audio?.url) {
-  const chapterOffsets = Object.values(karaokeManifest.chapters).map(ch => ({
-    chapter: ch.chapter,
-    offset: ch.offset,
-    duration: ch.duration,
-  }));
+if (config.contentType === 'song' && config.audio?.versions) {
+  // Song mode: use the favorite version (or first) as default audio
+  const favoriteVersion = config.audio.versions.find(v => v.favorite) || config.audio.versions[0];
+  if (favoriteVersion) {
+    // Song audio URLs are relative to book root, prefix with ../ since book.html is in booklets/
+    audioDataJson = JSON.stringify({
+      url: '../' + favoriteVersion.url,
+      manifest: favoriteVersion.manifest ? '../' + favoriteVersion.manifest : null,
+      totalDuration: karaokeManifest?.total_duration_s || 0,
+      chapters: karaokeManifest ? Object.values(karaokeManifest.chapters).map(ch => ({
+        chapter: ch.chapter,
+        offset: ch.offset,
+        duration: ch.duration,
+      })) : [],
+    });
+  }
+} else if (config.audio?.url) {
+  const chapterOffsets = karaokeManifest
+    ? Object.values(karaokeManifest.chapters).map(ch => ({
+        chapter: ch.chapter,
+        offset: ch.offset,
+        duration: ch.duration,
+      }))
+    : [];
 
   // Add cache buster to audio URL to force browsers to fetch the latest version
   // (old merged MP3 had Xing header bug declaring only chapter 1 duration)
   const audioCacheBuster = config.audio.url + (config.audio.url.includes('?') ? '&' : '?') + 'v=2';
   audioDataJson = JSON.stringify({
     url: audioCacheBuster,
-    totalDuration: karaokeManifest.total_duration_s,
+    totalDuration: karaokeManifest?.total_duration_s || 0,
     chapters: chapterOffsets,
   });
 }
@@ -812,7 +875,7 @@ const bookHtml = `<!DOCTYPE html>
 ${generateCSS()}
   </style>
 </head>
-<body>
+<body class="content-${config.contentType || 'book'}">
 
 ${generateToolbarHTML()}
 
@@ -886,6 +949,7 @@ ${spreadsHtml}
 var AUDIO_DATA = ${audioDataJson};
 var CHAPTER_NAV = ${chapterNavJson};
 var GITHUB_CONFIG = ${githubConfig ? JSON.stringify(githubConfig) : 'null'};
+${config.contentType === 'song' && config.audio?.versions ? `var AUDIO_VERSIONS = ${JSON.stringify(config.audio.versions.map(v => ({...v, url: '../' + v.url, manifest: v.manifest ? '../' + v.manifest : null})))};` : ''}
 var ALL_ILLUSTRATIONS = ${JSON.stringify(illustrations.filter(ill => ill.url || ill.note).map(ill => ({ chapter: ill.chapter, page: ill.page, url: ill.url, description: ill.description, note: ill.note })))};
 
 ${generateJS()}
@@ -915,14 +979,41 @@ function generateCSS() {
     @page { size: landscape; margin: 0; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --bg: white;
+      --text: #1a1a1a;
+      --page-bg: white;
+      --page-left-bg: #f8f5f0;
+      --border: #d0c8b8;
+      --caption: #8a7a6a;
+      --page-num: #999;
+      --panel-bg: #2c1810;
+      --panel-text: #f0e6d6;
+      --gold: #d4a76a;
+      --toolbar-bg: #2c1810;
+      --spread-h: 100vh;
+    }
+
+    body.dark-mode {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --page-bg: #161b22;
+      --page-left-bg: #1c2128;
+      --border: #30363d;
+      --caption: #8b949e;
+      --page-num: #484f58;
+      --panel-bg: #0d1117;
+      --panel-text: #e6edf3;
+      --toolbar-bg: #161b22;
+    }
+
     body {
       font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-      background: white;
-      color: #1a1a1a;
+      background: var(--bg);
+      color: var(--text);
     }
 
     /* ── Spreads ── */
-    :root { --spread-h: 100vh; }
     .spread {
       width: 100vw; height: var(--spread-h);
       display: flex;
@@ -935,9 +1026,9 @@ function generateCSS() {
     .page-left {
       width: 50%; height: 100%;
       display: flex; align-items: center; justify-content: center;
-      background: #f8f5f0; padding: 16px;
+      background: var(--page-left-bg); padding: 16px;
       overflow: hidden; position: relative;
-      border-right: 2px solid #d0c8b8;
+      border-right: 2px solid var(--border);
     }
     .page-left img {
       max-width: 100%; max-height: 100%;
@@ -951,9 +1042,9 @@ function generateCSS() {
       width: 50%; height: 100%;
       display: flex; flex-direction: column;
       align-items: flex-start; justify-content: center;
-      padding: 32px 5%; background: white;
+      padding: 32px 5%; background: var(--page-bg);
       position: relative; overflow: hidden;
-      border-left: 2px solid #d0c8b8;
+      border-left: 2px solid var(--border);
     }
 
     /* ── Text block ── */
@@ -974,7 +1065,7 @@ function generateCSS() {
     /* ── Illustration caption ── */
     .ill-caption {
       position: absolute; bottom: 20px; left: 16px; right: 16px;
-      font-size: 9px; color: #8a7a6a; text-align: center;
+      font-size: 9px; color: var(--caption); text-align: center;
       letter-spacing: 0.5px; line-height: 1.4;
       font-family: 'Georgia', serif; font-style: italic;
       opacity: 0.7;
@@ -982,7 +1073,7 @@ function generateCSS() {
 
     /* ── Page numbers ── */
     .page-number {
-      font-size: 11px; color: #999;
+      font-size: 11px; color: var(--page-num);
       position: absolute; bottom: 14px;
     }
     .page-number-left { left: 20px; }
@@ -990,7 +1081,7 @@ function generateCSS() {
 
     /* ── Decorative panel (text-only pages) ── */
     .decorative-panel {
-      background: #2c1810; border-right-color: #5a4030;
+      background: var(--panel-bg); border-right-color: #5a4030;
     }
     .decorative-panel .page-number { color: #5a4030; }
     .chapter-ornament { text-align: center; color: #d4a76a; }
@@ -1052,7 +1143,7 @@ function generateCSS() {
     .toolbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; gap: 8px;
-      padding: 6px 16px; background: #2c1810; color: #d4a76a;
+      padding: 6px 16px; background: var(--toolbar-bg); color: #d4a76a;
       font-family: 'Georgia', serif; font-size: 12px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.2);
       transition: opacity 0.5s ease, transform 0.5s ease;
@@ -1498,6 +1589,40 @@ function generateCSS() {
       .booklet-spread { border-bottom: 3px dashed #ccc; }
       .booklet-spread:last-child { border-bottom: none; }
     }
+    /* ── Settings Panel ── */
+    .settings-panel {
+      position: fixed; top: 44px; right: 0; width: 240px;
+      background: var(--toolbar-bg); color: var(--gold);
+      border-left: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px; z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      font-family: Georgia, serif; font-size: 13px;
+    }
+    .settings-panel.open { transform: translateX(0); }
+    .settings-header {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px; opacity: 0.7;
+    }
+    .settings-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      cursor: pointer;
+    }
+    .settings-row span { color: var(--panel-text); }
+    .settings-row input[type="checkbox"] {
+      width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer;
+    }
+
+    /* ── Dark mode image adjustments ── */
+    body.dark-mode .page-left img {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    body.dark-mode .cover-image img {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
     /* ── Ink Saver: strip dark backgrounds, use dark text on white ── */
     body.ink-saver .booklet-page-single.page-type-cover {
       background: white; color: #1a1a1a;
@@ -1545,6 +1670,48 @@ function generateCSS() {
       .ill-main { padding-left: 0 !important; }
       mark.search-match { background: transparent !important; color: inherit !important; }
     }
+
+    /* ── Song lyrics styling ── */
+    body.content-song .text-block p {
+      text-align: left;
+      text-indent: 0;
+      font-size: 20px;
+      line-height: 1.9;
+      font-style: italic;
+    }
+    body.content-song .text-block p.verse-lines {
+      white-space: pre-line;
+    }
+    body.content-song .text-block {
+      justify-content: center;
+      align-items: center;
+    }
+    body.content-song .song-verse-panel {
+      background: var(--page-left-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body.content-song .verse-label {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.6;
+      text-align: center;
+      padding: 20px;
+    }
+    body.content-song #versionSelect {
+      background: rgba(255,255,255,0.08);
+      color: #d4a76a;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-family: Georgia, serif;
+      cursor: pointer;
+    }
 `;
 }
 
@@ -1554,6 +1721,13 @@ function generateToolbarHTML() {
   return `
 <div class="toolbar">
   <span class="ch-title" id="currentChLabel">${escapeHtml(config.title.toUpperCase())}</span>
+  ${config.contentType === 'song' && config.audio?.versions ? `
+  <select id="versionSelect" title="Audio version">
+    ${config.audio.versions.map((v, i) =>
+      `<option value="${i}"${v.favorite ? ' selected' : ''}>${escapeHtml(v.name)}${v.favorite ? ' \u2605' : ''}</option>`
+    ).join('\n    ')}
+  </select>
+  ` : ''}
   <button id="playBtn">&#9654; Play</button>
   <select id="speedCtrl" title="Playback speed">
     <option value="0.5">0.5x</option>
@@ -1570,7 +1744,8 @@ function generateToolbarHTML() {
   <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
   <span class="match-count" id="matchCount"></span>
   <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:52px;font-size:12px;text-align:center;-moz-appearance:textfield;background:rgba(255,255,255,0.08);color:#d4a76a;border:none;border-radius:4px;padding:4px 6px;font-family:Georgia,serif" autocomplete="off">
-  <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
+  <button id="caseToggle" title="Toggle uppercase/lowercase" style="display:none">Aa</button>
+  <button id="settingsToggle" title="Settings">&#9881;</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
   <select id="modeSelect" title="View mode">
@@ -1583,6 +1758,17 @@ ${githubConfig ? '    <option value="edit">&#9998; Edit</option>' : ''}
   </select>
   <button id="downloadCsvBtn" class="edit-only-btn" style="display:none" title="Download illustrations.csv">&#8681; CSV</button>
   <span class="edit-indicator" id="editIndicator"></span>
+</div>
+<div class="settings-panel" id="settingsPanel">
+  <div class="settings-header">Settings</div>
+  <label class="settings-row">
+    <span>Dark mode</span>
+    <input type="checkbox" id="darkModeToggle">
+  </label>
+  <label class="settings-row">
+    <span>Uppercase text</span>
+    <input type="checkbox" id="uppercaseToggle">
+  </label>
 </div>`;
 }
 
@@ -2009,6 +2195,56 @@ if (goToPageInput) {
   });
 })();
 
+// ── Settings Panel ──
+(function() {
+  var panel = document.getElementById('settingsPanel');
+  var toggleBtn = document.getElementById('settingsToggle');
+  var darkToggle = document.getElementById('darkModeToggle');
+  var upperToggle = document.getElementById('uppercaseToggle');
+
+  // Toggle panel open/close
+  toggleBtn.addEventListener('click', function() {
+    panel.classList.toggle('open');
+    // Close chapter nav if open
+    var nav = document.getElementById('chapterNav');
+    if (nav) nav.classList.remove('open');
+  });
+
+  // Close panel when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!panel.contains(e.target) && e.target !== toggleBtn) {
+      panel.classList.remove('open');
+    }
+  });
+
+  // Dark mode
+  var savedDark = localStorage.getItem('book-dark-mode') === 'true';
+  if (savedDark) {
+    document.body.classList.add('dark-mode');
+    darkToggle.checked = true;
+  }
+  darkToggle.addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode', this.checked);
+    localStorage.setItem('book-dark-mode', this.checked);
+  });
+
+  // Uppercase (reuse existing Aa logic but connect to settings)
+  var caseBtn = document.getElementById('caseToggle');
+  upperToggle.addEventListener('change', function() {
+    if (caseBtn) caseBtn.click();
+  });
+  // Sync settings checkbox with Aa button state
+  if (caseBtn) {
+    var observer = new MutationObserver(function() {
+      var ps = document.querySelectorAll('.text-block p');
+      if (ps.length > 0) {
+        upperToggle.checked = (ps[0].style.textTransform === 'uppercase');
+      }
+    });
+    observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['style'] });
+  }
+})();
+
 // ── Fullscreen toggle ──
 (function() {
   var fsBtn = document.getElementById('fullscreenBtn');
@@ -2037,9 +2273,9 @@ if (goToPageInput) {
 
   var audio = document.createElement('audio');
   audio.preload = 'auto';
-  // If on localhost, use local audio path for instant loading (no R2 dependency)
-  // Otherwise use the R2 CDN URL
-  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+  // Songs use relative URLs directly; books use localhost fallback for dev
+  var isSong = document.body.classList.contains('content-song');
+  if (!isSong && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
     // Extract relative path: the audio file lives under the same directory tree as the book
     var localPath = '/audio/librivox/wonderland-complete.mp3';
     audio.src = localPath;
@@ -3444,6 +3680,41 @@ if (goToPageInput) {
 
     tryFetch();
   })();
+})();
+
+// ── Version switching for songs ──
+(function() {
+  var sel = document.getElementById('versionSelect');
+  if (!sel || typeof AUDIO_VERSIONS === 'undefined') return;
+  var versions = AUDIO_VERSIONS;
+  sel.addEventListener('change', function() {
+    var v = versions[this.value];
+    if (!v) return;
+    var aud = document.querySelector('audio');
+    var pos = aud ? aud.currentTime : 0;
+    var wasPlaying = aud && !aud.paused;
+    if (aud) {
+      aud.src = v.url;
+      aud.currentTime = pos;
+      if (wasPlaying) aud.play();
+    }
+    // Reload karaoke manifest if available
+    if (v.manifest) {
+      fetch(v.manifest).then(function(r) { return r.json(); }).then(function(data) {
+        if (!data || !data.segments) return;
+        // Re-map karaoke word spans with new timing
+        var words = document.querySelectorAll('.k-word[data-start]');
+        var segments = data.segments;
+        for (var i = 0; i < Math.min(words.length, segments.length); i++) {
+          words[i].dataset.start = segments[i].start;
+          words[i].dataset.end = segments[i].end;
+        }
+        console.log('Karaoke manifest reloaded for version: ' + v.name);
+      }).catch(function(err) {
+        console.warn('Failed to load karaoke manifest for version:', err);
+      });
+    }
+  });
 })();
 `;
 }
