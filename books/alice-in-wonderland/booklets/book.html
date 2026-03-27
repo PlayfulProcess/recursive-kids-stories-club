@@ -9,14 +9,41 @@
     @page { size: landscape; margin: 0; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --bg: white;
+      --text: #1a1a1a;
+      --page-bg: white;
+      --page-left-bg: #f8f5f0;
+      --border: #d0c8b8;
+      --caption: #8a7a6a;
+      --page-num: #999;
+      --panel-bg: #2c1810;
+      --panel-text: #f0e6d6;
+      --gold: #d4a76a;
+      --toolbar-bg: #2c1810;
+      --spread-h: 100vh;
+    }
+
+    body.dark-mode {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --page-bg: #161b22;
+      --page-left-bg: #1c2128;
+      --border: #30363d;
+      --caption: #8b949e;
+      --page-num: #484f58;
+      --panel-bg: #0d1117;
+      --panel-text: #e6edf3;
+      --toolbar-bg: #161b22;
+    }
+
     body {
       font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-      background: white;
-      color: #1a1a1a;
+      background: var(--bg);
+      color: var(--text);
     }
 
     /* ── Spreads ── */
-    :root { --spread-h: 100vh; }
     .spread {
       width: 100vw; height: var(--spread-h);
       display: flex;
@@ -29,9 +56,9 @@
     .page-left {
       width: 50%; height: 100%;
       display: flex; align-items: center; justify-content: center;
-      background: #f8f5f0; padding: 16px;
+      background: var(--page-left-bg); padding: 16px;
       overflow: hidden; position: relative;
-      border-right: 2px solid #d0c8b8;
+      border-right: 2px solid var(--border);
     }
     .page-left img {
       max-width: 100%; max-height: 100%;
@@ -45,9 +72,9 @@
       width: 50%; height: 100%;
       display: flex; flex-direction: column;
       align-items: flex-start; justify-content: center;
-      padding: 32px 5%; background: white;
+      padding: 32px 5%; background: var(--page-bg);
       position: relative; overflow: hidden;
-      border-left: 2px solid #d0c8b8;
+      border-left: 2px solid var(--border);
     }
 
     /* ── Text block ── */
@@ -68,7 +95,7 @@
     /* ── Illustration caption ── */
     .ill-caption {
       position: absolute; bottom: 20px; left: 16px; right: 16px;
-      font-size: 9px; color: #8a7a6a; text-align: center;
+      font-size: 9px; color: var(--caption); text-align: center;
       letter-spacing: 0.5px; line-height: 1.4;
       font-family: 'Georgia', serif; font-style: italic;
       opacity: 0.7;
@@ -76,7 +103,7 @@
 
     /* ── Page numbers ── */
     .page-number {
-      font-size: 11px; color: #999;
+      font-size: 11px; color: var(--page-num);
       position: absolute; bottom: 14px;
     }
     .page-number-left { left: 20px; }
@@ -84,7 +111,7 @@
 
     /* ── Decorative panel (text-only pages) ── */
     .decorative-panel {
-      background: #2c1810; border-right-color: #5a4030;
+      background: var(--panel-bg); border-right-color: #5a4030;
     }
     .decorative-panel .page-number { color: #5a4030; }
     .chapter-ornament { text-align: center; color: #d4a76a; }
@@ -146,7 +173,7 @@
     .toolbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; gap: 8px;
-      padding: 6px 16px; background: #2c1810; color: #d4a76a;
+      padding: 6px 16px; background: var(--toolbar-bg); color: #d4a76a;
       font-family: 'Georgia', serif; font-size: 12px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.2);
       transition: opacity 0.5s ease, transform 0.5s ease;
@@ -592,6 +619,40 @@
       .booklet-spread { border-bottom: 3px dashed #ccc; }
       .booklet-spread:last-child { border-bottom: none; }
     }
+    /* ── Settings Panel ── */
+    .settings-panel {
+      position: fixed; top: 44px; right: 0; width: 240px;
+      background: var(--toolbar-bg); color: var(--gold);
+      border-left: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px; z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      font-family: Georgia, serif; font-size: 13px;
+    }
+    .settings-panel.open { transform: translateX(0); }
+    .settings-header {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px; opacity: 0.7;
+    }
+    .settings-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      cursor: pointer;
+    }
+    .settings-row span { color: var(--panel-text); }
+    .settings-row input[type="checkbox"] {
+      width: 18px; height: 18px; accent-color: var(--gold); cursor: pointer;
+    }
+
+    /* ── Dark mode image adjustments ── */
+    body.dark-mode .page-left img {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    body.dark-mode .cover-image img {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
     /* ── Ink Saver: strip dark backgrounds, use dark text on white ── */
     body.ink-saver .booklet-page-single.page-type-cover {
       background: white; color: #1a1a1a;
@@ -640,13 +701,56 @@
       mark.search-match { background: transparent !important; color: inherit !important; }
     }
 
+    /* ── Song lyrics styling ── */
+    body.content-song .text-block p {
+      text-align: left;
+      text-indent: 0;
+      font-size: 20px;
+      line-height: 1.9;
+      font-style: italic;
+    }
+    body.content-song .text-block p.verse-lines {
+      white-space: pre-line;
+    }
+    body.content-song .text-block {
+      justify-content: center;
+      align-items: center;
+    }
+    body.content-song .song-verse-panel {
+      background: var(--page-left-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    body.content-song .verse-label {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      opacity: 0.6;
+      text-align: center;
+      padding: 20px;
+    }
+    body.content-song #versionSelect {
+      background: rgba(255,255,255,0.08);
+      color: #d4a76a;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-family: Georgia, serif;
+      cursor: pointer;
+    }
+
   </style>
 </head>
-<body>
+<body class="content-book">
 
 
 <div class="toolbar">
   <span class="ch-title" id="currentChLabel">ALICE'S ADVENTURES IN WONDERLAND</span>
+  
   <button id="playBtn">&#9654; Play</button>
   <select id="speedCtrl" title="Playback speed">
     <option value="0.5">0.5x</option>
@@ -663,7 +767,8 @@
   <input type="text" id="searchInput" placeholder="Search..." autocomplete="off">
   <span class="match-count" id="matchCount"></span>
   <input type="number" id="goToPageInput" placeholder="Pg" min="1" style="width:52px;font-size:12px;text-align:center;-moz-appearance:textfield;background:rgba(255,255,255,0.08);color:#d4a76a;border:none;border-radius:4px;padding:4px 6px;font-family:Georgia,serif" autocomplete="off">
-  <button id="caseToggle" title="Toggle uppercase/lowercase">Aa</button>
+  <button id="caseToggle" title="Toggle uppercase/lowercase" style="display:none">Aa</button>
+  <button id="settingsToggle" title="Settings">&#9881;</button>
   <button id="fullscreenBtn">&#x26F6; Fullscreen</button>
   <button id="navToggle" title="Chapter list">&#9776; Chapters</button>
   <select id="modeSelect" title="View mode">
@@ -676,6 +781,17 @@
   </select>
   <button id="downloadCsvBtn" class="edit-only-btn" style="display:none" title="Download illustrations.csv">&#8681; CSV</button>
   <span class="edit-indicator" id="editIndicator"></span>
+</div>
+<div class="settings-panel" id="settingsPanel">
+  <div class="settings-header">Settings</div>
+  <label class="settings-row">
+    <span>Dark mode</span>
+    <input type="checkbox" id="darkModeToggle">
+  </label>
+  <label class="settings-row">
+    <span>Uppercase text</span>
+    <input type="checkbox" id="uppercaseToggle">
+  </label>
 </div>
 
 <div class="chapter-nav" id="chapterNav">
@@ -840,23 +956,23 @@
         <div class="page-number page-number-right">8</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch1-cover" id="ch1">
-      <div class="page-left cover-image" data-page="9" data-ch="1" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/gwynedd-hudson-1922.jpg" alt="Chapter 1 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">9</div>
-      </div>
-      <div class="page-right cover-title" data-page="10">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 1</div>
-          <h1>DOWN THE RABBIT-HOLE</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">13 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch1-cover" id="ch1">
+        <div class="page-left cover-image" data-page="9" data-ch="1" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/gwynedd-hudson-1922.jpg" alt="Chapter 1 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">9</div>
         </div>
-        <div class="page-number page-number-right">10</div>
+        <div class="page-right cover-title" data-page="10">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 1</div>
+            <h1>DOWN THE RABBIT-HOLE</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">13 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">10</div>
+        </div>
       </div>
-    </div>
     <div class="spread" data-spread="ch1-1" data-ch="1" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/gwynedd-hudson-1922.jpg","description":"chapter cover"},{"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-01.jpg","description":"Lewis Carroll manuscript — Chapter I title page — Alice bored by the river"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — Suddenly a white rabbit ran by"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-falling-down/william-h-walker-1907.jpg","description":"William H. Walker — Alice falling"},{"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-falling-down/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Alice took marmalade as she fell"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-02.jpg","description":"Lewis Carroll manuscript — Alice sitting with sister, beginning to get tired"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-01-down-the-rabbit-hole/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Alice & Dinah"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-03.jpg","description":"Lewis Carroll manuscript — White Rabbit running by with pocket watch"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/dall-e-ch1-lovely-garden-v4.png","description":"DALL-E 3 (Rackham style) — The loveliest garden, seen through the tiny door"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-curiouser-and-curiouser/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — How Alice grew tall"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-04.jpg","description":"Lewis Carroll manuscript — Alice falling down the rabbit-hole"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-hall-of-doors/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Glass table"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-liddell-portrait.jpg","description":"Lewis Carroll (photograph) — Alice Liddell portrait"},{"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/arthur-rackham-1907.jpg","description":"Arthur Rackham — White Rabbit"},{"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-drink-me/lewis-carroll-1864-title-page.webp","description":"Lewis Carroll — Alice&#39;s Adventures Under Ground title page"},{"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-02-the-pool-of-tears/lewis-carroll-1864-chapter-I.webp","description":"Lewis Carroll — Carroll manuscript Chapter I opening"},{"page":16,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-eat-me/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Curiouser and curiouser - Alice growing tall"},{"page":17,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-curiouser-and-curiouser/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — How Alice grew tall"},{"page":18,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-drink-me/lewis-carroll-1864-title-page.webp","description":"Lewis Carroll — Alice&#39;s Adventures Under Ground title page"},{"page":19,"url":"","description":"text-only"}]'>
       <div class="page-left" data-page="11" data-ch="1" data-local-page="1">
         <div class="ill-main"><img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-01.jpg" alt="Lewis Carroll manuscript — Chapter I title page — Alice bored by the river" loading="lazy"><button class="page-ill-delete" title="Remove illustration">×</button></div>
@@ -1051,23 +1167,23 @@
         <div class="page-number page-number-right">36</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch2-cover" id="ch2">
-      <div class="page-left cover-image" data-page="37" data-ch="2" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-09.jpg" alt="Chapter 2 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">37</div>
-      </div>
-      <div class="page-right cover-title" data-page="38">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 2</div>
-          <h1>THE POOL OF TEARS</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">13 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch2-cover" id="ch2">
+        <div class="page-left cover-image" data-page="37" data-ch="2" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-09.jpg" alt="Chapter 2 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">37</div>
         </div>
-        <div class="page-number page-number-right">38</div>
+        <div class="page-right cover-title" data-page="38">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 2</div>
+            <h1>THE POOL OF TEARS</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">13 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">38</div>
+        </div>
       </div>
-    </div>
     <div class="spread" data-spread="ch2-1" data-ch="2" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-09.jpg","description":"chapter cover"},{"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — She grew and grew"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/dall-e-ch2-nine-feet-tall-v4.png","description":"DALL-E 3 (Rackham/Tenniel style) — Nine feet tall, filling the room"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/arthur-rackham-1907.jpg","description":"Arthur Rackham — White Rabbit"},{"page":4,"url":"","description":"text-only"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/arthur-rackham-1907.jpg","description":"Arthur Rackham — White Rabbit"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-the-pool-of-tears/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Alice & Mouse in Pool of Tears"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-12.jpg","description":"Lewis Carroll manuscript — Alice and the Mouse swimming in the pool of tears"},{"page":8,"url":"","description":"text-only"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-07.jpg","description":"Lewis Carroll manuscript — Alice drinking from the DRINK ME bottle"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-the-pool-of-tears/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — They all swam to the shore"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-03-a-caucus-race-and-a-long-tale/lewis-carroll-1864-chapter-II.webp","description":"Lewis Carroll — Carroll manuscript Chapter II - Caucus Race party"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-meeting-the-mouse/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice swimming with the Mouse"},{"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-04-the-rabbit-sends-in-a-little-bill/lewis-carroll-1864-chapter-III.webp","description":"Lewis Carroll — Carroll manuscript Chapter III - Alice and the puppy"}]'>
       <div class="page-left" data-page="39" data-ch="2" data-local-page="1">
         <div class="ill-main"><img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/john-tenniel-colorized-e-g-thomson-1890.jpg" alt="John Tenniel (colorized E.G. Thomson) — She grew and grew" loading="lazy"><button class="page-ill-delete" title="Remove illustration">×</button></div>
@@ -1260,23 +1376,23 @@
         <div class="page-number page-number-right">64</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch3-cover" id="ch3">
-      <div class="page-left cover-image" data-page="65" data-ch="3" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/emily-overnell-1912.jpg" alt="Chapter 3 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">65</div>
-      </div>
-      <div class="page-right cover-title" data-page="66">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 3</div>
-          <h1>A CAUCUS-RACE AND A LONG TALE</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">10 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch3-cover" id="ch3">
+        <div class="page-left cover-image" data-page="65" data-ch="3" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/emily-overnell-1912.jpg" alt="Chapter 3 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">65</div>
         </div>
-        <div class="page-number page-number-right">66</div>
+        <div class="page-right cover-title" data-page="66">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 3</div>
+            <h1>A CAUCUS-RACE AND A LONG TALE</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">10 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">66</div>
+        </div>
       </div>
-    </div>
     <div class="spread" data-spread="ch3-1" data-ch="3" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/emily-overnell-1912.jpg","description":"chapter cover"},{"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Beg your acceptance"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-16.jpg","description":"Lewis Carroll manuscript — The Dodo presenting Alice with her own thimble as prize"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Hand it over said Dodo"},{"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/william-h-walker-1907.jpg","description":"William H. Walker — Dodo"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Dodo presents Alice with her fingernail"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-18.jpg","description":"Lewis Carroll manuscript — Alice distributing comfits to the animals"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-driest-thing/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Dodo presents thimble to Alice"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/arthur-rackham-1907.jpg","description":"Arthur Rackham — Who has won"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-14.jpg","description":"Lewis Carroll manuscript — The Mouse tells its history — the driest thing"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-feigned-sleep-1860.jpg","description":"Lewis Carroll (photograph) — Alice in feigned sleep, 1860"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-a-long-sad-tale/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — The Mouse&#39;s Tale in tail shape"}]'>
       <div class="page-left" data-page="67" data-ch="3" data-local-page="1">
         <div class="ill-main"><img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/bessie-pease-gutmann-1933.jpg" alt="Bessie Pease Gutmann — Beg your acceptance" loading="lazy"><button class="page-ill-delete" title="Remove illustration">×</button></div>
@@ -1451,23 +1567,23 @@
         <div class="page-number page-number-right">86</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch4-cover" id="ch4">
-      <div class="page-left cover-image" data-page="87" data-ch="4" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/harry-rountree-1928.jpg" alt="Chapter 4 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">87</div>
-      </div>
-      <div class="page-right cover-title" data-page="88">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 4</div>
-          <h1>THE RABBIT SENDS IN A LITTLE BILL</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">16 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch4-cover" id="ch4">
+        <div class="page-left cover-image" data-page="87" data-ch="4" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/harry-rountree-1928.jpg" alt="Chapter 4 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">87</div>
         </div>
-        <div class="page-number page-number-right">88</div>
+        <div class="page-right cover-title" data-page="88">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 4</div>
+            <h1>THE RABBIT SENDS IN A LITTLE BILL</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">16 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">88</div>
+        </div>
       </div>
-    </div>
     <div class="spread" data-spread="ch4-1" data-ch="4" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/harry-rountree-1928.jpg","description":"chapter cover"},{"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Hope I shan&#39;t grow more"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — White rabbit falls"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — She grew and grew"},{"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-mistaken-for-mary-ann/harry-rountree-1928.jpg","description":"Harry Rountree — Why, Mary Ann"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-mistaken-for-mary-ann/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Rabbit started violently"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Poor little lizard"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Bill the Lizard"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-19.jpg","description":"Lewis Carroll manuscript — Bill the Lizard being kicked up the chimney"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-the-great-puppy/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Dash the Puppy"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-driest-thing/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice alone on the shore after the race"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — White rabbit falls"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/harry-rountree-1928.jpg","description":"Harry Rountree — Poor Lizard Bill"},{"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-the-white-rabbit-returns/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — White Rabbit ordering Alice about"},{"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Bill the Lizard"},{"page":15,"url":"","description":"text-only"},{"page":16,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-ina-harry-edith-1860.jpg","description":"Lewis Carroll (photograph) — Alice, Ina, Harry and Edith, 1860"},{"page":17,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-the-great-puppy/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Dash the Puppy"},{"page":18,"url":"","description":"text-only"},{"page":19,"url":"","description":"text-only"}]'>
       <div class="page-left" data-page="89" data-ch="4" data-local-page="1">
         <div class="ill-main"><img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/bessie-pease-gutmann-1933.jpg" alt="Bessie Pease Gutmann — Hope I shan't grow more" loading="lazy"><button class="page-ill-delete" title="Remove illustration">×</button></div>
@@ -1717,23 +1833,23 @@
         <div class="page-number page-number-right">120</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch5-cover" id="ch5">
-      <div class="page-left cover-image" data-page="121" data-ch="5" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/gwynedd-hudson-1922.jpg" alt="Chapter 5 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">121</div>
-      </div>
-      <div class="page-right cover-title" data-page="122">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 5</div>
-          <h1>ADVICE FROM A CATERPILLAR</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">14 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch5-cover" id="ch5">
+        <div class="page-left cover-image" data-page="121" data-ch="5" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/gwynedd-hudson-1922.jpg" alt="Chapter 5 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">121</div>
         </div>
-        <div class="page-number page-number-right">122</div>
+        <div class="page-right cover-title" data-page="122">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 5</div>
+            <h1>ADVICE FROM A CATERPILLAR</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">14 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">122</div>
+        </div>
       </div>
-    </div>
     <div class="spread" data-spread="ch5-1" data-ch="5" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/gwynedd-hudson-1922.jpg","description":"chapter cover"},{"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — Caterpillar"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/william-h-walker-1907.jpg","description":"William H. Walker — Caterpillar"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Advice from a caterpillar"},{"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/arthur-rackham-1907.jpg","description":"Arthur Rackham — Advice from a Caterpillar"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-father-william/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Caterpillar"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-23.jpg","description":"Lewis Carroll manuscript — Chapter II title page — Advice from a Caterpillar"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-05-advice-from-a-caterpillar/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Caterpillar"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-24.jpg","description":"Lewis Carroll manuscript — The Pigeon calling Alice a serpent in the tree"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-pigeon-serpent-ch5.png","description":"GPT-4 (watercolor) — The Pigeon accusing Alice of being a serpent"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-the-mushrooms-magic/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice pondering the mushroom&#39;s effects"},{"page":11,"url":"","description":"text-only"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-liddell-1859.jpg","description":"Lewis Carroll (photograph) — Alice Liddell, 1859"},{"page":13,"url":"","description":"text-only"},{"page":14,"url":"","description":"text-only"},{"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-serpent/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice mistaken for a serpent by pigeon"}]'>
       <div class="page-left" data-page="123" data-ch="5" data-local-page="1">
         <div class="ill-main"><img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/alice-b-woodward-1913.jpg" alt="Alice B. Woodward — Caterpillar" loading="lazy"><button class="page-ill-delete" title="Remove illustration">×</button></div>
@@ -1983,23 +2099,23 @@
         <div class="page-number page-number-right">150</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch6-cover" id="ch6">
-      <div class="page-left cover-image" data-page="151" data-ch="6" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-06-pig-and-pepper/lewis-carroll-1864-chapter-IV.webp" alt="Chapter 6 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">151</div>
-      </div>
-      <div class="page-right cover-title" data-page="152">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 6</div>
-          <h1>PIG AND PEPPER</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">16 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch6-cover" id="ch6">
+        <div class="page-left cover-image" data-page="151" data-ch="6" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-06-pig-and-pepper/lewis-carroll-1864-chapter-IV.webp" alt="Chapter 6 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">151</div>
         </div>
-        <div class="page-number page-number-right">152</div>
+        <div class="page-right cover-title" data-page="152">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 6</div>
+            <h1>PIG AND PEPPER</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">16 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">152</div>
+        </div>
       </div>
-    </div>
     <div class="spread" data-spread="ch6-1" data-ch="6" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-06-pig-and-pepper/lewis-carroll-1864-chapter-IV.webp","description":"chapter cover"},{"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Duchess & the Pig-baby"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-fish-footman/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Fish-Footman and Frog-Footman at the door"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-fish-footman/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — You may nurse the baby, said Duchess"},{"page":4,"url":"","description":"text-only"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/arthur-rackham-1907.jpg","description":"Arthur Rackham — Saucepan flew by"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — Shan&#39;t said the Cook"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-kitchen.png","description":"GPT-4 (watercolor) — The Cheshire Cat materializing in the Duchess&#39;s kitchen"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — The Duchess&#39;s kitchen"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/arthur-rackham-1907.jpg","description":"Arthur Rackham — Pig baby"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Duchess & the Baby"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — You may nurse the baby said Duchess"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-beggar-girl-1858.jpg","description":"Lewis Carroll (photograph) — Alice as a beggar-girl, 1858"},{"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-cheshire-cat/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — The Cheshire Cat"},{"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-tree.png","description":"GPT-4 (watercolor) — Alice meets the Cheshire Cat in the tree"},{"page":15,"url":"","description":"text-only"},{"page":16,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-cheshire-cat/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The Cheshire Cat in tree"}]'>
       <div class="page-left" data-page="153" data-ch="6" data-local-page="1">
         <div class="ill-main"><img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/john-tenniel-colorized-e-g-thomson-1890.jpg" alt="John Tenniel (colorized E.G. Thomson) — Duchess &amp; the Pig-baby" loading="lazy"><button class="page-ill-delete" title="Remove illustration">×</button></div>
@@ -2274,23 +2390,23 @@
         <div class="page-number page-number-right">184</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch7-cover" id="ch7">
-      <div class="page-left cover-image" data-page="185" data-ch="7" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/gwynedd-hudson-1922.jpg" alt="Chapter 7 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">185</div>
-      </div>
-      <div class="page-right cover-title" data-page="186">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 7</div>
-          <h1>A MAD TEA-PARTY</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">14 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch7-cover" id="ch7">
+        <div class="page-left cover-image" data-page="185" data-ch="7" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/gwynedd-hudson-1922.jpg" alt="Chapter 7 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">185</div>
         </div>
-        <div class="page-number page-number-right">186</div>
+        <div class="page-right cover-title" data-page="186">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 7</div>
+            <h1>A MAD TEA-PARTY</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">14 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">186</div>
+        </div>
       </div>
-    </div>
     <div class="spread" data-spread="ch7-1" data-ch="7" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/gwynedd-hudson-1922.jpg","description":"chapter cover"},{"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/arthur-rackham-1907.jpg","description":"Arthur Rackham — Mad Hatter&#39;s tea party"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — No room they cried"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — March Hare&#39;s house"},{"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Mad Hatter&#39;s Tea Party"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-the-hatters-watch/lewis-carroll-1864-duchess-kitchen.webp","description":"Lewis Carroll — The Duchess&#39;s chaotic kitchen"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/william-h-walker-1907.jpg","description":"William H. Walker — Hatter&#39;s Tea Party"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/john-tenniel-1865.jpg","description":"John Tenniel — Mad Hatter&#39;s Tea Party"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-time-is-frozen/lewis-carroll-1864-animals-concert.webp","description":"Lewis Carroll — Animals gathered for a concert"},{"page":9,"url":"","description":"text-only"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-bored-by-the-river/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice with sister by the river"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-the-dormouses-story/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Dormouse put in teapot"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/lorina-edith-alice-1859.jpg","description":"Lewis Carroll (photograph) — Lorina, Edith and Alice, 1859"},{"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-the-dormouses-story/harry-rountree-1928.jpg","description":"Harry Rountree — Dormouse is asleep"},{"page":14,"url":"","description":"text-only"},{"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-alice-leaves-the-tea-party/lewis-carroll-1864-cheshire-cat-tree.webp","description":"Lewis Carroll — Alice under a tree with the Cheshire Cat"},{"page":16,"url":"","description":"text-only"}]'>
       <div class="page-left" data-page="187" data-ch="7" data-local-page="1">
         <div class="ill-main"><img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/arthur-rackham-1907.jpg" alt="Arthur Rackham — Mad Hatter's tea party" loading="lazy"><button class="page-ill-delete" title="Remove illustration">×</button></div>
@@ -2565,23 +2681,23 @@
         <div class="page-number page-number-right">214</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch8-cover" id="ch8">
-      <div class="page-left cover-image" data-page="215" data-ch="8" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-08-the-queens-croquet-ground/alice-b-woodward-1913.jpg" alt="Chapter 8 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">215</div>
-      </div>
-      <div class="page-right cover-title" data-page="216">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 8</div>
-          <h1>THE QUEEN'S CROQUET-GROUND</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">16 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch8-cover" id="ch8">
+        <div class="page-left cover-image" data-page="215" data-ch="8" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-08-the-queens-croquet-ground/alice-b-woodward-1913.jpg" alt="Chapter 8 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">215</div>
         </div>
-        <div class="page-number page-number-right">216</div>
+        <div class="page-right cover-title" data-page="216">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 8</div>
+            <h1>THE QUEEN'S CROQUET-GROUND</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">16 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">216</div>
+        </div>
       </div>
-    </div>
     <div class="spread" data-spread="ch8-1" data-ch="8" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-08-the-queens-croquet-ground/alice-b-woodward-1913.jpg","description":"chapter cover"},{"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Gardeners painting roses red"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/william-h-walker-1907.jpg","description":"William H. Walker — Playing cards"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-royal-procession/arthur-rackham-1907.jpg","description":"Arthur Rackham — Queen of Hearts"},{"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Shan&#39;t be beheaded"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-royal-procession/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — King & Queen of Hearts"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-royal-procession/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Off with her head"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-royal-procession/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The Queen has come"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Live cards with red rose-tree"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-croquet-with-flamingos/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Invitation to play croquet"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-08-the-queens-croquet-ground/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — King & Queen of Hearts"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-croquet-with-flamingos/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Alice, the Duchess & the Flamingo"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-queen-of-hearts-card.png","description":"GPT-4 — Queen of Hearts playing card with flamingo"},{"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — King Queen Executioner"},{"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-croquet.png","description":"GPT-4 (watercolor) — The Cheshire Cat&#39;s grin above the croquet ground"},{"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — Executioner came back with Duchess"},{"page":16,"url":"","description":"text-only"},{"page":17,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Dispute over Cheshire cat&#39;s head"}]'>
       <div class="page-left" data-page="217" data-ch="8" data-local-page="1">
         <div class="ill-main"><img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/gwynedd-hudson-1922.jpg" alt="Gwynedd Hudson — Gardeners painting roses red" loading="lazy"><button class="page-ill-delete" title="Remove illustration">×</button></div>
@@ -2845,23 +2961,23 @@
         <div class="page-number page-number-right">248</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch9-cover" id="ch9">
-      <div class="page-left cover-image" data-page="249" data-ch="9" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-09-the-mock-turtles-story/john-tenniel-colorized-e-g-thomson-1890.jpg" alt="Chapter 9 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">249</div>
-      </div>
-      <div class="page-right cover-title" data-page="250">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 9</div>
-          <h1>THE MOCK TURTLE'S STORY</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">14 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch9-cover" id="ch9">
+        <div class="page-left cover-image" data-page="249" data-ch="9" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-09-the-mock-turtles-story/john-tenniel-colorized-e-g-thomson-1890.jpg" alt="Chapter 9 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">249</div>
         </div>
-        <div class="page-number page-number-right">250</div>
+        <div class="page-right cover-title" data-page="250">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 9</div>
+            <h1>THE MOCK TURTLE'S STORY</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">14 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">250</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch9-1" data-ch="9" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-09-the-mock-turtles-story/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"chapter cover"},{"page":1,"url":"","description":"text-only"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-duchess-and-her-morals/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Alice & the Duchess"},{"page":3,"url":"","description":"text-only"},{"page":4,"url":"","description":"text-only"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-duchess-and-her-morals/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Duchess"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/edith-ina-alice-july-1860.jpg","description":"Lewis Carroll (photograph) — Edith, Ina and Alice, July 1860"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-meeting-the-gryphon/arthur-rackham-1907.jpg","description":"Arthur Rackham — Gryphon & Mock Turtle"},{"page":8,"url":"","description":"text-only"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-meeting-the-gryphon/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — The griffin sleeps deeply"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-meeting-the-gryphon/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Gryphon"},{"page":11,"url":"","description":"text-only"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-mock-turtles-school/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Alice & Mock-turtle"},{"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-mock-turtles-school/william-h-walker-1907.jpg","description":"William H. Walker — Turtle & Gryphon"},{"page":14,"url":"","description":"text-only"},{"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-mock-turtles-school/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — The Mock Turtle"}]'>
       <div class="page-left decorative-panel" data-page="251" data-ch="9" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">9</div></div>
@@ -3105,23 +3221,23 @@
         <div class="page-number page-number-right">278</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch10-cover" id="ch10">
-      <div class="page-left cover-image" data-page="279" data-ch="10" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-10-the-lobster-quadrille/lewis-carroll-1864-mock-turtle.webp" alt="Chapter 10 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">279</div>
-      </div>
-      <div class="page-right cover-title" data-page="280">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 10</div>
-          <h1>THE LOBSTER QUADRILLE</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">13 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch10-cover" id="ch10">
+        <div class="page-left cover-image" data-page="279" data-ch="10" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-10-the-lobster-quadrille/lewis-carroll-1864-mock-turtle.webp" alt="Chapter 10 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">279</div>
         </div>
-        <div class="page-number page-number-right">280</div>
+        <div class="page-right cover-title" data-page="280">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 10</div>
+            <h1>THE LOBSTER QUADRILLE</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">13 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">280</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch10-1" data-ch="10" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-10-the-lobster-quadrille/lewis-carroll-1864-mock-turtle.webp","description":"chapter cover"},{"page":1,"url":"","description":"text-only"},{"page":2,"url":"","description":"text-only"},{"page":3,"url":"","description":"text-only"},{"page":4,"url":"","description":"text-only"},{"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch10-the-lobster-quadrille/harry-rountree-1928.jpg","description":"Harry Rountree — Lobster Quadrille"},{"page":6,"url":"","description":"text-only"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-grown-up.jpg","description":"Photograph — A grown up Alice of Wonderland"},{"page":8,"url":"","description":"text-only"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The White Rabbit"},{"page":10,"url":"","description":"text-only"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch10-the-lobster-and-the-owl/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — The Lobster dancing"},{"page":12,"url":"","description":"text-only"},{"page":13,"url":"","description":"text-only"},{"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch10-beautiful-soup/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice, Mock Turtle and Gryphon singing"}]'>
       <div class="page-left decorative-panel" data-page="281" data-ch="10" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">10</div></div>
@@ -3356,23 +3472,23 @@
         <div class="page-number page-number-right">306</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch11-cover" id="ch11">
-      <div class="page-left cover-image" data-page="307" data-ch="11" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-11-who-stole-the-tarts/lewis-carroll-1864-royal-court.webp" alt="Chapter 11 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">307</div>
-      </div>
-      <div class="page-right cover-title" data-page="308">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 11</div>
-          <h1>WHO STOLE THE TARTS?</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">11 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch11-cover" id="ch11">
+        <div class="page-left cover-image" data-page="307" data-ch="11" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-11-who-stole-the-tarts/lewis-carroll-1864-royal-court.webp" alt="Chapter 11 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">307</div>
         </div>
-        <div class="page-number page-number-right">308</div>
+        <div class="page-right cover-title" data-page="308">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 11</div>
+            <h1>WHO STOLE THE TARTS?</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">11 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">308</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch11-1" data-ch="11" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-11-who-stole-the-tarts/lewis-carroll-1864-royal-court.webp","description":"chapter cover"},{"page":1,"url":"","description":"text-only"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch11-the-court-assembles/arthur-rackham-1907.jpg","description":"Arthur Rackham — Knave of Spades"},{"page":3,"url":"","description":"text-only"},{"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch11-the-court-assembles/william-h-walker-1907.jpg","description":"William H. Walker — In court"},{"page":5,"url":"","description":"text-only"},{"page":6,"url":"","description":"text-only"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-with-julia-margaret-cameron-1872.jpg","description":"Julia Margaret Cameron (photograph) — Alice with Cameron, 1872"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch11-the-hatters-evidence/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — The trial of the Knave of Hearts"},{"page":9,"url":"","description":"text-only"},{"page":10,"url":"","description":"text-only"},{"page":11,"url":"","description":"text-only"},{"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch11-the-cooks-evidence/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — The cook refuses to testify"}]'>
       <div class="page-left decorative-panel" data-page="309" data-ch="11" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">11</div></div>
@@ -3567,23 +3683,23 @@
         <div class="page-number page-number-right">330</div>
       </div>
     </div>
-    <div class="spread cover-spread chapter-divider" data-spread="ch12-cover" id="ch12">
-      <div class="page-left cover-image" data-page="331" data-ch="12" data-local-page="0">
-        <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-12-alices-evidence/lewis-carroll-1864-croquet-chaos.webp" alt="Chapter 12 cover" loading="lazy">
-        <button class="page-ill-delete" title="Remove illustration">×</button>
-        <div class="page-number page-number-left">331</div>
-      </div>
-      <div class="page-right cover-title" data-page="332">
-        <div class="title-block">
-          <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
-          <div class="book-number">CHAPTER 12</div>
-          <h1>ALICE'S EVIDENCE</h1>
-          <div class="author">BY LEWIS CARROLL</div>
-          <div class="page-info">14 PAGES</div>
+      <div class="spread cover-spread chapter-divider" data-spread="ch12-cover" id="ch12">
+        <div class="page-left cover-image" data-page="331" data-ch="12" data-local-page="0">
+          <img src="https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-12-alices-evidence/lewis-carroll-1864-croquet-chaos.webp" alt="Chapter 12 cover" loading="lazy">
+          <button class="page-ill-delete" title="Remove illustration">×</button>
+          <div class="page-number page-number-left">331</div>
         </div>
-        <div class="page-number page-number-right">332</div>
+        <div class="page-right cover-title" data-page="332">
+          <div class="title-block">
+            <div class="series-name">ALICE'S ADVENTURES IN WONDERLAND</div>
+            <div class="book-number">CHAPTER 12</div>
+            <h1>ALICE'S EVIDENCE</h1>
+            <div class="author">BY LEWIS CARROLL</div>
+            <div class="page-info">14 PAGES</div>
+          </div>
+          <div class="page-number page-number-right">332</div>
+        </div>
       </div>
-    </div>
     <div class="spread text-only" data-spread="ch12-1" data-ch="12" data-ch-ills='[{"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-12-alices-evidence/lewis-carroll-1864-croquet-chaos.webp","description":"chapter cover"},{"page":1,"url":"","description":"text-only"},{"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-alice-tips-the-jury/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Tipped over jury box"},{"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-alice-tips-the-jury/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Alice & the Jurors"},{"page":4,"url":"","description":"text-only"},{"page":5,"url":"","description":"text-only"},{"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-the-mysterious-letter/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice growing in court, Off with her head"},{"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-hargreaves-1932-age-80.jpg","description":"Photograph — Alice Hargreaves in 1932, age 80"},{"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-sentence-first/arthur-rackham-1907.jpg","description":"Arthur Rackham — Pack rose in the air"},{"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-sentence-first/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Cards rose into the air"},{"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-sentence-first/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The Shower of Cards"},{"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-age-20-1872.jpg","description":"Lewis Carroll (photograph) — A 20-year-old Alice, 1872"},{"page":12,"url":"","description":"text-only"},{"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-waking-up/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — The end - Alice waking up"},{"page":14,"url":"","description":"text-only"},{"page":15,"url":"","description":"text-only"}]'>
       <div class="page-left decorative-panel" data-page="333" data-ch="12" data-local-page="1">
         <div class="chapter-ornament"><div class="ornament-number">12</div></div>
@@ -3858,6 +3974,7 @@
 var AUDIO_DATA = {"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/audio/librivox/wonderland-complete.mp3?v=2","totalDuration":9758.320068359375,"chapters":[{"chapter":1,"offset":0,"duration":786.9600219726562},{"chapter":2,"offset":786.9600219726562,"duration":755.010009765625},{"chapter":3,"offset":1541.9700317382812,"duration":619.75},{"chapter":4,"offset":2161.7200317382812,"duration":873.7100219726562},{"chapter":5,"offset":3035.4300537109375,"duration":787.8200073242188},{"chapter":6,"offset":3823.2500610351562,"duration":949.6199951171875},{"chapter":7,"offset":4772.870056152344,"duration":851.6900024414062},{"chapter":8,"offset":5624.56005859375,"duration":857.6500244140625},{"chapter":9,"offset":6482.2100830078125,"duration":861.97998046875},{"chapter":10,"offset":7344.1900634765625,"duration":910.4099731445312},{"chapter":11,"offset":8254.600036621094,"duration":701.77001953125},{"chapter":12,"offset":8956.370056152344,"duration":801.9500122070312}]};
 var CHAPTER_NAV = [{"num":1,"name":"Down the Rabbit-Hole","id":"ch1","pages":13,"ills":13},{"num":2,"name":"The Pool of Tears","id":"ch2","pages":13,"ills":11},{"num":3,"name":"A Caucus-Race and a Long Tale","id":"ch3","pages":10,"ills":10},{"num":4,"name":"The Rabbit Sends in a Little Bill","id":"ch4","pages":16,"ills":15},{"num":5,"name":"Advice from a Caterpillar","id":"ch5","pages":14,"ills":11},{"num":6,"name":"Pig and Pepper","id":"ch6","pages":16,"ills":14},{"num":7,"name":"A Mad Tea-Party","id":"ch7","pages":14,"ills":12},{"num":8,"name":"The Queen's Croquet-Ground","id":"ch8","pages":16,"ills":15},{"num":9,"name":"The Mock Turtle's Story","id":"ch9","pages":14,"ills":8},{"num":10,"name":"The Lobster Quadrille","id":"ch10","pages":13,"ills":4},{"num":11,"name":"Who Stole the Tarts?","id":"ch11","pages":11,"ills":4},{"num":12,"name":"Alice's Evidence","id":"ch12","pages":14,"ills":9}];
 var GITHUB_CONFIG = {"owner":"PlayfulProcess","repo":"recursive-kids-stories-club","bookPath":"books/alice-in-wonderland"};
+
 var ALL_ILLUSTRATIONS = [{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-golden-afternoon-boat.png","description":"GPT-4 (watercolor) — The golden afternoon boat trip on the Thames where Carroll first told the story","note":""},{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-the-pool-of-tears/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — They all swam to the shore","note":""},{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — She grew and grew","note":""},{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-01-down-the-rabbit-hole/arthur-rackham-1907.jpg","description":"Arthur Rackham — Alice portrait","note":""},{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The White Rabbit","note":""},{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-bored-by-the-river/brinsley-le-fanu-1910.jpg","description":"Alice took marmalade as she fell","note":""},{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-bored-by-the-river/lewis-carroll-1864-dedication.webp","description":"A Christmas Gift to a Dear Child","note":""},{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-drink-me/lewis-carroll-1864-manuscript.webp","description":"Alice at the golden key and little door","note":""},{"chapter":0,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-eat-me/nursery-alice-1890-cover.jpg","description":"The Nursery Alice front cover","note":""},{"chapter":1,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/gwynedd-hudson-1922.jpg","description":"chapter cover","note":""},{"chapter":1,"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-01.jpg","description":"Lewis Carroll manuscript — Chapter I title page — Alice bored by the river","note":""},{"chapter":1,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — Suddenly a white rabbit ran by","note":""},{"chapter":1,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-falling-down/william-h-walker-1907.jpg","description":"William H. Walker — Alice falling","note":""},{"chapter":1,"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-falling-down/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Alice took marmalade as she fell","note":""},{"chapter":1,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-02.jpg","description":"Lewis Carroll manuscript — Alice sitting with sister, beginning to get tired","note":""},{"chapter":1,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-01-down-the-rabbit-hole/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Alice & Dinah","note":""},{"chapter":1,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-03.jpg","description":"Lewis Carroll manuscript — White Rabbit running by with pocket watch","note":""},{"chapter":1,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/dall-e-ch1-lovely-garden-v4.png","description":"DALL-E 3 (Rackham style) — The loveliest garden, seen through the tiny door","note":"ilustrate this in a style comaptible with the images but maybe watercolor and wiht Alice looking a bit more like the real Alice and try to depict the images in the text of the apge next to it (asalways)"},{"chapter":1,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-curiouser-and-curiouser/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — How Alice grew tall","note":""},{"chapter":1,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-04.jpg","description":"Lewis Carroll manuscript — Alice falling down the rabbit-hole","note":""},{"chapter":1,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-hall-of-doors/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Glass table","note":""},{"chapter":1,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-liddell-portrait.jpg","description":"Lewis Carroll (photograph) — Alice Liddell portrait","note":""},{"chapter":1,"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/arthur-rackham-1907.jpg","description":"Arthur Rackham — White Rabbit","note":""},{"chapter":1,"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-drink-me/lewis-carroll-1864-title-page.webp","description":"Lewis Carroll — Alice's Adventures Under Ground title page","note":""},{"chapter":1,"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-02-the-pool-of-tears/lewis-carroll-1864-chapter-I.webp","description":"Lewis Carroll — Carroll manuscript Chapter I opening","note":""},{"chapter":1,"page":16,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-eat-me/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Curiouser and curiouser - Alice growing tall","note":""},{"chapter":1,"page":17,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-curiouser-and-curiouser/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — How Alice grew tall","note":""},{"chapter":1,"page":18,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-drink-me/lewis-carroll-1864-title-page.webp","description":"Lewis Carroll — Alice's Adventures Under Ground title page","note":""},{"chapter":2,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-09.jpg","description":"chapter cover","note":""},{"chapter":2,"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — She grew and grew","note":""},{"chapter":2,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/dall-e-ch2-nine-feet-tall-v4.png","description":"DALL-E 3 (Rackham/Tenniel style) — Nine feet tall, filling the room","note":"ilustrate her head beating the roof"},{"chapter":2,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/arthur-rackham-1907.jpg","description":"Arthur Rackham — White Rabbit","note":""},{"chapter":2,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/arthur-rackham-1907.jpg","description":"Arthur Rackham — White Rabbit","note":""},{"chapter":2,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-the-pool-of-tears/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Alice & Mouse in Pool of Tears","note":""},{"chapter":2,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-12.jpg","description":"Lewis Carroll manuscript — Alice and the Mouse swimming in the pool of tears","note":""},{"chapter":2,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-07.jpg","description":"Lewis Carroll manuscript — Alice drinking from the DRINK ME bottle","note":""},{"chapter":2,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-the-pool-of-tears/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — They all swam to the shore","note":""},{"chapter":2,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-03-a-caucus-race-and-a-long-tale/lewis-carroll-1864-chapter-II.webp","description":"Lewis Carroll — Carroll manuscript Chapter II - Caucus Race party","note":""},{"chapter":2,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-meeting-the-mouse/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice swimming with the Mouse","note":""},{"chapter":2,"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-04-the-rabbit-sends-in-a-little-bill/lewis-carroll-1864-chapter-III.webp","description":"Lewis Carroll — Carroll manuscript Chapter III - Alice and the puppy","note":""},{"chapter":3,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/emily-overnell-1912.jpg","description":"chapter cover","note":""},{"chapter":3,"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Beg your acceptance","note":""},{"chapter":3,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-16.jpg","description":"Lewis Carroll manuscript — The Dodo presenting Alice with her own thimble as prize","note":""},{"chapter":3,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Hand it over said Dodo","note":""},{"chapter":3,"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/william-h-walker-1907.jpg","description":"William H. Walker — Dodo","note":""},{"chapter":3,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Dodo presents Alice with her fingernail","note":""},{"chapter":3,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-18.jpg","description":"Lewis Carroll manuscript — Alice distributing comfits to the animals","note":""},{"chapter":3,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-driest-thing/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Dodo presents thimble to Alice","note":""},{"chapter":3,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-caucus-race/arthur-rackham-1907.jpg","description":"Arthur Rackham — Who has won","note":""},{"chapter":3,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-14.jpg","description":"Lewis Carroll manuscript — The Mouse tells its history — the driest thing","note":""},{"chapter":3,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-feigned-sleep-1860.jpg","description":"Lewis Carroll (photograph) — Alice in feigned sleep, 1860","note":""},{"chapter":3,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-a-long-sad-tale/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — The Mouse's Tale in tail shape","note":""},{"chapter":4,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/harry-rountree-1928.jpg","description":"chapter cover","note":""},{"chapter":4,"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Hope I shan't grow more","note":""},{"chapter":4,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — White rabbit falls","note":""},{"chapter":4,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-stuck-in-the-house/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — She grew and grew","note":""},{"chapter":4,"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-mistaken-for-mary-ann/harry-rountree-1928.jpg","description":"Harry Rountree — Why, Mary Ann","note":""},{"chapter":4,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-mistaken-for-mary-ann/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Rabbit started violently","note":""},{"chapter":4,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Poor little lizard","note":""},{"chapter":4,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Bill the Lizard","note":""},{"chapter":4,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-19.jpg","description":"Lewis Carroll manuscript — Bill the Lizard being kicked up the chimney","note":""},{"chapter":4,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-the-great-puppy/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Dash the Puppy","note":""},{"chapter":4,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch03-the-driest-thing/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice alone on the shore after the race","note":""},{"chapter":4,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — White rabbit falls","note":""},{"chapter":4,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/harry-rountree-1928.jpg","description":"Harry Rountree — Poor Lizard Bill","note":""},{"chapter":4,"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch02-the-white-rabbit-returns/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — White Rabbit ordering Alice about","note":""},{"chapter":4,"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-bill-the-lizard/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Bill the Lizard","note":""},{"chapter":4,"page":16,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-ina-harry-edith-1860.jpg","description":"Lewis Carroll (photograph) — Alice, Ina, Harry and Edith, 1860","note":""},{"chapter":4,"page":17,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch04-the-great-puppy/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Dash the Puppy","note":""},{"chapter":5,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/gwynedd-hudson-1922.jpg","description":"chapter cover","note":""},{"chapter":5,"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — Caterpillar","note":""},{"chapter":5,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/william-h-walker-1907.jpg","description":"William H. Walker — Caterpillar","note":""},{"chapter":5,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Advice from a caterpillar","note":""},{"chapter":5,"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/arthur-rackham-1907.jpg","description":"Arthur Rackham — Advice from a Caterpillar","note":""},{"chapter":5,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-father-william/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Caterpillar","note":""},{"chapter":5,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-23.jpg","description":"Lewis Carroll manuscript — Chapter II title page — Advice from a Caterpillar","note":""},{"chapter":5,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-05-advice-from-a-caterpillar/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Caterpillar","note":""},{"chapter":5,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/manuscript-under-ground/manuscript-page-24.jpg","description":"Lewis Carroll manuscript — The Pigeon calling Alice a serpent in the tree","note":""},{"chapter":5,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-pigeon-serpent-ch5.png","description":"GPT-4 (watercolor) — The Pigeon accusing Alice of being a serpent","note":""},{"chapter":5,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-the-mushrooms-magic/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice pondering the mushroom's effects","note":""},{"chapter":5,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-liddell-1859.jpg","description":"Lewis Carroll (photograph) — Alice Liddell, 1859","note":""},{"chapter":5,"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-serpent/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice mistaken for a serpent by pigeon","note":""},{"chapter":6,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-06-pig-and-pepper/lewis-carroll-1864-chapter-IV.webp","description":"chapter cover","note":""},{"chapter":6,"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Duchess & the Pig-baby","note":""},{"chapter":6,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-fish-footman/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Fish-Footman and Frog-Footman at the door","note":""},{"chapter":6,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-fish-footman/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — You may nurse the baby, said Duchess","note":""},{"chapter":6,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/arthur-rackham-1907.jpg","description":"Arthur Rackham — Saucepan flew by","note":""},{"chapter":6,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — Shan't said the Cook","note":""},{"chapter":6,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-kitchen.png","description":"GPT-4 (watercolor) — The Cheshire Cat materializing in the Duchess's kitchen","note":""},{"chapter":6,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-duchesss-kitchen/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — The Duchess's kitchen","note":""},{"chapter":6,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/arthur-rackham-1907.jpg","description":"Arthur Rackham — Pig baby","note":""},{"chapter":6,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Duchess & the Baby","note":""},{"chapter":6,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-baby-turns-into-a-pig/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — You may nurse the baby said Duchess","note":""},{"chapter":6,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-beggar-girl-1858.jpg","description":"Lewis Carroll (photograph) — Alice as a beggar-girl, 1858","note":""},{"chapter":6,"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-cheshire-cat/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — The Cheshire Cat","note":""},{"chapter":6,"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-tree.png","description":"GPT-4 (watercolor) — Alice meets the Cheshire Cat in the tree","note":""},{"chapter":6,"page":16,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch06-the-cheshire-cat/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The Cheshire Cat in tree","note":""},{"chapter":7,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/gwynedd-hudson-1922.jpg","description":"chapter cover","note":""},{"chapter":7,"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/arthur-rackham-1907.jpg","description":"Arthur Rackham — Mad Hatter's tea party","note":""},{"chapter":7,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — No room they cried","note":""},{"chapter":7,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — March Hare's house","note":""},{"chapter":7,"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Mad Hatter's Tea Party","note":""},{"chapter":7,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-the-hatters-watch/lewis-carroll-1864-duchess-kitchen.webp","description":"Lewis Carroll — The Duchess's chaotic kitchen","note":""},{"chapter":7,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/william-h-walker-1907.jpg","description":"William H. Walker — Hatter's Tea Party","note":""},{"chapter":7,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/john-tenniel-1865.jpg","description":"John Tenniel — Mad Hatter's Tea Party","note":""},{"chapter":7,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-time-is-frozen/lewis-carroll-1864-animals-concert.webp","description":"Lewis Carroll — Animals gathered for a concert","note":""},{"chapter":7,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-bored-by-the-river/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice with sister by the river","note":""},{"chapter":7,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-the-dormouses-story/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Dormouse put in teapot","note":""},{"chapter":7,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/lorina-edith-alice-1859.jpg","description":"Lewis Carroll (photograph) — Lorina, Edith and Alice, 1859","note":""},{"chapter":7,"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-the-dormouses-story/harry-rountree-1928.jpg","description":"Harry Rountree — Dormouse is asleep","note":""},{"chapter":7,"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-alice-leaves-the-tea-party/lewis-carroll-1864-cheshire-cat-tree.webp","description":"Lewis Carroll — Alice under a tree with the Cheshire Cat","note":""},{"chapter":8,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-08-the-queens-croquet-ground/alice-b-woodward-1913.jpg","description":"chapter cover","note":""},{"chapter":8,"page":1,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Gardeners painting roses red","note":""},{"chapter":8,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/william-h-walker-1907.jpg","description":"William H. Walker — Playing cards","note":""},{"chapter":8,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-royal-procession/arthur-rackham-1907.jpg","description":"Arthur Rackham — Queen of Hearts","note":""},{"chapter":8,"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Shan't be beheaded","note":""},{"chapter":8,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-royal-procession/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — King & Queen of Hearts","note":""},{"chapter":8,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-royal-procession/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Off with her head","note":""},{"chapter":8,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-royal-procession/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The Queen has come","note":""},{"chapter":8,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Live cards with red rose-tree","note":""},{"chapter":8,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-croquet-with-flamingos/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Invitation to play croquet","note":""},{"chapter":8,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-08-the-queens-croquet-ground/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — King & Queen of Hearts","note":""},{"chapter":8,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-croquet-with-flamingos/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Alice, the Duchess & the Flamingo","note":""},{"chapter":8,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-queen-of-hearts-card.png","description":"GPT-4 — Queen of Hearts playing card with flamingo","note":""},{"chapter":8,"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — King Queen Executioner","note":""},{"chapter":8,"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/generated/gpt4-cheshire-cat-croquet.png","description":"GPT-4 (watercolor) — The Cheshire Cat's grin above the croquet ground","note":""},{"chapter":8,"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/alice-b-woodward-1913.jpg","description":"Alice B. Woodward — Executioner came back with Duchess","note":""},{"chapter":8,"page":17,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-the-cheshire-cats-head/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — Dispute over Cheshire cat's head","note":""},{"chapter":9,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-09-the-mock-turtles-story/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"chapter cover","note":""},{"chapter":9,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-duchess-and-her-morals/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Alice & the Duchess","note":""},{"chapter":9,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-duchess-and-her-morals/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Duchess","note":""},{"chapter":9,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/edith-ina-alice-july-1860.jpg","description":"Lewis Carroll (photograph) — Edith, Ina and Alice, July 1860","note":""},{"chapter":9,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-meeting-the-gryphon/arthur-rackham-1907.jpg","description":"Arthur Rackham — Gryphon & Mock Turtle","note":""},{"chapter":9,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-meeting-the-gryphon/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — The griffin sleeps deeply","note":""},{"chapter":9,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-meeting-the-gryphon/bessie-pease-gutmann-1933.jpg","description":"Bessie Pease Gutmann — Gryphon","note":""},{"chapter":9,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-mock-turtles-school/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Alice & Mock-turtle","note":""},{"chapter":9,"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-mock-turtles-school/william-h-walker-1907.jpg","description":"William H. Walker — Turtle & Gryphon","note":""},{"chapter":9,"page":15,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch09-the-mock-turtles-school/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — The Mock Turtle","note":""},{"chapter":10,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-10-the-lobster-quadrille/lewis-carroll-1864-mock-turtle.webp","description":"chapter cover","note":""},{"chapter":10,"page":5,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch10-the-lobster-quadrille/harry-rountree-1928.jpg","description":"Harry Rountree — Lobster Quadrille","note":""},{"chapter":10,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-grown-up.jpg","description":"Photograph — A grown up Alice of Wonderland","note":""},{"chapter":10,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch01-the-white-rabbit-appears/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The White Rabbit","note":""},{"chapter":10,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch10-the-lobster-and-the-owl/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — The Lobster dancing","note":""},{"chapter":10,"page":14,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch10-beautiful-soup/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice, Mock Turtle and Gryphon singing","note":""},{"chapter":11,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-11-who-stole-the-tarts/lewis-carroll-1864-royal-court.webp","description":"chapter cover","note":""},{"chapter":11,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch11-the-court-assembles/arthur-rackham-1907.jpg","description":"Arthur Rackham — Knave of Spades","note":""},{"chapter":11,"page":4,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch11-the-court-assembles/william-h-walker-1907.jpg","description":"William H. Walker — In court","note":""},{"chapter":11,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-with-julia-margaret-cameron-1872.jpg","description":"Julia Margaret Cameron (photograph) — Alice with Cameron, 1872","note":""},{"chapter":11,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch11-the-hatters-evidence/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — The trial of the Knave of Hearts","note":""},{"chapter":11,"page":12,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch11-the-cooks-evidence/brinsley-le-fanu-1910.jpg","description":"Brinsley Le Fanu — The cook refuses to testify","note":""},{"chapter":12,"page":0,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-12-alices-evidence/lewis-carroll-1864-croquet-chaos.webp","description":"chapter cover","note":""},{"chapter":12,"page":2,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-alice-tips-the-jury/john-tenniel-harry-theaker-1911.jpg","description":"John Tenniel & Harry Theaker — Tipped over jury box","note":""},{"chapter":12,"page":3,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-alice-tips-the-jury/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — Alice & the Jurors","note":""},{"chapter":12,"page":6,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-the-mysterious-letter/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — Alice growing in court, Off with her head","note":""},{"chapter":12,"page":7,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-hargreaves-1932-age-80.jpg","description":"Photograph — Alice Hargreaves in 1932, age 80","note":""},{"chapter":12,"page":8,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-sentence-first/arthur-rackham-1907.jpg","description":"Arthur Rackham — Pack rose in the air","note":""},{"chapter":12,"page":9,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-sentence-first/gwynedd-hudson-1922.jpg","description":"Gwynedd Hudson — Cards rose into the air","note":""},{"chapter":12,"page":10,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-sentence-first/john-tenniel-colorized-e-g-thomson-1890.jpg","description":"John Tenniel (colorized E.G. Thomson) — The Shower of Cards","note":""},{"chapter":12,"page":11,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/alice-liddell-photos/alice-age-20-1872.jpg","description":"Lewis Carroll (photograph) — A 20-year-old Alice, 1872","note":""},{"chapter":12,"page":13,"url":"https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch12-waking-up/lewis-carroll-1864-manuscript.webp","description":"Lewis Carroll — The end - Alice waking up","note":""}];
 
 
@@ -4280,6 +4397,56 @@ if (goToPageInput) {
   });
 })();
 
+// ── Settings Panel ──
+(function() {
+  var panel = document.getElementById('settingsPanel');
+  var toggleBtn = document.getElementById('settingsToggle');
+  var darkToggle = document.getElementById('darkModeToggle');
+  var upperToggle = document.getElementById('uppercaseToggle');
+
+  // Toggle panel open/close
+  toggleBtn.addEventListener('click', function() {
+    panel.classList.toggle('open');
+    // Close chapter nav if open
+    var nav = document.getElementById('chapterNav');
+    if (nav) nav.classList.remove('open');
+  });
+
+  // Close panel when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!panel.contains(e.target) && e.target !== toggleBtn) {
+      panel.classList.remove('open');
+    }
+  });
+
+  // Dark mode
+  var savedDark = localStorage.getItem('book-dark-mode') === 'true';
+  if (savedDark) {
+    document.body.classList.add('dark-mode');
+    darkToggle.checked = true;
+  }
+  darkToggle.addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode', this.checked);
+    localStorage.setItem('book-dark-mode', this.checked);
+  });
+
+  // Uppercase (reuse existing Aa logic but connect to settings)
+  var caseBtn = document.getElementById('caseToggle');
+  upperToggle.addEventListener('change', function() {
+    if (caseBtn) caseBtn.click();
+  });
+  // Sync settings checkbox with Aa button state
+  if (caseBtn) {
+    var observer = new MutationObserver(function() {
+      var ps = document.querySelectorAll('.text-block p');
+      if (ps.length > 0) {
+        upperToggle.checked = (ps[0].style.textTransform === 'uppercase');
+      }
+    });
+    observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['style'] });
+  }
+})();
+
 // ── Fullscreen toggle ──
 (function() {
   var fsBtn = document.getElementById('fullscreenBtn');
@@ -4308,9 +4475,9 @@ if (goToPageInput) {
 
   var audio = document.createElement('audio');
   audio.preload = 'auto';
-  // If on localhost, use local audio path for instant loading (no R2 dependency)
-  // Otherwise use the R2 CDN URL
-  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+  // Songs use relative URLs directly; books use localhost fallback for dev
+  var isSong = document.body.classList.contains('content-song');
+  if (!isSong && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
     // Extract relative path: the audio file lives under the same directory tree as the book
     var localPath = '/audio/librivox/wonderland-complete.mp3';
     audio.src = localPath;
@@ -5715,6 +5882,41 @@ if (goToPageInput) {
 
     tryFetch();
   })();
+})();
+
+// ── Version switching for songs ──
+(function() {
+  var sel = document.getElementById('versionSelect');
+  if (!sel || typeof AUDIO_VERSIONS === 'undefined') return;
+  var versions = AUDIO_VERSIONS;
+  sel.addEventListener('change', function() {
+    var v = versions[this.value];
+    if (!v) return;
+    var aud = document.querySelector('audio');
+    var pos = aud ? aud.currentTime : 0;
+    var wasPlaying = aud && !aud.paused;
+    if (aud) {
+      aud.src = v.url;
+      aud.currentTime = pos;
+      if (wasPlaying) aud.play();
+    }
+    // Reload karaoke manifest if available
+    if (v.manifest) {
+      fetch(v.manifest).then(function(r) { return r.json(); }).then(function(data) {
+        if (!data || !data.segments) return;
+        // Re-map karaoke word spans with new timing
+        var words = document.querySelectorAll('.k-word[data-start]');
+        var segments = data.segments;
+        for (var i = 0; i < Math.min(words.length, segments.length); i++) {
+          words[i].dataset.start = segments[i].start;
+          words[i].dataset.end = segments[i].end;
+        }
+        console.log('Karaoke manifest reloaded for version: ' + v.name);
+      }).catch(function(err) {
+        console.warn('Failed to load karaoke manifest for version:', err);
+      });
+    }
+  });
 })();
 
 </script>

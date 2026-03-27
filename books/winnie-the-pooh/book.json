@@ -4,9 +4,16 @@
   "grammar": "grammar.json",
   "textSection": "Story",
   "illustrations": "illustrations.csv",
+  "audio": {
+    "manifest": "audio/karaoke-manifest.json",
+    "url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/book-audio/winnie-the-pooh-complete.mp3"
+  },
+  "preface": {
+    "image": "https://www.gutenberg.org/cache/epub/67098/images/cover.jpg"
+  },
   "cover": {
-    "image": "",
-    "illustrators": "YOUR ILLUSTRATIONS HERE"
+    "image": "https://www.gutenberg.org/cache/epub/67098/images/cover.jpg",
+    "illustrators": "E. H. SHEPARD"
   },
   "output": "booklets/book.html",
   "github": {
