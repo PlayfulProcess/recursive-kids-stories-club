@@ -1,0 +1,11 @@
+{
+  "book": "Alice in Wonderland",
+  "author": "Lewis Carroll",
+  "source": "LibriVox solo reader (public domain)",
+  "chapterCount": 12,
+  "audioDir": "librivox",
+  "filePattern": "alice_{NN}_carroll_64kb.mp3",
+  "whisperPrompt": "Alice's Adventures in Wonderland by Lewis Carroll. Chapter reading from LibriVox.",
+  "mergedFilename": "wonderland-complete.mp3",
+  "r2Prefix": "grammar-illustrations/alice-in-wonderland/audio/librivox"
+}

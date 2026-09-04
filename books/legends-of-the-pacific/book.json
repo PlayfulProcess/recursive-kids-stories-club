@@ -1,0 +1,17 @@
+{
+  "title": "Legends of the Pacific",
+  "author": "Traditional — retold by PlayfulProcess",
+  "grammar": "grammar.json",
+  "textSection": "Story",
+  "illustrations": "illustrations.csv",
+  "cover": {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Review_of_the_War_Galleys_at_Tahiti_%28%27The_Fleet_of_Otaheite_assembled_at_Oparee%27%29_RMG_BHC2395.tiff/lossy-page1-1280px-Review_of_the_War_Galleys_at_Tahiti_%28%27The_Fleet_of_Otaheite_assembled_at_Oparee%27%29_RMG_BHC2395.tiff.jpg",
+    "illustrators": "WILLIAM HODGES (1774), ARMAN MANOOKIAN (1927) & PUBLIC-DOMAIN COLLECTIONS"
+  },
+  "output": "booklets/book.html",
+  "github": {
+    "owner": "PlayfulProcess",
+    "repo": "recursive-kids-stories-club",
+    "bookPath": "books/legends-of-the-pacific"
+  }
+}

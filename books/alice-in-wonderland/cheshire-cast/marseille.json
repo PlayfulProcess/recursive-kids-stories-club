@@ -1,0 +1,552 @@
+{
+ "deck": "Tarot de Marseille — Nicolas Conver, 1760",
+ "note": "Card data vendored from PlayfulProcess/recursive-tarot (tarot/tarot-de-marseille-conver). Trump scans are Conver 1760; the pips and courts are public-domain Marseille-pattern scans from Wikimedia. This deck was made to play tarot, a trick-taking card game — the divinatory meanings are a later overlay.",
+ "cards": [
+  {
+   "id": "major-00-le-mat",
+   "name": "The Fool",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/LE%20MAT%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A traveller in motley walks rightward with a staff and bundle, a small animal tearing at his trailing leg"
+  },
+  {
+   "id": "major-01-le-bateleur",
+   "name": "The Magician",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/I%20LE%20BATELEUR%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A young mountebank stands at a table of cups, coins, and knives, a wand in one hand, his hat brim a lemniscate"
+  },
+  {
+   "id": "major-02-la-papesse",
+   "name": "The High Priestess",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/II%20LA%20PAPESSE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A seated, veiled woman in papal tiara holds an open book, a curtain behind her"
+  },
+  {
+   "id": "major-03-limperatrice",
+   "name": "The Empress",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/II%20L%27IMP%C3%89RATRICE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A crowned woman enthroned with sceptre and an eagle shield"
+  },
+  {
+   "id": "major-04-lempereur",
+   "name": "The Emperor",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/IIII-L%27EMPEREUR%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A bearded sovereign sits in profile, legs crossed in the figure of four, sceptre and eagle shield at hand"
+  },
+  {
+   "id": "major-05-le-pape",
+   "name": "The Hierophant",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/V%20LE%20PAPE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A tiara'd pope raises his hand in blessing over two tonsured clerics, a pillar at each side"
+  },
+  {
+   "id": "major-06-lamoureux",
+   "name": "The Lovers",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/VI%20L%27AMOUREUX%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A youth stands between two women under a blindfolded Cupid drawing his bow — the choice between two ways"
+  },
+  {
+   "id": "major-07-le-chariot",
+   "name": "The Chariot",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/VII%20LE%20CHARIOT%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A crowned prince stands in a canopied chariot drawn by two horses facing different ways; he holds no reins"
+  },
+  {
+   "id": "major-08-la-justice",
+   "name": "Justice",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/VIII%20LA%20JUSTICE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "An enthroned woman holds an upright sword and a level balance, eyes open"
+  },
+  {
+   "id": "major-09-lhermite",
+   "name": "The Hermit",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/VIIII%20L%27HERMITE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A cloaked old man walks with a staff, lifting a lantern half-shielded by his cloak"
+  },
+  {
+   "id": "major-10-la-roue",
+   "name": "Wheel of Fortune",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/X%20LA%20ROUE%20DE%20FORTUNE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "animal-eared creatures rise on one side and fall on the other, a sphinx-like figure crowning the top"
+  },
+  {
+   "id": "major-11-la-force",
+   "name": "Strength",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XI%20LA%20FORCE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A woman in a wide hat calmly parts the jaws of a lion"
+  },
+  {
+   "id": "major-12-le-pendu",
+   "name": "The Hanged Man",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XII%20LE%20PENDU%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A youth hangs by one ankle from a wooden frame between two trees, hands behind his back, leg crossed; his face is calm"
+  },
+  {
+   "id": "major-13-la-mort",
+   "name": "Death",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/13%20XIII%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A skeleton with a scythe mows a black ground from which hands, feet, and crowned heads sprout"
+  },
+  {
+   "id": "major-14-temperance",
+   "name": "Temperance",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XIIII%20TEMPERANCE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A winged angel pours liquid between two vessels in an unbroken stream"
+  },
+  {
+   "id": "major-15-le-diable",
+   "name": "The Devil",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XV%20LE%20DIABLE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A horned, bat-winged figure on a pedestal raises a torch; two small horned captives are chained below"
+  },
+  {
+   "id": "major-16-la-maison-dieu",
+   "name": "The Tower",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XVI%20LA%20MAISON%20DE%20DIEU%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "Lightning knocks the crown from a tower; two figures fall headlong amid coloured spheres"
+  },
+  {
+   "id": "major-17-letoile",
+   "name": "The Star",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XVII%20L%27ETOILE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A naked woman kneels by water pouring two urns onto land and stream, a great star and seven smaller ones above"
+  },
+  {
+   "id": "major-18-la-lune",
+   "name": "The Moon",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XVIII%20LA%20LUNE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "Under a dripping face-moon two dogs bay between two towers while a crayfish climbs from a pool"
+  },
+  {
+   "id": "major-19-le-soleil",
+   "name": "The Sun",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XVIIII%20LE%20SOLEIL%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "Two children stand by a low wall beneath a great rayed face-sun that drips golden tears"
+  },
+  {
+   "id": "major-20-le-jugement",
+   "name": "Judgement",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XX%20LE%20JUGEMENT%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "An angel sounds a trumpet from the clouds; three figures rise from a tomb with arms raised"
+  },
+  {
+   "id": "major-21-le-monde",
+   "name": "The World",
+   "suit": "trump",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/XXI%20LE%20MONDE%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "A dancing figure within a pointed-oval wreath, the four living creatures — angel, eagle, lion, bull — in the corners"
+  },
+  {
+   "id": "coins-ace",
+   "name": "Ace of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/1P_Tarot.png",
+   "icon": "a single coin laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-02",
+   "name": "Two of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/2P_Tarot.png",
+   "icon": "two coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-03",
+   "name": "Three of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/3P_Tarot.png",
+   "icon": "three coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-04",
+   "name": "Four of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/4P_Tarot.png",
+   "icon": "four coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-05",
+   "name": "Five of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/5P_Tarot.png",
+   "icon": "five coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-06",
+   "name": "Six of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/6P_Tarot.png",
+   "icon": "six coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-07",
+   "name": "Seven of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/7P_Tarot.png",
+   "icon": "seven coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-08",
+   "name": "Eight of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/8P_Tarot.png",
+   "icon": "eight coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-09",
+   "name": "Nine of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/9P_Tarot.png",
+   "icon": "nine coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-10",
+   "name": "Ten of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/10P_Tarot.png",
+   "icon": "ten coins laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "coins-page",
+   "name": "Page of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/JP_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the coin emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "coins-knight",
+   "name": "Knight of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/HP_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the coin emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "coins-queen",
+   "name": "Queen of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/QP_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the coin emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "coins-king",
+   "name": "King of Coins",
+   "suit": "coins",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/KP_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the coin emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "cups-ace",
+   "name": "Ace of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/1C_Tarot.png",
+   "icon": "a single cup laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-02",
+   "name": "Two of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/2C_Tarot.png",
+   "icon": "two cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-03",
+   "name": "Three of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/3C_Tarot.png",
+   "icon": "three cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-04",
+   "name": "Four of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/4C_Tarot.png",
+   "icon": "four cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-05",
+   "name": "Five of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/5C_Tarot.png",
+   "icon": "five cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-06",
+   "name": "Six of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/6C_Tarot.png",
+   "icon": "six cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-07",
+   "name": "Seven of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/7C_Tarot.png",
+   "icon": "seven cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-08",
+   "name": "Eight of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/8C_Tarot.png",
+   "icon": "eight cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-09",
+   "name": "Nine of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/9C_Tarot.png",
+   "icon": "nine cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-10",
+   "name": "Ten of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/10C_Tarot.png",
+   "icon": "ten cups laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "cups-page",
+   "name": "Page of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/JC_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the cup emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "cups-knight",
+   "name": "Knight of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/HC_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the cup emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "cups-queen",
+   "name": "Queen of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/QC_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the cup emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "cups-king",
+   "name": "King of Cups",
+   "suit": "cups",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/KC_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the cup emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "swords-ace",
+   "name": "Ace of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/As%20%C3%89P%C3%89E%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "a single sword laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-02",
+   "name": "Two of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/2S_Tarot.png",
+   "icon": "two swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-03",
+   "name": "Three of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/3S_Tarot.png",
+   "icon": "three swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-04",
+   "name": "Four of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/4S_Tarot.png",
+   "icon": "four swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-05",
+   "name": "Five of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/5S_Tarot.png",
+   "icon": "five swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-06",
+   "name": "Six of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/6S_Tarot.png",
+   "icon": "six swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-07",
+   "name": "Seven of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/7S_Tarot.png",
+   "icon": "seven swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-08",
+   "name": "Eight of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/8S_Tarot.png",
+   "icon": "eight swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-09",
+   "name": "Nine of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/9S_Tarot.png",
+   "icon": "nine swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-10",
+   "name": "Ten of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/10S_Tarot.png",
+   "icon": "ten swords laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "swords-page",
+   "name": "Page of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/JS_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the sword emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "swords-knight",
+   "name": "Knight of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/HS_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the sword emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "swords-queen",
+   "name": "Queen of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/QS_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the sword emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "swords-king",
+   "name": "King of Swords",
+   "suit": "swords",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/KS_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the sword emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "batons-ace",
+   "name": "Ace of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-de-marseille-conver/As%20BATON%20Nicolas%20Conver%20Tarot%201760.jpg",
+   "icon": "a single baton laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-02",
+   "name": "Two of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/2B_Tarot.png",
+   "icon": "two batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-03",
+   "name": "Three of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/3B_Tarot.png",
+   "icon": "three batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-04",
+   "name": "Four of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/4B_Tarot.png",
+   "icon": "four batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-05",
+   "name": "Five of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/5B_Tarot.png",
+   "icon": "five batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-06",
+   "name": "Six of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/6B_Tarot.png",
+   "icon": "six batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-07",
+   "name": "Seven of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/7B_Tarot.png",
+   "icon": "seven batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-08",
+   "name": "Eight of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/8B_Tarot.png",
+   "icon": "eight batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-09",
+   "name": "Nine of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/9B_Tarot.png",
+   "icon": "nine batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-10",
+   "name": "Ten of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/10B_Tarot.png",
+   "icon": "ten batons laid out in the woodcut's symmetrical pattern, with floral scrollwork between them"
+  },
+  {
+   "id": "batons-page",
+   "name": "Page of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/JB_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the baton emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "batons-knight",
+   "name": "Knight of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/HB_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the baton emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "batons-queen",
+   "name": "Queen of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/QB_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the baton emblem, in the flat bold colours of the woodcut"
+  },
+  {
+   "id": "batons-king",
+   "name": "King of Batons",
+   "suit": "batons",
+   "img": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/tarot-wikimedia/KB_Tarot.png",
+   "icon": "a standing or seated court figure of the Marseille pattern bearing the baton emblem, in the flat bold colours of the woodcut"
+  }
+ ]
+}

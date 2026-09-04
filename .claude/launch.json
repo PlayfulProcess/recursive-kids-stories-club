@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "book-preview",
+      "runtimeExecutable": "C:\\Users\\ferna\\AppData\\Roaming\\npm\\npx.cmd",
+      "runtimeArgs": ["http-server", ".", "-p", "8090", "--cors"],
+      "port": 8090
+    }
+  ]
+}
