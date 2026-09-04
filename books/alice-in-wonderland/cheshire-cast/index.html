@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alice and the Pack of Cards — a Cheshire edition</title>
+<meta name="description" content="Eight moments where Alice is lost. At each one she throws three cards, reads them, and the Cheshire Cat reviews the reading. The cards are really cast, from any deck in the open tarot library.">
+<style>
+  :root{
+    --bg:#f4f1ea; --page:#fff; --page-left:#f8f5f0; --text:#1a1a1a; --muted:#6b6457;
+    --border:#d0c8b8; --caption:#8a7a6a; --panel:#2c1810; --panel-text:#f0e6d6;
+    --gold:#a9741f; --gold-bright:#d4a76a; --cat:#4a2f6b; --cat-soft:#efe7f7;
+  }
+  body.dark{
+    --bg:#0d1117; --page:#161b22; --page-left:#1c2128; --text:#e6edf3; --muted:#8b949e;
+    --border:#30363d; --caption:#8b949e; --panel:#0d1117; --panel-text:#e6edf3;
+    --gold:#d4a76a; --gold-bright:#d4a76a; --cat:#c8a8f0; --cat-soft:#1e1730;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,Cambria,"Times New Roman",serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+  /* ── chrome ── */
+  .bar{position:sticky;top:0;z-index:20;background:var(--panel);color:var(--panel-text);
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:9px 18px;border-bottom:1px solid #000}
+  .bar .ttl{font-size:14px;flex:1;min-width:150px}
+  .bar .ttl b{color:var(--gold-bright)}
+  .bar label{font-size:12px;color:#bfae99}
+  .bar select{font-family:inherit;font-size:12.5px;max-width:270px;color:var(--panel-text);
+    background:#3d251a;border:1px solid #6b5a48;border-radius:5px;padding:5px 8px}
+  .bar button{font-family:inherit;font-size:13px;color:#2c1810;background:var(--gold-bright);
+    border:none;border-radius:999px;padding:6px 14px;cursor:pointer}
+  .bar button.ghost{background:transparent;color:var(--panel-text);border:1px solid #6b5a48}
+  .bar button:hover{opacity:.87}
+  .bar .deckname{font-size:12px;color:#bfae99;font-style:italic}
+
+  main{max-width:1080px;margin:0 auto;padding:0 18px 80px}
+
+  /* ── front matter ── */
+  .front{padding:56px 0 34px;border-bottom:1px solid var(--border);max-width:66ch}
+  .front h1{font-size:clamp(30px,5vw,44px);line-height:1.1;font-weight:normal;margin-bottom:6px}
+  .front h1 em{font-style:italic;color:var(--gold)}
+  .front .sub{color:var(--muted);font-size:15px;margin-bottom:22px}
+  .front p{margin-bottom:13px}
+  .front .small{font-size:14px;color:var(--muted)}
+
+  /* ── a beat ── */
+  .beat{margin:64px 0 0;padding-top:34px;border-top:1px solid var(--border)}
+  .beat .ch{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .beat h2{font-size:26px;font-weight:normal;margin-bottom:4px}
+  .beat .lost{font-style:italic;color:var(--muted);font-size:14.5px;margin-bottom:20px}
+
+  .spread{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr);gap:22px;align-items:start;
+    background:var(--page);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+  @media(max-width:760px){.spread{grid-template-columns:1fr}}
+  .spread .art{background:var(--page-left);padding:18px;display:flex;flex-direction:column;gap:8px;height:100%}
+  .spread .art img{width:100%;height:auto;display:block;border:1px solid var(--border)}
+  .spread .art .cap{font-size:11.5px;color:var(--caption);line-height:1.45}
+  .spread .txt{padding:22px 24px;font-size:15.5px}
+  .spread .txt p{margin-bottom:12px}
+  .spread .txt p:last-child{margin-bottom:0}
+
+  /* ── the cast: three cards ── */
+  .cast{margin-top:20px}
+  .three{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:16px}
+  .card{width:132px;text-align:center;flex:0 0 auto}
+  .card img{width:100%;height:auto;border:1px solid var(--border);border-radius:3px;background:#fff;
+    display:block;box-shadow:0 6px 18px -10px rgba(0,0,0,.5)}
+  .card .pos{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .card .nm{font-size:12px;margin-top:7px;color:var(--gold);line-height:1.35}
+  .card.fixed img{outline:2px solid var(--gold);outline-offset:2px}
+  .three .redraw{align-self:center;font-family:inherit;font-size:11.5px;color:var(--muted);background:none;
+    border:1px solid var(--border);border-radius:999px;padding:5px 12px;cursor:pointer;margin-left:4px}
+  .three .redraw:hover{color:var(--gold);border-color:var(--gold)}
+
+  .said{margin-bottom:16px}
+  .said .who{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .alice p{font-size:16px}
+  .alice .who{color:var(--gold)}
+  .cat{background:var(--cat-soft);border-left:3px solid var(--cat);border-radius:0 4px 4px 0;padding:14px 16px}
+  .cat .who{color:var(--cat)}
+  .cat p{font-size:15.5px;font-style:italic}
+  .tag{display:inline-block;margin-top:9px;font-family:system-ui,sans-serif;font-size:10.5px;font-style:normal;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--cat);border:1px solid var(--cat);
+    border-radius:999px;padding:2px 9px}
+
+  /* ── close ── */
+  .close{margin:70px 0 0;padding-top:34px;border-top:1px solid var(--border);max-width:66ch}
+  .close h2{font-size:24px;font-weight:normal;margin-bottom:14px}
+  .close p{margin-bottom:13px}
+  .grin{font-size:34px;color:var(--gold);text-align:center;margin:26px 0;letter-spacing:.3em}
+  .note{margin-top:44px;padding:16px 18px;background:var(--page);border:1px solid var(--border);
+    border-radius:4px;font-size:13px;color:var(--muted);line-height:1.65}
+  .note a{color:var(--gold)}
+  .loading{padding:80px 0;text-align:center;color:var(--muted);font-style:italic}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="ttl"><b>Alice and the Pack of Cards</b> — a Cheshire edition</div>
+  <label for="deck">Deck</label>
+  <select id="deck"><option>Tarot de Marseille — Conver, 1760</option></select>
+  <button id="shuffle">↻ Shuffle</button>
+  <button class="ghost" id="dark">◐ Dark</button>
+</div>
+
+<main>
+  <section class="front">
+    <h1>Alice and the <em>Pack of Cards</em></h1>
+    <p class="sub">Eight moments from <i>Alice's Adventures in Wonderland</i> where Alice is lost — and what happens when she asks a deck about it.</p>
+    <p>This is the book we already publish, read down to the eight places where Alice genuinely does not know where she is, who she is, or which way to go. At each one she throws <b>three cards</b> and reads them. Then the Cat turns up and reviews the reading.</p>
+    <p>The cards are <b>really cast</b>. Nothing here is chosen in advance — the deck is shuffled when the page loads and Alice takes whatever falls. That matters, because it is the Cat's whole case: shuffle again and watch her be just as certain about three different cards. If her reading works no matter what turns up, it was never the cards doing the work.</p>
+    <p>You can also hand her <b>a different deck</b>. The picker at the top reaches the open tarot library at <a href="https://tarot.recursive.eco" target="_blank" rel="noopener">tarot.recursive.eco</a> — six centuries of them, from the 1440s Visconti-Sforza painted for a Milanese duke to the Golden Dawn's. She will read whatever you give her with exactly the same confidence, which is rather the point.</p>
+    <p class="small">Carroll's words are Carroll's, from this book's own text. Alice's readings and the Cat's reviews are ours, and are marked as such throughout.</p>
+  </section>
+
+  <div id="beats"><p class="loading">Shuffling…</p></div>
+
+  <section class="close">
+    <h2>"You're nothing but a pack of cards!"</h2>
+    <p>Which is, as it turns out, the most accurate thing anyone says about a tarot deck in the whole of Wonderland — and Alice says it to a jury, at the top of her voice, on the last page, just before she wakes up.</p>
+    <p>She is right, and the decks in that picker mostly agree with her. Conver's Marseille was cut in 1760 to play <i>tarot</i>, a trick-taking card game with trumps — the ancestor of the French Tarot people still play on a Tuesday. The Visconti-Sforza was painted for a ducal family who played games with it. Not one of those cards was made to tell anybody anything; the fortune-telling arrived three centuries late, in Paris, from men whose names and dates we have.</p>
+    <p>So the pack really is just a pack. What it can still do — and this is the only claim this edition makes for it — is put pictures in front of you that you did not choose, at a moment when everything you would have chosen has stopped working. What you then do with them is entirely your affair, and the Cat will be watching.</p>
+    <div class="grin">◡</div>
+  </section>
+
+  <div class="note" id="colophon"></div>
+</main>
+
+<script>
+// ───────────────────────────────────────────────────────────────────
+// The eight moments. Scene ids point into this book's own grammar.json,
+// so Carroll's text and the plate come from the published book, not from
+// a copy. Alice's reading and the Cat's review are written for the
+// *moment*, never for a particular card — which is the joke and also the
+// argument: her reading works whatever falls, and that is the complaint.
+// ───────────────────────────────────────────────────────────────────
+const BEATS = [
+  {
+    scene: 'ch01-falling-down',
+    lost: 'She has been falling for so long that the falling has stopped being frightening and started being dull.',
+    alice: c => `${c.list}. I shall take the middle one — ${c.icon}. Which must mean the falling stops soon, because I should very much like it to.`,
+    cat: `You threw those because you were bored, not because you had a question. Cards asked with nothing riding on them are pictures, not answers. You are falling either way — notice that all three of them failed to slow you down.`,
+    tag: 'Nothing was at stake'
+  },
+  {
+    scene: 'ch02-curiouser-and-curiouser',
+    lost: 'She has grown so suddenly that she has lost her grip on English itself.',
+    alice: c => `${c.list}. The middle one especially — ${c.icon}. There. Now I have a name for what is happening to me, which is very nearly as good as understanding it.`,
+    cat: `It is not very nearly as good. You had no word, so you borrowed three pictures, kept the one that sounded most like a word, and now you have a picture sitting where the word should be. A name is a place to put a thing, not an account of it. You are exactly as tall as you were before you knew what to call it.`,
+    tag: 'A name is not an explanation'
+  },
+  {
+    scene: 'ch02-the-pool-of-tears',
+    lost: 'She is swimming in a pool of her own crying, which she did earlier, when she was nine feet high.',
+    alice: c => `${c.list}. And the middle one is ${c.icon} — which is plainly about weeping, and about how the weeping was reasonable, and how anybody would have done the same.`,
+    cat: `You wept first and read second. Whatever had fallen there would have been about weeping, because you were the one reading and you were already wet through. And I notice you took the one that agreed with you and let the other two be scenery. That is not three cards. That is one card and two witnesses you declined to call.`,
+    tag: 'Confirmation'
+  },
+  {
+    scene: 'ch05-who-are-you',
+    lost: 'A caterpillar has asked her who she is, and she finds she cannot say.',
+    alice: c => `${c.list}. Look — ${c.icon}. And that is me exactly. It is a little frightening how exactly it is me.`,
+    cat: `It is not frightening in the least. Read the same three to the Caterpillar and he will tell you they are him exactly, and he is three inches high and largely made of smoke. An answer that fits everybody has told you nothing about anybody. What you felt was the fit being loose, not tight — and with three of them you had three chances to feel it.`,
+    tag: 'It would fit anyone'
+  },
+  {
+    scene: 'ch06-the-cheshire-cat',
+    lost: 'She has asked which way she ought to go from here, and has been asked back where she wants to get to.',
+    alice: c => `${c.list} — ${c.icon} in the middle of them. So I shall go that way, and it will have been decided for me, which is a great relief.`,
+    cat: `That depends a good deal on where you want to get to. Cards cannot want a thing on your behalf — they have no appointments and nowhere to be. You have not been relieved of the choosing; you have only arranged to be surprised by it. And if you don't much care where you get to, then any three were the right three, and you did not need them.`,
+    tag: 'Fate, not gate'
+  },
+  {
+    scene: 'ch07-time-is-frozen',
+    lost: "It is always six o'clock here. Time has quarrelled with the Hatter and stopped moving.",
+    alice: c => `${c.list}. The middle one is ${c.icon}. No. No, I don't care for that at all. I shall throw them again.`,
+    cat: `You may throw again as often as you please — the button is just there, and I see you have found it. But you did not want an answer, you wanted a different one. It is always six o'clock here for precisely that reason: nothing whatever moves when you keep refusing the part you did not like.`,
+    tag: 'Asking twice'
+  },
+  {
+    scene: 'ch09-meeting-the-gryphon',
+    lost: 'Everybody in Wonderland says "come on!" to her, and she has never been so ordered about in all her life.',
+    alice: c => `${c.list}. Very well — ${c.icon} — I shall do as they say. At least the cards do not shout at me.`,
+    cat: `No. They don't shout. That is what makes them the more dangerous of the two. Everybody here orders you about and you resent it quite properly; three pieces of card order you about and you call it wisdom. You have not stopped being ordered about, my dear. You have only stopped minding.`,
+    tag: 'Authority laundering'
+  },
+  {
+    scene: 'ch12-sentence-first',
+    lost: 'The Queen has called for the sentence before the verdict, and Alice has said that this is stuff and nonsense.',
+    alice: c => `${c.list}. ${c.iconCap} in the middle. Though I had rather decided what they were going to mean before ever they landed.`,
+    cat: `Sentence first, verdict afterwards. Her Majesty's own method, and you have been using it all afternoon. — One thing more, before I go. Every deck in that little picker was cut to play a game. Not one of those cards was printed to tell anyone anything; the meanings turned up centuries late, from men with names and dates. You were quite right about the jury. You are nothing but a pack of cards.`,
+    tag: 'Verdict first'
+  }
+];
+
+const POSITIONS = ['Before', 'The one she fixes on', 'After'];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+let DECK = [], DECK_LABEL = '', SCENES = {}, hands = [];
+const deckCache = {};
+
+// ── turning any grammar in the library into castable cards ──────────
+const NUM = {1:'a single',2:'two',3:'three',4:'four',5:'five',6:'six',7:'seven',8:'eight',9:'nine',10:'ten'};
+const ICON_KEYS = ['Iconography','Scene','Symbol','Divinatory Meaning','Meaning','Reading','Description','Upright'];
+
+// Some grammars open a section with an editorial note rather than with the
+// card (Book T's Divinatory Meaning starts with a paraphrase disclaimer).
+// So don't just take the first section that exists — take the first one that
+// yields a sentence actually describing a card.
+function firstSentence(raw){
+  let s = String(raw || '')
+    .replace(/\[@[^\]]*\]/g, '')                  // citation keys
+    .replace(/\s+/g, ' ').trim()
+    .replace(/^[*_>#\s]+/, '')                    // markdown emphasis / blockquote / heading marks
+    .replace(/^\([^)]*\)\s*/, '');                // a leading parenthetical aside
+  // Take sentences until we have something long enough to actually be one —
+  // otherwise an abbreviation ("Golden Dawn, c. 1888") ends it after two words.
+  const parts = s.split(/(?<=[.!?])\s+(?=[A-Z"'(])/);
+  let out = '';
+  for (const p of parts){ out = out ? out + ' ' + p : p; if (out.length >= 40) break; }
+  out = out.replace(/^[^:]{3,40}:\s*/, '').replace(/[.*_\s]+$/, '').trim();
+  out = out.replace(/^(\d+)\s+(?=[A-Z])/, '');                        // "9 A goodly personage…" — drop the card number
+  out = out.replace(/^(\d+)\b(?=\s+[a-z])/, (m, d) => NUM[d] || d);   // "3 cups" — spell it out
+  return out;
+}
+// Accents are folded before comparing, so "bâton" matches "Baton" in the
+// card's own name — otherwise the French decks echo themselves.
+const words = t => String(t).normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase().replace(/[^a-z ]/g, ' ').split(/\s+/).filter(Boolean);
+
+// Sections often restate the card's own name before describing it
+// ("Page. A youthful figure…"). Drop that lead-in.
+function stripNameEcho(s, name){
+  const inName = new Set(words(name));
+  const toks = s.split(/\s+/);
+  const norm1 = t => (words(t)[0] || '');            // same accent folding as the name
+  let i = 0;
+  while (i < toks.length && i < 6 && inName.has(norm1(toks[i]))) i++;
+  return (i > 0 && toks.length - i >= 5) ? toks.slice(i).join(' ') : s;
+}
+function usableIcon(s, name){
+  if (!s || s.length < 18 || s.length > 260) return false;
+  if (/recursive tarot|editorial|paraphrase|public domain|wikimedia|see also|^book t\b/i.test(s)) return false;
+  if (!/[a-z]{3}\s+[a-z]{2}/i.test(s)) return false;          // must read like a phrase, not a label
+  // If most of it is just the card's name again, it describes nothing.
+  const ws = words(s), inName = new Set(words(name));
+  if (ws.length && ws.filter(w => inName.has(w)).length / ws.length > 0.6) return false;
+  return true;
+}
+function cardsFromGrammar(g){
+  return (g.items || [])
+    .filter(it => it.image_url && !/^(emg-|kw-|axis-)/.test(it.id || ''))
+    .map(it => {
+      const secs = it.sections || {};
+      const name = String(it.name || '').replace(/^\d+\s*[—–-]\s*/, '').trim();
+      const keys = [...ICON_KEYS.filter(k => secs[k]), ...Object.keys(secs).filter(k => !ICON_KEYS.includes(k))];
+      let icon = '';
+      for (const k of keys){
+        const cand = stripNameEcho(firstSentence(secs[k]), name);
+        if (usableIcon(cand, name)) { icon = cand; break; }
+      }
+      if (!icon || !name) return null;
+      icon = icon.charAt(0).toLowerCase() + icon.slice(1);
+      return { id: it.id, name, img: it.image_url, icon };
+    })
+    .filter(Boolean);
+}
+
+// Pips and courts want an article ("the Two of Cups"); trumps mostly carry
+// their own already ("The Devil") and the bare ones must stay bare —
+// "the Justice" and "the Death" are not things anyone says.
+function article(c){ return / of /i.test(c.name) ? 'the ' + c.name : c.name; }
+
+function listOf(hand){
+  const lower = s => s.replace(/^The\b/, 'the');
+  const [a, b, c] = hand.map(article);
+  const s = `${a}, ${lower(b)} and ${lower(c)}`;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function deal(){
+  const pool = DECK.slice();
+  for (let i = pool.length - 1; i > 0; i--){                 // Fisher–Yates
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  hands = BEATS.map((_, i) => pool.slice(i * 3, i * 3 + 3)); // one deck, no repeats anywhere
+  if (hands.some(h => h.length < 3)) {                        // small decks: reshuffle per hand
+    hands = BEATS.map(() => {
+      const p = DECK.slice();
+      for (let i = p.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [p[i],p[j]]=[p[j],p[i]]; }
+      return p.slice(0, 3);
+    });
+  }
+}
+
+function paragraphs(text){
+  return String(text || '').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean)
+    .map(p => `<p>${esc(p)}</p>`).join('');
+}
+
+function renderCast(i){
+  const hand = hands[i];
+  if (!hand || hand.length < 3) return '';
+  const fixed = hand[1];
+  const cards = hand.map((c, n) => `<div class="card${n === 1 ? ' fixed' : ''}">
+      <div class="pos">${esc(POSITIONS[n])}</div>
+      <img src="${esc(c.img)}" alt="${esc(c.name)}" loading="lazy">
+      <div class="nm">${esc(c.name)}</div>
+    </div>`).join('');
+  const said = BEATS[i].alice({
+    list: listOf(hand),
+    icon: fixed.icon,
+    iconCap: fixed.icon.charAt(0).toUpperCase() + fixed.icon.slice(1)
+  });
+  return `<div class="three">${cards}<button class="redraw" data-i="${i}">throw these three again</button></div>
+    <div class="said alice"><div class="who">Alice reads them</div><p>“${esc(said)}”</p></div>
+    <div class="said cat"><div class="who">The Cat reviews it</div>
+      <p>“${esc(BEATS[i].cat)}”</p><span class="tag">${esc(BEATS[i].tag)}</span></div>`;
+}
+
+function renderBeat(i){
+  const b = BEATS[i], s = SCENES[b.scene];
+  if (!s) return '';
+  const md = s.metadata || {};
+  const art = s.image_url
+    ? `<div class="art"><img src="${esc(s.image_url)}" alt="" loading="lazy">
+         <div class="cap">${esc(md.illustration_artist || '')}</div></div>` : '';
+  return `<section class="beat">
+    <div class="ch">Chapter ${esc(md.chapter_number)} · ${esc(md.chapter_name || '')}</div>
+    <h2>${esc(s.name)}</h2>
+    <p class="lost">${esc(b.lost)}</p>
+    <div class="spread">${art}<div class="txt">${paragraphs((s.sections || {})['Story (Original Text)'])}</div></div>
+    <div class="cast" id="cast-${i}">${renderCast(i)}</div>
+  </section>`;
+}
+
+// Re-render without moving the reader. Nothing here ever scrolls the page:
+// the beats keep their heights, so replacing their innards leaves the
+// reader exactly where they were.
+function renderAll(){
+  const y = window.scrollY;
+  $('#beats').innerHTML = BEATS.map((_, i) => renderBeat(i)).join('');
+  window.scrollTo(0, y);
+}
+
+// One delegated listener for every "throw again" button, so re-rendering a
+// single beat never needs anything rebound.
+$('#beats').addEventListener('click', e => {
+  const btn = e.target.closest('.redraw');
+  if (!btn) return;
+  const i = +btn.dataset.i;
+  const taken = new Set(hands.flat().map(c => c.id));
+  hands[i].forEach(c => taken.delete(c.id));
+  let pool = DECK.filter(c => !taken.has(c.id));
+  if (pool.length < 3) pool = DECK.slice();
+  for (let k = pool.length - 1; k > 0; k--){ const j = Math.floor(Math.random()*(k+1)); [pool[k],pool[j]]=[pool[j],pool[k]]; }
+  hands[i] = pool.slice(0, 3);
+  const y = window.scrollY;
+  document.getElementById('cast-' + i).innerHTML = renderCast(i);
+  window.scrollTo(0, y);
+});
+
+function setColophon(extra){
+  $('#colophon').innerHTML =
+    `<b>About this edition.</b> Carroll's text and the plates are read live from this book's own
+     <a href="../grammar.json">grammar.json</a> — the same source the
+     <a href="../booklets/book.html">published book</a> is generated from, so nothing here is a second
+     copy of the text that could drift out of step. Alice's readings and the Cheshire Cat's reviews are
+     written for this edition and are not Carroll's; each review names the reading fault it points at.
+     Three cards are dealt per moment, shuffled fresh on every load (Fisher–Yates, no repeats).
+     <br><br>
+     <b>The deck.</b> Currently <b>${esc(DECK_LABEL)}</b> — ${DECK.length} cards. The default is the
+     <b>Tarot de Marseille of Nicolas Conver, Marseille, 1760</b>, vendored here as
+     <a href="marseille.json">marseille.json</a> so the page works even if the library is unreachable;
+     its trump scans are Conver's own, its pips and courts are public-domain Marseille-pattern scans.
+     Every other deck in the picker is fetched live from
+     <a href="https://tarot.recursive.eco" target="_blank" rel="noopener">tarot.recursive.eco</a>, the
+     open half of <a href="https://recursive.eco" target="_blank" rel="noopener">recursive.eco</a>, where
+     each deck is a public JSON grammar under CC-BY-SA. ${extra || ''}
+     <br><br>
+     <b>Why a Marseille deck in Wonderland.</b> Wonderland's own pack is French-suited — hearts,
+     diamonds, clubs, spades, and a Queen of Hearts who wants everybody beheaded. The French suits are a
+     late-fifteenth-century simplification of the older Latin ones, and the usual correspondence runs
+     cups→hearts, coins→diamonds, batons→clubs, swords→spades (the descent is messier than a clean
+     one-to-one, but that is the standard association). So a Marseille cast in Wonderland is the Queen of
+     Hearts' own pack in an older dialect — and the Queen of Cups is, one suit-system back, the Queen of
+     Hearts herself.`;
+}
+
+async function loadDeck(slug, label){
+  if (deckCache[slug]) { DECK = deckCache[slug]; DECK_LABEL = label; return; }
+  const g = await fetch(`https://tarot.recursive.eco/tarot/${slug}/grammar.json`).then(r => r.json());
+  const cards = cardsFromGrammar(g);
+  if (cards.length < 6) throw new Error('that grammar has too few illustrated cards to cast with');
+  deckCache[slug] = cards;
+  DECK = cards; DECK_LABEL = label;
+}
+
+(async function init(){
+  try {
+    const [deckFile, grammar] = await Promise.all([
+      fetch('marseille.json').then(r => r.json()),
+      fetch('../grammar.json').then(r => r.json())
+    ]);
+    // Normalise the vendored deck the same way live-fetched grammars are,
+    // so Alice's sentence reads as one sentence whichever deck she holds.
+    DECK = deckFile.cards.map(c => ({ ...c, icon: c.icon.charAt(0).toLowerCase() + c.icon.slice(1) }));
+    DECK_LABEL = 'Tarot de Marseille — Nicolas Conver, 1760';
+    deckCache['tarot-de-marseille-conver'] = DECK;
+    (grammar.items || []).forEach(it => { SCENES[it.id] = it; });
+    deal(); renderAll(); setColophon();
+  } catch (err) {
+    $('#beats').innerHTML = `<p class="loading">The cards would not come out of the pack: ${esc(err.message)}</p>`;
+    return;
+  }
+
+  // The picker is a bonus: if the library can't be reached, Marseille still works.
+  try {
+    const col = await fetch('https://tarot.recursive.eco/tarot/_collection.json').then(r => r.json());
+    const decks = (col.grammars || [])
+      .filter(g => g.slug && !g.is_meta && g.cover_image_url)
+      .sort((a, b) => (a.year || 9999) - (b.year || 9999));
+    const sel = $('#deck');
+    sel.innerHTML = decks.map(g =>
+      `<option value="${esc(g.slug)}"${g.slug === 'tarot-de-marseille-conver' ? ' selected' : ''}>${
+        esc((g.common_name || g.name || g.slug).replace(/\s+—.*$/, ''))}${g.year_label ? ' · ' + esc(g.year_label) : ''}</option>`
+    ).join('');
+    sel.addEventListener('change', async () => {
+      const slug = sel.value;
+      const label = sel.options[sel.selectedIndex].textContent;
+      const y = window.scrollY;
+      try {
+        await loadDeck(slug, label);
+        deal(); renderAll(); setColophon();
+      } catch (err) {
+        setColophon(`<br><br><b>That deck would not cast:</b> ${esc(err.message)}. Still holding ${esc(DECK_LABEL)}.`);
+      }
+      window.scrollTo(0, y);
+    });
+  } catch { /* no picker; the default deck is already dealt */ }
+})();
+
+// Shuffle in place — deliberately does not move the reader.
+$('#shuffle').addEventListener('click', () => { deal(); renderAll(); });
+$('#dark').addEventListener('click', () => document.body.classList.toggle('dark'));
+</script>
+</body>
+</html>
