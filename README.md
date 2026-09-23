@@ -55,6 +55,17 @@ See [PLAN.md](PLAN.md) for the full roadmap and [CONTRIBUTING.md](CONTRIBUTING.m
 ## Credits
 
 All texts are public domain. All illustrations are public domain (pre-1929).
-Code is [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Neither is relicensed here.
+
+## Licence
+
+| What | Licence |
+|------|---------|
+| Code — `index.html`, `privacy.html`, `scripts/`, `gpt/` (the GPT's schema and prompt), `package.json` | [Apache-2.0](LICENSE) — see [NOTICE](NOTICE) |
+| Public-domain texts and illustrations in `books/` | Public domain |
+| Other content in `books/` (adaptations, page maps, audio manifests, the audio in `books/a-painful-playful-process-song/`) | Not covered by Apache-2.0. Where a file names a licence (e.g. `books/alice-in-wonderland/grammar-pages.json`: CC-BY-SA-4.0), that applies; otherwise no licence is granted yet |
+| The names "recursive.eco" and "Recursive", and the spiral logo | Not licensed — see [TRADEMARKS.md](TRADEMARKS.md) |
+
+The code was CC-BY-SA-4.0 until September 2026; copies taken before then keep that licence.
 
 Part of the [recursive.eco](https://recursive.eco) grammar ecosystem.
