@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "book-preview",
-      "runtimeExecutable": "C:\\Users\\USER\\AppData\\Roaming\\npm\\npx.cmd",
+      "runtimeExecutable": "npx",
       "runtimeArgs": ["http-server", ".", "-p", "8090", "--cors"],
       "port": 8090
     }
