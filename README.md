@@ -4,6 +4,19 @@ Public domain classics as illustrated audiobooks — powered by GitHub.
 
 **[Visit the Library](https://playfulprocess.github.io/recursive-kids-stories-club/)**
 
+## Work in progress
+
+This is a work in progress, made for families. I published it mainly so the pages could be
+served, and it isn't finished. Contributors are welcome, families especially: open an issue or
+send a pull request, however small.
+
+The idea behind [recursive.eco](https://recursive.eco) is a hypothesis, not a claim: that we may
+need to learn together, children and grown-ups, how to create the conditions for recursive
+eco-improvement, rather than race toward recursive self-improvement.
+
+If your work appears here and you'd like it featured differently, removed, or given a shelf of
+your own, please write to pp@playfulprocess.com.
+
 ## The Books
 
 | Book | Author | Status |
