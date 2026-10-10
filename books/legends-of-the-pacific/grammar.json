@@ -22,11 +22,10 @@
     "source_url": "https://archive.org/details/legendsofmauiade00west",
     "note": "Retold gently for young children. Some legends exist in many island versions (Hawaiian, Maori, Samoan, Tahitian, Fijian); each retelling notes its main thread in the For the Grown-up section. No text, characters, or lyrics from any film are used."
   },
-  "items": [
+  "nodes": [
     {
       "id": "ch01-how-maui-fished-up-the-islands",
       "name": "How Maui Fished Up the Islands",
-      "level": 1,
       "category": "chapter",
       "sort_order": 1,
       "sections": {
@@ -44,7 +43,6 @@
     {
       "id": "ch02-how-maui-slowed-the-sun",
       "name": "How Maui Slowed the Sun",
-      "level": 1,
       "category": "chapter",
       "sort_order": 2,
       "sections": {
@@ -62,7 +60,6 @@
     {
       "id": "ch03-how-maui-brought-fire",
       "name": "How Maui Brought Fire to People",
-      "level": 1,
       "category": "chapter",
       "sort_order": 3,
       "sections": {
@@ -80,7 +77,6 @@
     {
       "id": "ch04-why-maui-wanted-to-live-forever",
       "name": "Why Maui Wanted to Live Forever",
-      "level": 1,
       "category": "chapter",
       "sort_order": 4,
       "sections": {
@@ -98,7 +94,6 @@
     {
       "id": "ch05-hina-and-the-eel",
       "name": "Hina and the Eel: Why Coconuts Have Faces",
-      "level": 1,
       "category": "chapter",
       "sort_order": 5,
       "sections": {
@@ -116,7 +111,6 @@
     {
       "id": "ch06-rata-and-the-canoe",
       "name": "Rata and the Canoe the Forest Built",
-      "level": 1,
       "category": "chapter",
       "sort_order": 6,
       "sections": {
@@ -134,7 +128,6 @@
     {
       "id": "ch07-kupe-and-the-giant-octopus",
       "name": "Kupe and the Giant Octopus",
-      "level": 1,
       "category": "chapter",
       "sort_order": 7,
       "sections": {
@@ -152,7 +145,6 @@
     {
       "id": "ch08-hina-and-the-moon",
       "name": "Hina and the Moon",
-      "level": 1,
       "category": "chapter",
       "sort_order": 8,
       "sections": {
@@ -170,7 +162,6 @@
     {
       "id": "ch09-pele-the-island-maker",
       "name": "Pele, the Island-Maker",
-      "level": 1,
       "category": "chapter",
       "sort_order": 9,
       "sections": {
@@ -188,7 +179,6 @@
     {
       "id": "ch10-how-the-wayfinders-listened",
       "name": "How the Wayfinders Listened",
-      "level": 1,
       "category": "chapter",
       "sort_order": 10,
       "sections": {
@@ -206,7 +196,6 @@
     {
       "id": "ch11-what-makes-a-princess",
       "name": "What Makes a Princess?",
-      "level": 1,
       "category": "chapter",
       "sort_order": 11,
       "sections": {

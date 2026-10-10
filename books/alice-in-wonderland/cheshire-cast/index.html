@@ -250,7 +250,7 @@ function usableIcon(s, name){
   return true;
 }
 function cardsFromGrammar(g){
-  return (g.items || [])
+  return (g.nodes || [])
     .filter(it => it.image_url && !/^(emg-|kw-|axis-)/.test(it.id || ''))
     .map(it => {
       const secs = it.sections || {};
@@ -410,7 +410,7 @@ async function loadDeck(slug, label){
     DECK = deckFile.cards.map(c => ({ ...c, icon: c.icon.charAt(0).toLowerCase() + c.icon.slice(1) }));
     DECK_LABEL = 'Tarot de Marseille — Nicolas Conver, 1760';
     deckCache['tarot-de-marseille-conver'] = DECK;
-    (grammar.items || []).forEach(it => { SCENES[it.id] = it; });
+    (grammar.nodes || []).forEach(it => { SCENES[it.id] = it; });
     deal(); renderAll(); setColophon();
   } catch (err) {
     $('#beats').innerHTML = `<p class="loading">The cards would not come out of the pack: ${esc(err.message)}</p>`;

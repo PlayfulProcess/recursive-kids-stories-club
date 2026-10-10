@@ -22,11 +22,10 @@
     "source_url": "https://www.gutenberg.org/ebooks/67098",
     "note": "Complete original text from Project Gutenberg eBook #67098. First published by McClelland & Stewart, Ltd., Toronto, 1926. Entered US public domain January 1, 2022."
   },
-  "items": [
+  "nodes": [
     {
       "id": "ch01-edward-bear-comes-downstairs",
       "name": "Edward Bear Comes Downstairs",
-      "level": 1,
       "category": "chapter",
       "sort_order": 1,
       "sections": {
@@ -43,7 +42,6 @@
     {
       "id": "ch01-pooh-and-the-honey-tree",
       "name": "Pooh and the Honey Tree",
-      "level": 1,
       "category": "chapter",
       "sort_order": 2,
       "sections": {
@@ -60,7 +58,6 @@
     {
       "id": "ch01-the-balloon-plan",
       "name": "The Balloon Plan",
-      "level": 1,
       "category": "chapter",
       "sort_order": 3,
       "sections": {
@@ -77,7 +74,6 @@
     {
       "id": "ch01-coming-to-see-me-have-my-bath",
       "name": "Coming to See Me Have My Bath",
-      "level": 1,
       "category": "chapter",
       "sort_order": 4,
       "sections": {
@@ -94,7 +90,6 @@
     {
       "id": "ch02-pooh-visits-rabbit",
       "name": "Pooh Visits Rabbit",
-      "level": 1,
       "category": "chapter",
       "sort_order": 5,
       "sections": {
@@ -111,7 +106,6 @@
     {
       "id": "ch02-stuck-in-the-doorway",
       "name": "Stuck in the Doorway",
-      "level": 1,
       "category": "chapter",
       "sort_order": 6,
       "sections": {
@@ -128,7 +122,6 @@
     {
       "id": "ch03-the-mysterious-tracks",
       "name": "The Mysterious Tracks",
-      "level": 1,
       "category": "chapter",
       "sort_order": 7,
       "sections": {
@@ -145,7 +138,6 @@
     {
       "id": "ch03-the-tracks-multiply",
       "name": "The Tracks Multiply",
-      "level": 1,
       "category": "chapter",
       "sort_order": 8,
       "sections": {
@@ -162,7 +154,6 @@
     {
       "id": "ch03-a-bear-of-no-brain-at-all",
       "name": "A Bear of No Brain at All",
-      "level": 1,
       "category": "chapter",
       "sort_order": 9,
       "sections": {
@@ -179,7 +170,6 @@
     {
       "id": "ch04-not-very-how",
       "name": "Not Very How",
-      "level": 1,
       "category": "chapter",
       "sort_order": 10,
       "sections": {
@@ -196,7 +186,6 @@
     {
       "id": "ch04-pooh-visits-owl",
       "name": "Pooh Visits Owl",
-      "level": 1,
       "category": "chapter",
       "sort_order": 11,
       "sections": {
@@ -213,7 +202,6 @@
     {
       "id": "ch04-the-tail-is-returned",
       "name": "The Tail Is Returned",
-      "level": 1,
       "category": "chapter",
       "sort_order": 12,
       "sections": {
@@ -230,7 +218,6 @@
     {
       "id": "ch05-the-cunning-trap",
       "name": "The Cunning Trap",
-      "level": 1,
       "category": "chapter",
       "sort_order": 13,
       "sections": {
@@ -247,7 +234,6 @@
     {
       "id": "ch05-pooh-and-the-honey-jar",
       "name": "Pooh and the Honey Jar",
-      "level": 1,
       "category": "chapter",
       "sort_order": 14,
       "sections": {
@@ -264,7 +250,6 @@
     {
       "id": "ch05-piglet-meets-the-heffalump",
       "name": "Piglet Meets the Heffalump",
-      "level": 1,
       "category": "chapter",
       "sort_order": 15,
       "sections": {
@@ -281,7 +266,6 @@
     {
       "id": "ch06-eeyores-birthday",
       "name": "Eeyore's Birthday",
-      "level": 1,
       "category": "chapter",
       "sort_order": 16,
       "sections": {
@@ -298,7 +282,6 @@
     {
       "id": "ch06-the-presents-are-prepared",
       "name": "The Presents Are Prepared",
-      "level": 1,
       "category": "chapter",
       "sort_order": 17,
       "sections": {
@@ -315,7 +298,6 @@
     {
       "id": "ch06-the-balloon-and-the-useful-pot",
       "name": "The Balloon and the Useful Pot",
-      "level": 1,
       "category": "chapter",
       "sort_order": 18,
       "sections": {
@@ -332,7 +314,6 @@
     {
       "id": "ch06-christopher-robins-party",
       "name": "Christopher Robin's Party",
-      "level": 1,
       "category": "chapter",
       "sort_order": 19,
       "sections": {
@@ -349,7 +330,6 @@
     {
       "id": "ch07-the-plan-to-steal-baby-roo",
       "name": "The Plan to Steal Baby Roo",
-      "level": 1,
       "category": "chapter",
       "sort_order": 20,
       "sections": {
@@ -366,7 +346,6 @@
     {
       "id": "ch07-the-swap",
       "name": "The Swap",
-      "level": 1,
       "category": "chapter",
       "sort_order": 21,
       "sections": {
@@ -383,7 +362,6 @@
     {
       "id": "ch07-piglet-has-a-bath",
       "name": "Piglet Has a Bath",
-      "level": 1,
       "category": "chapter",
       "sort_order": 22,
       "sections": {
@@ -400,7 +378,6 @@
     {
       "id": "ch08-sing-ho-for-the-life-of-a-bear",
       "name": "Sing Ho! for the Life of a Bear",
-      "level": 1,
       "category": "chapter",
       "sort_order": 23,
       "sections": {
@@ -417,7 +394,6 @@
     {
       "id": "ch08-the-expotition-sets-off",
       "name": "The Expotition Sets Off",
-      "level": 1,
       "category": "chapter",
       "sort_order": 24,
       "sections": {
@@ -434,7 +410,6 @@
     {
       "id": "ch08-the-north-pole",
       "name": "The North Pole",
-      "level": 1,
       "category": "chapter",
       "sort_order": 25,
       "sections": {
@@ -451,7 +426,6 @@
     {
       "id": "ch09-piglets-flood",
       "name": "Piglet's Flood",
-      "level": 1,
       "category": "chapter",
       "sort_order": 26,
       "sections": {
@@ -468,7 +442,6 @@
     {
       "id": "ch09-pooh-and-the-floating-bear",
       "name": "Pooh and The Floating Bear",
-      "level": 1,
       "category": "chapter",
       "sort_order": 27,
       "sections": {
@@ -485,7 +458,6 @@
     {
       "id": "ch09-the-brain-of-pooh",
       "name": "The Brain of Pooh",
-      "level": 1,
       "category": "chapter",
       "sort_order": 28,
       "sections": {
@@ -502,7 +474,6 @@
     {
       "id": "ch10-invitations",
       "name": "Invitations",
-      "level": 1,
       "category": "chapter",
       "sort_order": 29,
       "sections": {
@@ -519,7 +490,6 @@
     {
       "id": "ch10-the-party",
       "name": "The Party",
-      "level": 1,
       "category": "chapter",
       "sort_order": 30,
       "sections": {
@@ -536,7 +506,6 @@
     {
       "id": "ch10-good-bye",
       "name": "Good-Bye",
-      "level": 1,
       "category": "chapter",
       "sort_order": 31,
       "sections": {
@@ -554,10 +523,9 @@
       "id": "chapter-01",
       "name": "Chapter I — In Which We Are Introduced to Winnie-the-Pooh and Some Bees, and the Stories Begin",
       "symbol": "I",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch01-edward-bear-comes-downstairs",
         "ch01-pooh-and-the-honey-tree",
         "ch01-the-balloon-plan",
@@ -577,10 +545,9 @@
       "id": "chapter-02",
       "name": "Chapter II — In Which Pooh Goes Visiting and Gets Into a Tight Place",
       "symbol": "II",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch02-pooh-visits-rabbit",
         "ch02-stuck-in-the-doorway"
       ],
@@ -598,10 +565,9 @@
       "id": "chapter-03",
       "name": "Chapter III — In Which Pooh and Piglet Go Hunting and Nearly Catch a Woozle",
       "symbol": "III",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch03-the-mysterious-tracks",
         "ch03-the-tracks-multiply",
         "ch03-a-bear-of-no-brain-at-all"
@@ -620,10 +586,9 @@
       "id": "chapter-04",
       "name": "Chapter IV — In Which Eeyore Loses a Tail and Pooh Finds One",
       "symbol": "IV",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch04-not-very-how",
         "ch04-pooh-visits-owl",
         "ch04-the-tail-is-returned"
@@ -642,10 +607,9 @@
       "id": "chapter-05",
       "name": "Chapter V — In Which Piglet Meets a Heffalump",
       "symbol": "V",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch05-the-cunning-trap",
         "ch05-pooh-and-the-honey-jar",
         "ch05-piglet-meets-the-heffalump"
@@ -664,10 +628,9 @@
       "id": "chapter-06",
       "name": "Chapter VI — In Which Eeyore Has a Birthday and Gets Two Presents",
       "symbol": "VI",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch06-eeyores-birthday",
         "ch06-the-presents-are-prepared",
         "ch06-the-balloon-and-the-useful-pot",
@@ -687,10 +650,9 @@
       "id": "chapter-07",
       "name": "Chapter VII — In Which Kanga and Baby Roo Come to the Forest, and Piglet Has a Bath",
       "symbol": "VII",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch07-the-plan-to-steal-baby-roo",
         "ch07-the-swap",
         "ch07-piglet-has-a-bath"
@@ -709,10 +671,9 @@
       "id": "chapter-08",
       "name": "Chapter VIII — In Which Christopher Robin Leads an Expotition to the North Pole",
       "symbol": "VIII",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch08-sing-ho-for-the-life-of-a-bear",
         "ch08-the-expotition-sets-off",
         "ch08-the-north-pole"
@@ -731,10 +692,9 @@
       "id": "chapter-09",
       "name": "Chapter IX — In Which Piglet Is Entirely Surrounded by Water",
       "symbol": "IX",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch09-piglets-flood",
         "ch09-pooh-and-the-floating-bear",
         "ch09-the-brain-of-pooh"
@@ -753,10 +713,9 @@
       "id": "chapter-10",
       "name": "Chapter X — In Which Christopher Robin Gives Pooh a Party, and We Say Good-Bye",
       "symbol": "X",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch10-invitations",
         "ch10-the-party",
         "ch10-good-bye"

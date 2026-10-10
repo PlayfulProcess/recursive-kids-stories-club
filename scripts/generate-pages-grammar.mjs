@@ -21,7 +21,7 @@ const existingGrammar = JSON.parse(readFileSync(join(bookDir, 'grammar.json'), '
 
 // ── Chapter names from existing grammar ──
 const chapterNames = {};
-for (const item of existingGrammar.items) {
+for (const item of existingGrammar.nodes) {
   const cn = item.metadata?.chapter_number;
   const name = item.metadata?.chapter_name;
   if (cn && name && !chapterNames[cn]) {
@@ -212,7 +212,6 @@ for (const spread of spreads) {
     id: id,
     name: name,
     sort_order: sortOrder,
-    level: 1,
     category: pageType === 'chapter-cover' ? 'chapter-divider' : pageType,
     sections: {
       "Page Text": textContent || "(illustration only)"
@@ -280,7 +279,7 @@ const grammar = {
     source_url: "https://www.gutenberg.org/ebooks/11",
     note: "Page-level grammar generated from the illustrated HTML book. Each item is one page spread with its paired illustration. Illustrations from Lewis Carroll (1864), Tenniel (1865), Rackham (1907), Gutmann (1933), Hudson (1922), and others."
   },
-  items: items
+  nodes: items
 };
 
 // ── Write output ──

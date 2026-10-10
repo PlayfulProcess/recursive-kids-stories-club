@@ -26,11 +26,10 @@
     "illustrations_url": "https://www.gutenberg.org/ebooks/114",
     "note": "Complete original text from Project Gutenberg eBook #11. Illustrated with public domain images from multiple editions: Lewis Carroll's manuscript drawings (1864, British Library), Arthur Rackham (1907), Bessie Pease Gutmann (1933), Sir John Tenniel (1865), Charles F.A. Voysey textile design (c.1930). All illustrations are public domain. Images from PlayfulProcess's curated collection on Google Drive."
   },
-  "items": [
+  "nodes": [
     {
       "id": "ch01-bored-by-the-river",
       "name": "Bored by the River",
-      "level": 1,
       "category": "chapter",
       "sort_order": 1,
       "sections": {
@@ -90,7 +89,6 @@
     {
       "id": "ch01-the-white-rabbit-appears",
       "name": "The White Rabbit Appears",
-      "level": 1,
       "category": "chapter",
       "sort_order": 2,
       "sections": {
@@ -159,7 +157,6 @@
     {
       "id": "ch01-falling-down",
       "name": "Falling Down the Rabbit-Hole",
-      "level": 1,
       "category": "chapter",
       "sort_order": 3,
       "sections": {
@@ -210,7 +207,6 @@
     {
       "id": "ch01-the-hall-of-doors",
       "name": "The Hall of Doors",
-      "level": 1,
       "category": "chapter",
       "sort_order": 4,
       "sections": {
@@ -252,7 +248,6 @@
     {
       "id": "ch01-drink-me",
       "name": "DRINK ME",
-      "level": 1,
       "category": "chapter",
       "sort_order": 5,
       "sections": {
@@ -303,7 +298,6 @@
     {
       "id": "ch01-eat-me",
       "name": "EAT ME",
-      "level": 1,
       "category": "chapter",
       "sort_order": 6,
       "sections": {
@@ -355,10 +349,9 @@
       "id": "chapter-01-down-the-rabbit-hole",
       "name": "Chapter I — Down the Rabbit-Hole",
       "symbol": "I",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch01-bored-by-the-river",
         "ch01-the-white-rabbit-appears",
         "ch01-falling-down",
@@ -424,7 +417,6 @@
     {
       "id": "ch02-curiouser-and-curiouser",
       "name": "Curiouser and Curiouser",
-      "level": 1,
       "category": "chapter",
       "sort_order": 8,
       "sections": {
@@ -466,7 +458,6 @@
     {
       "id": "ch02-the-white-rabbit-returns",
       "name": "The White Rabbit Returns",
-      "level": 1,
       "category": "chapter",
       "sort_order": 9,
       "sections": {
@@ -508,7 +499,6 @@
     {
       "id": "ch02-the-pool-of-tears",
       "name": "The Pool of Tears",
-      "level": 1,
       "category": "chapter",
       "sort_order": 10,
       "sections": {
@@ -568,7 +558,6 @@
     {
       "id": "ch02-meeting-the-mouse",
       "name": "Meeting the Mouse",
-      "level": 1,
       "category": "chapter",
       "sort_order": 11,
       "sections": {
@@ -620,10 +609,9 @@
       "id": "chapter-02-the-pool-of-tears",
       "name": "Chapter II — The Pool of Tears",
       "symbol": "II",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch02-curiouser-and-curiouser",
         "ch02-the-white-rabbit-returns",
         "ch02-the-pool-of-tears",
@@ -678,7 +666,6 @@
     {
       "id": "ch03-the-driest-thing",
       "name": "The Driest Thing",
-      "level": 1,
       "category": "chapter",
       "sort_order": 13,
       "sections": {
@@ -729,7 +716,6 @@
     {
       "id": "ch03-the-caucus-race",
       "name": "The Caucus-Race",
-      "level": 1,
       "category": "chapter",
       "sort_order": 14,
       "sections": {
@@ -816,7 +802,6 @@
     {
       "id": "ch03-a-long-sad-tale",
       "name": "A Long Sad Tale",
-      "level": 1,
       "category": "chapter",
       "sort_order": 15,
       "sections": {
@@ -859,10 +844,9 @@
       "id": "chapter-03-a-caucus-race-and-a-long-tale",
       "name": "Chapter III — A Caucus-Race and a Long Tale",
       "symbol": "III",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch03-the-driest-thing",
         "ch03-the-caucus-race",
         "ch03-a-long-sad-tale"
@@ -914,7 +898,6 @@
     {
       "id": "ch04-mistaken-for-mary-ann",
       "name": "Mistaken for Mary Ann",
-      "level": 1,
       "category": "chapter",
       "sort_order": 17,
       "sections": {
@@ -965,7 +948,6 @@
     {
       "id": "ch04-stuck-in-the-house",
       "name": "Stuck in the Rabbit's House",
-      "level": 1,
       "category": "chapter",
       "sort_order": 18,
       "sections": {
@@ -1016,7 +998,6 @@
     {
       "id": "ch04-bill-the-lizard",
       "name": "Bill the Lizard",
-      "level": 1,
       "category": "chapter",
       "sort_order": 19,
       "sections": {
@@ -1085,7 +1066,6 @@
     {
       "id": "ch04-the-great-puppy",
       "name": "The Great Puppy",
-      "level": 1,
       "category": "chapter",
       "sort_order": 20,
       "sections": {
@@ -1128,10 +1108,9 @@
       "id": "chapter-04-the-rabbit-sends-in-a-little-bill",
       "name": "Chapter IV — The Rabbit Sends in a Little Bill",
       "symbol": "IV",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch04-mistaken-for-mary-ann",
         "ch04-stuck-in-the-house",
         "ch04-bill-the-lizard",
@@ -1186,7 +1165,6 @@
       "id": "ch05-who-are-you",
       "name": "Who Are You?",
       "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch05-who-are-you/gwynedd-hudson-1922.jpg",
-      "level": 1,
       "category": "chapter",
       "sort_order": 22,
       "sections": {
@@ -1254,7 +1232,6 @@
     {
       "id": "ch05-father-william",
       "name": "You Are Old, Father William",
-      "level": 1,
       "category": "chapter",
       "sort_order": 23,
       "sections": {
@@ -1305,7 +1282,6 @@
     {
       "id": "ch05-the-mushrooms-magic",
       "name": "The Mushroom's Magic",
-      "level": 1,
       "category": "chapter",
       "sort_order": 24,
       "sections": {
@@ -1347,7 +1323,6 @@
     {
       "id": "ch05-serpent",
       "name": "Serpent!",
-      "level": 1,
       "category": "chapter",
       "sort_order": 25,
       "sections": {
@@ -1390,10 +1365,9 @@
       "id": "chapter-05-advice-from-a-caterpillar",
       "name": "Chapter V — Advice from a Caterpillar",
       "symbol": "V",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch05-who-are-you",
         "ch05-father-william",
         "ch05-the-mushrooms-magic",
@@ -1447,7 +1421,6 @@
     {
       "id": "ch06-the-fish-footman",
       "name": "The Fish-Footman",
-      "level": 1,
       "category": "chapter",
       "sort_order": 27,
       "sections": {
@@ -1498,7 +1471,6 @@
     {
       "id": "ch06-the-duchesss-kitchen",
       "name": "The Duchess's Kitchen",
-      "level": 1,
       "category": "chapter",
       "sort_order": 28,
       "sections": {
@@ -1558,7 +1530,6 @@
     {
       "id": "ch06-the-baby-turns-into-a-pig",
       "name": "The Baby Turns into a Pig",
-      "level": 1,
       "category": "chapter",
       "sort_order": 29,
       "sections": {
@@ -1636,7 +1607,6 @@
     {
       "id": "ch06-the-cheshire-cat",
       "name": "The Cheshire Cat",
-      "level": 1,
       "category": "chapter",
       "sort_order": 30,
       "sections": {
@@ -1697,10 +1667,9 @@
       "id": "chapter-06-pig-and-pepper",
       "name": "Chapter VI — Pig and Pepper",
       "symbol": "VI",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch06-the-fish-footman",
         "ch06-the-duchesss-kitchen",
         "ch06-the-baby-turns-into-a-pig",
@@ -1756,7 +1725,6 @@
       "id": "ch07-no-room",
       "name": "No Room! No Room!",
       "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch07-no-room/arthur-rackham-1907.jpg",
-      "level": 1,
       "category": "chapter",
       "sort_order": 32,
       "sections": {
@@ -1824,7 +1792,6 @@
     {
       "id": "ch07-the-hatters-watch",
       "name": "The Hatter's Watch",
-      "level": 1,
       "category": "chapter",
       "sort_order": 33,
       "sections": {
@@ -1866,7 +1833,6 @@
     {
       "id": "ch07-time-is-frozen",
       "name": "Time is Frozen",
-      "level": 1,
       "category": "chapter",
       "sort_order": 34,
       "sections": {
@@ -1908,7 +1874,6 @@
     {
       "id": "ch07-the-dormouses-story",
       "name": "The Dormouse's Story",
-      "level": 1,
       "category": "chapter",
       "sort_order": 35,
       "sections": {
@@ -1959,7 +1924,6 @@
     {
       "id": "ch07-alice-leaves-the-tea-party",
       "name": "Alice Leaves the Tea-Party",
-      "level": 1,
       "category": "chapter",
       "sort_order": 36,
       "sections": {
@@ -2003,10 +1967,9 @@
       "name": "Chapter VII — A Mad Tea-Party",
       "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/chapter-07-a-mad-tea-party/gwynedd-hudson-1922.jpg",
       "symbol": "VII",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch07-no-room",
         "ch07-the-hatters-watch",
         "ch07-time-is-frozen",
@@ -2080,7 +2043,6 @@
       "id": "ch08-painting-the-roses-red",
       "name": "Painting the Roses Red",
       "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammar-illustrations/alice-in-wonderland/ch08-painting-the-roses-red/gwynedd-hudson-1922.jpg",
-      "level": 1,
       "category": "chapter",
       "sort_order": 38,
       "sections": {
@@ -2148,7 +2110,6 @@
     {
       "id": "ch08-the-royal-procession",
       "name": "The Royal Procession",
-      "level": 1,
       "category": "chapter",
       "sort_order": 39,
       "sections": {
@@ -2217,7 +2178,6 @@
     {
       "id": "ch08-croquet-with-flamingos",
       "name": "Croquet with Flamingos",
-      "level": 1,
       "category": "chapter",
       "sort_order": 40,
       "sections": {
@@ -2268,7 +2228,6 @@
     {
       "id": "ch08-the-cheshire-cats-head",
       "name": "The Cheshire Cat's Head",
-      "level": 1,
       "category": "chapter",
       "sort_order": 41,
       "sections": {
@@ -2329,10 +2288,9 @@
       "id": "chapter-08-the-queens-croquet-ground",
       "name": "Chapter VIII — The Queen's Croquet-Ground",
       "symbol": "VIII",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch08-painting-the-roses-red",
         "ch08-the-royal-procession",
         "ch08-croquet-with-flamingos",
@@ -2394,7 +2352,6 @@
     {
       "id": "ch09-the-duchess-and-her-morals",
       "name": "The Duchess and Her Morals",
-      "level": 1,
       "category": "chapter",
       "sort_order": 43,
       "sections": {
@@ -2445,7 +2402,6 @@
     {
       "id": "ch09-meeting-the-gryphon",
       "name": "Meeting the Gryphon",
-      "level": 1,
       "category": "chapter",
       "sort_order": 44,
       "sections": {
@@ -2505,7 +2461,6 @@
     {
       "id": "ch09-the-mock-turtles-school",
       "name": "The Mock Turtle's School Days",
-      "level": 1,
       "category": "chapter",
       "sort_order": 45,
       "sections": {
@@ -2566,10 +2521,9 @@
       "id": "chapter-09-the-mock-turtles-story",
       "name": "Chapter IX — The Mock Turtle's Story",
       "symbol": "IX",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch09-the-duchess-and-her-morals",
         "ch09-meeting-the-gryphon",
         "ch09-the-mock-turtles-school"
@@ -2623,7 +2577,6 @@
     {
       "id": "ch10-the-lobster-quadrille",
       "name": "The Lobster Quadrille",
-      "level": 1,
       "category": "chapter",
       "sort_order": 47,
       "sections": {
@@ -2665,7 +2618,6 @@
     {
       "id": "ch10-the-lobster-and-the-owl",
       "name": "The Voice of the Lobster",
-      "level": 1,
       "category": "chapter",
       "sort_order": 48,
       "sections": {
@@ -2707,7 +2659,6 @@
     {
       "id": "ch10-beautiful-soup",
       "name": "Beautiful Soup",
-      "level": 1,
       "category": "chapter",
       "sort_order": 49,
       "sections": {
@@ -2750,10 +2701,9 @@
       "id": "chapter-10-the-lobster-quadrille",
       "name": "Chapter X — The Lobster Quadrille",
       "symbol": "X",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch10-the-lobster-quadrille",
         "ch10-the-lobster-and-the-owl",
         "ch10-beautiful-soup"
@@ -2806,7 +2756,6 @@
     {
       "id": "ch11-the-court-assembles",
       "name": "The Court Assembles",
-      "level": 1,
       "category": "chapter",
       "sort_order": 51,
       "sections": {
@@ -2866,7 +2815,6 @@
     {
       "id": "ch11-the-hatters-evidence",
       "name": "The Hatter's Evidence",
-      "level": 1,
       "category": "chapter",
       "sort_order": 52,
       "sections": {
@@ -2908,7 +2856,6 @@
     {
       "id": "ch11-the-cooks-evidence",
       "name": "The Cook's Evidence",
-      "level": 1,
       "category": "chapter",
       "sort_order": 53,
       "sections": {
@@ -2951,10 +2898,9 @@
       "id": "chapter-11-who-stole-the-tarts",
       "name": "Chapter XI — Who Stole the Tarts?",
       "symbol": "XI",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch11-the-court-assembles",
         "ch11-the-hatters-evidence",
         "ch11-the-cooks-evidence"
@@ -3007,7 +2953,6 @@
     {
       "id": "ch12-alice-tips-the-jury",
       "name": "Alice Tips Over the Jury",
-      "level": 1,
       "category": "chapter",
       "sort_order": 55,
       "sections": {
@@ -3058,7 +3003,6 @@
     {
       "id": "ch12-the-mysterious-letter",
       "name": "The Mysterious Letter",
-      "level": 1,
       "category": "chapter",
       "sort_order": 56,
       "sections": {
@@ -3100,7 +3044,6 @@
     {
       "id": "ch12-sentence-first",
       "name": "Sentence First — Verdict Afterwards!",
-      "level": 1,
       "category": "chapter",
       "sort_order": 57,
       "sections": {
@@ -3160,7 +3103,6 @@
     {
       "id": "ch12-waking-up",
       "name": "Waking Up",
-      "level": 1,
       "category": "chapter",
       "sort_order": 58,
       "sections": {
@@ -3203,10 +3145,9 @@
       "id": "chapter-12-alices-evidence",
       "name": "Chapter XII — Alice's Evidence",
       "symbol": "XII",
-      "level": 2,
       "category": "chapter",
       "relationship_type": "emergence",
-      "composite_of": [
+      "parts": [
         "ch12-alice-tips-the-jury",
         "ch12-the-mysterious-letter",
         "ch12-sentence-first",
