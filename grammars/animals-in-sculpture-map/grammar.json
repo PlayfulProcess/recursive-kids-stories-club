@@ -1,0 +1,3871 @@
+{
+ "name": "Animals in Sculpture — every item (map)",
+ "description": "Every video and card of the Animals in Sculpture folder in one place: each of its 15 playlists is a chapter that folds open in the sidebar, and each item links to its place in its own playlist. A snapshot built from the folder; rebuild it after the playlists change. The folder itself: https://recursive.eco/explore?repository=b3056f6b-e377-4a9b-9705-199a127dd4d7",
+ "grammar_type": "custom",
+ "default_view": "tree",
+ "license": "CC-BY-SA-4.0",
+ "import_visibility": "link",
+ "cover_image_url": "https://i.ytimg.com/vi/mJWUPBQpX1c/hqdefault.jpg",
+ "tags": [
+  "kids-6-8",
+  "animals",
+  "sculpture",
+  "map"
+ ],
+ "metadata": {
+  "built_from": "b3056f6b-e377-4a9b-9705-199a127dd4d7",
+  "kind": "meta-of-links"
+ },
+ "nodes": [
+  {
+   "id": "presentation",
+   "name": "Presentation · the 5-minute cut",
+   "category": "playlist",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_preview": "play",
+   "parts": [
+    "presentation-1",
+    "presentation-2",
+    "presentation-3",
+    "presentation-4",
+    "presentation-5",
+    "presentation-6",
+    "presentation-7",
+    "presentation-8",
+    "presentation-9",
+    "presentation-10",
+    "presentation-11",
+    "presentation-12",
+    "presentation-13",
+    "presentation-14",
+    "presentation-15"
+   ],
+   "image_url": "https://i.ytimg.com/vi/mJWUPBQpX1c/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-1",
+   "name": "Lions, antelopes and a spider",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "f77c3fd6-8d49-44b8-9b60-9458ca3ea2d7",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865471909-ut0e1alqwad.svg"
+  },
+  {
+   "id": "presentation-2",
+   "name": "What can we know about the Lion-Man?",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "a8fc412a-e1db-4b20-aa4b-1569c8e65264",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865572961-2k5xboe282l.svg"
+  },
+  {
+   "id": "presentation-3",
+   "name": "The Lion Man goes home to Ulm",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "3fb18dba-bb0f-4f33-9419-8349f84f7845",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/e5BbChCU7uo/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-4",
+   "name": "The lion that dances",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "baebe439-e731-4f7d-b1c6-a9c9f93074b3",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865471909-ut0e1alqwad.svg"
+  },
+  {
+   "id": "presentation-5",
+   "name": "San Jose lion dancers (Rising Phoenix)",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "6223ce38-d965-4df7-9bbe-3b1a354ff5e1",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/MT2s8vVIE9M/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-6",
+   "name": "The antelope that teaches",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "6969cd74-319c-4580-9340-5fcfd5b0e6b8",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865575260-tycp745tdq9.svg"
+  },
+  {
+   "id": "presentation-7",
+   "name": "Ci-wara at the Staten Island Museum",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "8f0376cf-70bf-4870-b2e6-4c3e4843e239",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/m-Hy_PdgmEU/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-8",
+   "name": "A lion on Broadway",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "80fd1047-e7bb-4be8-bdf5-66e2841a3918",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865542028-ifrondfs3el.svg"
+  },
+  {
+   "id": "presentation-9",
+   "name": "Mufasa's mask",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "8eb1e058-3abb-4b74-83ae-c62980dd6ba4",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/2mP1mKfQsoo/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-10",
+   "name": "The zebra puppet (Circle of Life)",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "5907bc59-cb2f-46f3-891b-23432ea03ebc",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/6IgttOl6SA0/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-11",
+   "name": "A spider for a mother",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "553cd8e9-fc58-48e1-ae2a-3afe33ecfa18",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865466097-k2yh3ui6ht.svg"
+  },
+  {
+   "id": "presentation-12",
+   "name": "Spider, by Louise Bourgeois, at SFMOMA",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "ed4e439d-3899-47be-9d39-7f35e76bd949",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877231058-pik9kiykf2f.jpg"
+  },
+  {
+   "id": "presentation-13",
+   "name": "Spider I, on the wall at SFMOMA",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "1c81a49b-9a9b-4437-a59f-597254ae3cc5",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877234675-oyn2xixdgd.jpg"
+  },
+  {
+   "id": "presentation-14",
+   "name": "Maman at Tate Modern (16 seconds)",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "2b8d91d7-5022-4564-9ed9-09c5f0b07bbe",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/8XT9Z4MZnaE/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-15",
+   "name": "Your turn: what animal would you make?",
+   "ref_grammar_id": "9dc9a979-4dab-4cc8-8ee0-e2017a9b0dd2",
+   "ref_node_id": "f69c25db-0698-45a9-bbee-0c6699876487",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865577417-2ol55ekyuth.svg"
+  },
+  {
+   "id": "deck-day-1",
+   "name": "Day 1 deck: Why do people make animals?",
+   "category": "playlist",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_preview": "play",
+   "parts": [
+    "deck-day-1-1",
+    "deck-day-1-2",
+    "deck-day-1-3",
+    "deck-day-1-4",
+    "deck-day-1-5",
+    "deck-day-1-6",
+    "deck-day-1-7",
+    "deck-day-1-8",
+    "deck-day-1-9",
+    "deck-day-1-10",
+    "deck-day-1-11",
+    "deck-day-1-12",
+    "deck-day-1-13",
+    "deck-day-1-14",
+    "deck-day-1-15",
+    "deck-day-1-16",
+    "deck-day-1-17",
+    "deck-day-1-18",
+    "deck-day-1-19",
+    "deck-day-1-20",
+    "deck-day-1-21",
+    "deck-day-1-22",
+    "deck-day-1-23",
+    "deck-day-1-24",
+    "deck-day-1-25",
+    "deck-day-1-26",
+    "deck-day-1-27",
+    "deck-day-1-28",
+    "deck-day-1-29",
+    "deck-day-1-30",
+    "deck-day-1-31",
+    "deck-day-1-32",
+    "deck-day-1-33",
+    "deck-day-1-34",
+    "deck-day-1-35",
+    "deck-day-1-36",
+    "deck-day-1-37",
+    "deck-day-1-38",
+    "deck-day-1-39",
+    "deck-day-1-40",
+    "deck-day-1-41",
+    "deck-day-1-42",
+    "deck-day-1-43",
+    "deck-day-1-44",
+    "deck-day-1-45",
+    "deck-day-1-46",
+    "deck-day-1-47",
+    "deck-day-1-48",
+    "deck-day-1-49",
+    "deck-day-1-50",
+    "deck-day-1-51",
+    "deck-day-1-52",
+    "deck-day-1-53",
+    "deck-day-1-54",
+    "deck-day-1-55",
+    "deck-day-1-56",
+    "deck-day-1-57",
+    "deck-day-1-58",
+    "deck-day-1-59",
+    "deck-day-1-60",
+    "deck-day-1-61",
+    "deck-day-1-62",
+    "deck-day-1-63",
+    "deck-day-1-64",
+    "deck-day-1-65",
+    "deck-day-1-66",
+    "deck-day-1-67",
+    "deck-day-1-68",
+    "deck-day-1-69",
+    "deck-day-1-70",
+    "deck-day-1-71",
+    "deck-day-1-72",
+    "deck-day-1-73",
+    "deck-day-1-74",
+    "deck-day-1-75",
+    "deck-day-1-76",
+    "deck-day-1-77",
+    "deck-day-1-78",
+    "deck-day-1-79",
+    "deck-day-1-80",
+    "deck-day-1-81",
+    "deck-day-1-82",
+    "deck-day-1-83",
+    "deck-day-1-84",
+    "deck-day-1-85",
+    "deck-day-1-86",
+    "deck-day-1-87",
+    "deck-day-1-88",
+    "deck-day-1-89",
+    "deck-day-1-90"
+   ],
+   "image_url": "https://i.ytimg.com/vi/9y_eSCpUqJE/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-1",
+   "name": "Why do people make animals?",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "18536faf-b776-4d5a-84f7-865fafe5e9fc",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865570761-go9z3vi3q4.svg"
+  },
+  {
+   "id": "deck-day-1-2",
+   "name": "1 · Animals we keep close",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "51b4bd50-44be-4cd4-a44b-f7d0b025ff58",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865466097-k2yh3ui6ht.svg"
+  },
+  {
+   "id": "deck-day-1-3",
+   "name": "An early Steiff teddy bear",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "ade17d90-a8c6-44cf-afca-8a2e864e72c9",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858835960-e2yozqo57nj.jpg"
+  },
+  {
+   "id": "deck-day-1-4",
+   "name": "A horse on wheels, 2,600 years old",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "01e15cc4-6db5-4025-a814-420f0ed71367",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858835939-q2wiuw8e8wl.jpg"
+  },
+  {
+   "id": "deck-day-1-5",
+   "name": "The Lion-Man, about 40,000 years old",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "70a0a793-1d9f-43e1-a2cb-195ad5bc8a93",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858835976-sxqblkf4dfg.jpg"
+  },
+  {
+   "id": "deck-day-1-6",
+   "name": "A tiny ivory lion from the Ice Age",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "f96fbd38-e49d-4101-93ad-7daac7a4fbc1",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858835956-y6iyz0xwobb.jpg"
+  },
+  {
+   "id": "deck-day-1-7",
+   "name": "A bison turning to lick its side",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "1e4db48a-1e6e-455f-80cf-5379e178d550",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858835950-5o7m2njpocw.jpg"
+  },
+  {
+   "id": "deck-day-1-8",
+   "name": "Inside the Steiff teddy bear workshop",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "f93070e6-7fe5-4a35-9b68-3c03db4e8715",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/MJmNV8yalrQ/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-9",
+   "name": "Toys from long ago",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "981fdf97-0221-431e-8576-dca4042df355",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/aob7rM5PV5A/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-10",
+   "name": "The 40,000-year-old Lion-Man",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "63911684-b911-4278-80e6-1c1dd18da360",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mJWUPBQpX1c/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-11",
+   "name": "Carving a Lion-Man with Stone Age tools",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "cc10d8c6-1fe5-4c26-b96c-242b9ac48242",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hgbvT9_pjzo/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-12",
+   "name": "2 · Invented animals that guide us",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "e7ec54da-6039-4900-bf07-57b59daf9ac6",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865463494-cn5nyl1q0sr.svg"
+  },
+  {
+   "id": "deck-day-1-13",
+   "name": "An alebrije from Oaxaca",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "7fb60590-2ff3-42d7-ac1d-cf92a701fb21",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858837120-0b9q7hwxwcqa.jpg"
+  },
+  {
+   "id": "deck-day-1-14",
+   "name": "A paper alebrije by Pedro Linares' grandson",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "d6a874fc-8b1a-4d48-8ae3-1bc637648a33",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858837129-m0h8ur81bba.jpg"
+  },
+  {
+   "id": "deck-day-1-15",
+   "name": "Giant alebrijes on parade",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "73429dbf-34f4-4954-b526-e152e151fad9",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858838645-muxi5empc0o.jpg"
+  },
+  {
+   "id": "deck-day-1-16",
+   "name": "An ofrenda with sugar skulls",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "db650836-cc26-4475-a4d6-c225c66a3d24",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858838041-s6i6j4rp579.jpg"
+  },
+  {
+   "id": "deck-day-1-17",
+   "name": "Making Pepita, the Coco alebrije",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "9be7a297-925f-4f0a-907d-ccfdc3895bf1",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/9y_eSCpUqJE/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-18",
+   "name": "Dante becomes a spirit guide (Coco)",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "01f51143-ac6e-475e-b6e5-3465187a03e0",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/5j4uQCa6mVo/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-19",
+   "name": "The Linares workshop in Mexico City",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "d286863d-d31f-426b-8c92-1c8bb4c38cd6",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rf-Pfsq_iCM/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-20",
+   "name": "Inside the Jacobo and María Ángeles workshop",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "252df242-2919-4772-917c-2d3ced227d86",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/xWgdX7aQky4/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-21",
+   "name": "Alfeñique animals from Toluca",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "bf8d9e29-b3dd-4b3c-976f-952a0ec4000f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/9Lhyb7E70wk/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-22",
+   "name": "3 · Animals for the gods",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "b963b970-ba6c-4498-88ce-e4cc811feae8",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865449323-bhjll4265a.svg"
+  },
+  {
+   "id": "deck-day-1-23",
+   "name": "Bastet at the Rosicrucian Egyptian Museum",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "5f7daeb6-2d32-4d62-9bab-a92e6ce0a76e",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865886368-pejvf218un.png"
+  },
+  {
+   "id": "deck-day-1-24",
+   "name": "A cat mummy in San Jose",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "b137629c-eecb-4e94-b29b-ef23867b9713",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865886276-q1oic0wld5a.jpg"
+  },
+  {
+   "id": "deck-day-1-25",
+   "name": "A coffin for a cat",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "4ae723cd-3408-4f40-8e66-acc07396b3ec",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865886299-ztczhmavau.jpg"
+  },
+  {
+   "id": "deck-day-1-26",
+   "name": "Sekhmet, the lioness goddess",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "444202bb-4b8c-41d1-aa93-4bd0ad968c5b",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865886507-i6prkpo96n9.jpg"
+  },
+  {
+   "id": "deck-day-1-27",
+   "name": "An ibis mummy",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "454cbb85-4e99-43a7-b04b-293f808196f4",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865886288-qvuu5r83iyp.jpg"
+  },
+  {
+   "id": "deck-day-1-28",
+   "name": "The Gayer-Anderson cat (Bastet)",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "e607458c-8044-473a-9736-3f6f6331da61",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858852267-se61l3mvne.jpg"
+  },
+  {
+   "id": "deck-day-1-29",
+   "name": "A bronze Bastet cat at The Met",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "816c105f-f2fe-4c52-a915-38bae71c1092",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858839721-nd23rbosy7.jpg"
+  },
+  {
+   "id": "deck-day-1-30",
+   "name": "Anubis, the jackal god",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "c1fa5b0b-8583-4482-8dbc-3025e43de3de",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858837161-btwepiioc6j.jpg"
+  },
+  {
+   "id": "deck-day-1-31",
+   "name": "Dancing Ganesha",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "ddaa51d8-bae9-482e-9a5b-fbf38e88f74e",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858839725-u9kjtl9024d.jpg"
+  },
+  {
+   "id": "deck-day-1-32",
+   "name": "Meet the Rosicrucian Egyptian Museum",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "bc6f8e83-9c8c-4983-a13b-37ed32ebe34f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/V7ZUejNAonw/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-33",
+   "name": "Gods with animal heads (Rosicrucian)",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "95bace29-ce89-4bd3-9460-5f5bf1b92896",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/DoYhBZUtCZY/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-34",
+   "name": "A bronze case for a cat mummy",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "880775b7-aab9-46d1-a8e9-a90da2c897d8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/vb8n0dULaI0/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-35",
+   "name": "Kids shape Ganesha from clay",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "a1679538-5b03-4037-8dce-0fd26a6b115c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/FJqw6pipAYw/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-36",
+   "name": "4 · Animals that guard",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "2766dbf3-7d03-4f48-91ef-93b34ae7340f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865452564-b50zl1nsr8l.svg"
+  },
+  {
+   "id": "deck-day-1-37",
+   "name": "A guardian lion at the Yonghe Temple",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "395563b5-7303-4fb8-b9a4-18712cb31a60",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858839736-cub90atuo7j.jpg"
+  },
+  {
+   "id": "deck-day-1-38",
+   "name": "Taweret, the hippo who protects babies",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "e4ff3528-8a92-4ee1-849d-b53e95e8742a",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865887827-b9fj00r1z8w.png"
+  },
+  {
+   "id": "deck-day-1-39",
+   "name": "A row of ram sphinxes",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "9eda800c-27c1-474b-84b3-cb9d6bfc28ad",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865887857-d8npcm95nns.png"
+  },
+  {
+   "id": "deck-day-1-40",
+   "name": "The Horus falcon in Rosicrucian Park",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "09a835da-f21a-4d81-b8d4-9a04acdf0487",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865887691-19jk0paex9d.jpg"
+  },
+  {
+   "id": "deck-day-1-41",
+   "name": "Winged bulls at a palace gate",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "e4c8c484-b9d5-4d32-8244-acfda66698bb",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858852283-r1xoknc2d79.jpg"
+  },
+  {
+   "id": "deck-day-1-42",
+   "name": "William the hippo",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "68245b97-cf93-49aa-a336-3aca1ece0b1f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858852278-p6n83ffyom.jpg"
+  },
+  {
+   "id": "deck-day-1-43",
+   "name": "The winged bulls at the gate (lamassu)",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "00607874-78d7-40d8-90d8-cb1849727d0f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/2GrvBLKaRSI/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-44",
+   "name": "William the hippo: cute, but careful!",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "eeb0d73e-4bac-4663-9815-8d9bcf748c2c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uLjvEsHi_qU/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-45",
+   "name": "Lion dance in San Francisco's Chinatown",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "b2c92fd9-ba0b-41bb-bb25-13149e3b5ac2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/fh05iyIx61Y/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-46",
+   "name": "5 · Animals that stand for power",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "2e0b0908-a4f2-4051-8d72-aee7dbe4c3cf",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865559781-resrvyl3g4.svg"
+  },
+  {
+   "id": "deck-day-1-47",
+   "name": "A leopard from the kingdom of Benin",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "a8471c42-1c61-468b-aa0b-d875b7dc1b05",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858852279-so8e6l0wptg.jpg"
+  },
+  {
+   "id": "deck-day-1-48",
+   "name": "The Flying Horse of Gansu",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "107bb6b1-05b4-4e48-be69-418c47b267eb",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858852307-qxqnu63ytnl.jpg"
+  },
+  {
+   "id": "deck-day-1-49",
+   "name": "A terracotta army horse",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "fde3912b-6e4f-4a28-ab56-2ea848c93042",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858853391-8j5zuh7a65b.jpg"
+  },
+  {
+   "id": "deck-day-1-50",
+   "name": "6 · Animals to remember and to make music",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "a1f851f9-dc7c-4af5-a2ce-38a55a9f6fc5",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865562214-ov1s4y9fvae.svg"
+  },
+  {
+   "id": "deck-day-1-51",
+   "name": "The goat in the flowering bush",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "0b7c6267-9042-4338-8526-550fc19a80f1",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858853410-1kgpvsnu8k.jpg"
+  },
+  {
+   "id": "deck-day-1-52",
+   "name": "A harp with a bull's head",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "00d2bd84-b178-49b1-a46c-af2c5744aec8",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858853408-97kwc9vdn3q.jpg"
+  },
+  {
+   "id": "deck-day-1-53",
+   "name": "The Ram in a Thicket from Ur",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "882aef7c-d9b6-483d-b17d-9356cb653a7f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/6CoMq4uGXIU/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-54",
+   "name": "The bull-headed lyre",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "cceaf585-596a-47bd-b72b-0e183f58bf53",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/qGYLl33EkTQ/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-55",
+   "name": "7 · Animals that teach",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "375e5ad7-db68-4fc7-b4db-c0a6ef81789f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865575260-tycp745tdq9.svg"
+  },
+  {
+   "id": "deck-day-1-56",
+   "name": "A Chi Wara headdress",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "ad514a0a-e808-47c3-98a9-085c7ef97343",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858853409-yovv1b4h2k.jpg"
+  },
+  {
+   "id": "deck-day-1-57",
+   "name": "Another Chi Wara",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "33ac2850-c933-4b4d-87e0-981592601aa2",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858853394-6vi7xdlg197.jpg"
+  },
+  {
+   "id": "deck-day-1-58",
+   "name": "The legend of Chi Wara",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "29392db0-96ba-4673-aeb5-18d57a36af24",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/SR2Mqv7iOZU/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-59",
+   "name": "A story about Ci Wara",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "a60e1992-a11b-41ad-b20f-48431b6a6bff",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/B0EYqGEFU0s/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-60",
+   "name": "Tyi Wara: the antelope who taught people to farm",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "da6c518e-bf89-4b47-bae0-ec5a1d3518f4",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/pW8Gd-oovGs/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-61",
+   "name": "8 · Animals that dance",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "fa2058d0-22f9-4fce-9441-69f098fac833",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865435885-oipzpd9lyhr.svg"
+  },
+  {
+   "id": "deck-day-1-62",
+   "name": "A transformation mask",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "89946d48-0094-44f3-b141-3dc63bb3a071",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858855057-gfiec34iel8.jpg"
+  },
+  {
+   "id": "deck-day-1-63",
+   "name": "Caprichoso, the blue ox of Parintins",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "de0068da-5765-4bdb-ad6f-3315c6dd3ec8",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858855187-noiai4tyume.jpg"
+  },
+  {
+   "id": "deck-day-1-64",
+   "name": "Garantido, the red-and-white ox",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "39711006-728e-4d6b-9f02-07eae40df1e9",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858908927-jevxf49jf2g.jpg"
+  },
+  {
+   "id": "deck-day-1-65",
+   "name": "A giant ox allegory",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "2c30146a-e396-40e5-95e6-b11f4e8aae7b",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858908635-aysh97h1qca.jpg"
+  },
+  {
+   "id": "deck-day-1-66",
+   "name": "Bumba-meu-boi in Maranhão",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "bdb6a5de-5af3-4435-b695-611f0ed7ce4f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858908875-woqphqjbo4h.jpg"
+  },
+  {
+   "id": "deck-day-1-67",
+   "name": "The sea eagle mask opens",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "de128594-f212-4e7b-978f-428d8e8bd2ad",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hm7AgTOSrd0/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-68",
+   "name": "Red ox versus blue ox (AFP)",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "26b83a38-ebae-4b04-ab6e-3eb172c663e7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/K8CLy301_tc/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-69",
+   "name": "Who is inside the dancing ox?",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "ae8cf8c5-937a-4cb1-9d89-f4822a3ccea7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/JqBGZPRb8Ns/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-70",
+   "name": "A cartoon visit to Parintins",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "55f83e6f-9bb5-47aa-8166-37d35cea8567",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/WqRnOGub3qM/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-71",
+   "name": "Moving the giant sculptures to the arena",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "db936281-74da-4907-a19e-4b260cf442d5",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/1MI6j37jOKc/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-72",
+   "name": "The ox becomes world heritage",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "cf40f9c9-c94c-488c-92e4-90825a73859e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/NTv4Yi2OB9g/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-73",
+   "name": "9 · Animals close to home",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "feff7916-70c7-4dd2-bb79-c1aa2fa65725",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865432828-hpnu0iekv3.svg"
+  },
+  {
+   "id": "deck-day-1-74",
+   "name": "Hello in Chochenyo: a land acknowledgment from the Muwekma Ohlone",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "a7edaaf4-4600-42fc-9ade-9ce363b630a7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/kFGJxa2zLlI/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-75",
+   "name": "How Hummingbird got fire",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "d9e0f811-1df2-4821-98be-01923c6b1fb9",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/F0lfLaVRy6g/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-76",
+   "name": "Boo-Qwilla, the first Stanford totem pole",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "9a106ca3-46b9-4b01-9c54-e95e11c21636",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858997235-wvcqjihhl0o.jpg"
+  },
+  {
+   "id": "deck-day-1-77",
+   "name": "The Stanford Legacy, a Haida pole",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "23950094-3d49-407f-8b1b-953929a102d9",
+   "ref_preview": "play"
+  },
+  {
+   "id": "deck-day-1-78",
+   "name": "The Papua New Guinea Sculpture Garden",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "2c121f80-3bde-4653-bd5d-183869d901cb",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858997194-fgrdnt1z12c.jpg"
+  },
+  {
+   "id": "deck-day-1-79",
+   "name": "A Tang horse at the Cantor",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "8e12b293-f2ea-47dd-92f9-c88278e66892",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858997120-imqm9id6lxg.jpg"
+  },
+  {
+   "id": "deck-day-1-80",
+   "name": "Calder's Falcon at Stanford",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "61f21db0-fdda-4d2b-a1cc-a97e53a7da35",
+   "ref_preview": "play"
+  },
+  {
+   "id": "deck-day-1-81",
+   "name": "Wild: the steel bears of Hoover Park",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "e0b77920-2674-4fe1-9ea6-259efdf2d95a",
+   "ref_preview": "play"
+  },
+  {
+   "id": "deck-day-1-82",
+   "name": "Whimsy and Wise: the mirror owls",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "ec53b47b-7af8-4bc3-b8fc-36134c05c9ad",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877202979-smyj5jmu2m.jpg"
+  },
+  {
+   "id": "deck-day-1-83",
+   "name": "Birdie: a folded bird at the Baylands",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "a307b2c0-95f1-4f36-8eb4-afc2d84ba83b",
+   "ref_preview": "play"
+  },
+  {
+   "id": "deck-day-1-84",
+   "name": "Totem pole touch-up at Stanford",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "84291bba-4f96-4cc4-9135-e22224e11a42",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/7FaR2LbaCGQ/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-85",
+   "name": "Stanford's Papua New Guinea Sculpture Garden",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "a94423e4-770f-42e7-9e31-9817466c7e40",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/_VkJyZM4PDY/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-1-86",
+   "name": "Spider, by Louise Bourgeois, at SFMOMA",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "d8f45b75-dad3-420d-ab93-f6d3696217b7",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877231058-pik9kiykf2f.jpg"
+  },
+  {
+   "id": "deck-day-1-87",
+   "name": "Spider I, on the wall at SFMOMA",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "0aef7081-2f15-45d4-b298-a65ae424f849",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877234675-oyn2xixdgd.jpg"
+  },
+  {
+   "id": "deck-day-1-88",
+   "name": "Calder's wire fish at SFMOMA",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "5190e676-5a81-428c-ba12-1bc9687ae02b",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877238144-3yqrgyzz0nl.jpg"
+  },
+  {
+   "id": "deck-day-1-89",
+   "name": "A Calder gallery at SFMOMA",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "6d9a05ed-0688-40b2-ac52-fc094dde4978",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877241100-lef0zduxgc9.jpg"
+  },
+  {
+   "id": "deck-day-1-90",
+   "name": "Installing a giant spider (Maman)",
+   "ref_grammar_id": "360fb669-1e16-472e-baa8-36251b490253",
+   "ref_node_id": "03476c59-f61c-4f01-93a9-c6c43247bce3",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/PiQK-O8xDSE/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2",
+   "name": "Day 2 deck: How does flat paper become an animal?",
+   "category": "playlist",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_preview": "play",
+   "parts": [
+    "deck-day-2-1",
+    "deck-day-2-2",
+    "deck-day-2-3",
+    "deck-day-2-4",
+    "deck-day-2-5",
+    "deck-day-2-6",
+    "deck-day-2-7",
+    "deck-day-2-8",
+    "deck-day-2-9",
+    "deck-day-2-10",
+    "deck-day-2-11",
+    "deck-day-2-12",
+    "deck-day-2-13",
+    "deck-day-2-14",
+    "deck-day-2-15",
+    "deck-day-2-16",
+    "deck-day-2-17",
+    "deck-day-2-18",
+    "deck-day-2-19",
+    "deck-day-2-20",
+    "deck-day-2-21",
+    "deck-day-2-22",
+    "deck-day-2-23",
+    "deck-day-2-24",
+    "deck-day-2-25",
+    "deck-day-2-26",
+    "deck-day-2-27",
+    "deck-day-2-28",
+    "deck-day-2-29",
+    "deck-day-2-30",
+    "deck-day-2-31",
+    "deck-day-2-32",
+    "deck-day-2-33",
+    "deck-day-2-34",
+    "deck-day-2-35",
+    "deck-day-2-36",
+    "deck-day-2-37",
+    "deck-day-2-38",
+    "deck-day-2-39",
+    "deck-day-2-40",
+    "deck-day-2-41",
+    "deck-day-2-42",
+    "deck-day-2-43",
+    "deck-day-2-44",
+    "deck-day-2-45"
+   ],
+   "image_url": "https://i.ytimg.com/vi/luMgyi_ADVA/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-1",
+   "name": "How does flat paper become an animal?",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "0c546a87-c4ee-4d36-8328-cfa91e91f202",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865570761-go9z3vi3q4.svg"
+  },
+  {
+   "id": "deck-day-2-2",
+   "name": "1 · A frame, then a skin",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "ec7da4a8-371f-4cb0-976a-d8b931faad61",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865445645-b4olt07ik6t.svg"
+  },
+  {
+   "id": "deck-day-2-3",
+   "name": "Paper-and-paste creatures from Mexico",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "e8bd9870-4017-4395-917b-f51eea70b9dd",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858908375-3e8n19p7cf5.jpg"
+  },
+  {
+   "id": "deck-day-2-4",
+   "name": "A lion-dance head",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "72e43688-16e3-439a-af37-629793400690",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858908399-oymdcayxf8.jpg"
+  },
+  {
+   "id": "deck-day-2-5",
+   "name": "A Nebuta float in Aomori, Japan",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "a73797d3-4d8e-43af-a94a-bc3caeb91c84",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858909813-bob7r3xhfxl.jpg"
+  },
+  {
+   "id": "deck-day-2-6",
+   "name": "Rabbit lanterns from Zigong, China",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "c80b38ba-b4ef-4e13-9ad5-4bf30d34f37f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858909832-f956ndocmxn.jpg"
+  },
+  {
+   "id": "deck-day-2-7",
+   "name": "Meet the Linares family of alebrije makers",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "a75301c1-195f-43a8-a021-d92081854ecf",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/UEm_hWS6X5Q/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-8",
+   "name": "How a lion dance head is built",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "3997c4f4-fcc9-4924-ba3d-75f0f7e9cff3",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/x8YZ5d2Sz0Y/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-9",
+   "name": "The bamboo skeleton of a lion",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "3f9f9674-302f-418f-ae9b-573c73c579f8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/N5FxHIWA2u0/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-10",
+   "name": "Behind a Nebuta figure: wire, then paper",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "9b392d8e-6132-4104-b861-5e129e8a6801",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mNlxjf8zWAc/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-11",
+   "name": "Foil, tape and paper strips make a creature",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "762145ef-9f06-46db-a7d6-6b5e861541e3",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/2wAr31yWTUg/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-12",
+   "name": "2 · Toys that nod",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "d65263d1-db55-48ba-8986-2193fde1af6c",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865551193-uwmzcibtw2g.svg"
+  },
+  {
+   "id": "deck-day-2-13",
+   "name": "Akabeko, the red cow",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "67f41e25-f1d5-418a-8f04-01cb08558815",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858909827-eec99t9qc3k.jpg"
+  },
+  {
+   "id": "deck-day-2-14",
+   "name": "A papier-mâché tiger at a Japanese festival",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "28d2a470-4365-47c5-9206-ac52ae2b4622",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858909817-sez3msuygt8.jpg"
+  },
+  {
+   "id": "deck-day-2-15",
+   "name": "Hakata hariko: paper tigers from Japan",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "851c9dce-79c3-4cdc-bb84-38c89161191a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/luMgyi_ADVA/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-16",
+   "name": "Akabeko, the red cow with the nodding head",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "a8e81c8d-3d7f-4947-b389-c3a575f74853",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/978OWwS1x-A/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-17",
+   "name": "3 · Folding: one sheet, no glue",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "e4e2238c-a588-45eb-ba67-3936e2d360b0",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865438960-q4pf51hqhg.svg"
+  },
+  {
+   "id": "deck-day-2-18",
+   "name": "Paper cranes",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "649aeeac-8e10-4c0e-bcde-470ac5fd220c",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858909769-0e0tdf9ncmrr.jpg"
+  },
+  {
+   "id": "deck-day-2-19",
+   "name": "An origami elephant",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "7b846443-2ca0-4ea3-8120-41d987093142",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858910795-1oqakmcogzf.jpg"
+  },
+  {
+   "id": "deck-day-2-20",
+   "name": "To Fold Paper: origami as sculpture",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "a45d41ef-f5dc-4d5c-854a-6b949f66dbb8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/Up45OccCUJo/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-21",
+   "name": "Akira Yoshizawa's folded animals",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "1d0dd745-c89a-4b5d-a3c6-772d8e7913d7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hBWspmCzYyg/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-22",
+   "name": "A life-size elephant from one sheet",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "797d54ee-5dfd-4897-8534-a3612359fb95",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/NeBbVMy-njw/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-23",
+   "name": "A dragon folded over 50 hours",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "dfb22cdf-2546-46df-b885-fa37f789d91b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/ZSc9iEFkG8k/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-24",
+   "name": "4 · Rolling, cutting and layering",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "56a77622-b90a-4700-8582-567328caf3d0",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865568523-dvn321jn8de.svg"
+  },
+  {
+   "id": "deck-day-2-25",
+   "name": "Calvin Nicholls cuts and layers",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "b273dff9-776c-4981-a922-983b8bc9c469",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uQJd8e5DNlU/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-26",
+   "name": "Birds made from hundreds of paper pieces",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "96dc8761-c6bc-427d-9c27-d7cb779516d8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/kJqsoBjq1jU/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-27",
+   "name": "Chie Hitotsuyama in her studio",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "bedc3078-661e-48bc-aad6-4d46014c71b4",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/1GhJn8apfgI/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-28",
+   "name": "Animals made of rolled-up newspaper",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "c8f5fc7a-3bf6-4ba1-bc49-d3f1b9acc8e8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/iXLbPmW5KSs/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-29",
+   "name": "5 · Animals you can eat",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "b2e8b75f-3f4e-49f9-b27c-791189e2d999",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865442030-e9qo8meopmh.svg"
+  },
+  {
+   "id": "deck-day-2-30",
+   "name": "Alfeñique at the Toluca fair",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "5178c5f1-9411-476b-883d-85981187bb07",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858919987-4jkpyj2ogi8.jpg"
+  },
+  {
+   "id": "deck-day-2-31",
+   "name": "A sugar-painted fox",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "f40ec96e-91f0-442f-b7fb-065982318755",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858936483-42fmw21naro.jpg"
+  },
+  {
+   "id": "deck-day-2-32",
+   "name": "A candy goldfish",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "ee616477-04b2-45cb-a1c8-4f33e1fd7c28",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858936497-esemi07i3rg.jpg"
+  },
+  {
+   "id": "deck-day-2-33",
+   "name": "Dough figurines in a folk museum",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "3f8698b7-6577-40c0-a8b0-fb57b9c4b3a7",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858936528-sul7vokqgkf.jpg"
+  },
+  {
+   "id": "deck-day-2-34",
+   "name": "Alfeñique animals from Toluca",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "30ff0b27-2771-4b23-89a6-8924038ae798",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/9Lhyb7E70wk/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-35",
+   "name": "Chinese dough figurines",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "f2347c94-99a1-4909-8903-68540309abb5",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/yZKeFQXQEdc/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-36",
+   "name": "Sugar painting of zodiac animals",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "08e4aa79-6ed7-49dc-be93-bebd0aa8b25e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/k9jABhDZvF4/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-37",
+   "name": "A candy goldfish from Tokyo",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "25d36e83-384f-4e4c-b68b-099a008fa15e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mzOgxo_to8A/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-38",
+   "name": "How Japanese candy animals are made",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "0981fc99-7e6b-492e-86dc-a56833f7682a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/udSzcAEjs4s/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-39",
+   "name": "A giant chocolate crocodile",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "05c570b6-f853-448f-83e6-94499dc58cb9",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rfTsvkVN4_U/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-40",
+   "name": "6 · Your turn",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "f4cf941c-ec2a-42ba-bbf3-e339bab2746f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865577417-2ol55ekyuth.svg"
+  },
+  {
+   "id": "deck-day-2-41",
+   "name": "Cut, fold, score and curl",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "2a603538-c4ee-4f62-87bf-2848a35fa6bd",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hWoRpyzZ-tw/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-42",
+   "name": "Curls and zig-zags",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "c309cd83-96bb-4265-82df-7d409887b1e2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/PWdEnm08By8/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-43",
+   "name": "Roll, fold and glue",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "f694e113-79f3-4a2e-89f1-2c64fa7915d7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/JCjfVGVwkTQ/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-44",
+   "name": "Six quick folded animals",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "feee6421-b147-4f87-919a-caa09d84cf19",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/4HgMsh-FbRw/hqdefault.jpg"
+  },
+  {
+   "id": "deck-day-2-45",
+   "name": "Flour-paste papier-mâché animals",
+   "ref_grammar_id": "db39e3d6-ed63-4151-b7d1-cfed791f195e",
+   "ref_node_id": "0872ab46-49d0-4602-ab79-933fdb5aabe5",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/DLVKamRUU60/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more",
+   "name": "Presentation · the longer cut",
+   "category": "playlist",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_preview": "play",
+   "parts": [
+    "presentation-more-1",
+    "presentation-more-2",
+    "presentation-more-3",
+    "presentation-more-4",
+    "presentation-more-5",
+    "presentation-more-6",
+    "presentation-more-7",
+    "presentation-more-8",
+    "presentation-more-9",
+    "presentation-more-10",
+    "presentation-more-11",
+    "presentation-more-12",
+    "presentation-more-13",
+    "presentation-more-14",
+    "presentation-more-15",
+    "presentation-more-16",
+    "presentation-more-17",
+    "presentation-more-18",
+    "presentation-more-19",
+    "presentation-more-20",
+    "presentation-more-21",
+    "presentation-more-22",
+    "presentation-more-23",
+    "presentation-more-24",
+    "presentation-more-25",
+    "presentation-more-26",
+    "presentation-more-27",
+    "presentation-more-28",
+    "presentation-more-29",
+    "presentation-more-30",
+    "presentation-more-31",
+    "presentation-more-32",
+    "presentation-more-33",
+    "presentation-more-34",
+    "presentation-more-35",
+    "presentation-more-36",
+    "presentation-more-37",
+    "presentation-more-38",
+    "presentation-more-39"
+   ],
+   "image_url": "https://i.ytimg.com/vi/MT2s8vVIE9M/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-1",
+   "name": "Lions, antelopes and a spider",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "817e597b-150a-4f09-bd31-70ddaef343cd",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865471909-ut0e1alqwad.svg"
+  },
+  {
+   "id": "presentation-more-2",
+   "name": "What can we know about the Lion-Man?",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "b252ce12-cc25-4ed4-9716-d1e555c7171d",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865572961-2k5xboe282l.svg"
+  },
+  {
+   "id": "presentation-more-3",
+   "name": "The Lion-Man, about 40,000 years old",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "ac87cd70-efa9-475c-981b-5a9c660e18c9",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858835976-sxqblkf4dfg.jpg"
+  },
+  {
+   "id": "presentation-more-4",
+   "name": "The Lion Man goes home to Ulm",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "97dd3a0b-51be-430c-b1da-7cf8ce51ffbd",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/e5BbChCU7uo/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-5",
+   "name": "The 40,000-year-old Lion-Man",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "b9732118-aabc-40df-997e-c5e3f9ffa4b5",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mJWUPBQpX1c/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-6",
+   "name": "The Lion Man, oldest of its kind (BBC)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "91d3f760-32c0-446a-aed0-3d98e30fbb90",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/WDud_jbbEUc/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-7",
+   "name": "Ice Age art: meeting the Lion Man",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "04a9eb8e-32ae-48ff-b6d5-5b3c2b2fab47",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/McYem7Qz9AI/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-8",
+   "name": "The lion that dances",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "5f695bc6-6185-4c61-b2b0-7ebdae3a5ffd",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865471909-ut0e1alqwad.svg"
+  },
+  {
+   "id": "presentation-more-9",
+   "name": "San Jose lion dancers (Rising Phoenix)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "1736fdaf-d139-4d5c-b869-306f20bac1bf",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/MT2s8vVIE9M/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-10",
+   "name": "What is Chinese lion dancing?",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "9d901d01-a1ca-4bc4-8a08-f3c90e65b7c8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/3dZ_YeA8QwY/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-11",
+   "name": "Lion dance in San Francisco's Chinatown",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "ef42f6e3-2b42-4600-b20d-d6e700ccb848",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/fh05iyIx61Y/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-12",
+   "name": "The Chinese New Year Parade, San Francisco",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "eaa0c209-5efb-4d44-b7ad-63042833bcc2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/ahKrfxZLW0I/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-13",
+   "name": "A guardian lion at the Yonghe Temple",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "242d655a-a358-441c-9bd5-b3042ed7726a",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858839736-cub90atuo7j.jpg"
+  },
+  {
+   "id": "presentation-more-14",
+   "name": "The antelope that teaches",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "eb527671-cf21-4985-9389-a3523c554502",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865575260-tycp745tdq9.svg"
+  },
+  {
+   "id": "presentation-more-15",
+   "name": "A Chi Wara headdress",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "9c1f7837-9168-49f3-a7d5-86ca88bb7ad2",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858853409-yovv1b4h2k.jpg"
+  },
+  {
+   "id": "presentation-more-16",
+   "name": "Another Chi Wara",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "886dbe7d-85ce-43aa-8d00-7c68c959df93",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858853394-6vi7xdlg197.jpg"
+  },
+  {
+   "id": "presentation-more-17",
+   "name": "Ci-wara at the Staten Island Museum",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "c353d8cc-6848-4b08-b3bd-92d09be66acd",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/m-Hy_PdgmEU/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-18",
+   "name": "The legend of Chi Wara",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "0076a478-f2ea-40b4-81fd-a134a236eb6b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/SR2Mqv7iOZU/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-19",
+   "name": "Chi Wara crest mask (Beach Museum)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "06bd1b20-7758-473c-a798-dce060972422",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/xPOZyhzwqAU/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-20",
+   "name": "A story about Ci Wara",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "f73f3637-0a04-40fd-95bb-edaca5fa7e44",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/B0EYqGEFU0s/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-21",
+   "name": "Ci Wara dance ceremony (unverified, preview first)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "7797d795-5778-4478-9551-dd9fedca5a80",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/6LYIdhPbWBw/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-22",
+   "name": "Mali's dancing animals: Sogo bò (France 3)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "82dbc2f8-27fc-44f7-bc82-645d2ecec78d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/_8ON_PlJbLQ/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-23",
+   "name": "Tyi Wara: the antelope who taught people to farm",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "b5d21ee8-5d96-47d5-8836-8154ed0a5f53",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/pW8Gd-oovGs/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-24",
+   "name": "A lion on Broadway",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "7d5e9426-ec56-4c2e-b82a-4e4e4591287f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865542028-ifrondfs3el.svg"
+  },
+  {
+   "id": "presentation-more-25",
+   "name": "Mufasa's mask",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "40476dfd-00f2-459d-a779-6bbc980d728a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/2mP1mKfQsoo/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-26",
+   "name": "The zebra puppet (Circle of Life)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "2c1dc433-615e-41f7-8349-4e94b8e120ee",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/6IgttOl6SA0/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-27",
+   "name": "Nearly 300 masks and puppets (Lion King)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "2c877d33-4a9c-45a3-a209-37ef89ca5478",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hTOOS6ggKPY/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-28",
+   "name": "The Lion King on Broadway: masks and puppets",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "d1f8f2d5-40ff-4325-9b9e-c1fc8cd35fe1",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/gxu6Vx2hAVA/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-29",
+   "name": "Making the masks and puppets (Lion King educator series)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "3c3e70c5-428d-43b3-929c-fa386563563e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/OZrMmoW4BeA/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-30",
+   "name": "Caring for the masks (Lion King, London)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "11922f68-0c22-4db1-8b3e-bfe9d5a99980",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/vwvC-xbvplM/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-31",
+   "name": "A spider for a mother",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "5032e50b-7e9c-4868-9a28-6955798b79e1",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865466097-k2yh3ui6ht.svg"
+  },
+  {
+   "id": "presentation-more-32",
+   "name": "Maman at Tate Modern (16 seconds)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "6bc7b203-db02-4b1c-a1b1-11bbd0f4c5c9",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/8XT9Z4MZnaE/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-33",
+   "name": "Installing a giant spider (Maman)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "500439d5-bbac-4538-aa64-7b0db9a2338a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/PiQK-O8xDSE/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-34",
+   "name": "Maman moves outside (Crystal Bridges)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "3eef5d7b-200f-4bc6-b55b-380d384d8181",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/Gbg8-bGeN70/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-35",
+   "name": "A spider lifted into place (Hayward Gallery)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "5a7d1f9d-cd42-4008-9a28-9dfde38a046d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/ySTMZzBqhwo/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-36",
+   "name": "Louise Bourgeois in her studio (Art21)",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "d1217c9b-4d02-4bf9-add6-328c7839c72a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/NloOARl7NaI/hqdefault.jpg"
+  },
+  {
+   "id": "presentation-more-37",
+   "name": "Spider, by Louise Bourgeois, at SFMOMA",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "4e8a0ecb-07e1-4f91-aa7a-9282384c5575",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877231058-pik9kiykf2f.jpg"
+  },
+  {
+   "id": "presentation-more-38",
+   "name": "Spider I, on the wall at SFMOMA",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "b0cb37ca-b6e8-4392-a658-712a5b86776b",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877234675-oyn2xixdgd.jpg"
+  },
+  {
+   "id": "presentation-more-39",
+   "name": "Your turn: what animal would you make?",
+   "ref_grammar_id": "cea49001-4a63-466b-9b09-ae7d6291a54a",
+   "ref_node_id": "6762874b-7e5a-4097-9fac-43800d31f73f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865577417-2ol55ekyuth.svg"
+  },
+  {
+   "id": "visit",
+   "name": "Go and see: animal sculptures near you",
+   "category": "playlist",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_preview": "play",
+   "parts": [
+    "visit-1",
+    "visit-2",
+    "visit-3",
+    "visit-4",
+    "visit-5",
+    "visit-6",
+    "visit-7",
+    "visit-8",
+    "visit-9",
+    "visit-10",
+    "visit-11",
+    "visit-12",
+    "visit-13",
+    "visit-14",
+    "visit-15",
+    "visit-16",
+    "visit-17",
+    "visit-18",
+    "visit-19",
+    "visit-20",
+    "visit-21",
+    "visit-22"
+   ],
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877202979-smyj5jmu2m.jpg"
+  },
+  {
+   "id": "visit-1",
+   "name": "The route",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "bad7b366-b4bc-49b3-b416-4ab49e29e794",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865474251-nhljmo3mhmr.svg"
+  },
+  {
+   "id": "visit-2",
+   "name": "9 · Animals close to home",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "deb55a53-08ae-483f-8fc8-0755c5d9910b",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865432828-hpnu0iekv3.svg"
+  },
+  {
+   "id": "visit-3",
+   "name": "A Tang horse at the Cantor",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "8d76ef2e-5b33-49c6-97db-965e5955cb4a",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858997120-imqm9id6lxg.jpg"
+  },
+  {
+   "id": "visit-4",
+   "name": "The Papua New Guinea Sculpture Garden",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "412adb48-ba29-4541-8721-aced0ef8c6c9",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858997194-fgrdnt1z12c.jpg"
+  },
+  {
+   "id": "visit-5",
+   "name": "Stanford's Papua New Guinea Sculpture Garden",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "c5984624-756d-4c94-ad77-ac52da3dd7a8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/_VkJyZM4PDY/hqdefault.jpg"
+  },
+  {
+   "id": "visit-6",
+   "name": "Boo-Qwilla, the first Stanford totem pole",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "3727cc7c-9b6d-4e5e-8125-0216d76cce76",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858997235-wvcqjihhl0o.jpg"
+  },
+  {
+   "id": "visit-7",
+   "name": "Totem pole touch-up at Stanford",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "d7dfcdfa-c648-4064-b39c-5434ace5c12b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/7FaR2LbaCGQ/hqdefault.jpg"
+  },
+  {
+   "id": "visit-8",
+   "name": "The Stanford Legacy, a Haida pole",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "8e779cda-1caa-4d8c-9c29-edc4ea753f6b",
+   "ref_preview": "play"
+  },
+  {
+   "id": "visit-9",
+   "name": "Calder's Falcon at Stanford",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "70b4f109-1dd8-4365-875d-70e37f269522",
+   "ref_preview": "play"
+  },
+  {
+   "id": "visit-10",
+   "name": "Wild: the steel bears of Hoover Park",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "0d4133e9-6a76-4f28-9267-004db17c9a53",
+   "ref_preview": "play"
+  },
+  {
+   "id": "visit-11",
+   "name": "Whimsy and Wise: the mirror owls",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "a2a2c5ef-a845-4339-87f0-a3c1e1b1dcf8",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877202979-smyj5jmu2m.jpg"
+  },
+  {
+   "id": "visit-12",
+   "name": "Birdie: a folded bird at the Baylands",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "b6f83723-1dcd-4b17-8600-76a76b8e15d7",
+   "ref_preview": "play"
+  },
+  {
+   "id": "visit-13",
+   "name": "Bastet at the Rosicrucian Egyptian Museum",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "01433191-bfc6-4b20-a6bc-85bf9e37be24",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865886368-pejvf218un.png"
+  },
+  {
+   "id": "visit-14",
+   "name": "Taweret, the hippo who protects babies",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "fe9a0c72-9989-459f-ae5a-e3f45a7058d9",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865887827-b9fj00r1z8w.png"
+  },
+  {
+   "id": "visit-15",
+   "name": "The Horus falcon in Rosicrucian Park",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "24593608-6a8b-43ab-be39-ac193ef5cf15",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865887691-19jk0paex9d.jpg"
+  },
+  {
+   "id": "visit-16",
+   "name": "A row of ram sphinxes",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "fc012e77-0bd2-4465-b3de-127e35d59781",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865887857-d8npcm95nns.png"
+  },
+  {
+   "id": "visit-17",
+   "name": "Meet the Rosicrucian Egyptian Museum",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "3c310ad5-e1d0-4fdf-87ee-c69b16c98c74",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/V7ZUejNAonw/hqdefault.jpg"
+  },
+  {
+   "id": "visit-18",
+   "name": "How mummies were made (Rosicrucian)",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "f1d5c524-3c1a-4d72-aba1-54fde5030610",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/EiL-KYJfD9o/hqdefault.jpg"
+  },
+  {
+   "id": "visit-19",
+   "name": "Spider, by Louise Bourgeois, at SFMOMA",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "855356b3-8da7-45e9-8565-e8178697eb2b",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877231058-pik9kiykf2f.jpg"
+  },
+  {
+   "id": "visit-20",
+   "name": "Spider I, on the wall at SFMOMA",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "1aca1de8-534c-424e-961f-98420893c735",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877234675-oyn2xixdgd.jpg"
+  },
+  {
+   "id": "visit-21",
+   "name": "Calder's wire fish at SFMOMA",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "1b466c60-3caa-466b-a9fe-058ff0646a4b",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877238144-3yqrgyzz0nl.jpg"
+  },
+  {
+   "id": "visit-22",
+   "name": "A Calder gallery at SFMOMA",
+   "ref_grammar_id": "7c22be75-3ea0-4c46-b9af-97afe6d95ff3",
+   "ref_node_id": "b6fb270e-683f-478c-bdf9-737b203a6b0e",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792877241100-lef0zduxgc9.jpg"
+  },
+  {
+   "id": "questions",
+   "name": "Questions behind the stories",
+   "category": "playlist",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_preview": "play",
+   "parts": [
+    "questions-1",
+    "questions-2",
+    "questions-3",
+    "questions-4",
+    "questions-5",
+    "questions-6",
+    "questions-7",
+    "questions-8",
+    "questions-9",
+    "questions-10",
+    "questions-11",
+    "questions-12",
+    "questions-13",
+    "questions-14",
+    "questions-15",
+    "questions-16",
+    "questions-17",
+    "questions-18",
+    "questions-19"
+   ],
+   "image_url": "https://i.ytimg.com/vi/HqV6XObTikw/hqdefault.jpg"
+  },
+  {
+   "id": "questions-1",
+   "name": "Where do alebrijes really come from?",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "14310bae-0487-4d82-a2ea-81f71a6da3d2",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865463494-cn5nyl1q0sr.svg"
+  },
+  {
+   "id": "questions-2",
+   "name": "From a dream to guardians of the soul",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "06bc5e03-edcd-436c-a955-1b11ca684c55",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/HqV6XObTikw/hqdefault.jpg"
+  },
+  {
+   "id": "questions-3",
+   "name": "Monstrous and beautiful: the legend of alebrijes",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "c7ebf579-1476-4239-9823-ee0cf98e67ca",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/AnnPQEfD6uQ/hqdefault.jpg"
+  },
+  {
+   "id": "questions-4",
+   "name": "Visiting Manuel Jiménez's home in Arrazola",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "3190a178-2879-4a60-9f41-8e15c2685c1e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/aYBuoIg9cvE/hqdefault.jpg"
+  },
+  {
+   "id": "questions-5",
+   "name": "Alebrijes of Oaxaca (short documentary)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "1af89420-a28c-4249-a3fd-08cd121d54fe",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/8QCXmh4zOOQ/hqdefault.jpg"
+  },
+  {
+   "id": "questions-6",
+   "name": "The spirit of color: alebrijes in San José",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "260336f7-8567-45b8-a143-719351db5c6f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/8U9nopfVAlI/hqdefault.jpg"
+  },
+  {
+   "id": "questions-7",
+   "name": "The teddy bear: a predator made soft?",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "aeec4fee-180d-4a3f-a83c-bb956624cf43",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865466097-k2yh3ui6ht.svg"
+  },
+  {
+   "id": "questions-8",
+   "name": "How the teddy bear got its name (HISTORY)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "33ecaeba-6a54-4b97-b495-7c69bfad8b0c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/8Qj_lHMqGfk/hqdefault.jpg"
+  },
+  {
+   "id": "questions-9",
+   "name": "Fierce bears turned soft",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "76ed2253-663d-42b7-a690-78641d2c9aef",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/wN-FXl2gsEA/hqdefault.jpg"
+  },
+  {
+   "id": "questions-10",
+   "name": "How a teddy bear is made (Discovery)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "0e74dfa4-deaf-49ce-9e1a-ab1b6f545ebd",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rykqaDul_bw/hqdefault.jpg"
+  },
+  {
+   "id": "questions-11",
+   "name": "The strange story of the teddy bear (TED)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "74d8056f-ebe2-47d0-a926-a67d9a07855d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/EEjyPqyFe_s/hqdefault.jpg"
+  },
+  {
+   "id": "questions-12",
+   "name": "How do we know what they meant?",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "81111006-5492-4d62-aab2-1b5d74f407cd",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865572961-2k5xboe282l.svg"
+  },
+  {
+   "id": "questions-13",
+   "name": "Weighing the heart (Book of the Dead)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "8795fe7f-a91b-416a-ad59-eff8afe3ec24",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/7allmSzhrbA/hqdefault.jpg"
+  },
+  {
+   "id": "questions-14",
+   "name": "Why mummify an animal? (Salima Ikram)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "14cc88f1-c9a3-42c3-a8d0-5b824203e5df",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/eKI3Q1jDgGA/hqdefault.jpg"
+  },
+  {
+   "id": "questions-15",
+   "name": "How King Tut became a 'treasure' (Christina Riggs)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "3defd001-473f-493c-a27f-b872a1f8966f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/fRjXlyOHBDY/hqdefault.jpg"
+  },
+  {
+   "id": "questions-16",
+   "name": "Whose past is it? (Heba Abd el Gawad)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "2d512985-0bc4-471c-a7e2-171d9479b429",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/XN2El75eruk/hqdefault.jpg"
+  },
+  {
+   "id": "questions-17",
+   "name": "Egyptology, rethought (Monica Hanna)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "d2ca4850-70c1-4805-ac01-4aff4385d968",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/fOdJA2c5KBY/hqdefault.jpg"
+  },
+  {
+   "id": "questions-18",
+   "name": "Who decides what counts as 'ritual'?",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "ce4c8bed-a4ed-4c4d-8b49-b3945996003d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/emO5-3YjkXM/hqdefault.jpg"
+  },
+  {
+   "id": "questions-19",
+   "name": "Egypt takes charge of its archaeology (1922–1952)",
+   "ref_grammar_id": "79a40eeb-4d36-4908-9d85-ef0b08116fd6",
+   "ref_node_id": "b052aefc-f862-4311-9313-512fb1e622c9",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/nDVTZ1y0mTQ/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs",
+   "name": "Dinosaurs: where art meets science",
+   "category": "playlist",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_preview": "play",
+   "parts": [
+    "dinosaurs-1",
+    "dinosaurs-2",
+    "dinosaurs-3",
+    "dinosaurs-4",
+    "dinosaurs-5",
+    "dinosaurs-6",
+    "dinosaurs-7",
+    "dinosaurs-8",
+    "dinosaurs-9",
+    "dinosaurs-10",
+    "dinosaurs-11",
+    "dinosaurs-12"
+   ],
+   "image_url": "https://i.ytimg.com/vi/TEXpKda61dg/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-1",
+   "name": "Nobody has seen a living dinosaur",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "0bd922da-f60a-43f4-b5bc-0de2c1e6be06",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865570761-go9z3vi3q4.svg"
+  },
+  {
+   "id": "dinosaurs-2",
+   "name": "The first life-size dinosaur sculptures (Crystal Palace)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "0208812e-352f-4635-8384-1aad8e8ee10d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/RlTB5ZfkGQk/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-3",
+   "name": "Waterhouse Hawkins builds dinosaurs (preview)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "03e7869a-c760-4fe3-b1ec-72cea4045824",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/QjQCE24LisM/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-4",
+   "name": "A striped, masked dinosaur",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "515ca288-eb14-414d-90bd-860dff75464d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/2G43df-JuIs/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-5",
+   "name": "Microraptor's shiny black feathers (AMNH)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "245c589f-919b-4854-b213-4e123f4ecf72",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/XJGiPzcalwU/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-6",
+   "name": "Color clues in a fossil (Scientific American)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "7ca4ce02-9e75-4be0-b02d-9e926bce99ee",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/cfojEjY4zr8/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-7",
+   "name": "What color were dinosaurs? (PBS Eons)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "a4501a28-cef2-418c-99b9-1942292941c8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/vtpi7yUHNyg/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-8",
+   "name": "A camouflaged dinosaur, life-size (Jakob Vinther)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "629b99a1-5d03-4b71-ae07-d1dea9987509",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/JkuK-8B5Eak/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-9",
+   "name": "Sculpting the Jurassic Park T. rex",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "6a729fc2-f3a3-4b23-8ee0-01b1706b5228",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/TEXpKda61dg/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-10",
+   "name": "Building a raptor (Jurassic Park)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "bc80e0ed-3aac-488e-b0c2-118ced1fbea8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/jAzQr3Ml0UI/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-11",
+   "name": "Building a gentle giant (Jurassic World)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "5cad3ec4-af0f-45f1-81a7-3d655228474f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/jfcqQf61S-k/hqdefault.jpg"
+  },
+  {
+   "id": "dinosaurs-12",
+   "name": "Imagining animals on Pandora (Avatar)",
+   "ref_grammar_id": "3e580dfe-2296-4ad5-a090-f928e4c38f73",
+   "ref_node_id": "774b5441-4829-4433-9bc8-11a12d6c0067",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/5viraPaSqnQ/hqdefault.jpg"
+  },
+  {
+   "id": "make-it",
+   "name": "Make it: art-making videos",
+   "category": "playlist",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_preview": "play",
+   "parts": [
+    "make-it-1",
+    "make-it-2",
+    "make-it-3",
+    "make-it-4",
+    "make-it-5",
+    "make-it-6",
+    "make-it-7",
+    "make-it-8",
+    "make-it-9",
+    "make-it-10",
+    "make-it-11",
+    "make-it-12",
+    "make-it-13",
+    "make-it-14",
+    "make-it-15",
+    "make-it-16",
+    "make-it-17",
+    "make-it-18",
+    "make-it-19",
+    "make-it-20",
+    "make-it-21",
+    "make-it-22"
+   ],
+   "image_url": "https://i.ytimg.com/vi/3TfsAMj74fY/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-1",
+   "name": "Cut, fold, score and curl",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "5d27e3c1-28d6-4a70-9de0-be40a2f94260",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hWoRpyzZ-tw/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-2",
+   "name": "Curls and zig-zags",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "4b23a9f2-13dc-43a4-8657-cabcf15c52cc",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/PWdEnm08By8/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-3",
+   "name": "Roll, fold and glue",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "cb9c6892-fef4-47e0-9712-b47c7d943782",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/JCjfVGVwkTQ/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-4",
+   "name": "Six quick folded animals",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "b0123703-26ca-49f4-b63b-717c6771c958",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/4HgMsh-FbRw/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-5",
+   "name": "Fold a pig, step by step",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "33f9d096-2333-4fe9-8293-966a4aaecae2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/l_3C_JNaNtU/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-6",
+   "name": "Foil, tape and paper strips make a creature",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "8283fabe-4189-402e-8729-c5538120f1bf",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/2wAr31yWTUg/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-7",
+   "name": "Flour-paste papier-mâché animals",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "5849f7fb-80ed-4b18-8bdc-a889508caeac",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/DLVKamRUU60/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-8",
+   "name": "Animal heads from egg cartons",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "84d662a2-e842-49c2-9735-08dc2941a50d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uqX5Vzc0izs/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-9",
+   "name": "Making Pepita, the Coco alebrije",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "c63e36e1-b83a-4960-9430-5e45aadaf5c5",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/9y_eSCpUqJE/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-10",
+   "name": "A snail from a tree branch (alebrije, Oaxaca)",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "f015ed53-9584-42c3-98fb-80c39c99a2dc",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/v9wAVcDQqiE/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-11",
+   "name": "How an alebrije is made, step by step",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "c6406872-c6c0-4536-92fd-e3796627f917",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/jpOir9JZgKE/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-12",
+   "name": "How a lion dance head is built",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "ae9b4b31-99b7-4af9-b0d9-9ce05de9ed62",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/x8YZ5d2Sz0Y/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-13",
+   "name": "Behind a Nebuta figure: wire, then paper",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "4887abab-12b1-4f6a-9bba-655c7c4af61a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mNlxjf8zWAc/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-14",
+   "name": "Carving a Lion-Man with Stone Age tools",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "b212f314-73f3-4c36-b70a-784e518ac33c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hgbvT9_pjzo/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-15",
+   "name": "From clay to bronze: how a bronze sculpture is made",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "c32da940-7402-4b41-a1e0-c6a72af25258",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/yNcbdspjCeM/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-16",
+   "name": "Animals made of rolled-up newspaper",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "628ed1b9-e11a-48d6-ad7c-8876f9ab2c96",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/iXLbPmW5KSs/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-17",
+   "name": "Inside the Steiff teddy bear workshop",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "a2be7c15-c0e1-4fd4-b952-6e778103c732",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/MJmNV8yalrQ/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-18",
+   "name": "How a teddy bear is made (Discovery)",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "5e930168-5964-4c18-b3ce-974aa89befd5",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rykqaDul_bw/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-19",
+   "name": "A giant chocolate crocodile",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "54ffa9d8-6fb0-4f71-a31f-668d9f61741a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rfTsvkVN4_U/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-20",
+   "name": "Zootopia in chocolate (Amaury Guichon)",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "05fac207-db65-41fd-a129-04d05d085963",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/3TfsAMj74fY/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-21",
+   "name": "Sculpting a goldfish spirit doll",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "c97e79a3-0ff5-4e2c-ae34-7cb7ae8b081c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/LETAGIHiq-0/hqdefault.jpg"
+  },
+  {
+   "id": "make-it-22",
+   "name": "Sculpting the Jurassic Park T. rex",
+   "ref_grammar_id": "b1a9e3c9-7ff7-445c-9079-1a48c5cf003c",
+   "ref_node_id": "16233a23-c8e2-4580-8809-8dfe333913bb",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/TEXpKda61dg/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning",
+   "name": "Day 1 · Meaning (teacher's learning)",
+   "category": "playlist",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_preview": "play",
+   "parts": [
+    "day-1-meaning-1",
+    "day-1-meaning-2",
+    "day-1-meaning-3",
+    "day-1-meaning-4",
+    "day-1-meaning-5",
+    "day-1-meaning-6",
+    "day-1-meaning-7",
+    "day-1-meaning-8",
+    "day-1-meaning-9",
+    "day-1-meaning-10",
+    "day-1-meaning-11",
+    "day-1-meaning-12",
+    "day-1-meaning-13",
+    "day-1-meaning-14",
+    "day-1-meaning-15",
+    "day-1-meaning-16",
+    "day-1-meaning-17",
+    "day-1-meaning-18",
+    "day-1-meaning-19",
+    "day-1-meaning-20",
+    "day-1-meaning-21",
+    "day-1-meaning-22",
+    "day-1-meaning-23",
+    "day-1-meaning-24",
+    "day-1-meaning-25",
+    "day-1-meaning-26",
+    "day-1-meaning-27",
+    "day-1-meaning-28",
+    "day-1-meaning-29",
+    "day-1-meaning-30",
+    "day-1-meaning-31",
+    "day-1-meaning-32",
+    "day-1-meaning-33",
+    "day-1-meaning-34",
+    "day-1-meaning-35"
+   ],
+   "image_url": "https://i.ytimg.com/vi/9y_eSCpUqJE/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-1",
+   "name": "The animals we already keep",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "e3fe917c-3180-48ae-955d-29f0fbae53fa",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865466097-k2yh3ui6ht.svg"
+  },
+  {
+   "id": "day-1-meaning-2",
+   "name": "Margarete Steiff and the first stuffed animals",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "36a1903d-2586-4d9a-add3-e41def9da746",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/r3SR-fN4G48/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-3",
+   "name": "Inside the Steiff teddy bear workshop",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "5de44611-cf7d-4b28-89f8-54a65a66d4f8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/MJmNV8yalrQ/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-4",
+   "name": "Toys from long ago",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "782c3d74-2111-4850-8df6-af7f8f043980",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/aob7rM5PV5A/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-5",
+   "name": "The Lion Man goes home to Ulm",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "8405a536-f46a-479b-a843-2fee4a48bc41",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/e5BbChCU7uo/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-6",
+   "name": "The 40,000-year-old Lion-Man",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "f6cb39bf-258a-4c1c-9d09-0d26b91e7b2d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mJWUPBQpX1c/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-7",
+   "name": "Alebrijes and Día de los Muertos",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "30ed6311-9be5-4ef5-93d2-5da3db14e18c",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865463494-cn5nyl1q0sr.svg"
+  },
+  {
+   "id": "day-1-meaning-8",
+   "name": "Making Pepita, the Coco alebrije",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "4ebfc5ae-06f9-450c-a932-ce2a175e271e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/9y_eSCpUqJE/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-9",
+   "name": "Dante becomes a spirit guide (Coco)",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "e0a5625f-456f-4c70-b36f-ec7a8b3d8bd5",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/5j4uQCa6mVo/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-10",
+   "name": "Dante se convierte en alebrije (Coco, en español)",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "95161f89-9e28-42f5-9a8a-5688de56185c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/50GwzpKCneM/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-11",
+   "name": "Who was Pedro Linares?",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "45edd75c-8430-4379-b4cb-c5a798582525",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uI0dc4E7He0/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-12",
+   "name": "The Linares workshop in Mexico City",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "6403d732-09b8-49c8-adb1-35f7288dd8d4",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rf-Pfsq_iCM/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-13",
+   "name": "Inside the Jacobo and María Ángeles workshop",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "ea5a540f-d1d2-47f3-841f-15f009cf9780",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/xWgdX7aQky4/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-14",
+   "name": "Tonas, nahuales and wood carving",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "5721fd48-0f89-4265-87e8-255566d1ac51",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uUJEFbfWquY/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-15",
+   "name": "Carving and painting in San Martín Tilcajete",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "f7f555bb-e955-48ff-8d95-03cb43a161e7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/H35svCMSZII/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-16",
+   "name": "Alebrijes and the Day of the Dead",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "32300a28-1be8-49e1-865a-27ba90e90428",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/I03xQAiEX7g/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-17",
+   "name": "Egypt: animals for gods and for the afterlife",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "ea60a145-5215-466a-bb28-ab8c6784edcb",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865449323-bhjll4265a.svg"
+  },
+  {
+   "id": "day-1-meaning-18",
+   "name": "Meet William (39 seconds)",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "aabd8c84-abf4-4916-b684-dc5193c64f73",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/MtI6E4l2_ds/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-19",
+   "name": "William the hippo: cute, but careful!",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "d68c20b2-40ac-4d6a-b101-776ef22ff22e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uLjvEsHi_qU/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-20",
+   "name": "A bronze case for a cat mummy",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "ff2b50da-93a1-41fa-8376-b33f6175820a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/vb8n0dULaI0/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-21",
+   "name": "Why so many cats in Egypt?",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "1764efb9-77d8-4fa6-9e5a-6f4884c18567",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/74yeRmR2orw/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-22",
+   "name": "What is inside an animal mummy?",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "678dbbf8-f910-4c89-bc9f-636ee2bf50e5",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/N-Hup5S6K0I/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-23",
+   "name": "Sumer and Mesopotamia",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "25486903-2396-4618-a3ca-94eef279c275",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865562214-ov1s4y9fvae.svg"
+  },
+  {
+   "id": "day-1-meaning-24",
+   "name": "The Ram in a Thicket from Ur",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "8b1e4c45-006e-4116-8fda-117ea6d75935",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/6CoMq4uGXIU/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-25",
+   "name": "The bull-headed lyre",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "fd24f53c-ac80-4717-835a-a18900386256",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/qGYLl33EkTQ/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-26",
+   "name": "Teacher view: the lapis bull lyre",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "f65e00fe-674f-4648-80e6-1c6b5b3f5324",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/QhA_CE9BUAs/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-27",
+   "name": "The winged bulls at the gate (lamassu)",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "bf91b76e-50ee-4b43-afd8-3efbf9d2e05b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/2GrvBLKaRSI/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-28",
+   "name": "Door guardians at the British Museum",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "c80ebc17-7dee-448c-a13b-c5cababca22f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/EuFsUN4AHmw/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-29",
+   "name": "Deep dive: the Assyrian lamassu",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "09bb507b-431c-43a4-93a8-e1b20953765c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/Syk-E6ZVApo/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-30",
+   "name": "Animals that dance: headdresses and masks",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "1eed544d-ab61-4b62-8993-aef6a8798a15",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865435885-oipzpd9lyhr.svg"
+  },
+  {
+   "id": "day-1-meaning-31",
+   "name": "The legend of Chi Wara",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "2c5ada0b-ba80-4ec9-bf3d-75841f57706d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/SR2Mqv7iOZU/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-32",
+   "name": "Ci-wara at the Staten Island Museum",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "d00dd722-09b9-4bad-9a61-c7680b5a1425",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/m-Hy_PdgmEU/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-33",
+   "name": "A story about Ci Wara",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "73d453e3-e3e8-49f9-9dbd-7bf3a6740435",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/B0EYqGEFU0s/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-34",
+   "name": "Tyi Wara: the antelope who taught people to farm",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "6141d9dd-fea3-45c5-9359-3d6e77ea83a4",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/pW8Gd-oovGs/hqdefault.jpg"
+  },
+  {
+   "id": "day-1-meaning-35",
+   "name": "The sea eagle mask opens",
+   "ref_grammar_id": "26399147-9d7e-4c50-b3df-33258840c79c",
+   "ref_node_id": "686e66c0-d122-4027-ba6b-f50c4f6d5481",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hm7AgTOSrd0/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form",
+   "name": "Day 2 · Form: paper (teacher's learning)",
+   "category": "playlist",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_preview": "play",
+   "parts": [
+    "day-2-form-1",
+    "day-2-form-2",
+    "day-2-form-3",
+    "day-2-form-4",
+    "day-2-form-5",
+    "day-2-form-6",
+    "day-2-form-7",
+    "day-2-form-8",
+    "day-2-form-9",
+    "day-2-form-10",
+    "day-2-form-11",
+    "day-2-form-12",
+    "day-2-form-13",
+    "day-2-form-14",
+    "day-2-form-15",
+    "day-2-form-16",
+    "day-2-form-17",
+    "day-2-form-18",
+    "day-2-form-19",
+    "day-2-form-20",
+    "day-2-form-21",
+    "day-2-form-22",
+    "day-2-form-23",
+    "day-2-form-24",
+    "day-2-form-25",
+    "day-2-form-26",
+    "day-2-form-27",
+    "day-2-form-28",
+    "day-2-form-29",
+    "day-2-form-30",
+    "day-2-form-31",
+    "day-2-form-32",
+    "day-2-form-33",
+    "day-2-form-34",
+    "day-2-form-35",
+    "day-2-form-36",
+    "day-2-form-37",
+    "day-2-form-38",
+    "day-2-form-39",
+    "day-2-form-40",
+    "day-2-form-41",
+    "day-2-form-42",
+    "day-2-form-43",
+    "day-2-form-44",
+    "day-2-form-45",
+    "day-2-form-46"
+   ],
+   "image_url": "https://i.ytimg.com/vi/luMgyi_ADVA/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-1",
+   "name": "Paper and paste",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "5816ce90-6e8c-4c84-85da-ca3b51dcefed",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865445645-b4olt07ik6t.svg"
+  },
+  {
+   "id": "day-2-form-2",
+   "name": "Meet the Linares family of alebrije makers",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "b8ba7c49-0f8b-42f8-8ff2-677a49decd3a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/UEm_hWS6X5Q/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-3",
+   "name": "The Linares workshop in Mexico City",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "3fb12e24-7d29-4306-ab83-8ed08ce1dd24",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rf-Pfsq_iCM/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-4",
+   "name": "Giant alebrijes parade through Mexico City (AP)",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "87f73ed3-6a60-448e-aa37-fefb0c07cea0",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/8dddj3NDM-c/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-5",
+   "name": "Setting up the giant alebrijes at dawn",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "da6b15f2-76cb-4f8c-8824-fbe1193be344",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/k3lBNl5vGL4/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-6",
+   "name": "Giant alebrijes parade through Mexico City",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "45839f15-f53a-4f67-b525-e27ceedcf9ff",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/LfJ9_zVHPQ4/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-7",
+   "name": "Hakata hariko: paper tigers from Japan",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "8c5278aa-2f73-448d-b07a-a28d8e5d65d6",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/luMgyi_ADVA/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-8",
+   "name": "Akabeko, the red cow with the nodding head",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "8b5df607-5935-49eb-a020-b108f532e7e7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/978OWwS1x-A/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-9",
+   "name": "How a lion dance head is built",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "d1be56f5-689f-4fad-bf95-f8d1a491429b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/x8YZ5d2Sz0Y/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-10",
+   "name": "The bamboo skeleton of a lion",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "ee08fd88-da03-44b2-ae09-f5898f3b1b0b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/N5FxHIWA2u0/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-11",
+   "name": "Nebuta: giant paper floats lit from inside",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "511db386-6eb4-4dd3-906d-26626ff34d16",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/5dTJaaGfYbE/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-12",
+   "name": "Behind a Nebuta figure: wire, then paper",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "21203b4e-621e-4c0a-a257-6c05ed853b66",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mNlxjf8zWAc/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-13",
+   "name": "Lanterns from Zigong",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "e7cb977c-3024-434e-a169-edcc63601dcb",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/nOE8Lard4bk/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-14",
+   "name": "Papier-mâché artisans of Srinagar, Kashmir",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "de8d861c-33ec-490f-a81f-915d8275d6ec",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/wG4-ro7rDW0/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-15",
+   "name": "Origami: one sheet, no glue",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "9f4faabb-e7d2-4060-8686-7d1e43941027",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865438960-q4pf51hqhg.svg"
+  },
+  {
+   "id": "day-2-form-16",
+   "name": "To Fold Paper: origami as sculpture",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "e31f5c12-0f2a-45b1-95c6-469ccebdc680",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/Up45OccCUJo/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-17",
+   "name": "Akira Yoshizawa's folded animals",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "0e971606-297a-45dc-9523-4dd48856f21b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hBWspmCzYyg/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-18",
+   "name": "Inside an origami museum in Japan",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "c20346d6-546e-401e-9cc1-e8990ba5b76f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/e3Gbawbjnow/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-19",
+   "name": "Between the Folds (trailer)",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "d2641bba-d943-4e9f-b184-e089dc210bd8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/VrAHSlZ2ku8/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-20",
+   "name": "A dragon folded over 50 hours",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "bf884349-fa36-4577-bd37-58d530df8acd",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/ZSc9iEFkG8k/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-21",
+   "name": "A kid who loves origami (TED)",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "2272b21f-8f8a-4b5f-a332-32a9c0b40bef",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/1U4dPKq6mJ4/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-22",
+   "name": "Artists who sculpt animals in paper",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "b9f530f4-9feb-4b2f-936a-d86aff7845bf",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865568523-dvn321jn8de.svg"
+  },
+  {
+   "id": "day-2-form-23",
+   "name": "Calvin Nicholls cuts and layers",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "e87db355-5947-47e9-be86-a3aac1737941",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uQJd8e5DNlU/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-24",
+   "name": "Birds made from hundreds of paper pieces",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "b01ea2f6-2020-4158-a510-caac937727a1",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/kJqsoBjq1jU/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-25",
+   "name": "Chie Hitotsuyama in her studio",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "f1a6390e-1c7e-472e-9d73-6cfa9e19b2e0",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/1GhJn8apfgI/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-26",
+   "name": "Animals made of rolled-up newspaper",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "9b9aacde-a56c-408f-b0f6-e67f03834c07",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/iXLbPmW5KSs/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-27",
+   "name": "A life-size elephant from one sheet",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "0e03a409-c7c9-4aa6-ba8b-015f12752ff2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/NeBbVMy-njw/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-28",
+   "name": "A paper bird takes shape (timelapse)",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "8af828a7-5b44-49b4-861d-de79037a0021",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/i762AD6RtNM/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-29",
+   "name": "Try it: moves for paper animals",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "680bf4d0-2787-495d-91b9-177a4a3dd0ad",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865577417-2ol55ekyuth.svg"
+  },
+  {
+   "id": "day-2-form-30",
+   "name": "Cut, fold, score and curl",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "a3059eac-248d-4bd1-a780-217908e487aa",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hWoRpyzZ-tw/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-31",
+   "name": "Curls and zig-zags",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "078bc97b-8aab-4165-aae9-37821c93a241",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/PWdEnm08By8/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-32",
+   "name": "Roll, fold and glue",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "0d5ab852-2cc4-4527-8cf4-60bd6b0da17a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/JCjfVGVwkTQ/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-33",
+   "name": "Fold a pig, step by step",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "8b41fa7f-57ca-4829-bea0-0e7b6de23a46",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/l_3C_JNaNtU/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-34",
+   "name": "Six quick folded animals",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "e724b90b-6f7e-4c54-b4e3-cc84cd525980",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/4HgMsh-FbRw/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-35",
+   "name": "Foil, tape and paper strips make a creature",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "41d64117-369e-409b-bfc0-9ac33c1022ca",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/2wAr31yWTUg/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-36",
+   "name": "Flour-paste papier-mâché animals",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "f0843471-1807-4552-9c2c-0ac2bcfbd66d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/DLVKamRUU60/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-37",
+   "name": "Animal heads from egg cartons",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "c5096ffb-4c5e-4185-835c-df43bad5eaad",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uqX5Vzc0izs/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-38",
+   "name": "Animals made of food",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "d0ae5ce3-e8e4-416e-8639-32bea69c267a",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865442030-e9qo8meopmh.svg"
+  },
+  {
+   "id": "day-2-form-39",
+   "name": "Alfeñique animals from Toluca",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "e236e81c-34bf-466f-8f48-d9d1d9b27ccb",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/9Lhyb7E70wk/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-40",
+   "name": "Chinese dough figurines",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "f706bf12-f14a-45a4-a646-3e08f10388bc",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/yZKeFQXQEdc/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-41",
+   "name": "Dough figures from Beijing",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "9097ac60-5870-4624-b278-9d2e372c7e12",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/0n2m284WtDI/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-42",
+   "name": "Sugar painting of zodiac animals",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "4a4248a8-2904-4223-bf54-31c864a09e17",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/k9jABhDZvF4/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-43",
+   "name": "A candy goldfish from Tokyo",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "340919fe-dcc0-464c-8be1-a89ef5a417fb",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mzOgxo_to8A/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-44",
+   "name": "How Japanese candy animals are made",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "55a39af7-a81c-4d03-91d5-e925816d144c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/udSzcAEjs4s/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-45",
+   "name": "A giant chocolate crocodile",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "63b05c32-4f1f-44e6-bc54-5150b8908b7f",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rfTsvkVN4_U/hqdefault.jpg"
+  },
+  {
+   "id": "day-2-form-46",
+   "name": "Zootopia in chocolate (Amaury Guichon)",
+   "ref_grammar_id": "6c107127-37f0-4a6a-aff4-1f27d41ecbce",
+   "ref_node_id": "b3ee3aed-12a6-47b1-abe1-908c0311ec64",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/3TfsAMj74fY/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba",
+   "name": "Boi Bumbá: the ox that dances",
+   "category": "playlist",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_preview": "play",
+   "parts": [
+    "boi-bumba-1",
+    "boi-bumba-2",
+    "boi-bumba-3",
+    "boi-bumba-4",
+    "boi-bumba-5",
+    "boi-bumba-6",
+    "boi-bumba-7",
+    "boi-bumba-8",
+    "boi-bumba-9",
+    "boi-bumba-10",
+    "boi-bumba-11",
+    "boi-bumba-12"
+   ],
+   "image_url": "https://i.ytimg.com/vi/JqBGZPRb8Ns/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba-1",
+   "name": "Caprichoso, the blue ox of Parintins",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "38032a8d-1c85-4495-8b99-c7dc13aec26c",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858855187-noiai4tyume.jpg"
+  },
+  {
+   "id": "boi-bumba-2",
+   "name": "Garantido, the red-and-white ox",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "51fc6cca-6e0a-4ae5-a265-9d4aff0f32e7",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858908927-jevxf49jf2g.jpg"
+  },
+  {
+   "id": "boi-bumba-3",
+   "name": "Red ox versus blue ox (AFP)",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "8dac73dc-236a-496d-aa12-1f7490960269",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/K8CLy301_tc/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba-4",
+   "name": "Who is inside the dancing ox?",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "60ccb82e-9a29-4ad6-b062-2d456d5efff6",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/JqBGZPRb8Ns/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba-5",
+   "name": "A cartoon visit to Parintins",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "767bfa3e-14ee-4c7d-85b2-7db5aad78cbc",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/WqRnOGub3qM/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba-6",
+   "name": "A giant ox allegory",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "3d8829d1-4a62-4c80-933f-80c70784e005",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858908635-aysh97h1qca.jpg"
+  },
+  {
+   "id": "boi-bumba-7",
+   "name": "Giant allegories, ready for the show",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "8a8aef28-cf1b-4d45-a15a-26d4a76232cd",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/CDHZB91hMQM/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba-8",
+   "name": "Moving the giant sculptures to the arena",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "db789880-20df-45b5-a3e2-d588e1f636ef",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/1MI6j37jOKc/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba-9",
+   "name": "Bumba-meu-boi in Maranhão",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "b1f58830-76cc-45e5-8fba-68fdbcc67483",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792858908875-woqphqjbo4h.jpg"
+  },
+  {
+   "id": "boi-bumba-10",
+   "name": "The ox becomes world heritage",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "8daee093-bf8a-49d1-9c34-f7b825a4f0d8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/NTv4Yi2OB9g/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba-11",
+   "name": "Five rhythms of the ox in Maranhão",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "eea4711b-84bb-42d4-a8c9-bfb99ccdfec3",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/4C1jXK-pa9w/hqdefault.jpg"
+  },
+  {
+   "id": "boi-bumba-12",
+   "name": "The story of Catirina and Pai Francisco",
+   "ref_grammar_id": "1e5258b8-b3e1-476a-ac18-264d9c8ed4cd",
+   "ref_node_id": "d31e7963-46c9-4531-b839-7a6001f68b68",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/c3GyjDo4N00/hqdefault.jpg"
+  },
+  {
+   "id": "espanol",
+   "name": "En español",
+   "category": "playlist",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_preview": "play",
+   "parts": [
+    "espanol-1",
+    "espanol-2",
+    "espanol-3",
+    "espanol-4",
+    "espanol-5",
+    "espanol-6",
+    "espanol-7",
+    "espanol-8",
+    "espanol-9",
+    "espanol-10",
+    "espanol-11",
+    "espanol-12",
+    "espanol-13"
+   ],
+   "image_url": "https://i.ytimg.com/vi/rf-Pfsq_iCM/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-1",
+   "name": "Dante se convierte en alebrije (Coco, en español)",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "ca7dcc2f-5dcf-4e4d-9532-81b47da5b074",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/50GwzpKCneM/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-2",
+   "name": "From a dream to guardians of the soul",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "32fb3df5-433a-4205-9e64-a2cba3129ab1",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/HqV6XObTikw/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-3",
+   "name": "Monstrous and beautiful: the legend of alebrijes",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "998dd93f-d0c8-43f9-aa8f-0fc761a77e77",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/AnnPQEfD6uQ/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-4",
+   "name": "Who was Pedro Linares?",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "34ee8f49-8878-44f7-bd3a-df4fc4282257",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uI0dc4E7He0/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-5",
+   "name": "Meet the Linares family of alebrije makers",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "82623622-2abc-444f-9b48-829897a525e9",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/UEm_hWS6X5Q/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-6",
+   "name": "The Linares workshop in Mexico City",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "ad1f10ed-ea1d-4897-940c-2214cd92eff0",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/rf-Pfsq_iCM/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-7",
+   "name": "Setting up the giant alebrijes at dawn",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "a4c89222-2b76-49ce-8590-1404ef6c0dc7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/k3lBNl5vGL4/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-8",
+   "name": "Giant alebrijes parade through Mexico City",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "743086b4-2a12-42d8-8dcb-823fb44ffcb3",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/LfJ9_zVHPQ4/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-9",
+   "name": "Visiting Manuel Jiménez's home in Arrazola",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "9717b802-c6a3-41bf-9680-16bcc0711164",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/aYBuoIg9cvE/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-10",
+   "name": "Inside the Jacobo and María Ángeles workshop",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "0d936e8f-7042-4c27-8db2-b56c17dfd851",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/xWgdX7aQky4/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-11",
+   "name": "Tonas, nahuales and wood carving",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "5569af31-56a7-4535-93e2-aad8a7edc78b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uUJEFbfWquY/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-12",
+   "name": "Carving and painting in San Martín Tilcajete",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "331703b7-ac6b-4c89-9098-243e5f188fee",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/H35svCMSZII/hqdefault.jpg"
+  },
+  {
+   "id": "espanol-13",
+   "name": "Alfeñique animals from Toluca",
+   "ref_grammar_id": "cace1199-ffef-4f14-a812-ebb7cf12c98d",
+   "ref_node_id": "79175d22-a3f2-4ba5-b3bd-b383f3d9ffd7",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/9Lhyb7E70wk/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home",
+   "name": "Animals close to home (Ohlone land)",
+   "category": "playlist",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_preview": "play",
+   "parts": [
+    "close-to-home-1",
+    "close-to-home-2",
+    "close-to-home-3",
+    "close-to-home-4",
+    "close-to-home-5",
+    "close-to-home-6",
+    "close-to-home-7",
+    "close-to-home-8",
+    "close-to-home-9",
+    "close-to-home-10",
+    "close-to-home-11",
+    "close-to-home-12",
+    "close-to-home-13",
+    "close-to-home-14",
+    "close-to-home-15",
+    "close-to-home-16"
+   ],
+   "image_url": "https://i.ytimg.com/vi/F0lfLaVRy6g/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-1",
+   "name": "Whose land are we on?",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "baf27eb9-a5b7-4926-a2c0-18e16f0d5be0",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865469477-ioarzg3ctfj.svg"
+  },
+  {
+   "id": "close-to-home-2",
+   "name": "Hello in Chochenyo: a land acknowledgment from the Muwekma Ohlone",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "2d850a1a-f231-4990-8d69-c66664b3051e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/kFGJxa2zLlI/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-3",
+   "name": "Ohlone food, Ohlone games, Ohlone people today",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "01c0fea0-5857-4bec-bdfb-f29f93daa0ae",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/-VvcLw2AtXw/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-4",
+   "name": "Ohlone families who stayed",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "6532c43a-dc5c-457c-a970-7ab67408c6ea",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hpfnOBhLc4A/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-5",
+   "name": "Animals in the stories",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "965a4cd9-2e51-4293-9d61-40126212bd9b",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865572961-2k5xboe282l.svg"
+  },
+  {
+   "id": "close-to-home-6",
+   "name": "How Hummingbird got fire",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "d4e9184c-dba6-4079-b5bf-481a122c7f03",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/F0lfLaVRy6g/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-7",
+   "name": "Baskets, feathers and boats",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "16cad3c5-821b-4006-8b8b-58ed58011978",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865385903-u1a4qao7ydn.svg"
+  },
+  {
+   "id": "close-to-home-8",
+   "name": "Bringing an Ohlone basket home",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "6dac2b1f-404f-4940-9a69-9d007d310bc2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/sC-r9vqZ00k/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-9",
+   "name": "Linda Yamane sings to the plants before weaving",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "ad6b5038-6d45-4a72-bdba-e3e71b83d500",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/fPBuGZ6sbKw/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-10",
+   "name": "Ohlone young people build a tule boat",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "63e136bd-3ade-4b19-95b1-ce89ab835bfe",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/EbrT2uFYa5w/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-11",
+   "name": "Corine Pearce and Pomo baskets",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "e2c5f045-2a44-40da-9de0-616414f7f6da",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/PiG5HbzDHuE/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-12",
+   "name": "Animals painted on rock",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "7d732338-a71d-4aa9-ad42-8a67d55bcb7a",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865565206-a3hdjzdz70e.svg"
+  },
+  {
+   "id": "close-to-home-13",
+   "name": "Chumash rock art",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "9720b8a9-cf82-4f1e-b747-a96f43de6f6c",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/7W4lwsymO68/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-14",
+   "name": "Our neighbors' sacred animals",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "ed781d48-782e-42fa-b6f7-c414fdeed026",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865548058-ncavsp18g8.svg"
+  },
+  {
+   "id": "close-to-home-15",
+   "name": "Kids shape Ganesha from clay",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "afce9a96-9497-4b29-92a2-7530225f46e6",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/FJqw6pipAYw/hqdefault.jpg"
+  },
+  {
+   "id": "close-to-home-16",
+   "name": "Día de los Muertos in San Francisco's Mission",
+   "ref_grammar_id": "2c8c4712-7d13-4500-985f-48d86d5be6ee",
+   "ref_node_id": "bd0de60d-bc51-4696-a4c0-fdb102f7df2a",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/Sa88cbdIMys/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up",
+   "name": "Watch with your grown-up",
+   "category": "playlist",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_preview": "play",
+   "parts": [
+    "grown-up-1",
+    "grown-up-2",
+    "grown-up-3",
+    "grown-up-4",
+    "grown-up-5",
+    "grown-up-6",
+    "grown-up-7",
+    "grown-up-8",
+    "grown-up-9",
+    "grown-up-10",
+    "grown-up-11",
+    "grown-up-12",
+    "grown-up-13"
+   ],
+   "image_url": "https://i.ytimg.com/vi/v9wAVcDQqiE/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-1",
+   "name": "Made by hand",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "6382611f-8fcb-4fc6-9739-859beab8ed7e",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865455733-0lq7fhcqiwh.svg"
+  },
+  {
+   "id": "grown-up-2",
+   "name": "A snail from a tree branch (alebrije, Oaxaca)",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "88606066-ee17-48e6-b586-077db3caf3da",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/v9wAVcDQqiE/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-3",
+   "name": "How an alebrije is made, step by step",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "2590f12c-ab24-4ba0-af56-e4457ba11d21",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/jpOir9JZgKE/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-4",
+   "name": "Carving a Lion-Man with Stone Age tools",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "0ba7fe70-8700-4a61-baa2-1565defc1751",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/hgbvT9_pjzo/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-5",
+   "name": "From clay to bronze: how a bronze sculpture is made",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "70cd8f42-7b53-4260-b016-7de0818c8bcd",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/yNcbdspjCeM/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-6",
+   "name": "Animals made of rolled-up newspaper",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "7e16688b-1fdc-476f-80c6-4cb2d3b6289b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/iXLbPmW5KSs/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-7",
+   "name": "Birds made from hundreds of paper pieces",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "b27be808-f09b-44f3-abaf-821f4f06e4b2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/kJqsoBjq1jU/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-8",
+   "name": "Animals made of trash, in the artist's studio",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "e7d58c3f-d9cf-404d-91c0-d9548eeff9be",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/C7VNvE_m9JA/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-9",
+   "name": "Time-lapse: a trash dragonfly gets built",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "9327ddbe-c0e8-41c4-b336-eb089303ef9b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/5YyYt-WiFP8/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-10",
+   "name": "Meet the sculptures from class",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "6ecd98a1-2175-44d9-8511-520b5ba62f30",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865545275-mvf1bgg2ph.svg"
+  },
+  {
+   "id": "grown-up-11",
+   "name": "The 40,000-year-old Lion-Man",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "47562885-9259-4108-812b-39d696406d39",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/mJWUPBQpX1c/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-12",
+   "name": "William the hippo: cute, but careful!",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "c5c9c4f9-f78f-422a-a1bd-94cb1f7d2ad2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/uLjvEsHi_qU/hqdefault.jpg"
+  },
+  {
+   "id": "grown-up-13",
+   "name": "Maman, the giant spider",
+   "ref_grammar_id": "c8f2461b-37c7-481b-b0a3-7ba250b72964",
+   "ref_node_id": "ac8dc805-827d-4ab6-b292-d6a3af6655ac",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/UbcuEwOQaCk/hqdefault.jpg"
+  },
+  {
+   "id": "move",
+   "name": "Sculptures that move",
+   "category": "playlist",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_preview": "play",
+   "parts": [
+    "move-1",
+    "move-2",
+    "move-3",
+    "move-4",
+    "move-5",
+    "move-6",
+    "move-7",
+    "move-8",
+    "move-9",
+    "move-10",
+    "move-11",
+    "move-12",
+    "move-13"
+   ],
+   "image_url": "https://i.ytimg.com/vi/fh05iyIx61Y/hqdefault.jpg"
+  },
+  {
+   "id": "move-1",
+   "name": "Lions that dance",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "37b29b1a-c9eb-4784-976d-0c5c99c446dc",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865471909-ut0e1alqwad.svg"
+  },
+  {
+   "id": "move-2",
+   "name": "Lion dance in San Francisco's Chinatown",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "062915aa-cf85-43e5-bf2b-262993eb9133",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/fh05iyIx61Y/hqdefault.jpg"
+  },
+  {
+   "id": "move-3",
+   "name": "The Chinese New Year Parade, San Francisco",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "cf0972ac-e364-4904-8e0e-7ffa0279d285",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/ahKrfxZLW0I/hqdefault.jpg"
+  },
+  {
+   "id": "move-4",
+   "name": "Shishimai: the Japanese lion dance",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "c7f4cbaf-8ffd-4770-b51f-3d03b868b44d",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/QhtsV2iJows/hqdefault.jpg"
+  },
+  {
+   "id": "move-5",
+   "name": "Masks you wear",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "1fcc67bd-5a1c-430d-9899-51a38a1875ed",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865542028-ifrondfs3el.svg"
+  },
+  {
+   "id": "move-6",
+   "name": "The Barong dance in Bali",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "7a0784ba-3999-467b-9893-e119d44669d2",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/OKky3rdSFV4/hqdefault.jpg"
+  },
+  {
+   "id": "move-7",
+   "name": "Tyi Wara: the antelope who taught people to farm",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "6f908b6f-abba-4d89-9406-6f852c2bc1cc",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/pW8Gd-oovGs/hqdefault.jpg"
+  },
+  {
+   "id": "move-8",
+   "name": "The Lion King on Broadway: masks and puppets",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "f53f7cd0-ef55-47ce-98f8-d50e634a0927",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/gxu6Vx2hAVA/hqdefault.jpg"
+  },
+  {
+   "id": "move-9",
+   "name": "Puppets on stage",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "6483c5ab-ff20-4a6c-ab11-a0dfc5a34f1f",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865458986-e8fa27ovzg9.svg"
+  },
+  {
+   "id": "move-10",
+   "name": "How Joey the War Horse puppet works",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "41842abd-bc98-4644-b1e4-6accb332ed6b",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/qqbWEonptVo/hqdefault.jpg"
+  },
+  {
+   "id": "move-11",
+   "name": "Little Amal, the giant puppet who walked across Europe",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "5536a177-b63a-4824-8559-54a35ca1143e",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/5hZFktsc85s/hqdefault.jpg"
+  },
+  {
+   "id": "move-12",
+   "name": "Parades",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "447fc387-8e8d-40b0-8796-ba90f8bcb421",
+   "ref_preview": "play",
+   "image_url": "https://pub-71ebbc217e6247ecacb85126a6616699.r2.dev/grammars/1792865556850-e8s3mcbmbek.svg"
+  },
+  {
+   "id": "move-13",
+   "name": "Giant alebrijes parade through Mexico City",
+   "ref_grammar_id": "5ad92bbe-a9ab-4a5d-bebc-4d1fa5d24374",
+   "ref_node_id": "ee8fdbf3-259b-48a4-8e41-75bd19846ae8",
+   "ref_preview": "play",
+   "image_url": "https://i.ytimg.com/vi/LfJ9_zVHPQ4/hqdefault.jpg"
+  }
+ ]
+}
