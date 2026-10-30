@@ -4,8 +4,8 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 
 const OUT = 'stories/robot-and-kitten';
-const INK = '#4a2f2a', BLUE = '#bcdff4', BLUE2 = '#8fc6ea', PINK = '#f4d3ee', PINK2 = '#e9a6d8';
-const ORANGE = '#f6b63f', ORANGE2 = '#e8952a', CREAM = '#fde7b0', LIME = '#cfe86b', ROSE = '#f8d9d0';
+const INK = '#3d2723', BLUE = '#b4e0f8', BLUE2 = '#7fc4ee', PINK = '#f7cdf0', PINK2 = '#f0a2dc';
+const ORANGE = '#f8b83a', ORANGE2 = '#ea8f22', CREAM = '#fde3a0', LIME = '#d6ec5e', ROSE = '#f9d3cb';
 
 const tube = (d, w = 15) =>
   `<path d="${d}" fill="none" stroke="${INK}" stroke-width="${w + 7}" stroke-linecap="round"/>` +
@@ -30,6 +30,7 @@ function robot({ brow = 'kind', reach = true } = {}) {
   <g class="arm">${tube(arm.d)}${ringHand(arm.x, arm.y)}</g>
   <ellipse cx="0" cy="-226" rx="52" ry="14" fill="${BLUE2}" stroke="${INK}" stroke-width="5"/>
   <path d="M-102 -216Q0 -240 102 -216L80 -132Q0 -112 -80 -132Z" fill="${BLUE}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M40 -222Q80 -220 102 -216L80 -132Q60 -124 30 -120Q60 -170 40 -222Z" fill="${BLUE2}" opacity=".5"/>
   <path d="M-30 -146a30 30 0 0 1 60 0M-15 -146a15 15 0 0 1 30 0" fill="none" stroke="${INK}" stroke-width="6" stroke-linecap="round"/>
   <path d="M-66 -192v36M-52 -194v42M52 -194v42M66 -192v36" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
   <circle cx="98" cy="-196" r="13" fill="${INK}"/>
@@ -38,8 +39,10 @@ function robot({ brow = 'kind', reach = true } = {}) {
     <circle class="beacon" cx="0" cy="-490" r="11" fill="${PINK}" stroke="${INK}" stroke-width="5"/>
     <ellipse cx="146" cy="-334" rx="30" ry="58" fill="${PINK2}" stroke="${INK}" stroke-width="6"/>
     <rect x="-150" y="-438" width="296" height="214" rx="102" fill="${BLUE}" stroke="${INK}" stroke-width="7"/>
-    <path d="M-132 -312c0 -60 40 -104 100 -110" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <path d="M70 -432c50 14 76 56 76 106s-30 92 -76 100c30 -30 44 -66 44 -104s-14 -74 -44 -102z" fill="${BLUE2}" opacity=".55"/>
+    <path d="M-132 -312c0 -60 40 -104 100 -110" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" opacity=".75"/>
     <rect x="-122" y="-392" width="212" height="128" rx="46" fill="${PINK}" stroke="${INK}" stroke-width="6"/>
+    <path d="M-116 -292q90 34 200 -6v-10q-4 40 -44 40h-112q-30 0 -44 -24z" fill="${PINK2}" opacity=".7"/>
     <path d="${brows}" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>
     <g class="eyes">
       <ellipse cx="-70" cy="-330" rx="18" ry="24" fill="${INK}"/><circle cx="-76" cy="-340" r="6" fill="#fff"/>
@@ -59,6 +62,7 @@ function kitten({ shut = false } = {}) {
   <path class="tail" d="M-30 -14C-78 -8 -86 -46 -70 -64" fill="none" stroke="${INK}" stroke-width="20" stroke-linecap="round"/>
   <path class="tail" d="M-30 -14C-78 -8 -86 -46 -70 -64" fill="none" stroke="${ORANGE}" stroke-width="13" stroke-linecap="round"/>
   <path d="M-42 -2C-54 -44 -32 -76 2 -76S54 -42 40 -2Z" fill="${ORANGE}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M-40 -6C-50 -40 -34 -70 -8 -75C-24 -50 -26 -28 -18 -3Z" fill="${ORANGE2}" opacity=".5"/>
   <path d="M-6 -66c16 12 22 34 16 60" fill="none" stroke="${CREAM}" stroke-width="16" stroke-linecap="round"/>
   <path d="M-24 -2v-22M26 -2v-22" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
   <g class="k-head">
@@ -161,9 +165,13 @@ const page = ({ alt, art }) => `<!doctype html>
 <title>Robot and kitten</title>
 <style>${CSS}</style></head>
 <body><svg viewBox="0 0 960 540" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${alt}">
-<defs><radialGradient id="wash" cx="50%" cy="48%" r="45%"><stop offset="0" stop-color="#fdf6c8"/><stop offset=".55" stop-color="#dff1f8"/><stop offset="1" stop-color="#fffdf7"/></radialGradient></defs>
-<rect width="960" height="540" fill="url(#wash)"/>
-${art}
+<defs>
+<filter id="pencil" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="540"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+<filter id="blot" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1160" height="740"><feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="9"/><feDisplacementMap in="SourceGraphic" scale="70" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="960" height="540" fill="#fffdf9"/>
+<g filter="url(#blot)"><ellipse cx="470" cy="290" rx="370" ry="190" fill="#c8ebf9" opacity=".6"/><ellipse cx="400" cy="270" rx="170" ry="130" fill="#fdf4b4" opacity=".7"/></g>
+<g filter="url(#pencil)">${art}</g>
 </svg></body></html>
 `;
 
