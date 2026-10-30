@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Robot and kitten</title>
+<style>
+html,body{margin:0;height:100%;background:#fffdf7}
+svg{display:block;width:100%;height:100%}
+.robot{animation:bob 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.head{animation:tilt 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.beacon{animation:beacon 2.4s ease-in-out infinite}
+.eyes,.k-eyes{animation:blink 5.2s linear infinite;transform-box:fill-box;transform-origin:50% 50%}
+.arm{animation:reach 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 0}
+.tail{animation:tail 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 100%}
+.k-head{animation:nod 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.mouth{animation:meow 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w1,.w2,.w3{animation:wave 2.2s ease-out infinite}
+.w2{animation-delay:.14s}.w3{animation-delay:.28s}
+.thought{animation:pop .7s cubic-bezier(.3,1.5,.5,1) both,drift 5s ease-in-out .7s infinite;transform-box:fill-box;transform-origin:50% 50%}
+.t2{animation-delay:.7s,1.4s}.t3{animation-delay:1.4s,2.1s}.t4{animation-delay:2.1s,2.8s}
+.say{animation:pop .7s cubic-bezier(.3,1.5,.5,1) both;transform-box:fill-box;transform-origin:50% 100%}
+.s1{animation-delay:.6s}.s2{animation-delay:1.8s}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@keyframes tilt{50%{transform:rotate(-2deg)}}
+@keyframes beacon{50%{fill:#f0a2dc}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@keyframes reach{50%{transform:rotate(-4deg)}}
+@keyframes tail{50%{transform:rotate(9deg)}}
+@keyframes nod{50%{transform:translateY(-3px) rotate(1.5deg)}}
+@keyframes meow{0%,55%,100%{transform:scaleY(.7)}20%,35%{transform:scaleY(1.5)}}
+@keyframes wave{0%,12%{opacity:0}30%{opacity:1}70%,100%{opacity:0}}
+@keyframes pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes drift{50%{transform:translateY(-6px)}}
+.sway{animation:sway 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.wob{animation:wob 1.1s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.fall{animation:fall 2.4s ease-in 1 both;transform-box:fill-box;transform-origin:50% 50%}
+.grow{animation:grow 1.6s ease-out both;transform-box:fill-box;transform-origin:50% 100%}
+.walk{animation:walk 7s ease-in-out both}
+.leap{animation:leap 2.4s ease-in-out infinite}
+.fly{animation:fly 6s ease-in 2s both}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+.glow{animation:glow 2.4s ease-in-out infinite}
+.steam{animation:steam 3s ease-in-out infinite}
+.shake{animation:shake .5s linear infinite}
+.pour{animation:pour 1.2s linear infinite}
+@keyframes sway{50%{transform:rotate(2.5deg)}}
+@keyframes wob{25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+@keyframes fall{0%{transform:none}60%{transform:translate(50px,120px) rotate(200deg)}100%{transform:translate(58px,146px) rotate(250deg)}}
+@keyframes grow{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@keyframes walk{from{transform:translateX(0)}to{transform:translateX(var(--go,160px))}}
+@keyframes leap{0%,100%{transform:translate(0,0)}45%{transform:translate(70px,-90px) rotate(8deg)}80%{transform:translate(120px,0)}}
+@keyframes fly{to{transform:translate(220px,-190px);opacity:0}}
+@keyframes pulse{50%{transform:scale(1.06)}}
+@keyframes glow{50%{opacity:.15}}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}50%{opacity:.8}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes shake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+@keyframes pour{from{stroke-dashoffset:0}to{stroke-dashoffset:-24}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head>
+<body><svg viewBox="0 0 960 540" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Shiryo runs to Anon for help; a thought of milk and of a cuddle floats above.">
+<defs>
+<filter id="pencil" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="540"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+<filter id="blot" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1160" height="740"><feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="9"/><feDisplacementMap in="SourceGraphic" scale="70" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="960" height="540" fill="#fffdf9"/>
+<g filter="url(#blot)"><ellipse cx="470" cy="290" rx="370" ry="190" fill="#c8ebf9" opacity=".6"/><ellipse cx="400" cy="270" rx="170" ry="130" fill="#fdf4b4" opacity=".7"/></g>
+<g filter="url(#pencil)"><ellipse cx="480" cy="486" rx="340" ry="30" fill="#f9d3cb"/><g class="thought t1" style="--x:420px;--y:110px">
+  <circle cx="470" cy="186" r="8" fill="#fff" stroke="#3d2723" stroke-width="3.5"/><circle cx="500" cy="214" r="12" fill="#fff" stroke="#3d2723" stroke-width="3.5"/>
+  <circle cx="420" cy="110" r="66" fill="#fff" stroke="#3d2723" stroke-width="5"/>
+  <g transform="translate(420 110)"><path d="M-22 34V-14L-10 -34H14L24 -14V34Z" fill="#fff" stroke="#3d2723" stroke-width="4" stroke-linejoin="round"/><path d="M-22 -14H24" stroke="#3d2723" stroke-width="3"/><path d="M-22 12q12 -10 23 0t23 0V34H-22Z" fill="#7fc4ee" stroke="#3d2723" stroke-width="3"/></g></g><g class="thought t2" style="--x:610px;--y:90px">
+  <circle cx="580" cy="160" r="7" fill="#fff" stroke="#3d2723" stroke-width="3.5"/><circle cx="560" cy="190" r="11" fill="#fff" stroke="#3d2723" stroke-width="3.5"/>
+  <circle cx="610" cy="90" r="58" fill="#fff" stroke="#3d2723" stroke-width="5"/>
+  <g transform="translate(610 90)"><g transform="translate(0 0) scale(1.6)"><path class="pulse" d="M0 14C-30 -8 -20 -30 0 -16C20 -30 30 -8 0 14Z" fill="#e8524a" stroke="#3d2723" stroke-width="4"/></g></g></g><g transform="translate(300 490) scale(0.76 0.76)"><g class="robot">
+  <path d="M-34 -128C-30 -90 -50 -60 -44 -22" fill="none" stroke="#3d2723" stroke-width="22" stroke-linecap="round"/><path d="M-34 -128C-30 -90 -50 -60 -44 -22" fill="none" stroke="#b4e0f8" stroke-width="15" stroke-linecap="round"/><path d="M-34 -128C-30 -90 -50 -60 -44 -22" fill="none" stroke="#3d2723" stroke-width="15" stroke-dasharray="2 13" opacity=".55"/><path d="M36 -128C44 -90 28 -60 40 -22" fill="none" stroke="#3d2723" stroke-width="22" stroke-linecap="round"/><path d="M36 -128C44 -90 28 -60 40 -22" fill="none" stroke="#b4e0f8" stroke-width="15" stroke-linecap="round"/><path d="M36 -128C44 -90 28 -60 40 -22" fill="none" stroke="#3d2723" stroke-width="15" stroke-dasharray="2 13" opacity=".55"/><path d="M-84 -2l6 -26h58l4 26zM6 -2l6 -26h58l6 26z" fill="#7fc4ee" stroke="#3d2723" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M92 -194C130 -214 150 -244 166 -282" fill="none" stroke="#3d2723" stroke-width="22" stroke-linecap="round"/><path d="M92 -194C130 -214 150 -244 166 -282" fill="none" stroke="#b4e0f8" stroke-width="15" stroke-linecap="round"/><path d="M92 -194C130 -214 150 -244 166 -282" fill="none" stroke="#3d2723" stroke-width="15" stroke-dasharray="2 13" opacity=".55"/><circle cx="170" cy="-294" r="13" fill="#f7cdf0" stroke="#3d2723" stroke-width="4"/><circle cx="170" cy="-294" r="4.5" fill="#3d2723"/>
+  <g class="arm"><path d="M-82 -190C-120 -210 -140 -240 -158 -282" fill="none" stroke="#3d2723" stroke-width="22" stroke-linecap="round"/><path d="M-82 -190C-120 -210 -140 -240 -158 -282" fill="none" stroke="#b4e0f8" stroke-width="15" stroke-linecap="round"/><path d="M-82 -190C-120 -210 -140 -240 -158 -282" fill="none" stroke="#3d2723" stroke-width="15" stroke-dasharray="2 13" opacity=".55"/><circle cx="-162" cy="-294" r="13" fill="#f7cdf0" stroke="#3d2723" stroke-width="4"/><circle cx="-162" cy="-294" r="4.5" fill="#3d2723"/></g>
+  <ellipse cx="0" cy="-226" rx="52" ry="14" fill="#7fc4ee" stroke="#3d2723" stroke-width="5"/>
+  <path d="M-102 -216Q0 -240 102 -216L80 -132Q0 -112 -80 -132Z" fill="#b4e0f8" stroke="#3d2723" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M40 -222Q80 -220 102 -216L80 -132Q60 -124 30 -120Q60 -170 40 -222Z" fill="#7fc4ee" opacity=".5"/>
+  <path d="M-30 -146a30 30 0 0 1 60 0M-15 -146a15 15 0 0 1 30 0" fill="none" stroke="#3d2723" stroke-width="6" stroke-linecap="round"/>
+  <path d="M-66 -192v36M-52 -194v42M52 -194v42M66 -192v36" stroke="#3d2723" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="98" cy="-196" r="13" fill="#3d2723"/>
+  <g class="head">
+    <path d="M0 -436v-44" stroke="#3d2723" stroke-width="8" stroke-linecap="round"/>
+    <circle class="beacon" cx="0" cy="-490" r="11" fill="#f7cdf0" stroke="#3d2723" stroke-width="5"/>
+    <ellipse cx="146" cy="-334" rx="30" ry="58" fill="#f0a2dc" stroke="#3d2723" stroke-width="6"/>
+    <rect x="-150" y="-438" width="296" height="214" rx="102" fill="#b4e0f8" stroke="#3d2723" stroke-width="7"/>
+    <path d="M70 -432c50 14 76 56 76 106s-30 92 -76 100c30 -30 44 -66 44 -104s-14 -74 -44 -102z" fill="#7fc4ee" opacity=".55"/>
+    <path d="M-132 -312c0 -60 40 -104 100 -110" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" opacity=".75"/>
+    <rect x="-122" y="-392" width="212" height="128" rx="46" fill="#f7cdf0" stroke="#3d2723" stroke-width="6"/>
+    <path d="M-116 -292q90 34 200 -6v-10q-4 40 -44 40h-112q-30 0 -44 -24z" fill="#f0a2dc" opacity=".7"/>
+    <path d="M-88 -362q18 -20 38 -18M6 -380q20 -2 38 18" fill="none" stroke="#3d2723" stroke-width="5" stroke-linecap="round"/>
+    <g class="eyes"><ellipse cx="-70" cy="-330" rx="18" ry="24" fill="#3d2723"/><circle cx="-76" cy="-340" r="6" fill="#fff"/><ellipse cx="24" cy="-330" rx="18" ry="24" fill="#3d2723"/><circle cx="18" cy="-340" r="6" fill="#fff"/></g>
+    <path d="M-34 -300q11 22 22 0z" fill="#fff" stroke="#3d2723" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+</g></g><g transform="translate(720 490) scale(1 1)"><g class="sway" fill="#fff4dc" stroke="#3d2723" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M-24 0L-20 -120H24L30 0H8L2 -80L-4 0Z"/><path d="M-44 -116C-46 -170 -30 -200 0 -200S46 -170 44 -116Z"/><path d="M-40 -180C-70 -160 -82 -130 -92 -100" fill="none"/><path d="M40 -180C60 -160 66 -130 70 -104" fill="none"/><circle cx="0" cy="-240" r="42"/><path d="M-12 -222q12 10 24 0" fill="none"/></g></g></g>
+</svg></body></html>

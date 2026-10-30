@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Robot and kitten</title>
+<style>
+html,body{margin:0;height:100%;background:#fffdf7}
+svg{display:block;width:100%;height:100%}
+.robot{animation:bob 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.head{animation:tilt 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.beacon{animation:beacon 2.4s ease-in-out infinite}
+.eyes,.k-eyes{animation:blink 5.2s linear infinite;transform-box:fill-box;transform-origin:50% 50%}
+.arm{animation:reach 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 0}
+.tail{animation:tail 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:100% 100%}
+.k-head{animation:nod 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.mouth{animation:meow 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w1,.w2,.w3{animation:wave 2.2s ease-out infinite}
+.w2{animation-delay:.14s}.w3{animation-delay:.28s}
+.thought{animation:pop .7s cubic-bezier(.3,1.5,.5,1) both,drift 5s ease-in-out .7s infinite;transform-box:fill-box;transform-origin:50% 50%}
+.t2{animation-delay:.7s,1.4s}.t3{animation-delay:1.4s,2.1s}.t4{animation-delay:2.1s,2.8s}
+.say{animation:pop .7s cubic-bezier(.3,1.5,.5,1) both;transform-box:fill-box;transform-origin:50% 100%}
+.s1{animation-delay:.6s}.s2{animation-delay:1.8s}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@keyframes tilt{50%{transform:rotate(-2deg)}}
+@keyframes beacon{50%{fill:#f0a2dc}}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+@keyframes reach{50%{transform:rotate(-4deg)}}
+@keyframes tail{50%{transform:rotate(9deg)}}
+@keyframes nod{50%{transform:translateY(-3px) rotate(1.5deg)}}
+@keyframes meow{0%,55%,100%{transform:scaleY(.7)}20%,35%{transform:scaleY(1.5)}}
+@keyframes wave{0%,12%{opacity:0}30%{opacity:1}70%,100%{opacity:0}}
+@keyframes pop{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes drift{50%{transform:translateY(-6px)}}
+.sway{animation:sway 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.wob{animation:wob 1.1s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.fall{animation:fall 2.4s ease-in 1 both;transform-box:fill-box;transform-origin:50% 50%}
+.grow{animation:grow 1.6s ease-out both;transform-box:fill-box;transform-origin:50% 100%}
+.walk{animation:walk 7s ease-in-out both}
+.leap{animation:leap 2.4s ease-in-out infinite}
+.fly{animation:fly 6s ease-in 2s both}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+.glow{animation:glow 2.4s ease-in-out infinite}
+.steam{animation:steam 3s ease-in-out infinite}
+.shake{animation:shake .5s linear infinite}
+.pour{animation:pour 1.2s linear infinite}
+@keyframes sway{50%{transform:rotate(2.5deg)}}
+@keyframes wob{25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+@keyframes fall{0%{transform:none}60%{transform:translate(50px,120px) rotate(200deg)}100%{transform:translate(58px,146px) rotate(250deg)}}
+@keyframes grow{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@keyframes walk{from{transform:translateX(0)}to{transform:translateX(var(--go,160px))}}
+@keyframes leap{0%,100%{transform:translate(0,0)}45%{transform:translate(70px,-90px) rotate(8deg)}80%{transform:translate(120px,0)}}
+@keyframes fly{to{transform:translate(220px,-190px);opacity:0}}
+@keyframes pulse{50%{transform:scale(1.06)}}
+@keyframes glow{50%{opacity:.15}}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}50%{opacity:.8}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes shake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+@keyframes pour{from{stroke-dashoffset:0}to{stroke-dashoffset:-24}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head>
+<body><svg viewBox="0 0 960 540" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Anon kneels pulling weeds.">
+<defs>
+<filter id="pencil" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="540"><feTurbulence type="fractalNoise" baseFrequency=".04" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+<filter id="blot" filterUnits="userSpaceOnUse" x="-100" y="-100" width="1160" height="740"><feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="3" seed="9"/><feDisplacementMap in="SourceGraphic" scale="70" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="960" height="540" fill="#fffdf9"/>
+<g filter="url(#blot)"><ellipse cx="470" cy="290" rx="370" ry="190" fill="#c8ebf9" opacity=".6"/><ellipse cx="400" cy="270" rx="170" ry="130" fill="#fdf4b4" opacity=".7"/></g>
+<g filter="url(#pencil)"><path d="M20 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M82 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M144 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M206 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M268 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M330 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M392 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M454 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M516 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M578 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M640 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M702 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M764 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M826 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M888 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M950 450V340l20 -22l20 22V450Z" fill="#f1dcc0" stroke="#3d2723" stroke-width="4.5" stroke-linejoin="round"/><path d="M0 374H960M0 420H960" stroke="#b57f47" stroke-width="8"/><path d="M-20 440q240 -24 500 -6t500 -6V560H-20Z" fill="#d9efa6" stroke="#3d2723" stroke-width="4"/><path transform="translate(60 500) scale(0.9)" d="M0 0q-6 -24 -14 -36M8 0q0 -30 6 -46M18 0q6 -18 18 -28" fill="none" stroke="#d6ec5e" stroke-width="6" stroke-linecap="round"/><path transform="translate(870 520) scale(1.05)" d="M0 0q-6 -24 -14 -36M8 0q0 -30 6 -46M18 0q6 -18 18 -28" fill="none" stroke="#d6ec5e" stroke-width="6" stroke-linecap="round"/><path transform="translate(700 500) scale(1.2)" d="M0 0q-6 -24 -14 -36M8 0q0 -30 6 -46M18 0q6 -18 18 -28" fill="none" stroke="#d6ec5e" stroke-width="6" stroke-linecap="round"/><path transform="translate(220 520) scale(0.9)" d="M0 0q-6 -24 -14 -36M8 0q0 -30 6 -46M18 0q6 -18 18 -28" fill="none" stroke="#d6ec5e" stroke-width="6" stroke-linecap="round"/><g transform="translate(480 490) scale(1 1)"><g class="sway" fill="#fff4dc" stroke="#3d2723" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M-46 0C-58 -40 -50 -96 -30 -130H34C56 -96 60 -40 66 0Z"/><path d="M-20 -110C-60 -90 -80 -66 -104 -50" fill="none"/><circle cx="2" cy="-168" r="40"/><path d="M-10 -150q12 10 24 0" fill="none"/></g></g><path transform="translate(300 490) scale(1.1)" d="M0 0q-6 -24 -14 -36M8 0q0 -30 6 -46M18 0q6 -18 18 -28" fill="none" stroke="#d6ec5e" stroke-width="6" stroke-linecap="round"/><path transform="translate(340 490) scale(1.1)" d="M0 0q-6 -24 -14 -36M8 0q0 -30 6 -46M18 0q6 -18 18 -28" fill="none" stroke="#d6ec5e" stroke-width="6" stroke-linecap="round"/><path transform="translate(650 490) scale(1.1)" d="M0 0q-6 -24 -14 -36M8 0q0 -30 6 -46M18 0q6 -18 18 -28" fill="none" stroke="#d6ec5e" stroke-width="6" stroke-linecap="round"/></g>
+</svg></body></html>
